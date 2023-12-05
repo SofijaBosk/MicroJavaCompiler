@@ -68,10 +68,10 @@ terminal CLASS, EXTENDS;
 terminal READ, CONTINUE, BREAK, WHILE;
 terminal OR, AND, MINUS;
 terminal NEW;
-terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
+terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-terminal NAMESPACE, STATIC, FOR;
+terminal NAMESPACE, STATIC, FOR, MUL;
 
 
 nonterminal MethodDeclList;
@@ -90,6 +90,7 @@ nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitial
 nonterminal StaticPom;
 nonterminal ReturnMethod;
 nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement, CondFact;
+nonterminal DesignatorList, ActPars;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -331,6 +332,36 @@ DesignatorStatementList ::= (DesignatorStatementList_List) DesignatorStatementLi
 
 /*Statement_END*/
 
+
+/*DesignatorStatement_START*/
+/*
+Designator (Assignop Expr | "(" [ActPars] ")" | "++" | "‐‐")
+| "[" [Designator] {"," [Designator]}"]" "=" Designator
+*/
+
+
+DesignatorStatement ::= (DesignatorStatement_Expr) Designator EQUALS Expr
+					| 
+					(DesignatorStatement_INC) Designator INC
+					| 
+					(DesignatorStatement_DEC) Designator DEC
+					| 
+					(DesignatorStatement_ActPars) Designator LPAREN ActPars RPAREN
+					| 
+					(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
+					|
+                    (DesignatorStatement_Mul) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator                 
+                   	|
+					(DesigatorStatementError) error SEMI:l
+					{: parser.report_error("Designator statement error recovering. " + lleft, null); :}
+					;
+
+DesignatorList ::= (DesignatorList_List) Designator COMMA DesignatorList
+	              |
+	              (DesignatorList_Single) /**/
+	              ;
+	              					
+/*DesignatorStatement_END*/
 
 
 			  

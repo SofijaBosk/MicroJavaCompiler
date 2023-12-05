@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:32:1
+// 5/11/2023 14:42:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -31,6 +31,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDeclList VarDeclList) { }
     public void visit(FormalParamList FormalParamList) { }
     public void visit(Expr Expr) { }
+    public void visit(ActPars ActPars) { }
+    public void visit(DesignatorList DesignatorList) { }
     public void visit(MethodTypeName MethodTypeName) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(ActualPars ActualPars) { }
@@ -56,6 +58,15 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Term Term) { visit(); }
     public void visit(TermExpr TermExpr) { visit(); }
     public void visit(AddExpr AddExpr) { visit(); }
+    public void visit(DesignatorList_Single DesignatorList_Single) { visit(); }
+    public void visit(DesignatorList_List DesignatorList_List) { visit(); }
+    public void visit(DesigatorStatementError DesigatorStatementError) { visit(); }
+    public void visit(DesignatorStatement_Mul DesignatorStatement_Mul) { visit(); }
+    public void visit(DesignatorStatement_NoActPars DesignatorStatement_NoActPars) { visit(); }
+    public void visit(DesignatorStatement_ActPars DesignatorStatement_ActPars) { visit(); }
+    public void visit(DesignatorStatement_DEC DesignatorStatement_DEC) { visit(); }
+    public void visit(DesignatorStatement_INC DesignatorStatement_INC) { visit(); }
+    public void visit(DesignatorStatement_Expr DesignatorStatement_Expr) { visit(); }
     public void visit(DesignatorStatementList_Single DesignatorStatementList_Single) { visit(); }
     public void visit(DesignatorStatementList_List DesignatorStatementList_List) { visit(); }
     public void visit(NumConstList_None NumConstList_None) { visit(); }
