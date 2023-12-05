@@ -84,6 +84,7 @@ nonterminal Type, Term, Expr, Factor, VarDeclList;
 
 nonterminal ProgDeclList, NamespaceList, Namespace;
 nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
+nonterminal ConstList, ConstSingle;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -117,15 +118,40 @@ Namespace ::= (NamespaceProg) NAMESPACE IDENT LBRACE ProgDeclList LBRACE MethodD
 /*Namespace_END*/	
 
 
+/*ConstDecl_START*/
+/*"const" Type ident"="(numConst | charConst | boolConst) {, ident "=" (numConst |
+charConst | boolConst)} ";" */
+
+ConstDecl ::= (ConstDecl) CONST Type ConstList SEMI;
+
+ConstList ::= (SingleConstDecl) ConstSingle
+			|
+			(MultipleConstDecl) ConstList COMMA ConstSingle
+			;
+			
+ConstSingle ::= (BooleanConst) IDENT:booleanConstName EQUALS BOOL_CONST:booleanConstValue
+			|
+			(IntegerConst) IDENT:intConstName EQUALS NUM_CONST:intConstValue
+			|
+			(CharacterConst) IDENT:charConstName EQUALS CHAR_CONST:charConstValue
+			;
+
+/*ConstDecl_END*/
+
+/*Type_START*/
+
+Type ::= (Type) IDENT:typeName;
+
+/*Type_END*/
+
+
+
 VarDeclList ::= (VarDeclarations) VarDeclList VarDecl  
 				|
 				(NoVarDecl)/* epsilon */ 
 				;
 				
 VarDecl ::= (VarDecl) Type:varType IDENT:varName SEMI 
-;
-
-Type ::= (Type) IDENT:typeName 
 ;
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl

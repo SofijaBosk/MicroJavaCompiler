@@ -103,6 +103,8 @@ nonterminal ProgDecl ProgDecl;
 nonterminal VarDecl VarDecl;
 nonterminal ClassDecl ClassDecl;
 nonterminal ConstDecl ConstDecl;
+nonterminal ConstList ConstList;
+nonterminal ConstSingle ConstSingle;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -136,15 +138,40 @@ Namespace ::= (NamespaceProg) NAMESPACE IDENT:I1 LBRACE ProgDeclList:P2 LBRACE M
 /*Namespace_END*/	
 
 
+/*ConstDecl_START*/
+/*"const" Type ident"="(numConst | charConst | boolConst) {, ident "=" (numConst |
+charConst | boolConst)} ";" */
+
+ConstDecl ::= (ConstDecl) CONST Type:T1 ConstList:C2 SEMI {: RESULT=new ConstDecl(T1, C2); RESULT.setLine(T1left); :};
+
+ConstList ::= (SingleConstDecl) ConstSingle:C1 {: RESULT=new SingleConstDecl(C1); RESULT.setLine(C1left); :}
+			|
+			(MultipleConstDecl) ConstList:C1 COMMA ConstSingle:C2 {: RESULT=new MultipleConstDecl(C1, C2); RESULT.setLine(C1left); :}
+			;
+			
+ConstSingle ::= (BooleanConst) IDENT:booleanConstName EQUALS BOOL_CONST:booleanConstValue {: RESULT=new BooleanConst(booleanConstName, booleanConstValue); RESULT.setLine(booleanConstNameleft); :}
+			|
+			(IntegerConst) IDENT:intConstName EQUALS NUM_CONST:intConstValue {: RESULT=new IntegerConst(intConstName, intConstValue); RESULT.setLine(intConstNameleft); :}
+			|
+			(CharacterConst) IDENT:charConstName EQUALS CHAR_CONST:charConstValue {: RESULT=new CharacterConst(charConstName, charConstValue); RESULT.setLine(charConstNameleft); :}
+			;
+
+/*ConstDecl_END*/
+
+/*Type_START*/
+
+Type ::= (Type) IDENT:typeName {: RESULT=new Type(typeName); RESULT.setLine(typeNameleft); :};
+
+/*Type_END*/
+
+
+
 VarDeclList ::= (VarDeclarations) VarDeclList:V1 VarDecl:V2 {: RESULT=new VarDeclarations(V1, V2); RESULT.setLine(V1left); :}  
 				|
 				(NoVarDecl) {: RESULT=new NoVarDecl(); :}/* epsilon */ 
 				;
 				
 VarDecl ::= (VarDecl) Type:varType IDENT:varName SEMI {: RESULT=new VarDecl(varType, varName); RESULT.setLine(varTypeleft); :} 
-;
-
-Type ::= (Type) IDENT:typeName {: RESULT=new Type(typeName); RESULT.setLine(typeNameleft); :} 
 ;
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MethodDeclarations(M1, M2); RESULT.setLine(M1left); :}

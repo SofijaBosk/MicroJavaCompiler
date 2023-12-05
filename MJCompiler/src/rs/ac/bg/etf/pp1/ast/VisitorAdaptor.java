@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 13:29:14
+// 5/11/2023 13:32:52
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,10 +8,10 @@ package rs.ac.bg.etf.pp1.ast;
 public abstract class VisitorAdaptor implements Visitor { 
 
     public void visit(Factor Factor) { }
-    public void visit(ConstDecl ConstDecl) { }
     public void visit(ProgDecl ProgDecl) { }
     public void visit(NamespaceList NamespaceList) { }
     public void visit(ActualParamList ActualParamList) { }
+    public void visit(ConstSingle ConstSingle) { }
     public void visit(Expr Expr) { }
     public void visit(ClassDecl ClassDecl) { }
     public void visit(FormalParamList FormalParamList) { }
@@ -22,6 +22,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Unmatched Unmatched) { }
     public void visit(MethodDeclList MethodDeclList) { }
     public void visit(Statement Statement) { }
+    public void visit(ConstList ConstList) { }
     public void visit(StatementList StatementList) { }
     public void visit(Matched Matched) { }
     public void visit(ActualPars ActualPars) { }
@@ -59,10 +60,16 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MethodDecl MethodDecl) { visit(); }
     public void visit(NoMethodDecl NoMethodDecl) { visit(); }
     public void visit(MethodDeclarations MethodDeclarations) { visit(); }
-    public void visit(Type Type) { visit(); }
     public void visit(VarDecl VarDecl) { visit(); }
     public void visit(NoVarDecl NoVarDecl) { visit(); }
     public void visit(VarDeclarations VarDeclarations) { visit(); }
+    public void visit(Type Type) { visit(); }
+    public void visit(CharacterConst CharacterConst) { visit(); }
+    public void visit(IntegerConst IntegerConst) { visit(); }
+    public void visit(BooleanConst BooleanConst) { visit(); }
+    public void visit(MultipleConstDecl MultipleConstDecl) { visit(); }
+    public void visit(SingleConstDecl SingleConstDecl) { visit(); }
+    public void visit(ConstDecl ConstDecl) { visit(); }
     public void visit(NamespaceProg NamespaceProg) { visit(); }
     public void visit(ProgClassDescarations ProgClassDescarations) { visit(); }
     public void visit(ProgVarDescarations ProgVarDescarations) { visit(); }

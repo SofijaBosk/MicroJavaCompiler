@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 13:29:14
+// 5/11/2023 13:32:52
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,10 +8,10 @@ package rs.ac.bg.etf.pp1.ast;
 public interface Visitor { 
 
     public void visit(Factor Factor);
-    public void visit(ConstDecl ConstDecl);
     public void visit(ProgDecl ProgDecl);
     public void visit(NamespaceList NamespaceList);
     public void visit(ActualParamList ActualParamList);
+    public void visit(ConstSingle ConstSingle);
     public void visit(Expr Expr);
     public void visit(ClassDecl ClassDecl);
     public void visit(FormalParamList FormalParamList);
@@ -22,6 +22,7 @@ public interface Visitor {
     public void visit(Unmatched Unmatched);
     public void visit(MethodDeclList MethodDeclList);
     public void visit(Statement Statement);
+    public void visit(ConstList ConstList);
     public void visit(StatementList StatementList);
     public void visit(Matched Matched);
     public void visit(ActualPars ActualPars);
@@ -59,10 +60,16 @@ public interface Visitor {
     public void visit(MethodDecl MethodDecl);
     public void visit(NoMethodDecl NoMethodDecl);
     public void visit(MethodDeclarations MethodDeclarations);
-    public void visit(Type Type);
     public void visit(VarDecl VarDecl);
     public void visit(NoVarDecl NoVarDecl);
     public void visit(VarDeclarations VarDeclarations);
+    public void visit(Type Type);
+    public void visit(CharacterConst CharacterConst);
+    public void visit(IntegerConst IntegerConst);
+    public void visit(BooleanConst BooleanConst);
+    public void visit(MultipleConstDecl MultipleConstDecl);
+    public void visit(SingleConstDecl SingleConstDecl);
+    public void visit(ConstDecl ConstDecl);
     public void visit(NamespaceProg NamespaceProg);
     public void visit(ProgClassDescarations ProgClassDescarations);
     public void visit(ProgVarDescarations ProgVarDescarations);
