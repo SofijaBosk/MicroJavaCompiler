@@ -57,5 +57,7 @@ public class sym_old {
 	  public static final int ASSIGN=47;
 	  public static final int DOT=48;
 	  public static final int NAMESPACE=48;
+	  public static final int STATIC=48;
+	  
 
 }

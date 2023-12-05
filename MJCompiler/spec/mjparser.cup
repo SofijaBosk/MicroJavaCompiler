@@ -71,7 +71,7 @@ terminal NEW;
 terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-terminal NAMESPACE;
+terminal NAMESPACE, STATIC;
 
 
 nonterminal MethodDeclList;
@@ -86,6 +86,7 @@ nonterminal ProgDeclList, NamespaceList, Namespace;
 nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
 nonterminal ConstList, ConstSingle;
 nonterminal VarlList, VarSingle;
+nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -161,6 +162,44 @@ VarSingle ::= (VarDecl_ID) IDENT
               ;
 
 /*VarDecl_END*/
+
+
+/*ClassDecl_START*/
+/*ʺclassʺ ident [ʺextendsʺ Type] ʺ{ʺ {ʺstaticʺ VarDecl} {StaticInitializer} {VarDecl} 
+[ʺ{ʺ {MethodDecl} ʺ}ʺ] ʺ}ʺ.*/
+
+ClassDecl ::= (ClassDecl_NoMeth) ClassDeclPom RBRACE
+				|
+				(ClassDecl_Meth) ClassDeclPom LBRACE MethodDeclList RBRACE RBRACE
+				;
+ 
+ClassDeclPom ::= (ClassDeclPom_NoMeth) CLASS IDENT ExtendsFrom LBRACE VarStaticDeclList StaticInitializerList VarDeclList;
+/*
+MethodDeclListBrace ::= (MethodDeclListBrace_Meth) LBRACE MethodDeclList RBRACE;
+*/
+
+ExtendsFrom ::= (ExtendsFrom_Meth) EXTENDS Type
+                |
+                (ExtendsFrom_None) /* epsilon */
+                ;
+                
+StaticInitializerList ::= (StaticInitializerList_Single) /* epsilon */
+						|
+						(StaticInitializerList_Multiple) StaticInitializerList StaticInitializer
+						;
+
+VarStaticDeclList ::= (VarStaticDeclarations) VarStaticDeclList STATIC VarDecl
+				|
+				(NoStaticVarDecl)/* epsilon */ 
+	    	    ; 
+
+VarDeclList ::= (VarDeclarations) VarDeclList VarDecl
+				|
+				(NoVarDecl)/* epsilon */ 
+	    	    ; 
+	    	    
+/*ClassDecl_END*/
+
 
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl

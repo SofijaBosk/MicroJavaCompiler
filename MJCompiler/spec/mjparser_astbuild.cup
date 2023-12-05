@@ -71,7 +71,7 @@ terminal NEW;
 terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-terminal NAMESPACE;
+terminal NAMESPACE, STATIC;
 
 
 nonterminal MethodDeclList MethodDeclList;
@@ -107,6 +107,12 @@ nonterminal ConstList ConstList;
 nonterminal ConstSingle ConstSingle;
 nonterminal VarlList VarlList;
 nonterminal VarSingle VarSingle;
+nonterminal ExtendsFrom ExtendsFrom;
+nonterminal VarStaticDeclList VarStaticDeclList;
+nonterminal StaticInitializerList StaticInitializerList;
+nonterminal StaticInitializer StaticInitializer;
+nonterminal MethodDeclListBrace MethodDeclListBrace;
+nonterminal ClassDeclPom ClassDeclPom;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -182,6 +188,44 @@ VarSingle ::= (VarDecl_ID) IDENT:I1 {: RESULT=new VarDecl_ID(I1); RESULT.setLine
               ;
 
 /*VarDecl_END*/
+
+
+/*ClassDecl_START*/
+/*ʺclassʺ ident [ʺextendsʺ Type] ʺ{ʺ {ʺstaticʺ VarDecl} {StaticInitializer} {VarDecl} 
+[ʺ{ʺ {MethodDecl} ʺ}ʺ] ʺ}ʺ.*/
+
+ClassDecl ::= (ClassDecl_NoMeth) ClassDeclPom:C1 RBRACE {: RESULT=new ClassDecl_NoMeth(C1); RESULT.setLine(C1left); :}
+				|
+				(ClassDecl_Meth) ClassDeclPom:C1 LBRACE MethodDeclList:M2 RBRACE RBRACE {: RESULT=new ClassDecl_Meth(C1, M2); RESULT.setLine(C1left); :}
+				;
+ 
+ClassDeclPom ::= (ClassDeclPom_NoMeth) CLASS IDENT:I1 ExtendsFrom:E2 LBRACE VarStaticDeclList:V3 StaticInitializerList:S4 VarDeclList:V5 {: RESULT=new ClassDeclPom_NoMeth(I1, E2, V3, S4, V5); RESULT.setLine(I1left); :};
+/*
+MethodDeclListBrace ::= (MethodDeclListBrace_Meth) LBRACE MethodDeclList RBRACE;
+*/
+
+ExtendsFrom ::= (ExtendsFrom_Meth) EXTENDS Type:T1 {: RESULT=new ExtendsFrom_Meth(T1); RESULT.setLine(T1left); :}
+                |
+                (ExtendsFrom_None) {: RESULT=new ExtendsFrom_None(); :} /* epsilon */
+                ;
+                
+StaticInitializerList ::= (StaticInitializerList_Single) {: RESULT=new StaticInitializerList_Single(); :} /* epsilon */
+						|
+						(StaticInitializerList_Multiple) StaticInitializerList:S1 StaticInitializer:S2 {: RESULT=new StaticInitializerList_Multiple(S1, S2); RESULT.setLine(S1left); :}
+						;
+
+VarStaticDeclList ::= (VarStaticDeclarations) VarStaticDeclList:V1 STATIC VarDecl:V2 {: RESULT=new VarStaticDeclarations(V1, V2); RESULT.setLine(V1left); :}
+				|
+				(NoStaticVarDecl) {: RESULT=new NoStaticVarDecl(); :}/* epsilon */ 
+	    	    ; 
+
+VarDeclList ::= (VarDeclarations) VarDeclList:V1 VarDecl:V2 {: RESULT=new VarDeclarations(V1, V2); RESULT.setLine(V1left); :}
+				|
+				(NoVarDecl) {: RESULT=new NoVarDecl(); :}/* epsilon */ 
+	    	    ; 
+	    	    
+/*ClassDecl_END*/
+
 
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MethodDeclarations(M1, M2); RESULT.setLine(M1left); :}
