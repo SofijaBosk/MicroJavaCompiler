@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:53:43
+// 5/11/2023 14:59:4
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -15,6 +15,7 @@ public interface Visitor {
     public void visit(Namespace Namespace);
     public void visit(NumConstList NumConstList);
     public void visit(FormalParamDecl FormalParamDecl);
+    public void visit(ExprActParsChoice ExprActParsChoice);
     public void visit(ProgDeclList ProgDeclList);
     public void visit(StaticInitializerList StaticInitializerList);
     public void visit(CondFactHelper CondFactHelper);
@@ -26,9 +27,12 @@ public interface Visitor {
     public void visit(CondTerm CondTerm);
     public void visit(ConstList ConstList);
     public void visit(ProgDecl ProgDecl);
+    public void visit(Term Term);
     public void visit(Condition Condition);
     public void visit(ConstSingle ConstSingle);
+    public void visit(ConstValue ConstValue);
     public void visit(MethodDeclListBrace MethodDeclListBrace);
+    public void visit(ActParsList ActParsList);
     public void visit(DesignatorStatementList DesignatorStatementList);
     public void visit(VarSingle VarSingle);
     public void visit(VarlList VarlList);
@@ -68,10 +72,20 @@ public interface Visitor {
     public void visit(ActualParams ActualParams);
     public void visit(NoActuals NoActuals);
     public void visit(Actuals Actuals);
-    public void visit(FuncCall FuncCall);
-    public void visit(Var Var);
-    public void visit(Const Const);
-    public void visit(Term Term);
+    public void visit(ConstValue_Bool ConstValue_Bool);
+    public void visit(ConstValue_Char ConstValue_Char);
+    public void visit(ConstValue_Num ConstValue_Num);
+    public void visit(ActParsList_None ActParsList_None);
+    public void visit(ActParsList_Single ActParsList_Single);
+    public void visit(ExprActParsChoice_ActPars ExprActParsChoice_ActPars);
+    public void visit(ExprActParsChoice_Expr ExprActParsChoice_Expr);
+    public void visit(ParenExprFactor ParenExprFactor);
+    public void visit(NewFactor NewFactor);
+    public void visit(ConstValueFactor ConstValueFactor);
+    public void visit(DesignatorFactorActPars DesignatorFactorActPars);
+    public void visit(DesignatorFactoraaaa DesignatorFactoraaaa);
+    public void visit(Term_Mulop Term_Mulop);
+    public void visit(Term_Factor Term_Factor);
     public void visit(TermExpr TermExpr);
     public void visit(TermExpr_Minus TermExpr_Minus);
     public void visit(AddExpr AddExpr);

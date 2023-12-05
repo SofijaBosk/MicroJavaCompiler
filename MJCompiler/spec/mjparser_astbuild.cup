@@ -128,7 +128,11 @@ nonterminal CondTerm CondTerm;
 nonterminal Assignop Assignop;
 nonterminal Relop Relop;
 nonterminal Mulop Mulop;
+nonterminal ExprActParsChoice ExprActParsChoice;
+nonterminal ActParsList ActParsList;
+nonterminal ConstValue ConstValue;
 
+	            
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
 
@@ -451,17 +455,57 @@ Expr ::= (AddExpr) Expr:E1 Addop:A2 Term:T3 {: RESULT=new AddExpr(E1, A2, T3); R
 		 ;
  
 /*Expr_END*/	
-			  
+	
+/*Term_START*/	
+/* Factor {Mulop Factor} */
 
-Term ::= (Term) Factor:t {: RESULT=new Term(t); RESULT.setLine(tleft); :} 
-;
+Term ::= (Term_Factor) Factor:F1 {: RESULT=new Term_Factor(F1); RESULT.setLine(F1left); :}
+         |
+         (Term_Mulop) Term:T1 Mulop:M2 Factor:F3 {: RESULT=new Term_Mulop(T1, M2, F3); RESULT.setLine(T1left); :}
+         ;
+ 
+/*Term_END*/		  
 
-Factor ::= (Const) NUMBER:N1 {: RESULT=new Const(N1); RESULT.setLine(N1left); :}
-			|
-		   (Var) Designator:d {: RESULT=new Var(d); RESULT.setLine(dleft); :}
-		    |
-		   (FuncCall) Designator:func LPAREN ActualPars:A1 RPAREN {: RESULT=new FuncCall(func, A1); RESULT.setLine(funcleft); :}
-		   ;
+/*Factor_START*/
+/*
+Designator ["(" [ActPars] ")"]
+| numConst
+| charConst
+| boolConst
+| "new" Type ( "[" Expr "]" | "(" [ActPars] ")" )
+| "(" Expr ")".
+*/
+
+Factor ::= (DesignatorFactoraaaa) Designator:d {: RESULT=new DesignatorFactoraaaa(d); RESULT.setLine(dleft); :}
+           |
+           (DesignatorFactorActPars) Designator:D1 LPAREN ActParsList:A2 RPAREN {: RESULT=new DesignatorFactorActPars(D1, A2); RESULT.setLine(D1left); :}
+           |
+           (ConstValueFactor) ConstValue:C1 {: RESULT=new ConstValueFactor(C1); RESULT.setLine(C1left); :}
+           |
+           (NewFactor) NEW Type:T1 LPAREN ExprActParsChoice:E2 RPAREN {: RESULT=new NewFactor(T1, E2); RESULT.setLine(T1left); :}
+           |
+           (ParenExprFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ParenExprFactor(E1); RESULT.setLine(E1left); :}
+           ;
+           
+ExprActParsChoice ::= (ExprActParsChoice_Expr) LSQUARE Expr:E1 RSQUARE {: RESULT=new ExprActParsChoice_Expr(E1); RESULT.setLine(E1left); :}
+ 						|
+ 						(ExprActParsChoice_ActPars) LPAREN ActParsList:A1 RPAREN {: RESULT=new ExprActParsChoice_ActPars(A1); RESULT.setLine(A1left); :}
+           				;
+           				
+ActParsList ::= (ActParsList_Single) ActPars:A1 {: RESULT=new ActParsList_Single(A1); RESULT.setLine(A1left); :}
+				|
+				(ActParsList_None) {: RESULT=new ActParsList_None(); :} /*epsilon*/
+           		;
+           		
+ConstValue ::= (ConstValue_Num) NUM_CONST:N1 {: RESULT=new ConstValue_Num(N1); RESULT.setLine(N1left); :}
+				|
+	            (ConstValue_Char) CHAR_CONST:C1 {: RESULT=new ConstValue_Char(C1); RESULT.setLine(C1left); :}
+	            |
+	            (ConstValue_Bool) BOOL_CONST:B1 {: RESULT=new ConstValue_Bool(B1); RESULT.setLine(B1left); :}
+	            ;
+	            
+/*Factor_END*/
+
 
 ActualPars ::= (Actuals) ActualParamList:A1 {: RESULT=new Actuals(A1); RESULT.setLine(A1left); :} 
 				| 

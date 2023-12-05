@@ -93,7 +93,9 @@ nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, 
 nonterminal DesignatorList, ActPars;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
+nonterminal ExprActParsChoice, ActParsList, ConstValue;
 
+	            
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
 
@@ -416,17 +418,57 @@ Expr ::= (AddExpr) Expr Addop Term
 		 ;
  
 /*Expr_END*/	
-			  
+	
+/*Term_START*/	
+/* Factor {Mulop Factor} */
 
-Term ::= (Term) Factor:t 
-;
+Term ::= (Term_Factor) Factor
+         |
+         (Term_Mulop) Term Mulop Factor
+         ;
+ 
+/*Term_END*/		  
 
-Factor ::= (Const) NUMBER
-			|
-		   (Var) Designator:d
-		    |
-		   (FuncCall) Designator:func LPAREN ActualPars RPAREN
-		   ;
+/*Factor_START*/
+/*
+Designator ["(" [ActPars] ")"]
+| numConst
+| charConst
+| boolConst
+| "new" Type ( "[" Expr "]" | "(" [ActPars] ")" )
+| "(" Expr ")".
+*/
+
+Factor ::= (DesignatorFactoraaaa) Designator:d
+           |
+           (DesignatorFactorActPars) Designator LPAREN ActParsList RPAREN
+           |
+           (ConstValueFactor) ConstValue
+           |
+           (NewFactor) NEW Type LPAREN ExprActParsChoice RPAREN
+           |
+           (ParenExprFactor) LPAREN Expr RPAREN
+           ;
+           
+ExprActParsChoice ::= (ExprActParsChoice_Expr) LSQUARE Expr RSQUARE
+ 						|
+ 						(ExprActParsChoice_ActPars) LPAREN ActParsList RPAREN
+           				;
+           				
+ActParsList ::= (ActParsList_Single) ActPars
+				|
+				(ActParsList_None) /*epsilon*/
+           		;
+           		
+ConstValue ::= (ConstValue_Num) NUM_CONST
+				|
+	            (ConstValue_Char) CHAR_CONST
+	            |
+	            (ConstValue_Bool) BOOL_CONST
+	            ;
+	            
+/*Factor_END*/
+
 
 ActualPars ::= (Actuals) ActualParamList 
 				| 

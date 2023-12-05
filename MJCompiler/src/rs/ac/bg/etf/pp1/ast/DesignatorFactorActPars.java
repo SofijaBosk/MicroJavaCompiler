@@ -1,17 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:53:43
+// 5/11/2023 14:59:4
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Var extends Factor {
+public class DesignatorFactorActPars extends Factor {
 
     private Designator Designator;
+    private ActParsList ActParsList;
 
-    public Var (Designator Designator) {
+    public DesignatorFactorActPars (Designator Designator, ActParsList ActParsList) {
         this.Designator=Designator;
         if(Designator!=null) Designator.setParent(this);
+        this.ActParsList=ActParsList;
+        if(ActParsList!=null) ActParsList.setParent(this);
     }
 
     public Designator getDesignator() {
@@ -22,28 +25,39 @@ public class Var extends Factor {
         this.Designator=Designator;
     }
 
+    public ActParsList getActParsList() {
+        return ActParsList;
+    }
+
+    public void setActParsList(ActParsList ActParsList) {
+        this.ActParsList=ActParsList;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(Designator!=null) Designator.accept(visitor);
+        if(ActParsList!=null) ActParsList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Designator!=null) Designator.traverseTopDown(visitor);
+        if(ActParsList!=null) ActParsList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Designator!=null) Designator.traverseBottomUp(visitor);
+        if(ActParsList!=null) ActParsList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Var(\n");
+        buffer.append("DesignatorFactorActPars(\n");
 
         if(Designator!=null)
             buffer.append(Designator.toString("  "+tab));
@@ -51,8 +65,14 @@ public class Var extends Factor {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
+        if(ActParsList!=null)
+            buffer.append(ActParsList.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
         buffer.append(tab);
-        buffer.append(") [Var]");
+        buffer.append(") [DesignatorFactorActPars]");
         return buffer.toString();
     }
 }

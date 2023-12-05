@@ -7,7 +7,7 @@ parserGen:
      [java] Warning: Terminal "ASSIGN" was declared but never used
      [java] Warning: Terminal "DOT" was declared but never used
      [java] Warning: Terminal "EQUAL" was declared but never used
-     [java] Warning: Terminal "NEW" was declared but never used
+     [java] Warning: Terminal "NUMBER" was declared but never used
      [java] Warning: Terminal "FOREACH" was declared but never used
      [java] Warning: Terminal "COLON" was declared but never used
      [java] Warning: Terminal "WHILE" was declared but never used
@@ -15,20 +15,19 @@ parserGen:
      [java] Warning: Non terminal "MethodTypeName" was declared but never used
      [java] Building parse tables...
      [java] ------- ast extension v0.8 summary -------  Computing non-terminal nullability...
-     [java]   Generated 44 base classes
-     [java]   Generated 105 derived classes
-     [java]   Computing first sets...
+     [java]   Generated 48 base classes
+     [java]   Generated 116 derived classes  Computing first sets...
      [java]   Building state machine...
-     [java]   Generated 8 record classes
+     [java]   Generated 7 record classes
      [java]   Generated interface SyntaxNode
-     [java]   Generated interface Visitor
+     [java]   Generated interface Visitor  Filling in tables...
      [java]   Generated adapter class VisitorAdaptor
-     [java] -----------------------------------------------
-     [java]   Filling in tables...
      [java]   Checking for non-reduced productions...
-     [java] *** Production "Mulop ::= MOD " never reduced
-     [java] *** Production "Mulop ::= DIV " never reduced
-     [java] *** Production "Mulop ::= MUL " never reduced
+     [java] *** Production "ActualParamList ::= Expr " never reduced
+     [java] -----------------------------------------------
+     [java] *** Production "ActualParamList ::= ActualParamList COMMA Expr " never reduced
+     [java] *** Production "ActualPars ::= " never reduced
+     [java] *** Production "ActualPars ::= ActualParamList " never reduced
      [java] *** Production "VarStaticDeclList ::= " never reduced
      [java] *** Production "VarStaticDeclList ::= VarStaticDeclList STATIC VarDecl " never reduced
      [java] *** Production "StaticInitializerList ::= StaticInitializerList StaticInitializer " never reduced
@@ -45,7 +44,7 @@ parserGen:
      [java] lalr_state [1]: {
      [java]   [$START ::= Program (*) EOF , {EOF }]
      [java] }
-     [java] transition on EOF to state [195]
+     [java] transition on EOF to state [214]
      [java] -------------------
      [java] lalr_state [2]: {
      [java]   [Program ::= PROG (*) IDENT NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE , {EOF }]
@@ -65,7 +64,7 @@ parserGen:
      [java] lalr_state [4]: {
      [java]   [Namespace ::= NAMESPACE (*) IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE , {LBRACE IDENT CONST CLASS NAMESPACE }]
      [java] }
-     [java] transition on IDENT to state [188]
+     [java] transition on IDENT to state [207]
      [java] -------------------
      [java] lalr_state [5]: {
      [java]   [ProgDeclList ::= (*) , {LBRACE IDENT CONST CLASS }]
@@ -114,8 +113,8 @@ parserGen:
      [java]   [ClassDecl ::= ClassDeclPom (*) LBRACE MethodDeclList RBRACE RBRACE , {LBRACE IDENT CONST CLASS }]
      [java]   [ClassDecl ::= ClassDeclPom (*) RBRACE , {LBRACE IDENT CONST CLASS }]
      [java] }
-     [java] transition on RBRACE to state [184]
-     [java] transition on LBRACE to state [183]
+     [java] transition on RBRACE to state [203]
+     [java] transition on LBRACE to state [202]
      [java] -------------------
      [java] lalr_state [10]: {
      [java]   [VarlList ::= (*) VarlList COMMA VarSingle , {SEMI COMMA }]
@@ -124,19 +123,19 @@ parserGen:
      [java]   [VarSingle ::= (*) IDENT , {SEMI COMMA }]
      [java]   [VarDecl ::= Type (*) VarlList SEMI , {LBRACE RBRACE IDENT CONST CLASS STATIC }]
      [java] }
-     [java] transition on IDENT to state [177]
-     [java] transition on VarSingle to state [176]
-     [java] transition on VarlList to state [175]
+     [java] transition on IDENT to state [196]
+     [java] transition on VarSingle to state [195]
+     [java] transition on VarlList to state [194]
      [java] -------------------
      [java] lalr_state [11]: {
      [java]   [MethodDeclList ::= (*) , {RBRACE VOID IDENT }]
      [java]   [MethodDeclList ::= (*) MethodDeclList MethodDecl , {RBRACE VOID IDENT }]
      [java]   [Program ::= PROG IDENT NamespaceList ProgDeclList LBRACE (*) MethodDeclList RBRACE , {EOF }]
      [java] }
-     [java] transition on MethodDeclList to state [153]
+     [java] transition on MethodDeclList to state [172]
      [java] -------------------
      [java] lalr_state [12]: {
-     [java]   [Type ::= IDENT (*) , {LBRACE IDENT }]
+     [java]   [Type ::= IDENT (*) , {LBRACE LPAREN IDENT }]
      [java] }
      [java] -------------------
      [java] lalr_state [13]: {
@@ -248,7 +247,7 @@ parserGen:
      [java]   [ExtendsFrom ::= EXTENDS (*) Type , {LBRACE }]
      [java] }
      [java] transition on IDENT to state [12]
-     [java] transition on Type to state [152]
+     [java] transition on Type to state [171]
      [java] -------------------
      [java] lalr_state [32]: {
      [java]   [ClassDeclPom ::= CLASS IDENT ExtendsFrom (*) LBRACE StaticPom VarDeclList , {LBRACE RBRACE }]
@@ -280,7 +279,7 @@ parserGen:
      [java]   [VarDecl ::= (*) Type VarlList SEMI , {LBRACE RBRACE IDENT }]
      [java] }
      [java] transition on IDENT to state [12]
-     [java] transition on VarDecl to state [151]
+     [java] transition on VarDecl to state [170]
      [java] transition on Type to state [10]
      [java] -------------------
      [java] lalr_state [36]: {
@@ -336,9 +335,9 @@ parserGen:
      [java]   [Matched ::= (*) PRINT LPAREN Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) BREAK SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {SEMI }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) DesignatorStatement SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) RETURN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) IF Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {SEMI }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {SEMI }]
@@ -362,88 +361,99 @@ parserGen:
      [java] transition on LSQUARE to state [42]
      [java] -------------------
      [java] lalr_state [42]: {
-     [java]   [Designator ::= (*) IDENT , {COMMA }]
      [java]   [DesignatorList ::= (*) , {MUL }]
      [java]   [DesignatorStatement ::= LSQUARE (*) DesignatorList MUL Designator RSQUARE EQUALS Designator , {error RBRACE SEMI IDENT LSQUARE }]
+     [java]   [Designator ::= (*) IDENT , {COMMA }]
      [java]   [DesignatorList ::= (*) Designator COMMA DesignatorList , {MUL }]
      [java] }
+     [java] transition on DesignatorList to state [162]
      [java] transition on IDENT to state [45]
-     [java] transition on DesignatorList to state [143]
-     [java] transition on Designator to state [142]
+     [java] transition on Designator to state [161]
      [java] -------------------
      [java] lalr_state [43]: {
      [java]   [Matched ::= READ (*) LPAREN Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on LPAREN to state [138]
+     [java] transition on LPAREN to state [157]
      [java] -------------------
      [java] lalr_state [44]: {
      [java]   [StatementList ::= (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= LBRACE (*) StatementList RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [StatementList ::= (*) StatementList Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on StatementList to state [136]
+     [java] transition on StatementList to state [155]
      [java] -------------------
      [java] lalr_state [45]: {
-     [java]   [Designator ::= IDENT (*) , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF EQUALS LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL INC DEC FOR }]
+     [java]   [Designator ::= IDENT (*) , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF EQUALS LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD INC DEC FOR MUL }]
      [java] }
      [java] -------------------
      [java] lalr_state [46]: {
      [java]   [Matched ::= FOR (*) LBRACE DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on LBRACE to state [123]
+     [java] transition on LBRACE to state [142]
      [java] -------------------
      [java] lalr_state [47]: {
      [java]   [Statement ::= Unmatched (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
      [java] lalr_state [48]: {
+     [java]   [Assignop ::= (*) EQUALS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java]   [DesignatorStatement ::= Designator (*) LPAREN ActPars RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= Designator (*) Assignop Expr , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= Designator (*) DEC , {error RBRACE SEMI IDENT LSQUARE }]
-     [java]   [Assignop ::= (*) EQUALS , {NUMBER IDENT MINUS }]
      [java]   [DesignatorStatement ::= Designator (*) LPAREN RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= Designator (*) INC , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on LPAREN to state [115]
-     [java] transition on DEC to state [114]
-     [java] transition on INC to state [113]
-     [java] transition on EQUALS to state [112]
-     [java] transition on Assignop to state [111]
+     [java] transition on LPAREN to state [137]
+     [java] transition on DEC to state [136]
+     [java] transition on INC to state [135]
+     [java] transition on EQUALS to state [134]
+     [java] transition on Assignop to state [133]
      [java] -------------------
      [java] lalr_state [49]: {
-     [java]   [CondFact ::= (*) Expr Relop Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [CondTerm ::= (*) CondTerm AND CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Factor ::= (*) NUMBER , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Expr ::= (*) MINUS Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [CondFact ::= (*) Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Condition ::= (*) CondTerm , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
-     [java]   [Unmatched ::= IF (*) Condition Matched ELSE Unmatched , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Term ::= (*) Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Expr ::= (*) Expr Addop Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Matched ::= IF (*) Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java]   [CondTerm ::= (*) CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Condition ::= (*) Condition OR CondTerm , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
-     [java]   [Designator ::= (*) IDENT , {error LBRACE LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Unmatched ::= IF (*) Condition Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Factor ::= (*) Designator , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
      [java]   [Expr ::= (*) Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Condition ::= (*) CondTerm , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
+     [java]   [Expr ::= (*) Expr Addop Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Unmatched ::= IF (*) Condition Matched ELSE Unmatched , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [CondFact ::= (*) Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Term ::= (*) Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [CondTerm ::= (*) CondTerm AND CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Expr ::= (*) MINUS Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Matched ::= IF (*) Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Condition ::= (*) Condition OR CondTerm , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
+     [java]   [CondFact ::= (*) Expr Relop Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Unmatched ::= IF (*) Condition Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on CondTerm to state [93]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
-     [java] transition on CondFact to state [92]
-     [java] transition on Condition to state [91]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Designator to state [67]
-     [java] transition on Expr to state [90]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CondTerm to state [115]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on CondFact to state [114]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on Condition to state [113]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [112]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
+     [java] transition on MINUS to state [61]
      [java] -------------------
      [java] lalr_state [50]: {
      [java]   [Matched ::= DesignatorStatement (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on SEMI to state [89]
+     [java] transition on SEMI to state [111]
      [java] -------------------
      [java] lalr_state [51]: {
      [java]   [StatementList ::= StatementList Statement (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
@@ -453,37 +463,48 @@ parserGen:
      [java]   [DesignatorStatement ::= error (*) SEMI , {SEMI }]
      [java]   [Matched ::= error (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on SEMI to state [88]
+     [java] transition on SEMI to state [110]
      [java] -------------------
      [java] lalr_state [53]: {
      [java]   [Matched ::= PRINT (*) LPAREN Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on LPAREN to state [81]
+     [java] transition on LPAREN to state [103]
      [java] -------------------
      [java] lalr_state [54]: {
      [java]   [Statement ::= Matched (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
      [java] lalr_state [55]: {
-     [java]   [Factor ::= (*) NUMBER , {SEMI PLUS MINUS }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) ConstValue , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {SEMI PLUS MINUS DIV MOD MUL }]
      [java]   [Expr ::= (*) MINUS Term , {SEMI PLUS MINUS }]
+     [java]   [Designator ::= (*) IDENT , {SEMI LPAREN PLUS MINUS DIV MOD MUL }]
      [java]   [Matched ::= RETURN (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {SEMI PLUS MINUS }]
-     [java]   [Term ::= (*) Factor , {SEMI PLUS MINUS }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Factor , {SEMI PLUS MINUS DIV MOD MUL }]
      [java]   [Expr ::= (*) Expr Addop Term , {SEMI PLUS MINUS }]
      [java]   [Matched ::= RETURN (*) Expr SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Designator ::= (*) IDENT , {SEMI LPAREN PLUS MINUS }]
-     [java]   [Factor ::= (*) Designator , {SEMI PLUS MINUS }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {SEMI PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator , {SEMI PLUS MINUS DIV MOD MUL }]
      [java]   [Expr ::= (*) Term , {SEMI PLUS MINUS }]
      [java] }
-     [java] transition on Designator to state [67]
-     [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on SEMI to state [65]
-     [java] transition on NUMBER to state [64]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on SEMI to state [67]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
      [java] transition on Expr to state [63]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on MINUS to state [61]
      [java] -------------------
      [java] lalr_state [56]: {
      [java]   [Matched ::= CONTINUE (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
@@ -508,255 +529,549 @@ parserGen:
      [java] }
      [java] -------------------
      [java] lalr_state [61]: {
-     [java]   [Expr ::= Term (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Expr ::= MINUS (*) Term , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
+     [java] transition on LPAREN to state [72]
+     [java] transition on Factor to state [70]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Term to state [102]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
      [java] -------------------
      [java] lalr_state [62]: {
-     [java]   [Term ::= Factor (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Type ::= (*) IDENT , {LPAREN }]
+     [java]   [Factor ::= NEW (*) Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
+     [java] transition on IDENT to state [12]
+     [java] transition on Type to state [92]
      [java] -------------------
      [java] lalr_state [63]: {
      [java]   [Expr ::= Expr (*) Addop Term , {SEMI PLUS MINUS }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java]   [Matched ::= RETURN Expr (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
      [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on SEMI to state [80]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on SEMI to state [91]
+     [java] transition on PLUS to state [75]
      [java] -------------------
      [java] lalr_state [64]: {
-     [java]   [Factor ::= NUMBER (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= Designator (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= Designator (*) LPAREN ActParsList RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
+     [java] transition on LPAREN to state [84]
      [java] -------------------
      [java] lalr_state [65]: {
-     [java]   [Matched ::= RETURN SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Factor ::= ConstValue (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
      [java] -------------------
      [java] lalr_state [66]: {
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Term ::= (*) Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Designator ::= (*) IDENT , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= (*) Designator , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= (*) NUMBER , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Expr ::= MINUS (*) Term , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [ConstValue ::= NUM_CONST (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on Designator to state [67]
-     [java] transition on IDENT to state [45]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [79]
      [java] -------------------
      [java] lalr_state [67]: {
-     [java]   [Factor ::= Designator (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= Designator (*) LPAREN ActualPars RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Matched ::= RETURN SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on LPAREN to state [68]
      [java] -------------------
      [java] lalr_state [68]: {
-     [java]   [ActualParamList ::= (*) Expr , {RPAREN COMMA }]
-     [java]   [ActualPars ::= (*) ActualParamList , {RPAREN }]
-     [java]   [Factor ::= (*) NUMBER , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Factor ::= Designator LPAREN (*) ActualPars RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [ActualParamList ::= (*) ActualParamList COMMA Expr , {RPAREN COMMA }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS }]
-     [java]   [ActualPars ::= (*) , {RPAREN }]
-     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [ConstValue ::= BOOL_CONST (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on ActualParamList to state [71]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Designator to state [67]
-     [java] transition on Expr to state [70]
-     [java] transition on IDENT to state [45]
-     [java] transition on ActualPars to state [69]
-     [java] transition on MINUS to state [66]
      [java] -------------------
      [java] lalr_state [69]: {
-     [java]   [Factor ::= Designator LPAREN ActualPars (*) RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Mulop ::= (*) MOD , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Expr ::= Term (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Mulop ::= (*) DIV , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Term ::= Term (*) Mulop Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Mulop ::= (*) MUL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
-     [java] transition on RPAREN to state [78]
+     [java] transition on Mulop to state [82]
+     [java] transition on DIV to state [81]
+     [java] transition on MUL to state [80]
+     [java] transition on MOD to state [79]
      [java] -------------------
      [java] lalr_state [70]: {
-     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [ActualParamList ::= Expr (*) , {RPAREN COMMA }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
+     [java]   [Term ::= Factor (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
      [java] -------------------
      [java] lalr_state [71]: {
-     [java]   [ActualPars ::= ActualParamList (*) , {RPAREN }]
-     [java]   [ActualParamList ::= ActualParamList (*) COMMA Expr , {RPAREN COMMA }]
+     [java]   [ConstValue ::= CHAR_CONST (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on COMMA to state [72]
      [java] -------------------
      [java] lalr_state [72]: {
-     [java]   [Factor ::= (*) NUMBER , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [ActualParamList ::= ActualParamList COMMA (*) Expr , {RPAREN COMMA }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS }]
-     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) ConstValue , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS MINUS }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= LPAREN (*) Expr RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Factor , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS MINUS }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator , {RPAREN PLUS MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Term , {RPAREN PLUS MINUS }]
      [java] }
-     [java] transition on Designator to state [67]
-     [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on NUMBER to state [64]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
      [java] transition on Expr to state [73]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on MINUS to state [61]
      [java] -------------------
      [java] lalr_state [73]: {
-     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [ActualParamList ::= ActualParamList COMMA Expr (*) , {RPAREN COMMA }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
+     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS MINUS }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Factor ::= LPAREN Expr (*) RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on PLUS to state [75]
+     [java] transition on RPAREN to state [74]
      [java] -------------------
      [java] lalr_state [74]: {
-     [java]   [Addop ::= PLUS (*) , {NUMBER IDENT }]
+     [java]   [Factor ::= LPAREN Expr RPAREN (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
      [java] -------------------
      [java] lalr_state [75]: {
-     [java]   [Addop ::= MINUS (*) , {NUMBER IDENT }]
+     [java]   [Addop ::= PLUS (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
      [java] -------------------
      [java] lalr_state [76]: {
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Expr ::= Expr Addop (*) Term , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Term ::= (*) Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Designator ::= (*) IDENT , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= (*) Designator , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= (*) NUMBER , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Addop ::= MINUS (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
-     [java] transition on Designator to state [67]
-     [java] transition on IDENT to state [45]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Term to state [77]
-     [java] transition on Factor to state [62]
      [java] -------------------
      [java] lalr_state [77]: {
-     [java]   [Expr ::= Expr Addop Term (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Expr ::= Expr Addop (*) Term , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
+     [java] transition on LPAREN to state [72]
+     [java] transition on Factor to state [70]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Term to state [78]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
      [java] -------------------
      [java] lalr_state [78]: {
-     [java]   [Factor ::= Designator LPAREN ActualPars RPAREN (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Mulop ::= (*) MOD , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Mulop ::= (*) DIV , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Term ::= Term (*) Mulop Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Mulop ::= (*) MUL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Expr ::= Expr Addop Term (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
      [java] }
+     [java] transition on Mulop to state [82]
+     [java] transition on DIV to state [81]
+     [java] transition on MUL to state [80]
+     [java] transition on MOD to state [79]
      [java] -------------------
      [java] lalr_state [79]: {
-     [java]   [Expr ::= MINUS Term (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Mulop ::= MOD (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
      [java] -------------------
      [java] lalr_state [80]: {
-     [java]   [Matched ::= RETURN Expr SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Mulop ::= MUL (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
      [java] -------------------
      [java] lalr_state [81]: {
-     [java]   [Factor ::= (*) NUMBER , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Matched ::= PRINT LPAREN (*) Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS }]
-     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Mulop ::= DIV (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
-     [java] transition on Designator to state [67]
-     [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Expr to state [82]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
      [java] -------------------
      [java] lalr_state [82]: {
-     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [Matched ::= PRINT LPAREN Expr (*) NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [NumConstList ::= (*) , {RPAREN }]
-     [java]   [NumConstList ::= (*) COMMA NUM_CONST , {RPAREN }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Term ::= Term Mulop (*) Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE RBRACE SEMI LPAREN RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
-     [java] transition on NumConstList to state [84]
-     [java] transition on COMMA to state [83]
+     [java] transition on LPAREN to state [72]
+     [java] transition on Factor to state [83]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
      [java] -------------------
      [java] lalr_state [83]: {
-     [java]   [NumConstList ::= COMMA (*) NUM_CONST , {RPAREN }]
+     [java]   [Term ::= Term Mulop Factor (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on NUM_CONST to state [87]
      [java] -------------------
      [java] lalr_state [84]: {
-     [java]   [Matched ::= PRINT LPAREN Expr NumConstList (*) RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActPars ::= (*) Expr , {RPAREN COMMA }]
+     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) ConstValue , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActParsList ::= (*) ActPars , {RPAREN }]
+     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActPars ::= (*) ActPars COMMA Expr , {RPAREN COMMA }]
+     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActParsList ::= (*) , {RPAREN }]
+     [java]   [Factor ::= Designator LPAREN (*) ActParsList RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
      [java] }
-     [java] transition on RPAREN to state [85]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on ActPars to state [87]
+     [java] transition on Expr to state [86]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on ActParsList to state [85]
+     [java] transition on MINUS to state [61]
      [java] -------------------
      [java] lalr_state [85]: {
-     [java]   [Matched ::= PRINT LPAREN Expr NumConstList RPAREN (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Factor ::= Designator LPAREN ActParsList (*) RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on SEMI to state [86]
+     [java] transition on RPAREN to state [90]
      [java] -------------------
      [java] lalr_state [86]: {
+     [java]   [ActPars ::= Expr (*) , {RPAREN COMMA }]
+     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java] }
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on PLUS to state [75]
+     [java] -------------------
+     [java] lalr_state [87]: {
+     [java]   [ActPars ::= ActPars (*) COMMA Expr , {RPAREN COMMA }]
+     [java]   [ActParsList ::= ActPars (*) , {RPAREN }]
+     [java] }
+     [java] transition on COMMA to state [88]
+     [java] -------------------
+     [java] lalr_state [88]: {
+     [java]   [ActPars ::= ActPars COMMA (*) Expr , {RPAREN COMMA }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) ConstValue , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java] }
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [89]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on MINUS to state [61]
+     [java] -------------------
+     [java] lalr_state [89]: {
+     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [ActPars ::= ActPars COMMA Expr (*) , {RPAREN COMMA }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java] }
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on PLUS to state [75]
+     [java] -------------------
+     [java] lalr_state [90]: {
+     [java]   [Factor ::= Designator LPAREN ActParsList RPAREN (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java] }
+     [java] -------------------
+     [java] lalr_state [91]: {
+     [java]   [Matched ::= RETURN Expr SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java] }
+     [java] -------------------
+     [java] lalr_state [92]: {
+     [java]   [Factor ::= NEW Type (*) LPAREN ExprActParsChoice RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java] }
+     [java] transition on LPAREN to state [93]
+     [java] -------------------
+     [java] lalr_state [93]: {
+     [java]   [Factor ::= NEW Type LPAREN (*) ExprActParsChoice RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ExprActParsChoice ::= (*) LPAREN ActParsList RPAREN , {RPAREN }]
+     [java]   [ExprActParsChoice ::= (*) LSQUARE Expr RSQUARE , {RPAREN }]
+     [java] }
+     [java] transition on ExprActParsChoice to state [96]
+     [java] transition on LPAREN to state [95]
+     [java] transition on LSQUARE to state [94]
+     [java] -------------------
+     [java] lalr_state [94]: {
+     [java]   [ConstValue ::= (*) BOOL_CONST , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [ExprActParsChoice ::= LSQUARE (*) Expr RSQUARE , {RPAREN }]
+     [java]   [Factor ::= (*) ConstValue , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) MINUS Term , {PLUS RSQUARE MINUS }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Factor , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Expr Addop Term , {PLUS RSQUARE MINUS }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator , {PLUS RSQUARE MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Term , {PLUS RSQUARE MINUS }]
+     [java] }
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [100]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on MINUS to state [61]
+     [java] -------------------
+     [java] lalr_state [95]: {
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActPars ::= (*) Expr , {RPAREN COMMA }]
+     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) ConstValue , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActParsList ::= (*) ActPars , {RPAREN }]
+     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActPars ::= (*) ActPars COMMA Expr , {RPAREN COMMA }]
+     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActParsList ::= (*) , {RPAREN }]
+     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [ExprActParsChoice ::= LPAREN (*) ActParsList RPAREN , {RPAREN }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java] }
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on ActPars to state [87]
+     [java] transition on Expr to state [86]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on MINUS to state [61]
+     [java] transition on ActParsList to state [98]
+     [java] -------------------
+     [java] lalr_state [96]: {
+     [java]   [Factor ::= NEW Type LPAREN ExprActParsChoice (*) RPAREN , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java] }
+     [java] transition on RPAREN to state [97]
+     [java] -------------------
+     [java] lalr_state [97]: {
+     [java]   [Factor ::= NEW Type LPAREN ExprActParsChoice RPAREN (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java] }
+     [java] -------------------
+     [java] lalr_state [98]: {
+     [java]   [ExprActParsChoice ::= LPAREN ActParsList (*) RPAREN , {RPAREN }]
+     [java] }
+     [java] transition on RPAREN to state [99]
+     [java] -------------------
+     [java] lalr_state [99]: {
+     [java]   [ExprActParsChoice ::= LPAREN ActParsList RPAREN (*) , {RPAREN }]
+     [java] }
+     [java] -------------------
+     [java] lalr_state [100]: {
+     [java]   [Expr ::= Expr (*) Addop Term , {PLUS RSQUARE MINUS }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [ExprActParsChoice ::= LSQUARE Expr (*) RSQUARE , {RPAREN }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java] }
+     [java] transition on Addop to state [77]
+     [java] transition on RSQUARE to state [101]
+     [java] transition on MINUS to state [76]
+     [java] transition on PLUS to state [75]
+     [java] -------------------
+     [java] lalr_state [101]: {
+     [java]   [ExprActParsChoice ::= LSQUARE Expr RSQUARE (*) , {RPAREN }]
+     [java] }
+     [java] -------------------
+     [java] lalr_state [102]: {
+     [java]   [Mulop ::= (*) MOD , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Mulop ::= (*) DIV , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Term ::= Term (*) Mulop Factor , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Expr ::= MINUS Term (*) , {error LBRACE RBRACE SEMI RPAREN RETURN PLUS COMMA PRINT IDENT IF LSQUARE RSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Mulop ::= (*) MUL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java] }
+     [java] transition on Mulop to state [82]
+     [java] transition on DIV to state [81]
+     [java] transition on MUL to state [80]
+     [java] transition on MOD to state [79]
+     [java] -------------------
+     [java] lalr_state [103]: {
+     [java]   [ConstValue ::= (*) BOOL_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) ConstValue , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Matched ::= PRINT LPAREN (*) Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java] }
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [104]
+     [java] transition on NEW to state [62]
+     [java] transition on IDENT to state [45]
+     [java] transition on MINUS to state [61]
+     [java] -------------------
+     [java] lalr_state [104]: {
+     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Matched ::= PRINT LPAREN Expr (*) NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [NumConstList ::= (*) , {RPAREN }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [NumConstList ::= (*) COMMA NUM_CONST , {RPAREN }]
+     [java] }
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on NumConstList to state [106]
+     [java] transition on PLUS to state [75]
+     [java] transition on COMMA to state [105]
+     [java] -------------------
+     [java] lalr_state [105]: {
+     [java]   [NumConstList ::= COMMA (*) NUM_CONST , {RPAREN }]
+     [java] }
+     [java] transition on NUM_CONST to state [109]
+     [java] -------------------
+     [java] lalr_state [106]: {
+     [java]   [Matched ::= PRINT LPAREN Expr NumConstList (*) RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java] }
+     [java] transition on RPAREN to state [107]
+     [java] -------------------
+     [java] lalr_state [107]: {
+     [java]   [Matched ::= PRINT LPAREN Expr NumConstList RPAREN (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java] }
+     [java] transition on SEMI to state [108]
+     [java] -------------------
+     [java] lalr_state [108]: {
      [java]   [Matched ::= PRINT LPAREN Expr NumConstList RPAREN SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [87]: {
+     [java] lalr_state [109]: {
      [java]   [NumConstList ::= COMMA NUM_CONST (*) , {RPAREN }]
      [java] }
      [java] -------------------
-     [java] lalr_state [88]: {
+     [java] lalr_state [110]: {
      [java]   [DesignatorStatement ::= error SEMI (*) , {SEMI }]
      [java]   [Matched ::= error SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [89]: {
+     [java] lalr_state [111]: {
      [java]   [Matched ::= DesignatorStatement SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [90]: {
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [Relop ::= (*) GREATER_OR_EQUAL , {NUMBER IDENT MINUS }]
-     [java]   [Relop ::= (*) BOOL_EQUAL , {NUMBER IDENT MINUS }]
+     [java] lalr_state [112]: {
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Relop ::= (*) LESS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java]   [CondFact ::= Expr (*) , {error LBRACE SEMI RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Relop ::= (*) LESS_OR_EQUAL , {NUMBER IDENT MINUS }]
-     [java]   [Relop ::= (*) GREATER , {NUMBER IDENT MINUS }]
+     [java]   [Relop ::= (*) BOOL_NOT_EQUAL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Relop ::= (*) GREATER_OR_EQUAL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java]   [Expr ::= Expr (*) Addop Term , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
-     [java]   [Relop ::= (*) LESS , {NUMBER IDENT MINUS }]
-     [java]   [Relop ::= (*) BOOL_NOT_EQUAL , {NUMBER IDENT MINUS }]
+     [java]   [Relop ::= (*) BOOL_EQUAL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
+     [java]   [Relop ::= (*) LESS_OR_EQUAL , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java]   [CondFact ::= Expr (*) Relop Expr , {error LBRACE SEMI RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Relop ::= (*) GREATER , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
-     [java] transition on BOOL_EQUAL to state [109]
-     [java] transition on LESS to state [108]
-     [java] transition on GREATER_OR_EQUAL to state [107]
-     [java] transition on Addop to state [76]
-     [java] transition on Relop to state [106]
-     [java] transition on PLUS to state [74]
-     [java] transition on GREATER to state [105]
-     [java] transition on BOOL_NOT_EQUAL to state [104]
-     [java] transition on LESS_OR_EQUAL to state [103]
-     [java] transition on MINUS to state [75]
+     [java] transition on BOOL_EQUAL to state [131]
+     [java] transition on LESS to state [130]
+     [java] transition on GREATER_OR_EQUAL to state [129]
+     [java] transition on Addop to state [77]
+     [java] transition on Relop to state [128]
+     [java] transition on PLUS to state [75]
+     [java] transition on GREATER to state [127]
+     [java] transition on BOOL_NOT_EQUAL to state [126]
+     [java] transition on LESS_OR_EQUAL to state [125]
+     [java] transition on MINUS to state [76]
      [java] -------------------
-     [java] lalr_state [91]: {
+     [java] lalr_state [113]: {
      [java]   [Unmatched ::= (*) IF Condition Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) READ LPAREN Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) LBRACE StatementList RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
@@ -775,10 +1090,10 @@ parserGen:
      [java]   [Matched ::= (*) PRINT LPAREN Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) BREAK SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {SEMI }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= IF Condition (*) Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) DesignatorStatement SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) RETURN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) IF Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {SEMI }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {SEMI }]
@@ -786,14 +1101,14 @@ parserGen:
      [java]   [Unmatched ::= IF Condition (*) Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] transition on BREAK to state [58]
-     [java] transition on OR to state [98]
+     [java] transition on OR to state [120]
      [java] transition on RETURN to state [55]
      [java] transition on CONTINUE to state [56]
-     [java] transition on Matched to state [97]
+     [java] transition on Matched to state [119]
      [java] transition on PRINT to state [53]
      [java] transition on error to state [52]
      [java] transition on DesignatorStatement to state [50]
-     [java] transition on Statement to state [96]
+     [java] transition on Statement to state [118]
      [java] transition on IF to state [49]
      [java] transition on Designator to state [48]
      [java] transition on Unmatched to state [47]
@@ -803,85 +1118,107 @@ parserGen:
      [java] transition on READ to state [43]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [92]: {
+     [java] lalr_state [114]: {
      [java]   [CondTerm ::= CondFact (*) , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [93]: {
+     [java] lalr_state [115]: {
      [java]   [CondTerm ::= CondTerm (*) AND CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
      [java]   [Condition ::= CondTerm (*) , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
      [java] }
-     [java] transition on AND to state [94]
+     [java] transition on AND to state [116]
      [java] -------------------
-     [java] lalr_state [94]: {
+     [java] lalr_state [116]: {
      [java]   [CondFact ::= (*) Expr Relop Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Factor ::= (*) NUMBER , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java]   [Expr ::= (*) MINUS Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java]   [CondFact ::= (*) Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Term ::= (*) Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java]   [Expr ::= (*) Expr Addop Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Designator ::= (*) IDENT , {error LBRACE LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= (*) Designator , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java]   [CondTerm ::= CondTerm AND (*) CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
      [java]   [Expr ::= (*) Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
      [java] }
-     [java] transition on CondFact to state [95]
-     [java] transition on Designator to state [67]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on CondFact to state [117]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [112]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on Expr to state [90]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
+     [java] transition on MINUS to state [61]
      [java] -------------------
-     [java] lalr_state [95]: {
+     [java] lalr_state [117]: {
      [java]   [CondTerm ::= CondTerm AND CondFact (*) , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [96]: {
+     [java] lalr_state [118]: {
      [java]   [Unmatched ::= IF Condition Statement (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [97]: {
+     [java] lalr_state [119]: {
      [java]   [Matched ::= IF Condition Matched (*) ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Unmatched ::= IF Condition Matched (*) ELSE Unmatched , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Statement ::= Matched (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on ELSE to state [100]
+     [java] transition on ELSE to state [122]
      [java] -------------------
-     [java] lalr_state [98]: {
-     [java]   [CondFact ::= (*) Expr Relop Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [CondTerm ::= (*) CondTerm AND CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Factor ::= (*) NUMBER , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Expr ::= (*) MINUS Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [CondFact ::= (*) Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Term ::= (*) Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Condition ::= Condition OR (*) CondTerm , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
-     [java]   [Expr ::= (*) Expr Addop Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java] lalr_state [120]: {
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java]   [CondTerm ::= (*) CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Designator ::= (*) IDENT , {error LBRACE LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
-     [java]   [Factor ::= (*) Designator , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
      [java]   [Expr ::= (*) Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Expr ::= (*) Expr Addop Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [CondFact ::= (*) Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Term ::= (*) Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [CondTerm ::= (*) CondTerm AND CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Expr ::= (*) MINUS Term , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL FOR }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
+     [java]   [Condition ::= Condition OR (*) CondTerm , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
+     [java]   [CondFact ::= (*) Expr Relop Expr , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error LBRACE RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD FOR MUL }]
      [java] }
-     [java] transition on CondTerm to state [99]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
-     [java] transition on CondFact to state [92]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Designator to state [67]
-     [java] transition on Expr to state [90]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CondTerm to state [121]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on CondFact to state [114]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [112]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
+     [java] transition on MINUS to state [61]
      [java] -------------------
-     [java] lalr_state [99]: {
+     [java] lalr_state [121]: {
      [java]   [Condition ::= Condition OR CondTerm (*) , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR FOR }]
      [java]   [CondTerm ::= CondTerm (*) AND CondFact , {error LBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
      [java] }
-     [java] transition on AND to state [94]
+     [java] transition on AND to state [116]
      [java] -------------------
-     [java] lalr_state [100]: {
+     [java] lalr_state [122]: {
      [java]   [Unmatched ::= (*) IF Condition Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) READ LPAREN Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) LBRACE StatementList RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
@@ -899,9 +1236,9 @@ parserGen:
      [java]   [Matched ::= (*) BREAK SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {SEMI }]
      [java]   [Matched ::= IF Condition Matched ELSE (*) Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) DesignatorStatement SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) RETURN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) IF Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {SEMI }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {SEMI }]
@@ -909,12 +1246,12 @@ parserGen:
      [java] transition on BREAK to state [58]
      [java] transition on RETURN to state [55]
      [java] transition on CONTINUE to state [56]
-     [java] transition on Matched to state [102]
+     [java] transition on Matched to state [124]
      [java] transition on PRINT to state [53]
      [java] transition on error to state [52]
      [java] transition on DesignatorStatement to state [50]
      [java] transition on IF to state [49]
-     [java] transition on Unmatched to state [101]
+     [java] transition on Unmatched to state [123]
      [java] transition on Designator to state [48]
      [java] transition on FOR to state [46]
      [java] transition on IDENT to state [45]
@@ -922,313 +1259,318 @@ parserGen:
      [java] transition on READ to state [43]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [101]: {
+     [java] lalr_state [123]: {
      [java]   [Unmatched ::= IF Condition Matched ELSE Unmatched (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [102]: {
+     [java] lalr_state [124]: {
      [java]   [Matched ::= IF Condition Matched ELSE Matched (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [103]: {
-     [java]   [Relop ::= LESS_OR_EQUAL (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [125]: {
+     [java]   [Relop ::= LESS_OR_EQUAL (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [104]: {
-     [java]   [Relop ::= BOOL_NOT_EQUAL (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [126]: {
+     [java]   [Relop ::= BOOL_NOT_EQUAL (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [105]: {
-     [java]   [Relop ::= GREATER (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [127]: {
+     [java]   [Relop ::= GREATER (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [106]: {
-     [java]   [Factor ::= (*) NUMBER , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
+     [java] lalr_state [128]: {
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) ConstValue , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
      [java]   [Expr ::= (*) MINUS Term , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
-     [java]   [Term ::= (*) Factor , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
+     [java]   [Designator ::= (*) IDENT , {error LBRACE SEMI LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Term ::= (*) Factor , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
      [java]   [Expr ::= (*) Expr Addop Term , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
-     [java]   [Designator ::= (*) IDENT , {error LBRACE SEMI LPAREN RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
+     [java]   [Factor ::= (*) Designator , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS DIV MOD FOR MUL }]
      [java]   [CondFact ::= Expr Relop (*) Expr , {error LBRACE SEMI RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Factor ::= (*) Designator , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
      [java]   [Expr ::= (*) Term , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
      [java] }
-     [java] transition on Designator to state [67]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [132]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Expr to state [110]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
+     [java] transition on MINUS to state [61]
      [java] -------------------
-     [java] lalr_state [107]: {
-     [java]   [Relop ::= GREATER_OR_EQUAL (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [129]: {
+     [java]   [Relop ::= GREATER_OR_EQUAL (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [108]: {
-     [java]   [Relop ::= LESS (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [130]: {
+     [java]   [Relop ::= LESS (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [109]: {
-     [java]   [Relop ::= BOOL_EQUAL (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [131]: {
+     [java]   [Relop ::= BOOL_EQUAL (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [110]: {
+     [java] lalr_state [132]: {
      [java]   [Expr ::= Expr (*) Addop Term , {error LBRACE SEMI RETURN PLUS PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND MINUS FOR }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java]   [CondFact ::= Expr Relop Expr (*) , {error LBRACE SEMI RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK OR AND FOR }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on PLUS to state [75]
      [java] -------------------
-     [java] lalr_state [111]: {
-     [java]   [Factor ::= (*) NUMBER , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
+     [java] lalr_state [133]: {
+     [java]   [ConstValue ::= (*) BOOL_CONST , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) ConstValue , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
      [java]   [Expr ::= (*) MINUS Term , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
+     [java]   [Designator ::= (*) IDENT , {error RBRACE SEMI LPAREN PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
      [java]   [DesignatorStatement ::= Designator Assignop (*) Expr , {error RBRACE SEMI IDENT LSQUARE }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
-     [java]   [Term ::= (*) Factor , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Factor , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
      [java]   [Expr ::= (*) Expr Addop Term , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
-     [java]   [Designator ::= (*) IDENT , {error RBRACE SEMI LPAREN PLUS IDENT LSQUARE MINUS }]
-     [java]   [Factor ::= (*) Designator , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) Designator , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS DIV MOD MUL }]
      [java]   [Expr ::= (*) Term , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
      [java] }
-     [java] transition on Designator to state [67]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [141]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Expr to state [122]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
+     [java] transition on MINUS to state [61]
      [java] -------------------
-     [java] lalr_state [112]: {
-     [java]   [Assignop ::= EQUALS (*) , {NUMBER IDENT MINUS }]
+     [java] lalr_state [134]: {
+     [java]   [Assignop ::= EQUALS (*) , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST MINUS NEW }]
      [java] }
      [java] -------------------
-     [java] lalr_state [113]: {
+     [java] lalr_state [135]: {
      [java]   [DesignatorStatement ::= Designator INC (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [114]: {
+     [java] lalr_state [136]: {
      [java]   [DesignatorStatement ::= Designator DEC (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [115]: {
+     [java] lalr_state [137]: {
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
      [java]   [DesignatorStatement ::= Designator LPAREN (*) RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
-     [java]   [ActPars ::= (*) ActPars COMMA Expr , {RPAREN COMMA }]
-     [java]   [Factor ::= (*) NUMBER , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [DesignatorStatement ::= Designator LPAREN (*) ActPars RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [ActPars ::= (*) Expr , {RPAREN COMMA }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS }]
-     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS }]
      [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) ConstValue , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ActPars ::= (*) ActPars COMMA Expr , {RPAREN COMMA }]
+     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [DesignatorStatement ::= Designator LPAREN (*) ActPars RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
+     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS DIV MOD MUL }]
+     [java]   [Term ::= (*) Term Mulop Factor , {RPAREN PLUS COMMA MINUS DIV MOD MUL }]
      [java] }
-     [java] transition on RPAREN to state [118]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Designator to state [67]
-     [java] transition on ActPars to state [117]
-     [java] transition on Expr to state [116]
+     [java] transition on LPAREN to state [72]
+     [java] transition on RPAREN to state [139]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [86]
+     [java] transition on ActPars to state [138]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
+     [java] transition on MINUS to state [61]
      [java] -------------------
-     [java] lalr_state [116]: {
-     [java]   [ActPars ::= Expr (*) , {RPAREN COMMA }]
-     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
-     [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
-     [java] -------------------
-     [java] lalr_state [117]: {
+     [java] lalr_state [138]: {
      [java]   [DesignatorStatement ::= Designator LPAREN ActPars (*) RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [ActPars ::= ActPars (*) COMMA Expr , {RPAREN COMMA }]
      [java] }
-     [java] transition on RPAREN to state [120]
-     [java] transition on COMMA to state [119]
+     [java] transition on RPAREN to state [140]
+     [java] transition on COMMA to state [88]
      [java] -------------------
-     [java] lalr_state [118]: {
+     [java] lalr_state [139]: {
      [java]   [DesignatorStatement ::= Designator LPAREN RPAREN (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [119]: {
-     [java]   [ActPars ::= ActPars COMMA (*) Expr , {RPAREN COMMA }]
-     [java]   [Factor ::= (*) NUMBER , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) MINUS Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Term ::= (*) Factor , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Expr Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN RPAREN PLUS COMMA MINUS }]
-     [java]   [Factor ::= (*) Designator , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Expr ::= (*) Term , {RPAREN PLUS COMMA MINUS }]
-     [java] }
-     [java] transition on Designator to state [67]
-     [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
-     [java] transition on Expr to state [121]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
-     [java] -------------------
-     [java] lalr_state [120]: {
+     [java] lalr_state [140]: {
      [java]   [DesignatorStatement ::= Designator LPAREN ActPars RPAREN (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [121]: {
-     [java]   [Expr ::= Expr (*) Addop Term , {RPAREN PLUS COMMA MINUS }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [ActPars ::= ActPars COMMA Expr (*) , {RPAREN COMMA }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
-     [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
-     [java] -------------------
-     [java] lalr_state [122]: {
+     [java] lalr_state [141]: {
      [java]   [Expr ::= Expr (*) Addop Term , {error RBRACE SEMI PLUS IDENT LSQUARE MINUS }]
      [java]   [DesignatorStatement ::= Designator Assignop Expr (*) , {error RBRACE SEMI IDENT LSQUARE }]
-     [java]   [Addop ::= (*) PLUS , {NUMBER IDENT }]
-     [java]   [Addop ::= (*) MINUS , {NUMBER IDENT }]
+     [java]   [Addop ::= (*) MINUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
+     [java]   [Addop ::= (*) PLUS , {LPAREN IDENT NUM_CONST CHAR_CONST BOOL_CONST NEW }]
      [java] }
-     [java] transition on Addop to state [76]
-     [java] transition on MINUS to state [75]
-     [java] transition on PLUS to state [74]
+     [java] transition on Addop to state [77]
+     [java] transition on MINUS to state [76]
+     [java] transition on PLUS to state [75]
      [java] -------------------
-     [java] lalr_state [123]: {
+     [java] lalr_state [142]: {
      [java]   [DesignatorStatementHelper ::= (*) , {SEMI }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN RPAREN , {error SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {error SEMI IDENT LSQUARE }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [DesignatorStatementHelper ::= (*) DesignatorStatement DesignatorStatementList , {SEMI }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {error SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {error SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator Assignop Expr , {error SEMI IDENT LSQUARE }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [DesignatorStatement ::= (*) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator , {error SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator DEC , {error SEMI IDENT LSQUARE }]
      [java]   [Matched ::= FOR LBRACE (*) DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on DesignatorStatement to state [126]
-     [java] transition on DesignatorStatementHelper to state [125]
+     [java] transition on DesignatorStatement to state [145]
+     [java] transition on DesignatorStatementHelper to state [144]
      [java] transition on Designator to state [48]
      [java] transition on IDENT to state [45]
-     [java] transition on error to state [124]
+     [java] transition on error to state [143]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [124]: {
+     [java] lalr_state [143]: {
      [java]   [DesignatorStatement ::= error (*) SEMI , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on SEMI to state [135]
+     [java] transition on SEMI to state [154]
      [java] -------------------
-     [java] lalr_state [125]: {
+     [java] lalr_state [144]: {
      [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper (*) SEMI CondFactHelper SEMI DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on SEMI to state [129]
+     [java] transition on SEMI to state [148]
      [java] -------------------
-     [java] lalr_state [126]: {
+     [java] lalr_state [145]: {
      [java]   [DesignatorStatementList ::= (*) DesignatorStatementList DesignatorStatement , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatementHelper ::= DesignatorStatement (*) DesignatorStatementList , {RBRACE SEMI }]
      [java]   [DesignatorStatementList ::= (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on DesignatorStatementList to state [127]
+     [java] transition on DesignatorStatementList to state [146]
      [java] -------------------
-     [java] lalr_state [127]: {
+     [java] lalr_state [146]: {
      [java]   [DesignatorStatement ::= (*) Designator LPAREN RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatementList ::= DesignatorStatementList (*) DesignatorStatement , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatementHelper ::= DesignatorStatement DesignatorStatementList (*) , {RBRACE SEMI }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator Assignop Expr , {error RBRACE SEMI IDENT LSQUARE }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [DesignatorStatement ::= (*) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator DEC , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on DesignatorStatement to state [128]
+     [java] transition on DesignatorStatement to state [147]
      [java] transition on Designator to state [48]
      [java] transition on IDENT to state [45]
-     [java] transition on error to state [124]
+     [java] transition on error to state [143]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [128]: {
+     [java] lalr_state [147]: {
      [java]   [DesignatorStatementList ::= DesignatorStatementList DesignatorStatement (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [129]: {
-     [java]   [CondFact ::= (*) Expr Relop Expr , {SEMI }]
-     [java]   [Factor ::= (*) NUMBER , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
-     [java]   [Expr ::= (*) MINUS Term , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
+     [java] lalr_state [148]: {
+     [java]   [Factor ::= (*) LPAREN Expr RPAREN , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) NUM_CONST , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [CondFactHelper ::= (*) CondFact , {SEMI }]
+     [java]   [Expr ::= (*) Term , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
+     [java]   [Factor ::= (*) ConstValue , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper SEMI (*) CondFactHelper SEMI DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Expr ::= (*) Expr Addop Term , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
+     [java]   [Factor ::= (*) Designator , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) CHAR_CONST , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
      [java]   [CondFactHelper ::= (*) , {SEMI }]
      [java]   [CondFact ::= (*) Expr , {SEMI }]
-     [java]   [Factor ::= (*) Designator LPAREN ActualPars RPAREN , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
-     [java]   [Term ::= (*) Factor , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
-     [java]   [CondFactHelper ::= (*) CondFact , {SEMI }]
-     [java]   [Expr ::= (*) Expr Addop Term , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
-     [java]   [Designator ::= (*) IDENT , {SEMI LPAREN PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
-     [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper SEMI (*) CondFactHelper SEMI DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Factor ::= (*) Designator , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
-     [java]   [Expr ::= (*) Term , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
+     [java]   [Term ::= (*) Factor , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [Factor ::= (*) NEW Type LPAREN ExprActParsChoice RPAREN , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [Expr ::= (*) MINUS Term , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL }]
+     [java]   [Factor ::= (*) Designator LPAREN ActParsList RPAREN , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [ConstValue ::= (*) BOOL_CONST , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [Designator ::= (*) IDENT , {SEMI LPAREN PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
+     [java]   [CondFact ::= (*) Expr Relop Expr , {SEMI }]
+     [java]   [Term ::= (*) Term Mulop Factor , {SEMI PLUS MINUS BOOL_EQUAL BOOL_NOT_EQUAL GREATER GREATER_OR_EQUAL LESS LESS_OR_EQUAL DIV MOD MUL }]
      [java] }
-     [java] transition on CondFactHelper to state [131]
-     [java] transition on Factor to state [62]
-     [java] transition on Term to state [61]
-     [java] transition on CondFact to state [130]
-     [java] transition on NUMBER to state [64]
-     [java] transition on Designator to state [67]
-     [java] transition on Expr to state [90]
+     [java] transition on CondFactHelper to state [150]
+     [java] transition on LPAREN to state [72]
+     [java] transition on CHAR_CONST to state [71]
+     [java] transition on Factor to state [70]
+     [java] transition on Term to state [69]
+     [java] transition on CondFact to state [149]
+     [java] transition on BOOL_CONST to state [68]
+     [java] transition on NUM_CONST to state [66]
+     [java] transition on ConstValue to state [65]
+     [java] transition on Designator to state [64]
+     [java] transition on Expr to state [112]
+     [java] transition on NEW to state [62]
      [java] transition on IDENT to state [45]
-     [java] transition on MINUS to state [66]
+     [java] transition on MINUS to state [61]
      [java] -------------------
-     [java] lalr_state [130]: {
+     [java] lalr_state [149]: {
      [java]   [CondFactHelper ::= CondFact (*) , {SEMI }]
      [java] }
      [java] -------------------
-     [java] lalr_state [131]: {
+     [java] lalr_state [150]: {
      [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper SEMI CondFactHelper (*) SEMI DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on SEMI to state [132]
+     [java] transition on SEMI to state [151]
      [java] -------------------
-     [java] lalr_state [132]: {
+     [java] lalr_state [151]: {
      [java]   [DesignatorStatementHelper ::= (*) , {RBRACE }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN RPAREN , {error RBRACE IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {error RBRACE IDENT LSQUARE }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [DesignatorStatementHelper ::= (*) DesignatorStatement DesignatorStatementList , {RBRACE }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {error RBRACE IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {error RBRACE IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator Assignop Expr , {error RBRACE IDENT LSQUARE }]
      [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper SEMI CondFactHelper SEMI (*) DesignatorStatementHelper RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [DesignatorStatement ::= (*) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator , {error RBRACE IDENT LSQUARE }]
      [java]   [DesignatorStatement ::= (*) Designator DEC , {error RBRACE IDENT LSQUARE }]
      [java] }
-     [java] transition on DesignatorStatement to state [126]
-     [java] transition on DesignatorStatementHelper to state [133]
+     [java] transition on DesignatorStatement to state [145]
+     [java] transition on DesignatorStatementHelper to state [152]
      [java] transition on Designator to state [48]
      [java] transition on IDENT to state [45]
-     [java] transition on error to state [124]
+     [java] transition on error to state [143]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [133]: {
+     [java] lalr_state [152]: {
      [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper (*) RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on RBRACE to state [134]
+     [java] transition on RBRACE to state [153]
      [java] -------------------
-     [java] lalr_state [134]: {
+     [java] lalr_state [153]: {
      [java]   [Matched ::= FOR LBRACE DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RBRACE (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [135]: {
+     [java] lalr_state [154]: {
      [java]   [DesignatorStatement ::= error SEMI (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [136]: {
+     [java] lalr_state [155]: {
      [java]   [Unmatched ::= (*) IF Condition Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= LBRACE StatementList (*) RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) READ LPAREN Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
@@ -1248,15 +1590,15 @@ parserGen:
      [java]   [Matched ::= (*) PRINT LPAREN Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) BREAK SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {SEMI }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) DesignatorStatement SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) RETURN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) IF Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {SEMI }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {SEMI }]
      [java] }
      [java] transition on BREAK to state [58]
-     [java] transition on RBRACE to state [137]
+     [java] transition on RBRACE to state [156]
      [java] transition on CONTINUE to state [56]
      [java] transition on RETURN to state [55]
      [java] transition on Matched to state [54]
@@ -1273,92 +1615,92 @@ parserGen:
      [java] transition on READ to state [43]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [137]: {
+     [java] lalr_state [156]: {
      [java]   [Matched ::= LBRACE StatementList RBRACE (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [138]: {
+     [java] lalr_state [157]: {
      [java]   [Matched ::= READ LPAREN (*) Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Designator ::= (*) IDENT , {RPAREN }]
      [java] }
-     [java] transition on Designator to state [139]
+     [java] transition on Designator to state [158]
      [java] transition on IDENT to state [45]
      [java] -------------------
-     [java] lalr_state [139]: {
+     [java] lalr_state [158]: {
      [java]   [Matched ::= READ LPAREN Designator (*) RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on RPAREN to state [140]
+     [java] transition on RPAREN to state [159]
      [java] -------------------
-     [java] lalr_state [140]: {
+     [java] lalr_state [159]: {
      [java]   [Matched ::= READ LPAREN Designator RPAREN (*) SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on SEMI to state [141]
+     [java] transition on SEMI to state [160]
      [java] -------------------
-     [java] lalr_state [141]: {
+     [java] lalr_state [160]: {
      [java]   [Matched ::= READ LPAREN Designator RPAREN SEMI (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF ELSE LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
      [java] -------------------
-     [java] lalr_state [142]: {
+     [java] lalr_state [161]: {
      [java]   [DesignatorList ::= Designator (*) COMMA DesignatorList , {MUL }]
      [java] }
-     [java] transition on COMMA to state [149]
+     [java] transition on COMMA to state [168]
      [java] -------------------
-     [java] lalr_state [143]: {
+     [java] lalr_state [162]: {
      [java]   [DesignatorStatement ::= LSQUARE DesignatorList (*) MUL Designator RSQUARE EQUALS Designator , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on MUL to state [144]
+     [java] transition on MUL to state [163]
      [java] -------------------
-     [java] lalr_state [144]: {
-     [java]   [Designator ::= (*) IDENT , {RSQUARE }]
+     [java] lalr_state [163]: {
      [java]   [DesignatorStatement ::= LSQUARE DesignatorList MUL (*) Designator RSQUARE EQUALS Designator , {error RBRACE SEMI IDENT LSQUARE }]
+     [java]   [Designator ::= (*) IDENT , {RSQUARE }]
      [java] }
+     [java] transition on Designator to state [164]
      [java] transition on IDENT to state [45]
-     [java] transition on Designator to state [145]
      [java] -------------------
-     [java] lalr_state [145]: {
+     [java] lalr_state [164]: {
      [java]   [DesignatorStatement ::= LSQUARE DesignatorList MUL Designator (*) RSQUARE EQUALS Designator , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on RSQUARE to state [146]
+     [java] transition on RSQUARE to state [165]
      [java] -------------------
-     [java] lalr_state [146]: {
+     [java] lalr_state [165]: {
      [java]   [DesignatorStatement ::= LSQUARE DesignatorList MUL Designator RSQUARE (*) EQUALS Designator , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on EQUALS to state [147]
+     [java] transition on EQUALS to state [166]
      [java] -------------------
-     [java] lalr_state [147]: {
+     [java] lalr_state [166]: {
      [java]   [DesignatorStatement ::= LSQUARE DesignatorList MUL Designator RSQUARE EQUALS (*) Designator , {error RBRACE SEMI IDENT LSQUARE }]
      [java]   [Designator ::= (*) IDENT , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
-     [java] transition on Designator to state [148]
+     [java] transition on Designator to state [167]
      [java] transition on IDENT to state [45]
      [java] -------------------
-     [java] lalr_state [148]: {
+     [java] lalr_state [167]: {
      [java]   [DesignatorStatement ::= LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator (*) , {error RBRACE SEMI IDENT LSQUARE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [149]: {
-     [java]   [Designator ::= (*) IDENT , {COMMA }]
+     [java] lalr_state [168]: {
      [java]   [DesignatorList ::= (*) , {MUL }]
+     [java]   [Designator ::= (*) IDENT , {COMMA }]
      [java]   [DesignatorList ::= Designator COMMA (*) DesignatorList , {MUL }]
      [java]   [DesignatorList ::= (*) Designator COMMA DesignatorList , {MUL }]
      [java] }
      [java] transition on IDENT to state [45]
-     [java] transition on DesignatorList to state [150]
-     [java] transition on Designator to state [142]
+     [java] transition on DesignatorList to state [169]
+     [java] transition on Designator to state [161]
      [java] -------------------
-     [java] lalr_state [150]: {
+     [java] lalr_state [169]: {
      [java]   [DesignatorList ::= Designator COMMA DesignatorList (*) , {MUL }]
      [java] }
      [java] -------------------
-     [java] lalr_state [151]: {
+     [java] lalr_state [170]: {
      [java]   [VarDeclList ::= VarDeclList VarDecl (*) , {LBRACE RBRACE IDENT }]
      [java] }
      [java] -------------------
-     [java] lalr_state [152]: {
+     [java] lalr_state [171]: {
      [java]   [ExtendsFrom ::= EXTENDS Type (*) , {LBRACE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [153]: {
+     [java] lalr_state [172]: {
      [java]   [ReturnMethod ::= (*) VOID , {IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [ReturnMethod ::= (*) Type , {IDENT }]
@@ -1366,40 +1708,40 @@ parserGen:
      [java]   [MethodDeclList ::= MethodDeclList (*) MethodDecl , {RBRACE VOID IDENT }]
      [java]   [MethodDecl ::= (*) ReturnMethod IDENT LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on VOID to state [158]
-     [java] transition on ReturnMethod to state [157]
+     [java] transition on VOID to state [177]
+     [java] transition on ReturnMethod to state [176]
      [java] transition on IDENT to state [12]
-     [java] transition on MethodDecl to state [156]
-     [java] transition on RBRACE to state [155]
-     [java] transition on Type to state [154]
+     [java] transition on MethodDecl to state [175]
+     [java] transition on RBRACE to state [174]
+     [java] transition on Type to state [173]
      [java] -------------------
-     [java] lalr_state [154]: {
+     [java] lalr_state [173]: {
      [java]   [ReturnMethod ::= Type (*) , {IDENT }]
      [java] }
      [java] -------------------
-     [java] lalr_state [155]: {
+     [java] lalr_state [174]: {
      [java]   [Program ::= PROG IDENT NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE (*) , {EOF }]
      [java] }
      [java] -------------------
-     [java] lalr_state [156]: {
+     [java] lalr_state [175]: {
      [java]   [MethodDeclList ::= MethodDeclList MethodDecl (*) , {RBRACE VOID IDENT }]
      [java] }
      [java] -------------------
-     [java] lalr_state [157]: {
+     [java] lalr_state [176]: {
      [java]   [MethodDecl ::= ReturnMethod (*) IDENT LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on IDENT to state [159]
+     [java] transition on IDENT to state [178]
      [java] -------------------
-     [java] lalr_state [158]: {
+     [java] lalr_state [177]: {
      [java]   [ReturnMethod ::= VOID (*) , {IDENT }]
      [java] }
      [java] -------------------
-     [java] lalr_state [159]: {
+     [java] lalr_state [178]: {
      [java]   [MethodDecl ::= ReturnMethod IDENT (*) LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on LPAREN to state [160]
+     [java] transition on LPAREN to state [179]
      [java] -------------------
-     [java] lalr_state [160]: {
+     [java] lalr_state [179]: {
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [FormalParamDecl ::= (*) Type IDENT , {RPAREN COMMA }]
      [java]   [FormPars ::= (*) , {RPAREN }]
@@ -1409,59 +1751,59 @@ parserGen:
      [java]   [FormalParamDecl ::= (*) Type IDENT LSQUARE RSQUARE , {RPAREN COMMA }]
      [java]   [FormalParamList ::= (*) FormalParamList COMMA FormalParamDecl , {RPAREN COMMA }]
      [java] }
-     [java] transition on FormalParamDecl to state [164]
+     [java] transition on FormalParamDecl to state [183]
      [java] transition on IDENT to state [12]
-     [java] transition on FormPars to state [163]
-     [java] transition on FormalParamList to state [162]
-     [java] transition on Type to state [161]
+     [java] transition on FormPars to state [182]
+     [java] transition on FormalParamList to state [181]
+     [java] transition on Type to state [180]
      [java] -------------------
-     [java] lalr_state [161]: {
+     [java] lalr_state [180]: {
      [java]   [FormalParamDecl ::= Type (*) IDENT , {RPAREN COMMA }]
      [java]   [FormalParamDecl ::= Type (*) IDENT LSQUARE RSQUARE , {RPAREN COMMA }]
      [java] }
-     [java] transition on IDENT to state [172]
+     [java] transition on IDENT to state [191]
      [java] -------------------
-     [java] lalr_state [162]: {
+     [java] lalr_state [181]: {
      [java]   [FormPars ::= FormalParamList (*) , {RPAREN }]
      [java]   [FormalParamList ::= FormalParamList (*) COMMA FormalParamDecl , {RPAREN COMMA }]
      [java] }
-     [java] transition on COMMA to state [170]
+     [java] transition on COMMA to state [189]
      [java] -------------------
-     [java] lalr_state [163]: {
+     [java] lalr_state [182]: {
      [java]   [MethodDecl ::= ReturnMethod IDENT LPAREN FormPars (*) RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on RPAREN to state [165]
+     [java] transition on RPAREN to state [184]
      [java] -------------------
-     [java] lalr_state [164]: {
+     [java] lalr_state [183]: {
      [java]   [FormalParamList ::= FormalParamDecl (*) , {RPAREN COMMA }]
      [java] }
      [java] -------------------
-     [java] lalr_state [165]: {
+     [java] lalr_state [184]: {
      [java]   [VarDeclList ::= (*) , {LBRACE IDENT }]
      [java]   [MethodDecl ::= ReturnMethod IDENT LPAREN FormPars RPAREN (*) VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [VarDeclList ::= (*) VarDeclList VarDecl , {LBRACE IDENT }]
      [java] }
-     [java] transition on VarDeclList to state [166]
+     [java] transition on VarDeclList to state [185]
      [java] -------------------
-     [java] lalr_state [166]: {
+     [java] lalr_state [185]: {
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [MethodDecl ::= ReturnMethod IDENT LPAREN FormPars RPAREN VarDeclList (*) LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [VarDeclList ::= VarDeclList (*) VarDecl , {LBRACE IDENT }]
      [java]   [VarDecl ::= (*) Type VarlList SEMI , {LBRACE IDENT }]
      [java] }
      [java] transition on IDENT to state [12]
-     [java] transition on VarDecl to state [151]
+     [java] transition on VarDecl to state [170]
      [java] transition on Type to state [10]
-     [java] transition on LBRACE to state [167]
+     [java] transition on LBRACE to state [186]
      [java] -------------------
-     [java] lalr_state [167]: {
+     [java] lalr_state [186]: {
      [java]   [StatementList ::= (*) , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [MethodDecl ::= ReturnMethod IDENT LPAREN FormPars RPAREN VarDeclList LBRACE (*) StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [StatementList ::= (*) StatementList Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java] }
-     [java] transition on StatementList to state [168]
+     [java] transition on StatementList to state [187]
      [java] -------------------
-     [java] lalr_state [168]: {
+     [java] lalr_state [187]: {
      [java]   [Unmatched ::= (*) IF Condition Statement , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) READ LPAREN Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) LBRACE StatementList RBRACE , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
@@ -1481,15 +1823,15 @@ parserGen:
      [java]   [Matched ::= (*) PRINT LPAREN Expr NumConstList RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) BREAK SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN ActPars RPAREN , {SEMI }]
-     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) DesignatorStatement SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [Matched ::= (*) RETURN SEMI , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
+     [java]   [Designator ::= (*) IDENT , {LPAREN EQUALS INC DEC }]
      [java]   [Matched ::= (*) IF Condition Matched ELSE Matched , {error LBRACE RBRACE RETURN PRINT IDENT IF LSQUARE READ CONTINUE BREAK FOR }]
      [java]   [DesignatorStatement ::= (*) Designator INC , {SEMI }]
      [java]   [DesignatorStatement ::= (*) error SEMI , {SEMI }]
      [java] }
      [java] transition on BREAK to state [58]
-     [java] transition on RBRACE to state [169]
+     [java] transition on RBRACE to state [188]
      [java] transition on CONTINUE to state [56]
      [java] transition on RETURN to state [55]
      [java] transition on Matched to state [54]
@@ -1506,93 +1848,93 @@ parserGen:
      [java] transition on READ to state [43]
      [java] transition on LSQUARE to state [42]
      [java] -------------------
-     [java] lalr_state [169]: {
+     [java] lalr_state [188]: {
      [java]   [MethodDecl ::= ReturnMethod IDENT LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE (*) , {RBRACE VOID IDENT }]
      [java] }
      [java] -------------------
-     [java] lalr_state [170]: {
+     [java] lalr_state [189]: {
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [FormalParamDecl ::= (*) Type IDENT , {RPAREN COMMA }]
      [java]   [FormalParamList ::= FormalParamList COMMA (*) FormalParamDecl , {RPAREN COMMA }]
      [java]   [FormalParamDecl ::= (*) Type IDENT LSQUARE RSQUARE , {RPAREN COMMA }]
      [java] }
-     [java] transition on FormalParamDecl to state [171]
+     [java] transition on FormalParamDecl to state [190]
      [java] transition on IDENT to state [12]
-     [java] transition on Type to state [161]
+     [java] transition on Type to state [180]
      [java] -------------------
-     [java] lalr_state [171]: {
+     [java] lalr_state [190]: {
      [java]   [FormalParamList ::= FormalParamList COMMA FormalParamDecl (*) , {RPAREN COMMA }]
      [java] }
      [java] -------------------
-     [java] lalr_state [172]: {
+     [java] lalr_state [191]: {
      [java]   [FormalParamDecl ::= Type IDENT (*) , {RPAREN COMMA }]
      [java]   [FormalParamDecl ::= Type IDENT (*) LSQUARE RSQUARE , {RPAREN COMMA }]
      [java] }
-     [java] transition on LSQUARE to state [173]
+     [java] transition on LSQUARE to state [192]
      [java] -------------------
-     [java] lalr_state [173]: {
+     [java] lalr_state [192]: {
      [java]   [FormalParamDecl ::= Type IDENT LSQUARE (*) RSQUARE , {RPAREN COMMA }]
      [java] }
-     [java] transition on RSQUARE to state [174]
+     [java] transition on RSQUARE to state [193]
      [java] -------------------
-     [java] lalr_state [174]: {
+     [java] lalr_state [193]: {
      [java]   [FormalParamDecl ::= Type IDENT LSQUARE RSQUARE (*) , {RPAREN COMMA }]
      [java] }
      [java] -------------------
-     [java] lalr_state [175]: {
+     [java] lalr_state [194]: {
      [java]   [VarDecl ::= Type VarlList (*) SEMI , {LBRACE RBRACE IDENT CONST CLASS STATIC }]
      [java]   [VarlList ::= VarlList (*) COMMA VarSingle , {SEMI COMMA }]
      [java] }
-     [java] transition on SEMI to state [181]
-     [java] transition on COMMA to state [180]
+     [java] transition on SEMI to state [200]
+     [java] transition on COMMA to state [199]
      [java] -------------------
-     [java] lalr_state [176]: {
+     [java] lalr_state [195]: {
      [java]   [VarlList ::= VarSingle (*) , {SEMI COMMA }]
      [java] }
      [java] -------------------
-     [java] lalr_state [177]: {
+     [java] lalr_state [196]: {
      [java]   [VarSingle ::= IDENT (*) LSQUARE RSQUARE , {SEMI COMMA }]
      [java]   [VarSingle ::= IDENT (*) , {SEMI COMMA }]
      [java] }
-     [java] transition on LSQUARE to state [178]
+     [java] transition on LSQUARE to state [197]
      [java] -------------------
-     [java] lalr_state [178]: {
+     [java] lalr_state [197]: {
      [java]   [VarSingle ::= IDENT LSQUARE (*) RSQUARE , {SEMI COMMA }]
      [java] }
-     [java] transition on RSQUARE to state [179]
+     [java] transition on RSQUARE to state [198]
      [java] -------------------
-     [java] lalr_state [179]: {
+     [java] lalr_state [198]: {
      [java]   [VarSingle ::= IDENT LSQUARE RSQUARE (*) , {SEMI COMMA }]
      [java] }
      [java] -------------------
-     [java] lalr_state [180]: {
+     [java] lalr_state [199]: {
      [java]   [VarSingle ::= (*) IDENT LSQUARE RSQUARE , {SEMI COMMA }]
      [java]   [VarSingle ::= (*) IDENT , {SEMI COMMA }]
      [java]   [VarlList ::= VarlList COMMA (*) VarSingle , {SEMI COMMA }]
      [java] }
-     [java] transition on IDENT to state [177]
-     [java] transition on VarSingle to state [182]
+     [java] transition on IDENT to state [196]
+     [java] transition on VarSingle to state [201]
      [java] -------------------
-     [java] lalr_state [181]: {
+     [java] lalr_state [200]: {
      [java]   [VarDecl ::= Type VarlList SEMI (*) , {LBRACE RBRACE IDENT CONST CLASS STATIC }]
      [java] }
      [java] -------------------
-     [java] lalr_state [182]: {
+     [java] lalr_state [201]: {
      [java]   [VarlList ::= VarlList COMMA VarSingle (*) , {SEMI COMMA }]
      [java] }
      [java] -------------------
-     [java] lalr_state [183]: {
+     [java] lalr_state [202]: {
      [java]   [MethodDeclList ::= (*) , {RBRACE VOID IDENT }]
      [java]   [ClassDecl ::= ClassDeclPom LBRACE (*) MethodDeclList RBRACE RBRACE , {LBRACE IDENT CONST CLASS }]
      [java]   [MethodDeclList ::= (*) MethodDeclList MethodDecl , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on MethodDeclList to state [185]
+     [java] transition on MethodDeclList to state [204]
      [java] -------------------
-     [java] lalr_state [184]: {
+     [java] lalr_state [203]: {
      [java]   [ClassDecl ::= ClassDeclPom RBRACE (*) , {LBRACE IDENT CONST CLASS }]
      [java] }
      [java] -------------------
-     [java] lalr_state [185]: {
+     [java] lalr_state [204]: {
      [java]   [ReturnMethod ::= (*) VOID , {IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [ClassDecl ::= ClassDeclPom LBRACE MethodDeclList (*) RBRACE RBRACE , {LBRACE IDENT CONST CLASS }]
@@ -1600,35 +1942,35 @@ parserGen:
      [java]   [MethodDeclList ::= MethodDeclList (*) MethodDecl , {RBRACE VOID IDENT }]
      [java]   [MethodDecl ::= (*) ReturnMethod IDENT LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on VOID to state [158]
-     [java] transition on ReturnMethod to state [157]
+     [java] transition on VOID to state [177]
+     [java] transition on ReturnMethod to state [176]
      [java] transition on IDENT to state [12]
-     [java] transition on MethodDecl to state [156]
-     [java] transition on RBRACE to state [186]
-     [java] transition on Type to state [154]
+     [java] transition on MethodDecl to state [175]
+     [java] transition on RBRACE to state [205]
+     [java] transition on Type to state [173]
      [java] -------------------
-     [java] lalr_state [186]: {
+     [java] lalr_state [205]: {
      [java]   [ClassDecl ::= ClassDeclPom LBRACE MethodDeclList RBRACE (*) RBRACE , {LBRACE IDENT CONST CLASS }]
      [java] }
-     [java] transition on RBRACE to state [187]
+     [java] transition on RBRACE to state [206]
      [java] -------------------
-     [java] lalr_state [187]: {
+     [java] lalr_state [206]: {
      [java]   [ClassDecl ::= ClassDeclPom LBRACE MethodDeclList RBRACE RBRACE (*) , {LBRACE IDENT CONST CLASS }]
      [java] }
      [java] -------------------
-     [java] lalr_state [188]: {
+     [java] lalr_state [207]: {
      [java]   [Namespace ::= NAMESPACE IDENT (*) LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE , {LBRACE IDENT CONST CLASS NAMESPACE }]
      [java] }
-     [java] transition on LBRACE to state [189]
+     [java] transition on LBRACE to state [208]
      [java] -------------------
-     [java] lalr_state [189]: {
+     [java] lalr_state [208]: {
      [java]   [ProgDeclList ::= (*) , {LBRACE IDENT CONST CLASS }]
      [java]   [Namespace ::= NAMESPACE IDENT LBRACE (*) ProgDeclList LBRACE MethodDeclList RBRACE RBRACE , {LBRACE IDENT CONST CLASS NAMESPACE }]
      [java]   [ProgDeclList ::= (*) ProgDeclList ProgDecl , {LBRACE IDENT CONST CLASS }]
      [java] }
-     [java] transition on ProgDeclList to state [190]
+     [java] transition on ProgDeclList to state [209]
      [java] -------------------
-     [java] lalr_state [190]: {
+     [java] lalr_state [209]: {
      [java]   [VarDecl ::= (*) Type VarlList SEMI , {LBRACE IDENT CONST CLASS }]
      [java]   [ProgDecl ::= (*) ClassDecl , {LBRACE IDENT CONST CLASS }]
      [java]   [ClassDecl ::= (*) ClassDeclPom RBRACE , {LBRACE IDENT CONST CLASS }]
@@ -1648,18 +1990,18 @@ parserGen:
      [java] transition on ClassDecl to state [14]
      [java] transition on VarDecl to state [13]
      [java] transition on IDENT to state [12]
-     [java] transition on LBRACE to state [191]
+     [java] transition on LBRACE to state [210]
      [java] transition on Type to state [10]
      [java] transition on ClassDeclPom to state [9]
      [java] -------------------
-     [java] lalr_state [191]: {
+     [java] lalr_state [210]: {
      [java]   [MethodDeclList ::= (*) , {RBRACE VOID IDENT }]
      [java]   [Namespace ::= NAMESPACE IDENT LBRACE ProgDeclList LBRACE (*) MethodDeclList RBRACE RBRACE , {LBRACE IDENT CONST CLASS NAMESPACE }]
      [java]   [MethodDeclList ::= (*) MethodDeclList MethodDecl , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on MethodDeclList to state [192]
+     [java] transition on MethodDeclList to state [211]
      [java] -------------------
-     [java] lalr_state [192]: {
+     [java] lalr_state [211]: {
      [java]   [ReturnMethod ::= (*) VOID , {IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [Namespace ::= NAMESPACE IDENT LBRACE ProgDeclList LBRACE MethodDeclList (*) RBRACE RBRACE , {LBRACE IDENT CONST CLASS NAMESPACE }]
@@ -1667,31 +2009,31 @@ parserGen:
      [java]   [MethodDeclList ::= MethodDeclList (*) MethodDecl , {RBRACE VOID IDENT }]
      [java]   [MethodDecl ::= (*) ReturnMethod IDENT LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
-     [java] transition on VOID to state [158]
-     [java] transition on ReturnMethod to state [157]
+     [java] transition on VOID to state [177]
+     [java] transition on ReturnMethod to state [176]
      [java] transition on IDENT to state [12]
-     [java] transition on MethodDecl to state [156]
-     [java] transition on RBRACE to state [193]
-     [java] transition on Type to state [154]
+     [java] transition on MethodDecl to state [175]
+     [java] transition on RBRACE to state [212]
+     [java] transition on Type to state [173]
      [java] -------------------
-     [java] lalr_state [193]: {
+     [java] lalr_state [212]: {
      [java]   [Namespace ::= NAMESPACE IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE (*) RBRACE , {LBRACE IDENT CONST CLASS NAMESPACE }]
      [java] }
-     [java] transition on RBRACE to state [194]
+     [java] transition on RBRACE to state [213]
      [java] -------------------
-     [java] lalr_state [194]: {
+     [java] lalr_state [213]: {
      [java]   [Namespace ::= NAMESPACE IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE (*) , {LBRACE IDENT CONST CLASS NAMESPACE }]
      [java] }
      [java] -------------------
-     [java] lalr_state [195]: {
+     [java] lalr_state [214]: {
      [java]   [$START ::= Program EOF (*) , {EOF }]
      [java] }
      [java] -------------------
      [java] Closing files...
      [java] ------- CUP v0.10k Parser Generation Summary -------
-     [java]   0 errors and 16 warnings
-     [java]   53 terminals, 53 non-terminals, and 114 productions declared, 
-     [java]   producing 196 unique parse states.
+     [java]   0 errors and 17 warnings
+     [java]   53 terminals, 56 non-terminals, and 124 productions declared, 
+     [java]   producing 215 unique parse states.
      [java]   9 terminals declared but not used.
      [java]   0 non-terminals declared but not used.
      [java]   0 productions never reduced.
@@ -1699,10 +2041,10 @@ parserGen:
      [java]   Code written to "MJParser.java", and "sym.java".
      [java] ---------------------------------------------------- (v0.10k)
 repackage:
-  [replace] Replaced 160 occurrences in 160 files.
+  [replace] Replaced 174 occurrences in 174 files.
 compile:
-    [javac] Compiling 166 source files
+    [javac] Compiling 180 source files
     [javac] Note: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\src\rs\ac\bg\etf\pp1\Yylex.java uses or overrides a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
 BUILD SUCCESSFUL
-Total time: 6 seconds
+Total time: 7 seconds
