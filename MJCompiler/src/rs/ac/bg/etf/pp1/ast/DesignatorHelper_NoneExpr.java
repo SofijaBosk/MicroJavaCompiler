@@ -1,13 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:59:4
+// 5/11/2023 16:3:6
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class NoActuals extends ActualPars {
+public class DesignatorHelper_NoneExpr extends DesignatorHelper2 {
 
-    public NoActuals () {
+    public DesignatorHelper_NoneExpr () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class NoActuals extends ActualPars {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("NoActuals(\n");
+        buffer.append("DesignatorHelper_NoneExpr(\n");
 
         buffer.append(tab);
-        buffer.append(") [NoActuals]");
+        buffer.append(") [DesignatorHelper_NoneExpr]");
         return buffer.toString();
     }
 }

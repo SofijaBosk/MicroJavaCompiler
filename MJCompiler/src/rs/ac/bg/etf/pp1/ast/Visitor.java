@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:59:4
+// 5/11/2023 16:3:6
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -25,8 +25,11 @@ public interface Visitor {
     public void visit(ClassDeclPom ClassDeclPom);
     public void visit(Factor Factor);
     public void visit(CondTerm CondTerm);
+    public void visit(Pom Pom);
+    public void visit(DesignatorHelper DesignatorHelper);
     public void visit(ConstList ConstList);
     public void visit(ProgDecl ProgDecl);
+    public void visit(Designator Designator);
     public void visit(Term Term);
     public void visit(Condition Condition);
     public void visit(ConstSingle ConstSingle);
@@ -55,6 +58,8 @@ public interface Visitor {
     public void visit(MethodDeclList MethodDeclList);
     public void visit(ExtendsFrom ExtendsFrom);
     public void visit(FormPars FormPars);
+    public void visit(DesignatorHelper3 DesignatorHelper3);
+    public void visit(DesignatorHelper2 DesignatorHelper2);
     public void visit(Mulop_MOD Mulop_MOD);
     public void visit(Mulop_DIV Mulop_DIV);
     public void visit(Mulop_MUL Mulop_MUL);
@@ -67,11 +72,12 @@ public interface Visitor {
     public void visit(Relop_NEQ Relop_NEQ);
     public void visit(Relop_EQ Relop_EQ);
     public void visit(AssignopDerived1 AssignopDerived1);
-    public void visit(Designator Designator);
-    public void visit(ActualParam ActualParam);
-    public void visit(ActualParams ActualParams);
-    public void visit(NoActuals NoActuals);
-    public void visit(Actuals Actuals);
+    public void visit(DesignatorHelper_NoneExpr DesignatorHelper_NoneExpr);
+    public void visit(DesignatorHelper_Expr DesignatorHelper_Expr);
+    public void visit(DesignatorHelper_Dot DesignatorHelper_Dot);
+    public void visit(DesignatorHelper_None DesignatorHelper_None);
+    public void visit(DesignatorHelper_Scope DesignatorHelper_Scope);
+    public void visit(Designator_Ident Designator_Ident);
     public void visit(ConstValue_Bool ConstValue_Bool);
     public void visit(ConstValue_Char ConstValue_Char);
     public void visit(ConstValue_Num ConstValue_Num);
@@ -100,7 +106,6 @@ public interface Visitor {
     public void visit(DesignatorList_Single DesignatorList_Single);
     public void visit(DesignatorList_List DesignatorList_List);
     public void visit(DesigatorStatementError DesigatorStatementError);
-    public void visit(DesignatorStatement_Mul DesignatorStatement_Mul);
     public void visit(DesignatorStatement_NoActPars DesignatorStatement_NoActPars);
     public void visit(DesignatorStatement_ActPars DesignatorStatement_ActPars);
     public void visit(DesignatorStatement_DEC DesignatorStatement_DEC);

@@ -72,7 +72,7 @@ terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
 terminal NAMESPACE, STATIC, FOR, MUL;
-
+terminal SCOPE;
 
 nonterminal MethodDeclList;
 nonterminal FormalParamList, FormalParamDecl, FormPars, ActualPars, ActualParamList; 
@@ -94,7 +94,9 @@ nonterminal DesignatorList, ActPars;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
 nonterminal ExprActParsChoice, ActParsList, ConstValue;
-
+nonterminal DesignatorHelper;
+nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
+	
 	            
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -339,8 +341,8 @@ DesignatorStatementList ::= (DesignatorStatementList_List) DesignatorStatementLi
 
 /*DesignatorStatement_START*/
 /*
-Designator (Assignop Expr | "(" [ActPars] ")" | "++" | "‐‐")
-| "[" [Designator] {"," [Designator]}"]" "=" Designator
+Designator (Assignop Expr | ʺ(ʺ [ActPars] ʺ)ʺ | ʺ++ʺ | ʺ‐‐ʺ) |
+ʺ[ʺ {[Designator] ʺ,ʺ} ʺ*ʺDesignator ʺ]ʺ ʺ=ʺ Designator
 */
 
 
@@ -354,8 +356,9 @@ DesignatorStatement ::= (DesignatorStatement_Expr) Designator Assignop Expr
 					| 
 					(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
 					|
-                    (DesignatorStatement_Mul) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator                 
+                    /*(DesignatorStatement_Mul) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator                 
                    	|
+                   	*/
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :}
 					;
@@ -470,18 +473,32 @@ ConstValue ::= (ConstValue_Num) NUM_CONST
 /*Factor_END*/
 
 
-ActualPars ::= (Actuals) ActualParamList 
-				| 
-			   (NoActuals) /* epsilon */ 
-			   ;
-			   
-ActualParamList ::= (ActualParams) ActualParamList COMMA Expr
-					|
-					(ActualParam) Expr
-					;
+/*Designator_START*/
+/* [ident ʺ::ʺ] ident {"." ident | "[" Expr "]"}*/
 
-Designator ::= (Designator) IDENT:name
+
+Designator ::= (Designator_Ident) DesignatorHelper DesignatorHelper2;
+
+
+DesignatorHelper ::= (DesignatorHelper_Scope) IDENT SCOPE IDENT
+				|
+				(DesignatorHelper_None) IDENT
+                ;
+
+DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
+		|
+		(DesignatorHelper_Expr) DesignatorHelper2 LSQUARE Expr RSQUARE
+		|
+		(DesignatorHelper_NoneExpr) /**/
+		;
+
+ /*               
+DesignatorHelper2 ::= (DesignatorHelper_Ident) DesignatorHelper2 DOT IDENT
 ;
+*/
+                
+/*Designator_END*/
+
 
 /*Operators_START*/	
 		

@@ -70,6 +70,7 @@ import java_cup.runtime.Symbol;
 "/" 		{ return new_symbol(sym.DIV, yytext()); }
 "%" 		{ return new_symbol(sym.MOD, yytext()); }
 "=" 		{ return new_symbol(sym.EQUALS, yytext()); }
+"::"         { return new_symbol(sym.SCOPE, yytext()); }
 ";" 		{ return new_symbol(sym.SEMI, yytext()); }
 "," 		{ return new_symbol(sym.COMMA, yytext()); }
 "(" 		{ return new_symbol(sym.LPAREN, yytext()); }

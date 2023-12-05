@@ -72,7 +72,7 @@ terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
 terminal NAMESPACE, STATIC, FOR, MUL;
-
+terminal SCOPE;
 
 nonterminal MethodDeclList MethodDeclList;
 nonterminal FormalParamList FormalParamList;
@@ -131,7 +131,11 @@ nonterminal Mulop Mulop;
 nonterminal ExprActParsChoice ExprActParsChoice;
 nonterminal ActParsList ActParsList;
 nonterminal ConstValue ConstValue;
-
+nonterminal DesignatorHelper DesignatorHelper;
+nonterminal DesignatorHelper2 DesignatorHelper2;
+nonterminal DesignatorHelper3 DesignatorHelper3;
+nonterminal Pom Pom;	
+	
 	            
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -376,8 +380,8 @@ DesignatorStatementList ::= (DesignatorStatementList_List) DesignatorStatementLi
 
 /*DesignatorStatement_START*/
 /*
-Designator (Assignop Expr | "(" [ActPars] ")" | "++" | "‐‐")
-| "[" [Designator] {"," [Designator]}"]" "=" Designator
+Designator (Assignop Expr | ʺ(ʺ [ActPars] ʺ)ʺ | ʺ++ʺ | ʺ‐‐ʺ) |
+ʺ[ʺ {[Designator] ʺ,ʺ} ʺ*ʺDesignator ʺ]ʺ ʺ=ʺ Designator
 */
 
 
@@ -391,8 +395,9 @@ DesignatorStatement ::= (DesignatorStatement_Expr) Designator:D1 Assignop:A2 Exp
 					| 
 					(DesignatorStatement_NoActPars) Designator:D1 LPAREN RPAREN {: RESULT=new DesignatorStatement_NoActPars(D1); RESULT.setLine(D1left); :}
 					|
-                    (DesignatorStatement_Mul) LSQUARE DesignatorList:D1 MUL Designator:D2 RSQUARE EQUALS Designator:D3 {: RESULT=new DesignatorStatement_Mul(D1, D2, D3); RESULT.setLine(D1left); :}                 
+                    /*(DesignatorStatement_Mul) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator                 
                    	|
+                   	*/
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :} {: RESULT=new DesigatorStatementError(); :}
 					;
@@ -507,18 +512,32 @@ ConstValue ::= (ConstValue_Num) NUM_CONST:N1 {: RESULT=new ConstValue_Num(N1); R
 /*Factor_END*/
 
 
-ActualPars ::= (Actuals) ActualParamList:A1 {: RESULT=new Actuals(A1); RESULT.setLine(A1left); :} 
-				| 
-			   (NoActuals) {: RESULT=new NoActuals(); :} /* epsilon */ 
-			   ;
-			   
-ActualParamList ::= (ActualParams) ActualParamList:A1 COMMA Expr:E2 {: RESULT=new ActualParams(A1, E2); RESULT.setLine(A1left); :}
-					|
-					(ActualParam) Expr:E1 {: RESULT=new ActualParam(E1); RESULT.setLine(E1left); :}
-					;
+/*Designator_START*/
+/* [ident ʺ::ʺ] ident {"." ident | "[" Expr "]"}*/
 
-Designator ::= (Designator) IDENT:name {: RESULT=new Designator(name); RESULT.setLine(nameleft); :}
+
+Designator ::= (Designator_Ident) DesignatorHelper:D1 DesignatorHelper2:D2 {: RESULT=new Designator_Ident(D1, D2); RESULT.setLine(D1left); :};
+
+
+DesignatorHelper ::= (DesignatorHelper_Scope) IDENT:I1 SCOPE IDENT:I2 {: RESULT=new DesignatorHelper_Scope(I1, I2); RESULT.setLine(I1left); :}
+				|
+				(DesignatorHelper_None) IDENT:I1 {: RESULT=new DesignatorHelper_None(I1); RESULT.setLine(I1left); :}
+                ;
+
+DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2:D1 DOT IDENT:I2 {: RESULT=new DesignatorHelper_Dot(D1, I2); RESULT.setLine(D1left); :}
+		|
+		(DesignatorHelper_Expr) DesignatorHelper2:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignatorHelper_Expr(D1, E2); RESULT.setLine(D1left); :}
+		|
+		(DesignatorHelper_NoneExpr) {: RESULT=new DesignatorHelper_NoneExpr(); :} /**/
+		;
+
+ /*               
+DesignatorHelper2 ::= (DesignatorHelper_Ident) DesignatorHelper2 DOT IDENT
 ;
+*/
+                
+/*Designator_END*/
+
 
 /*Operators_START*/	
 		

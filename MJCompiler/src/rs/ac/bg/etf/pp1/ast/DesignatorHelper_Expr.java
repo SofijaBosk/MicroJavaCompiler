@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:59:4
+// 5/11/2023 16:3:6
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ActualParams extends ActualParamList {
+public class DesignatorHelper_Expr extends DesignatorHelper2 {
 
-    private ActualParamList ActualParamList;
+    private DesignatorHelper2 DesignatorHelper2;
     private Expr Expr;
 
-    public ActualParams (ActualParamList ActualParamList, Expr Expr) {
-        this.ActualParamList=ActualParamList;
-        if(ActualParamList!=null) ActualParamList.setParent(this);
+    public DesignatorHelper_Expr (DesignatorHelper2 DesignatorHelper2, Expr Expr) {
+        this.DesignatorHelper2=DesignatorHelper2;
+        if(DesignatorHelper2!=null) DesignatorHelper2.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
     }
 
-    public ActualParamList getActualParamList() {
-        return ActualParamList;
+    public DesignatorHelper2 getDesignatorHelper2() {
+        return DesignatorHelper2;
     }
 
-    public void setActualParamList(ActualParamList ActualParamList) {
-        this.ActualParamList=ActualParamList;
+    public void setDesignatorHelper2(DesignatorHelper2 DesignatorHelper2) {
+        this.DesignatorHelper2=DesignatorHelper2;
     }
 
     public Expr getExpr() {
@@ -38,18 +38,18 @@ public class ActualParams extends ActualParamList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ActualParamList!=null) ActualParamList.accept(visitor);
+        if(DesignatorHelper2!=null) DesignatorHelper2.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ActualParamList!=null) ActualParamList.traverseTopDown(visitor);
+        if(DesignatorHelper2!=null) DesignatorHelper2.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ActualParamList!=null) ActualParamList.traverseBottomUp(visitor);
+        if(DesignatorHelper2!=null) DesignatorHelper2.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -57,10 +57,10 @@ public class ActualParams extends ActualParamList {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ActualParams(\n");
+        buffer.append("DesignatorHelper_Expr(\n");
 
-        if(ActualParamList!=null)
-            buffer.append(ActualParamList.toString("  "+tab));
+        if(DesignatorHelper2!=null)
+            buffer.append(DesignatorHelper2.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
@@ -72,7 +72,7 @@ public class ActualParams extends ActualParamList {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [ActualParams]");
+        buffer.append(") [DesignatorHelper_Expr]");
         return buffer.toString();
     }
 }
