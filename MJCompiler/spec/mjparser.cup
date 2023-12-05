@@ -85,6 +85,7 @@ nonterminal Type, Term, Expr, Factor, VarDeclList;
 nonterminal ProgDeclList, NamespaceList, Namespace;
 nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
 nonterminal ConstList, ConstSingle;
+nonterminal VarlList, VarSingle;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -144,15 +145,23 @@ Type ::= (Type) IDENT:typeName;
 
 /*Type_END*/
 
+/*VarDecl_START*/
+/*Type ident ["[" "]"] {"," ident ["[" "]"]} ";".*/
 
+VarDecl ::= (VarDecl) Type:varType VarlList SEMI;
 
-VarDeclList ::= (VarDeclarations) VarDeclList VarDecl  
-				|
-				(NoVarDecl)/* epsilon */ 
-				;
-				
-VarDecl ::= (VarDecl) Type:varType IDENT:varName SEMI 
-;
+VarlList ::= (SingleVarDecl) VarSingle
+			|
+			(MultipleVarDecl) VarlList COMMA VarSingle
+             ;
+             
+VarSingle ::= (VarDecl_ID) IDENT
+              |
+              (VarDecl_SQ) IDENT LSQUARE RSQUARE
+              ;
+
+/*VarDecl_END*/
+
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
 					|

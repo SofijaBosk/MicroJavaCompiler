@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 13:32:52
+// 5/11/2023 13:34:47
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,8 +11,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ProgDecl ProgDecl) { }
     public void visit(NamespaceList NamespaceList) { }
     public void visit(ActualParamList ActualParamList) { }
+    public void visit(VarSingle VarSingle) { }
     public void visit(ConstSingle ConstSingle) { }
     public void visit(Expr Expr) { }
+    public void visit(VarlList VarlList) { }
     public void visit(ClassDecl ClassDecl) { }
     public void visit(FormalParamList FormalParamList) { }
     public void visit(ProgDeclList ProgDeclList) { }
@@ -60,9 +62,11 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MethodDecl MethodDecl) { visit(); }
     public void visit(NoMethodDecl NoMethodDecl) { visit(); }
     public void visit(MethodDeclarations MethodDeclarations) { visit(); }
+    public void visit(VarDecl_SQ VarDecl_SQ) { visit(); }
+    public void visit(VarDecl_ID VarDecl_ID) { visit(); }
+    public void visit(MultipleVarDecl MultipleVarDecl) { visit(); }
+    public void visit(SingleVarDecl SingleVarDecl) { visit(); }
     public void visit(VarDecl VarDecl) { visit(); }
-    public void visit(NoVarDecl NoVarDecl) { visit(); }
-    public void visit(VarDeclarations VarDeclarations) { visit(); }
     public void visit(Type Type) { visit(); }
     public void visit(CharacterConst CharacterConst) { visit(); }
     public void visit(IntegerConst IntegerConst) { visit(); }

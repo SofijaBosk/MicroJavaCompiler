@@ -105,6 +105,8 @@ nonterminal ClassDecl ClassDecl;
 nonterminal ConstDecl ConstDecl;
 nonterminal ConstList ConstList;
 nonterminal ConstSingle ConstSingle;
+nonterminal VarlList VarlList;
+nonterminal VarSingle VarSingle;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -164,15 +166,23 @@ Type ::= (Type) IDENT:typeName {: RESULT=new Type(typeName); RESULT.setLine(type
 
 /*Type_END*/
 
+/*VarDecl_START*/
+/*Type ident ["[" "]"] {"," ident ["[" "]"]} ";".*/
 
+VarDecl ::= (VarDecl) Type:varType VarlList:V1 SEMI {: RESULT=new VarDecl(varType, V1); RESULT.setLine(varTypeleft); :};
 
-VarDeclList ::= (VarDeclarations) VarDeclList:V1 VarDecl:V2 {: RESULT=new VarDeclarations(V1, V2); RESULT.setLine(V1left); :}  
-				|
-				(NoVarDecl) {: RESULT=new NoVarDecl(); :}/* epsilon */ 
-				;
-				
-VarDecl ::= (VarDecl) Type:varType IDENT:varName SEMI {: RESULT=new VarDecl(varType, varName); RESULT.setLine(varTypeleft); :} 
-;
+VarlList ::= (SingleVarDecl) VarSingle:V1 {: RESULT=new SingleVarDecl(V1); RESULT.setLine(V1left); :}
+			|
+			(MultipleVarDecl) VarlList:V1 COMMA VarSingle:V2 {: RESULT=new MultipleVarDecl(V1, V2); RESULT.setLine(V1left); :}
+             ;
+             
+VarSingle ::= (VarDecl_ID) IDENT:I1 {: RESULT=new VarDecl_ID(I1); RESULT.setLine(I1left); :}
+              |
+              (VarDecl_SQ) IDENT:I1 LSQUARE RSQUARE {: RESULT=new VarDecl_SQ(I1); RESULT.setLine(I1left); :}
+              ;
+
+/*VarDecl_END*/
+
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MethodDeclarations(M1, M2); RESULT.setLine(M1left); :}
 					|

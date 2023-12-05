@@ -5,9 +5,20 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ReturnNoExpr extends Matched {
+public class VarDecl_SQ extends VarSingle {
 
-    public ReturnNoExpr () {
+    private String I1;
+
+    public VarDecl_SQ (String I1) {
+        this.I1=I1;
+    }
+
+    public String getI1() {
+        return I1;
+    }
+
+    public void setI1(String I1) {
+        this.I1=I1;
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +39,13 @@ public class ReturnNoExpr extends Matched {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ReturnNoExpr(\n");
+        buffer.append("VarDecl_SQ(\n");
+
+        buffer.append(" "+tab+I1);
+        buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [ReturnNoExpr]");
+        buffer.append(") [VarDecl_SQ]");
         return buffer.toString();
     }
 }
