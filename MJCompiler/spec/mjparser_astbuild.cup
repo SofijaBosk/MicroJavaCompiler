@@ -71,7 +71,7 @@ terminal NEW;
 terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-terminal NAMESPACE, STATIC;
+terminal NAMESPACE, STATIC, FOR;
 
 
 nonterminal MethodDeclList MethodDeclList;
@@ -115,6 +115,13 @@ nonterminal MethodDeclListBrace MethodDeclListBrace;
 nonterminal ClassDeclPom ClassDeclPom;
 nonterminal StaticPom StaticPom;
 nonterminal ReturnMethod ReturnMethod;
+nonterminal DesignatorStatementHelper DesignatorStatementHelper;
+nonterminal CondFactHelper CondFactHelper;
+nonterminal DesignatorStatementList DesignatorStatementList;
+nonterminal NumConstList NumConstList;
+nonterminal Condition Condition;
+nonterminal DesignatorStatement DesignatorStatement;
+nonterminal CondFact CondFact;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -279,31 +286,86 @@ FormalParamDecl ::= (FormParDecl_Single) Type:T1 IDENT:I2 {: RESULT=new FormParD
 
 /*FormPars_END*/
 
-StatementList ::= (Statements) StatementList:S1 Statement:S2 {: RESULT=new Statements(S1, S2); RESULT.setLine(S1left); :} 
-					|
-				  (NoStmt) {: RESULT=new NoStmt(); :} /* epsilon */
-				  ;
 
-Statement ::= (MatchedStmt) Matched:M1 {: RESULT=new MatchedStmt(M1); RESULT.setLine(M1left); :} | (UnmachedStmt) Unmatched:U1 {: RESULT=new UnmachedStmt(U1); RESULT.setLine(U1left); :} ;
+/*Statement_START*/
+/*
+DesignatorStatement ʺ;ʺ
+| ʺifʺ ʺ(ʺ Condition ʺ)ʺ Statement [ʺelseʺ Statement]
+| ʺbreakʺ ʺ;ʺ
+| ʺcontinueʺ ʺ;ʺ
+| ʺreturnʺ [Expr] ʺ;ʺ
+| ʺreadʺ ʺ(ʺ Designator ʺ)ʺ ʺ;ʺ
+| ʺprintʺ ʺ(ʺ Expr [ʺ,ʺ numConst] ʺ)ʺ ʺ;ʺ
+| ʺforʺ ʺ{ʺ [DesignatorStatement {ʺ,ʺ DesignatorStatement}] ʺ;ʺ [CondFact] ʺ;ʺ
+[DesignatorStatement {ʺ,ʺ DesignatorStatement}] ʺ}ʺ * za B i C nivo
+| ʺ{ʺ {Statement} ʺ}ʺ
+*/
 
-Unmatched ::= (UnmatchedIf) IF Expr:E1 Statement:S2 {: RESULT=new UnmatchedIf(E1, S2); RESULT.setLine(E1left); :} | (UnmatchedIfElse) IF Expr:E1 Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(E1, M2, U3); RESULT.setLine(E1left); :};
-	
+StatementList ::= (Statements) StatementList:S1 Statement:S2 {: RESULT=new Statements(S1, S2); RESULT.setLine(S1left); :}
+				|
+				(NoStmt) {: RESULT=new NoStmt(); :} /* epsilon */
+				;
+				
 				  
-Matched ::= (Assignment) Designator:dest EQUAL Expr:e SEMI {: RESULT=new Assignment(dest, e); RESULT.setLine(destleft); :} 
-			  |
-			  (ErrAssignment) Designator:D1 EQUAL error SEMI
-			  {: parser.log.debug("Uspesan oporavak od greske pri dodeli vrednosti."); :} {: RESULT=new ErrAssignment(D1); RESULT.setLine(D1left); :}
-			  |
-			  (PrintStmt) PRINT LPAREN Expr:E1 RPAREN SEMI {: RESULT=new PrintStmt(E1); RESULT.setLine(E1left); :} 
-			  |
-			  (ReturnExpr) RETURN Expr:t SEMI {: RESULT=new ReturnExpr(t); RESULT.setLine(tleft); :}
-			  |
-			  (ReturnNoExpr) RETURN SEMI {: RESULT=new ReturnNoExpr(); :}
-			  | 
-			  (MatchedIf) IF Expr:E1 Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedIf(E1, M2, M3); RESULT.setLine(E1left); :}
-			  |
-			  (ProcCall) Designator:func LPAREN ActualPars:A1 RPAREN SEMI {: RESULT=new ProcCall(func, A1); RESULT.setLine(funcleft); :}
-			  ;
+Statement ::= (MatchedStmt) Matched:M1 {: RESULT=new MatchedStmt(M1); RESULT.setLine(M1left); :}
+		   |
+		   (UnmatchedStmt) Unmatched:U1 {: RESULT=new UnmatchedStmt(U1); RESULT.setLine(U1left); :}
+		   ; 
+
+Unmatched ::= (UnmatchedIf) IF Condition:C1 Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
+		 	|
+		 	(UnmatchedIfElse) IF Condition:C1 Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
+		 	;
+		 
+
+Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI {: RESULT=new DesignatorStatementStmt(dest); RESULT.setLine(destleft); :}
+		   |
+		   (ErrorStmt) error SEMI:l
+		   {: parser.report_error("Izvrsen oporavak do ; u liniji " + lleft, null);  :} {: RESULT=new ErrorStmt(); :}
+		   |
+		   (PrintStmt) PRINT LPAREN Expr:E1 NumConstList:N2 RPAREN SEMI {: RESULT=new PrintStmt(E1, N2); RESULT.setLine(E1left); :}
+		   |
+		   (ReadStmt) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new ReadStmt(D1); RESULT.setLine(D1left); :}
+		   |
+		   (ReturnExpr) RETURN Expr:t SEMI {: RESULT=new ReturnExpr(t); RESULT.setLine(tleft); :}
+		   |
+		   (ReturnNoExpr) RETURN SEMI {: RESULT=new ReturnNoExpr(); :}
+		   |
+		   (ContinueStmt) CONTINUE SEMI {: RESULT=new ContinueStmt(); :}
+		   |
+		   (BreakStmt) BREAK SEMI {: RESULT=new BreakStmt(); :}
+		   |
+		   (StatementList_List) LBRACE StatementList:S1 RBRACE {: RESULT=new StatementList_List(S1); RESULT.setLine(S1left); :}
+	     	|
+		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper:D1 RPAREN SEMI CondFactHelper:C2 SEMI DesignatorStatementHelper:D3 {: RESULT=new FORStmt_NoDS(D1, C2, D3); RESULT.setLine(D1left); :}		   
+		   |
+		   (MatchedStatement) IF Condition:C1 Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedStatement(C1, M2, M3); RESULT.setLine(C1left); :}
+		   ;
+		   
+DesignatorStatementHelper ::= (DesignatorStatementHelper_DS) DesignatorStatement:D1 DesignatorStatementList:D2 {: RESULT=new DesignatorStatementHelper_DS(D1, D2); RESULT.setLine(D1left); :}
+		   					|
+		   					(DesignatorStatementHelper_NoDS) {: RESULT=new DesignatorStatementHelper_NoDS(); :} /**/
+		   					;
+		   					
+CondFactHelper ::= (CondFactHelper_One) CondFact:C1 {: RESULT=new CondFactHelper_One(C1); RESULT.setLine(C1left); :}
+		   					|
+		   					(CondFactHelper_none) {: RESULT=new CondFactHelper_none(); :} /**/
+		   					;	   					
+		   					
+NumConstList ::= (NumConstList_ARGS) COMMA NUM_CONST:N1 {: RESULT=new NumConstList_ARGS(N1); RESULT.setLine(N1left); :}
+				|
+				(NumConstList_None) {: RESULT=new NumConstList_None(); :} /*epsilon*/
+				;		
+					  
+DesignatorStatementList ::= (DesignatorStatementList_List) DesignatorStatementList:D1 DesignatorStatement:D2 {: RESULT=new DesignatorStatementList_List(D1, D2); RESULT.setLine(D1left); :}
+							|
+							(DesignatorStatementList_Single) {: RESULT=new DesignatorStatementList_Single(); :} /* epsilon */
+							;
+
+/*Statement_END*/
+
+
+
 			  
 Expr ::= (AddExpr) Expr:te Addop:A1 Term:t {: RESULT=new AddExpr(te, A1, t); RESULT.setLine(teleft); :}
 		 |

@@ -71,7 +71,7 @@ terminal NEW;
 terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-terminal NAMESPACE, STATIC;
+terminal NAMESPACE, STATIC, FOR;
 
 
 nonterminal MethodDeclList;
@@ -89,6 +89,7 @@ nonterminal VarlList, VarSingle;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
 nonterminal ReturnMethod;
+nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement, CondFact;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -253,31 +254,86 @@ FormalParamDecl ::= (FormParDecl_Single) Type IDENT
 
 /*FormPars_END*/
 
-StatementList ::= (Statements) StatementList Statement 
-					|
-				  (NoStmt) /* epsilon */
-				  ;
 
-Statement ::= (MatchedStmt) Matched | (UnmachedStmt) Unmatched ;
+/*Statement_START*/
+/*
+DesignatorStatement ʺ;ʺ
+| ʺifʺ ʺ(ʺ Condition ʺ)ʺ Statement [ʺelseʺ Statement]
+| ʺbreakʺ ʺ;ʺ
+| ʺcontinueʺ ʺ;ʺ
+| ʺreturnʺ [Expr] ʺ;ʺ
+| ʺreadʺ ʺ(ʺ Designator ʺ)ʺ ʺ;ʺ
+| ʺprintʺ ʺ(ʺ Expr [ʺ,ʺ numConst] ʺ)ʺ ʺ;ʺ
+| ʺforʺ ʺ{ʺ [DesignatorStatement {ʺ,ʺ DesignatorStatement}] ʺ;ʺ [CondFact] ʺ;ʺ
+[DesignatorStatement {ʺ,ʺ DesignatorStatement}] ʺ}ʺ * za B i C nivo
+| ʺ{ʺ {Statement} ʺ}ʺ
+*/
 
-Unmatched ::= (UnmatchedIf) IF Expr Statement | (UnmatchedIfElse) IF Expr Matched ELSE Unmatched;
-	
+StatementList ::= (Statements) StatementList Statement
+				|
+				(NoStmt) /* epsilon */
+				;
+				
 				  
-Matched ::= (Assignment) Designator:dest EQUAL Expr:e SEMI 
-			  |
-			  (ErrAssignment) Designator EQUAL error SEMI
-			  {: parser.log.debug("Uspesan oporavak od greske pri dodeli vrednosti."); :}
-			  |
-			  (PrintStmt) PRINT LPAREN Expr RPAREN SEMI 
-			  |
-			  (ReturnExpr) RETURN Expr:t SEMI
-			  |
-			  (ReturnNoExpr) RETURN SEMI
-			  | 
-			  (MatchedIf) IF Expr Matched ELSE Matched
-			  |
-			  (ProcCall) Designator:func LPAREN ActualPars RPAREN SEMI
-			  ;
+Statement ::= (MatchedStmt) Matched
+		   |
+		   (UnmatchedStmt) Unmatched
+		   ; 
+
+Unmatched ::= (UnmatchedIf) IF Condition Statement
+		 	|
+		 	(UnmatchedIfElse) IF Condition Matched ELSE Unmatched
+		 	;
+		 
+
+Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI
+		   |
+		   (ErrorStmt) error SEMI:l
+		   {: parser.report_error("Izvrsen oporavak do ; u liniji " + lleft, null);  :}
+		   |
+		   (PrintStmt) PRINT LPAREN Expr NumConstList RPAREN SEMI
+		   |
+		   (ReadStmt) READ LPAREN Designator RPAREN SEMI
+		   |
+		   (ReturnExpr) RETURN Expr:t SEMI
+		   |
+		   (ReturnNoExpr) RETURN SEMI
+		   |
+		   (ContinueStmt) CONTINUE SEMI
+		   |
+		   (BreakStmt) BREAK SEMI
+		   |
+		   (StatementList_List) LBRACE StatementList RBRACE
+	     	|
+		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper RPAREN SEMI CondFactHelper SEMI DesignatorStatementHelper		   
+		   |
+		   (MatchedStatement) IF Condition Matched ELSE Matched
+		   ;
+		   
+DesignatorStatementHelper ::= (DesignatorStatementHelper_DS) DesignatorStatement DesignatorStatementList
+		   					|
+		   					(DesignatorStatementHelper_NoDS) /**/
+		   					;
+		   					
+CondFactHelper ::= (CondFactHelper_One) CondFact
+		   					|
+		   					(CondFactHelper_none) /**/
+		   					;	   					
+		   					
+NumConstList ::= (NumConstList_ARGS) COMMA NUM_CONST
+				|
+				(NumConstList_None) /*epsilon*/
+				;		
+					  
+DesignatorStatementList ::= (DesignatorStatementList_List) DesignatorStatementList DesignatorStatement
+							|
+							(DesignatorStatementList_Single) /* epsilon */
+							;
+
+/*Statement_END*/
+
+
+
 			  
 Expr ::= (AddExpr) Expr:te Addop Term:t
 		 |

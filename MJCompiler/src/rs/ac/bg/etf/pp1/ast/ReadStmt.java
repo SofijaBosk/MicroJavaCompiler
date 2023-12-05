@@ -1,20 +1,17 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:10:34
+// 5/11/2023 14:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ProcCall extends Matched {
+public class ReadStmt extends Matched {
 
     private Designator Designator;
-    private ActualPars ActualPars;
 
-    public ProcCall (Designator Designator, ActualPars ActualPars) {
+    public ReadStmt (Designator Designator) {
         this.Designator=Designator;
         if(Designator!=null) Designator.setParent(this);
-        this.ActualPars=ActualPars;
-        if(ActualPars!=null) ActualPars.setParent(this);
     }
 
     public Designator getDesignator() {
@@ -25,39 +22,28 @@ public class ProcCall extends Matched {
         this.Designator=Designator;
     }
 
-    public ActualPars getActualPars() {
-        return ActualPars;
-    }
-
-    public void setActualPars(ActualPars ActualPars) {
-        this.ActualPars=ActualPars;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(Designator!=null) Designator.accept(visitor);
-        if(ActualPars!=null) ActualPars.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Designator!=null) Designator.traverseTopDown(visitor);
-        if(ActualPars!=null) ActualPars.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Designator!=null) Designator.traverseBottomUp(visitor);
-        if(ActualPars!=null) ActualPars.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ProcCall(\n");
+        buffer.append("ReadStmt(\n");
 
         if(Designator!=null)
             buffer.append(Designator.toString("  "+tab));
@@ -65,14 +51,8 @@ public class ProcCall extends Matched {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ActualPars!=null)
-            buffer.append(ActualPars.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [ProcCall]");
+        buffer.append(") [ReadStmt]");
         return buffer.toString();
     }
 }

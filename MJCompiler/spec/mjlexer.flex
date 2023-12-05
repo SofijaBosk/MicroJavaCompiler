@@ -54,6 +54,7 @@ import java_cup.runtime.Symbol;
 "print"		{ return new_symbol(sym.PRINT, yytext()); }
 "extends" 	{ return new_symbol(sym.EXTENDS, yytext()); }
 "foreach" 	{ return new_symbol(sym.FOREACH, yytext()); }
+"for" 	{ return new_symbol(sym.FOR, yytext()); }
 
 "&&" 		{ return new_symbol(sym.AND, yytext()); }
 "||" 		{ return new_symbol(sym.OR, yytext()); }

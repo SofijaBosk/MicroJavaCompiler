@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:10:34
+// 5/11/2023 14:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,17 +10,21 @@ public interface Visitor {
     public void visit(Unmatched Unmatched);
     public void visit(Matched Matched);
     public void visit(Namespace Namespace);
+    public void visit(NumConstList NumConstList);
     public void visit(FormalParamDecl FormalParamDecl);
     public void visit(ProgDeclList ProgDeclList);
     public void visit(StaticInitializerList StaticInitializerList);
+    public void visit(CondFactHelper CondFactHelper);
     public void visit(StatementList StatementList);
     public void visit(NamespaceList NamespaceList);
     public void visit(ClassDeclPom ClassDeclPom);
     public void visit(Factor Factor);
     public void visit(ConstList ConstList);
     public void visit(ProgDecl ProgDecl);
+    public void visit(Condition Condition);
     public void visit(ConstSingle ConstSingle);
     public void visit(MethodDeclListBrace MethodDeclListBrace);
+    public void visit(DesignatorStatementList DesignatorStatementList);
     public void visit(VarSingle VarSingle);
     public void visit(VarlList VarlList);
     public void visit(ActualParamList ActualParamList);
@@ -28,12 +32,15 @@ public interface Visitor {
     public void visit(FormalParamList FormalParamList);
     public void visit(Expr Expr);
     public void visit(MethodTypeName MethodTypeName);
+    public void visit(DesignatorStatement DesignatorStatement);
     public void visit(ActualPars ActualPars);
     public void visit(StaticPom StaticPom);
     public void visit(ReturnMethod ReturnMethod);
     public void visit(Statement Statement);
+    public void visit(DesignatorStatementHelper DesignatorStatementHelper);
     public void visit(VarStaticDeclList VarStaticDeclList);
     public void visit(ClassDecl ClassDecl);
+    public void visit(CondFact CondFact);
     public void visit(MethodDeclList MethodDeclList);
     public void visit(ExtendsFrom ExtendsFrom);
     public void visit(FormPars FormPars);
@@ -49,16 +56,28 @@ public interface Visitor {
     public void visit(Term Term);
     public void visit(TermExpr TermExpr);
     public void visit(AddExpr AddExpr);
-    public void visit(ProcCall ProcCall);
-    public void visit(MatchedIf MatchedIf);
+    public void visit(DesignatorStatementList_Single DesignatorStatementList_Single);
+    public void visit(DesignatorStatementList_List DesignatorStatementList_List);
+    public void visit(NumConstList_None NumConstList_None);
+    public void visit(NumConstList_ARGS NumConstList_ARGS);
+    public void visit(CondFactHelper_none CondFactHelper_none);
+    public void visit(CondFactHelper_One CondFactHelper_One);
+    public void visit(DesignatorStatementHelper_NoDS DesignatorStatementHelper_NoDS);
+    public void visit(DesignatorStatementHelper_DS DesignatorStatementHelper_DS);
+    public void visit(MatchedStatement MatchedStatement);
+    public void visit(FORStmt_NoDS FORStmt_NoDS);
+    public void visit(StatementList_List StatementList_List);
+    public void visit(BreakStmt BreakStmt);
+    public void visit(ContinueStmt ContinueStmt);
     public void visit(ReturnNoExpr ReturnNoExpr);
     public void visit(ReturnExpr ReturnExpr);
+    public void visit(ReadStmt ReadStmt);
     public void visit(PrintStmt PrintStmt);
-    public void visit(ErrAssignment ErrAssignment);
-    public void visit(Assignment Assignment);
+    public void visit(ErrorStmt ErrorStmt);
+    public void visit(DesignatorStatementStmt DesignatorStatementStmt);
     public void visit(UnmatchedIfElse UnmatchedIfElse);
     public void visit(UnmatchedIf UnmatchedIf);
-    public void visit(UnmachedStmt UnmachedStmt);
+    public void visit(UnmatchedStmt UnmatchedStmt);
     public void visit(MatchedStmt MatchedStmt);
     public void visit(NoStmt NoStmt);
     public void visit(Statements Statements);
