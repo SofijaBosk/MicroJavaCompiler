@@ -88,6 +88,7 @@ nonterminal ConstList, ConstSingle;
 nonterminal VarlList, VarSingle;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
+nonterminal ReturnMethod;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -215,26 +216,42 @@ StaticInitializer ::= (StaticInitializer) STATIC LBRACE StatementList RBRACE;
 
 /*StaticInitializer_END*/
 
+/*MethodDecl_START*/
+/*(Type | "void") ident "(" [FormPars] ")" {VarDecl} "{" {Statement} "}"*/
+
 MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
-					|
-					(NoMethodDecl)/* epsilon */
-					;
+				|
+				(NoMethodDecl) /* epsilon */
+				;
+				
+MethodDecl ::= (MethodDecl) ReturnMethod IDENT:methName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
 
-MethodDecl ::= (MethodDecl) MethodTypeName
-			   LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE 
-			   ;
+ReturnMethod ::= (ReturnMethod_Type) Type
+				|
+				(ReturnMethod_Void) VOID
+				;
 
-MethodTypeName ::= (MethodTypeName) Type:retType IDENT:methName
-;
+/*MethodDecl_END*/
 
-FormPars ::= (FormParams) FormalParamList | (NoFormParam) /* epsilon */ ;
-
+/*FormPars_START*/
+/*Type ident ["[" "]"] {"," Type ident ["[" "]"]}*/	
+			
+FormPars ::= (FormParams) FormalParamList
+		  |
+		  (NoFormParam) /* epsilon */
+		  ;
+		  
 FormalParamList ::= (FormalParamDecls) FormalParamList COMMA FormalParamDecl
-					|
-					(SingleFormalParamDecl) FormalParamDecl
-					;
-					
-FormalParamDecl ::= (FormalParamDecl) Type IDENT ;
+				|
+				(SingleFormalParamDecl) FormalParamDecl
+				;
+				
+FormalParamDecl ::= (FormParDecl_Single) Type IDENT
+                |
+                (FormParDecl_Array) Type IDENT LSQUARE RSQUARE
+                ;				
+
+/*FormPars_END*/
 
 StatementList ::= (Statements) StatementList Statement 
 					|

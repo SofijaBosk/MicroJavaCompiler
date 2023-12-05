@@ -114,6 +114,7 @@ nonterminal StaticInitializer StaticInitializer;
 nonterminal MethodDeclListBrace MethodDeclListBrace;
 nonterminal ClassDeclPom ClassDeclPom;
 nonterminal StaticPom StaticPom;
+nonterminal ReturnMethod ReturnMethod;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -241,26 +242,42 @@ StaticInitializer ::= (StaticInitializer) STATIC LBRACE StatementList:S1 RBRACE 
 
 /*StaticInitializer_END*/
 
+/*MethodDecl_START*/
+/*(Type | "void") ident "(" [FormPars] ")" {VarDecl} "{" {Statement} "}"*/
+
 MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MethodDeclarations(M1, M2); RESULT.setLine(M1left); :}
-					|
-					(NoMethodDecl) {: RESULT=new NoMethodDecl(); :}/* epsilon */
-					;
+				|
+				(NoMethodDecl) {: RESULT=new NoMethodDecl(); :} /* epsilon */
+				;
+				
+MethodDecl ::= (MethodDecl) ReturnMethod:R1 IDENT:methName LPAREN FormPars:F2 RPAREN VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(R1, methName, F2, V3, S4); RESULT.setLine(R1left); :};
 
-MethodDecl ::= (MethodDecl) MethodTypeName:M1
-			   LPAREN FormPars:F2 RPAREN VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(M1, F2, V3, S4); RESULT.setLine(M1left); :} 
-			   ;
+ReturnMethod ::= (ReturnMethod_Type) Type:T1 {: RESULT=new ReturnMethod_Type(T1); RESULT.setLine(T1left); :}
+				|
+				(ReturnMethod_Void) VOID {: RESULT=new ReturnMethod_Void(); :}
+				;
 
-MethodTypeName ::= (MethodTypeName) Type:retType IDENT:methName {: RESULT=new MethodTypeName(retType, methName); RESULT.setLine(retTypeleft); :}
-;
+/*MethodDecl_END*/
 
-FormPars ::= (FormParams) FormalParamList:F1 {: RESULT=new FormParams(F1); RESULT.setLine(F1left); :} | (NoFormParam) {: RESULT=new NoFormParam(); :} /* epsilon */ ;
-
+/*FormPars_START*/
+/*Type ident ["[" "]"] {"," Type ident ["[" "]"]}*/	
+			
+FormPars ::= (FormParams) FormalParamList:F1 {: RESULT=new FormParams(F1); RESULT.setLine(F1left); :}
+		  |
+		  (NoFormParam) {: RESULT=new NoFormParam(); :} /* epsilon */
+		  ;
+		  
 FormalParamList ::= (FormalParamDecls) FormalParamList:F1 COMMA FormalParamDecl:F2 {: RESULT=new FormalParamDecls(F1, F2); RESULT.setLine(F1left); :}
-					|
-					(SingleFormalParamDecl) FormalParamDecl:F1 {: RESULT=new SingleFormalParamDecl(F1); RESULT.setLine(F1left); :}
-					;
-					
-FormalParamDecl ::= (FormalParamDecl) Type:T1 IDENT:I2 {: RESULT=new FormalParamDecl(T1, I2); RESULT.setLine(T1left); :} ;
+				|
+				(SingleFormalParamDecl) FormalParamDecl:F1 {: RESULT=new SingleFormalParamDecl(F1); RESULT.setLine(F1left); :}
+				;
+				
+FormalParamDecl ::= (FormParDecl_Single) Type:T1 IDENT:I2 {: RESULT=new FormParDecl_Single(T1, I2); RESULT.setLine(T1left); :}
+                |
+                (FormParDecl_Array) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new FormParDecl_Array(T1, I2); RESULT.setLine(T1left); :}
+                ;				
+
+/*FormPars_END*/
 
 StatementList ::= (Statements) StatementList:S1 Statement:S2 {: RESULT=new Statements(S1, S2); RESULT.setLine(S1left); :} 
 					|

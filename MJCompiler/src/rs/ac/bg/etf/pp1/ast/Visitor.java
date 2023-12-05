@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:7:35
+// 5/11/2023 14:10:34
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,7 @@ public interface Visitor {
     public void visit(Unmatched Unmatched);
     public void visit(Matched Matched);
     public void visit(Namespace Namespace);
+    public void visit(FormalParamDecl FormalParamDecl);
     public void visit(ProgDeclList ProgDeclList);
     public void visit(StaticInitializerList StaticInitializerList);
     public void visit(StatementList StatementList);
@@ -26,8 +27,10 @@ public interface Visitor {
     public void visit(VarDeclList VarDeclList);
     public void visit(FormalParamList FormalParamList);
     public void visit(Expr Expr);
+    public void visit(MethodTypeName MethodTypeName);
     public void visit(ActualPars ActualPars);
     public void visit(StaticPom StaticPom);
+    public void visit(ReturnMethod ReturnMethod);
     public void visit(Statement Statement);
     public void visit(VarStaticDeclList VarStaticDeclList);
     public void visit(ClassDecl ClassDecl);
@@ -59,12 +62,14 @@ public interface Visitor {
     public void visit(MatchedStmt MatchedStmt);
     public void visit(NoStmt NoStmt);
     public void visit(Statements Statements);
-    public void visit(FormalParamDecl FormalParamDecl);
+    public void visit(FormParDecl_Array FormParDecl_Array);
+    public void visit(FormParDecl_Single FormParDecl_Single);
     public void visit(SingleFormalParamDecl SingleFormalParamDecl);
     public void visit(FormalParamDecls FormalParamDecls);
     public void visit(NoFormParam NoFormParam);
     public void visit(FormParams FormParams);
-    public void visit(MethodTypeName MethodTypeName);
+    public void visit(ReturnMethod_Void ReturnMethod_Void);
+    public void visit(ReturnMethod_Type ReturnMethod_Type);
     public void visit(MethodDecl MethodDecl);
     public void visit(NoMethodDecl NoMethodDecl);
     public void visit(MethodDeclarations MethodDeclarations);

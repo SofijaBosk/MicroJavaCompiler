@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 14:7:35
+// 5/11/2023 14:10:34
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Unmatched Unmatched) { }
     public void visit(Matched Matched) { }
     public void visit(Namespace Namespace) { }
+    public void visit(FormalParamDecl FormalParamDecl) { }
     public void visit(ProgDeclList ProgDeclList) { }
     public void visit(StaticInitializerList StaticInitializerList) { }
     public void visit(StatementList StatementList) { }
@@ -26,8 +27,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDeclList VarDeclList) { }
     public void visit(FormalParamList FormalParamList) { }
     public void visit(Expr Expr) { }
+    public void visit(MethodTypeName MethodTypeName) { }
     public void visit(ActualPars ActualPars) { }
     public void visit(StaticPom StaticPom) { }
+    public void visit(ReturnMethod ReturnMethod) { }
     public void visit(Statement Statement) { }
     public void visit(VarStaticDeclList VarStaticDeclList) { }
     public void visit(ClassDecl ClassDecl) { }
@@ -59,12 +62,14 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MatchedStmt MatchedStmt) { visit(); }
     public void visit(NoStmt NoStmt) { visit(); }
     public void visit(Statements Statements) { visit(); }
-    public void visit(FormalParamDecl FormalParamDecl) { visit(); }
+    public void visit(FormParDecl_Array FormParDecl_Array) { visit(); }
+    public void visit(FormParDecl_Single FormParDecl_Single) { visit(); }
     public void visit(SingleFormalParamDecl SingleFormalParamDecl) { visit(); }
     public void visit(FormalParamDecls FormalParamDecls) { visit(); }
     public void visit(NoFormParam NoFormParam) { visit(); }
     public void visit(FormParams FormParams) { visit(); }
-    public void visit(MethodTypeName MethodTypeName) { visit(); }
+    public void visit(ReturnMethod_Void ReturnMethod_Void) { visit(); }
+    public void visit(ReturnMethod_Type ReturnMethod_Type) { visit(); }
     public void visit(MethodDecl MethodDecl) { visit(); }
     public void visit(NoMethodDecl NoMethodDecl) { visit(); }
     public void visit(MethodDeclarations MethodDeclarations) { visit(); }
