@@ -5,24 +5,24 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class StaticInitializerList_Multiple extends StaticInitializerList {
+public class StaticPom_StaticInitializer extends StaticPom {
 
-    private StaticInitializerList StaticInitializerList;
+    private StaticPom StaticPom;
     private StaticInitializer StaticInitializer;
 
-    public StaticInitializerList_Multiple (StaticInitializerList StaticInitializerList, StaticInitializer StaticInitializer) {
-        this.StaticInitializerList=StaticInitializerList;
-        if(StaticInitializerList!=null) StaticInitializerList.setParent(this);
+    public StaticPom_StaticInitializer (StaticPom StaticPom, StaticInitializer StaticInitializer) {
+        this.StaticPom=StaticPom;
+        if(StaticPom!=null) StaticPom.setParent(this);
         this.StaticInitializer=StaticInitializer;
         if(StaticInitializer!=null) StaticInitializer.setParent(this);
     }
 
-    public StaticInitializerList getStaticInitializerList() {
-        return StaticInitializerList;
+    public StaticPom getStaticPom() {
+        return StaticPom;
     }
 
-    public void setStaticInitializerList(StaticInitializerList StaticInitializerList) {
-        this.StaticInitializerList=StaticInitializerList;
+    public void setStaticPom(StaticPom StaticPom) {
+        this.StaticPom=StaticPom;
     }
 
     public StaticInitializer getStaticInitializer() {
@@ -38,18 +38,18 @@ public class StaticInitializerList_Multiple extends StaticInitializerList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(StaticInitializerList!=null) StaticInitializerList.accept(visitor);
+        if(StaticPom!=null) StaticPom.accept(visitor);
         if(StaticInitializer!=null) StaticInitializer.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(StaticInitializerList!=null) StaticInitializerList.traverseTopDown(visitor);
+        if(StaticPom!=null) StaticPom.traverseTopDown(visitor);
         if(StaticInitializer!=null) StaticInitializer.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(StaticInitializerList!=null) StaticInitializerList.traverseBottomUp(visitor);
+        if(StaticPom!=null) StaticPom.traverseBottomUp(visitor);
         if(StaticInitializer!=null) StaticInitializer.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -57,10 +57,10 @@ public class StaticInitializerList_Multiple extends StaticInitializerList {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("StaticInitializerList_Multiple(\n");
+        buffer.append("StaticPom_StaticInitializer(\n");
 
-        if(StaticInitializerList!=null)
-            buffer.append(StaticInitializerList.toString("  "+tab));
+        if(StaticPom!=null)
+            buffer.append(StaticPom.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
@@ -72,7 +72,7 @@ public class StaticInitializerList_Multiple extends StaticInitializerList {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [StaticInitializerList_Multiple]");
+        buffer.append(") [StaticPom_StaticInitializer]");
         return buffer.toString();
     }
 }

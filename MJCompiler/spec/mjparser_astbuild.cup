@@ -113,6 +113,7 @@ nonterminal StaticInitializerList StaticInitializerList;
 nonterminal StaticInitializer StaticInitializer;
 nonterminal MethodDeclListBrace MethodDeclListBrace;
 nonterminal ClassDeclPom ClassDeclPom;
+nonterminal StaticPom StaticPom;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -199,10 +200,17 @@ ClassDecl ::= (ClassDecl_NoMeth) ClassDeclPom:C1 RBRACE {: RESULT=new ClassDecl_
 				(ClassDecl_Meth) ClassDeclPom:C1 LBRACE MethodDeclList:M2 RBRACE RBRACE {: RESULT=new ClassDecl_Meth(C1, M2); RESULT.setLine(C1left); :}
 				;
  
-ClassDeclPom ::= (ClassDeclPom_NoMeth) CLASS IDENT:I1 ExtendsFrom:E2 LBRACE VarStaticDeclList:V3 StaticInitializerList:S4 VarDeclList:V5 {: RESULT=new ClassDeclPom_NoMeth(I1, E2, V3, S4, V5); RESULT.setLine(I1left); :};
+ClassDeclPom ::= (ClassDeclPom_NoMeth) CLASS IDENT:I1 ExtendsFrom:E2 LBRACE StaticPom:S3 VarDeclList:V4 {: RESULT=new ClassDeclPom_NoMeth(I1, E2, S3, V4); RESULT.setLine(I1left); :};
 /*
 MethodDeclListBrace ::= (MethodDeclListBrace_Meth) LBRACE MethodDeclList RBRACE;
 */
+
+StaticPom ::= (StaticPom_VarDecl) StaticPom:S1 STATIC VarDecl:V2 {: RESULT=new StaticPom_VarDecl(S1, V2); RESULT.setLine(S1left); :}
+		|
+		(StaticPom_StaticInitializer) StaticPom:S1 STATIC StaticInitializer:S2 {: RESULT=new StaticPom_StaticInitializer(S1, S2); RESULT.setLine(S1left); :}
+		|
+		(StaticPom_None) {: RESULT=new StaticPom_None(); :} /* epsilon */
+		;
 
 ExtendsFrom ::= (ExtendsFrom_Meth) EXTENDS Type:T1 {: RESULT=new ExtendsFrom_Meth(T1); RESULT.setLine(T1left); :}
                 |
@@ -226,7 +234,12 @@ VarDeclList ::= (VarDeclarations) VarDeclList:V1 VarDecl:V2 {: RESULT=new VarDec
 	    	    
 /*ClassDecl_END*/
 
+/*StaticInitializer_START*/
+/* ʺstaticʺ ʺ{ʺ {Statement} ʺ}ʺ */
 
+StaticInitializer ::= (StaticInitializer) STATIC LBRACE StatementList:S1 RBRACE {: RESULT=new StaticInitializer(S1); RESULT.setLine(S1left); :};
+
+/*StaticInitializer_END*/
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MethodDeclarations(M1, M2); RESULT.setLine(M1left); :}
 					|

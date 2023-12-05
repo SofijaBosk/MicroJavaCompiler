@@ -87,6 +87,7 @@ nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
 nonterminal ConstList, ConstSingle;
 nonterminal VarlList, VarSingle;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
+nonterminal StaticPom;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -173,10 +174,17 @@ ClassDecl ::= (ClassDecl_NoMeth) ClassDeclPom RBRACE
 				(ClassDecl_Meth) ClassDeclPom LBRACE MethodDeclList RBRACE RBRACE
 				;
  
-ClassDeclPom ::= (ClassDeclPom_NoMeth) CLASS IDENT ExtendsFrom LBRACE VarStaticDeclList StaticInitializerList VarDeclList;
+ClassDeclPom ::= (ClassDeclPom_NoMeth) CLASS IDENT ExtendsFrom LBRACE StaticPom VarDeclList;
 /*
 MethodDeclListBrace ::= (MethodDeclListBrace_Meth) LBRACE MethodDeclList RBRACE;
 */
+
+StaticPom ::= (StaticPom_VarDecl) StaticPom STATIC VarDecl
+		|
+		(StaticPom_StaticInitializer) StaticPom STATIC StaticInitializer
+		|
+		(StaticPom_None) /* epsilon */
+		;
 
 ExtendsFrom ::= (ExtendsFrom_Meth) EXTENDS Type
                 |
@@ -200,7 +208,12 @@ VarDeclList ::= (VarDeclarations) VarDeclList VarDecl
 	    	    
 /*ClassDecl_END*/
 
+/*StaticInitializer_START*/
+/* ʺstaticʺ ʺ{ʺ {Statement} ʺ}ʺ */
 
+StaticInitializer ::= (StaticInitializer) STATIC LBRACE StatementList RBRACE;
+
+/*StaticInitializer_END*/
 
 MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
 					|

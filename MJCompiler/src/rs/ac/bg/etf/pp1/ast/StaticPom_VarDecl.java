@@ -5,24 +5,24 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class VarDeclarations extends VarDeclList {
+public class StaticPom_VarDecl extends StaticPom {
 
-    private VarDeclList VarDeclList;
+    private StaticPom StaticPom;
     private VarDecl VarDecl;
 
-    public VarDeclarations (VarDeclList VarDeclList, VarDecl VarDecl) {
-        this.VarDeclList=VarDeclList;
-        if(VarDeclList!=null) VarDeclList.setParent(this);
+    public StaticPom_VarDecl (StaticPom StaticPom, VarDecl VarDecl) {
+        this.StaticPom=StaticPom;
+        if(StaticPom!=null) StaticPom.setParent(this);
         this.VarDecl=VarDecl;
         if(VarDecl!=null) VarDecl.setParent(this);
     }
 
-    public VarDeclList getVarDeclList() {
-        return VarDeclList;
+    public StaticPom getStaticPom() {
+        return StaticPom;
     }
 
-    public void setVarDeclList(VarDeclList VarDeclList) {
-        this.VarDeclList=VarDeclList;
+    public void setStaticPom(StaticPom StaticPom) {
+        this.StaticPom=StaticPom;
     }
 
     public VarDecl getVarDecl() {
@@ -38,18 +38,18 @@ public class VarDeclarations extends VarDeclList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(VarDeclList!=null) VarDeclList.accept(visitor);
+        if(StaticPom!=null) StaticPom.accept(visitor);
         if(VarDecl!=null) VarDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(VarDeclList!=null) VarDeclList.traverseTopDown(visitor);
+        if(StaticPom!=null) StaticPom.traverseTopDown(visitor);
         if(VarDecl!=null) VarDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(VarDeclList!=null) VarDeclList.traverseBottomUp(visitor);
+        if(StaticPom!=null) StaticPom.traverseBottomUp(visitor);
         if(VarDecl!=null) VarDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -57,10 +57,10 @@ public class VarDeclarations extends VarDeclList {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("VarDeclarations(\n");
+        buffer.append("StaticPom_VarDecl(\n");
 
-        if(VarDeclList!=null)
-            buffer.append(VarDeclList.toString("  "+tab));
+        if(StaticPom!=null)
+            buffer.append(StaticPom.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
@@ -72,7 +72,7 @@ public class VarDeclarations extends VarDeclList {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [VarDeclarations]");
+        buffer.append(") [StaticPom_VarDecl]");
         return buffer.toString();
     }
 }

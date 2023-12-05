@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 13:58:24
+// 5/11/2023 14:7:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,18 +9,15 @@ public class ClassDeclPom_NoMeth extends ClassDeclPom {
 
     private String I1;
     private ExtendsFrom ExtendsFrom;
-    private VarStaticDeclList VarStaticDeclList;
-    private StaticInitializerList StaticInitializerList;
+    private StaticPom StaticPom;
     private VarDeclList VarDeclList;
 
-    public ClassDeclPom_NoMeth (String I1, ExtendsFrom ExtendsFrom, VarStaticDeclList VarStaticDeclList, StaticInitializerList StaticInitializerList, VarDeclList VarDeclList) {
+    public ClassDeclPom_NoMeth (String I1, ExtendsFrom ExtendsFrom, StaticPom StaticPom, VarDeclList VarDeclList) {
         this.I1=I1;
         this.ExtendsFrom=ExtendsFrom;
         if(ExtendsFrom!=null) ExtendsFrom.setParent(this);
-        this.VarStaticDeclList=VarStaticDeclList;
-        if(VarStaticDeclList!=null) VarStaticDeclList.setParent(this);
-        this.StaticInitializerList=StaticInitializerList;
-        if(StaticInitializerList!=null) StaticInitializerList.setParent(this);
+        this.StaticPom=StaticPom;
+        if(StaticPom!=null) StaticPom.setParent(this);
         this.VarDeclList=VarDeclList;
         if(VarDeclList!=null) VarDeclList.setParent(this);
     }
@@ -41,20 +38,12 @@ public class ClassDeclPom_NoMeth extends ClassDeclPom {
         this.ExtendsFrom=ExtendsFrom;
     }
 
-    public VarStaticDeclList getVarStaticDeclList() {
-        return VarStaticDeclList;
+    public StaticPom getStaticPom() {
+        return StaticPom;
     }
 
-    public void setVarStaticDeclList(VarStaticDeclList VarStaticDeclList) {
-        this.VarStaticDeclList=VarStaticDeclList;
-    }
-
-    public StaticInitializerList getStaticInitializerList() {
-        return StaticInitializerList;
-    }
-
-    public void setStaticInitializerList(StaticInitializerList StaticInitializerList) {
-        this.StaticInitializerList=StaticInitializerList;
+    public void setStaticPom(StaticPom StaticPom) {
+        this.StaticPom=StaticPom;
     }
 
     public VarDeclList getVarDeclList() {
@@ -71,23 +60,20 @@ public class ClassDeclPom_NoMeth extends ClassDeclPom {
 
     public void childrenAccept(Visitor visitor) {
         if(ExtendsFrom!=null) ExtendsFrom.accept(visitor);
-        if(VarStaticDeclList!=null) VarStaticDeclList.accept(visitor);
-        if(StaticInitializerList!=null) StaticInitializerList.accept(visitor);
+        if(StaticPom!=null) StaticPom.accept(visitor);
         if(VarDeclList!=null) VarDeclList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(ExtendsFrom!=null) ExtendsFrom.traverseTopDown(visitor);
-        if(VarStaticDeclList!=null) VarStaticDeclList.traverseTopDown(visitor);
-        if(StaticInitializerList!=null) StaticInitializerList.traverseTopDown(visitor);
+        if(StaticPom!=null) StaticPom.traverseTopDown(visitor);
         if(VarDeclList!=null) VarDeclList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(ExtendsFrom!=null) ExtendsFrom.traverseBottomUp(visitor);
-        if(VarStaticDeclList!=null) VarStaticDeclList.traverseBottomUp(visitor);
-        if(StaticInitializerList!=null) StaticInitializerList.traverseBottomUp(visitor);
+        if(StaticPom!=null) StaticPom.traverseBottomUp(visitor);
         if(VarDeclList!=null) VarDeclList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -106,14 +92,8 @@ public class ClassDeclPom_NoMeth extends ClassDeclPom {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(VarStaticDeclList!=null)
-            buffer.append(VarStaticDeclList.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(StaticInitializerList!=null)
-            buffer.append(StaticInitializerList.toString("  "+tab));
+        if(StaticPom!=null)
+            buffer.append(StaticPom.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

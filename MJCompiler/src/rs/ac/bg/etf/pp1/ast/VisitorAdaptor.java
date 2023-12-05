@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/11/2023 13:58:24
+// 5/11/2023 14:7:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -27,10 +27,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormalParamList FormalParamList) { }
     public void visit(Expr Expr) { }
     public void visit(ActualPars ActualPars) { }
+    public void visit(StaticPom StaticPom) { }
     public void visit(Statement Statement) { }
     public void visit(VarStaticDeclList VarStaticDeclList) { }
     public void visit(ClassDecl ClassDecl) { }
-    public void visit(StaticInitializer StaticInitializer) { }
     public void visit(MethodDeclList MethodDeclList) { }
     public void visit(ExtendsFrom ExtendsFrom) { }
     public void visit(FormPars FormPars) { }
@@ -68,6 +68,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(MethodDecl MethodDecl) { visit(); }
     public void visit(NoMethodDecl NoMethodDecl) { visit(); }
     public void visit(MethodDeclarations MethodDeclarations) { visit(); }
+    public void visit(StaticInitializer StaticInitializer) { visit(); }
     public void visit(NoVarDecl NoVarDecl) { visit(); }
     public void visit(VarDeclarations VarDeclarations) { visit(); }
     public void visit(NoStaticVarDecl NoStaticVarDecl) { visit(); }
@@ -76,6 +77,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(StaticInitializerList_Single StaticInitializerList_Single) { visit(); }
     public void visit(ExtendsFrom_None ExtendsFrom_None) { visit(); }
     public void visit(ExtendsFrom_Meth ExtendsFrom_Meth) { visit(); }
+    public void visit(StaticPom_None StaticPom_None) { visit(); }
+    public void visit(StaticPom_StaticInitializer StaticPom_StaticInitializer) { visit(); }
+    public void visit(StaticPom_VarDecl StaticPom_VarDecl) { visit(); }
     public void visit(ClassDeclPom_NoMeth ClassDeclPom_NoMeth) { visit(); }
     public void visit(ClassDecl_Meth ClassDecl_Meth) { visit(); }
     public void visit(ClassDecl_NoMeth ClassDecl_NoMeth) { visit(); }

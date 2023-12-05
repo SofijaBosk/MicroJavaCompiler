@@ -5,9 +5,9 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ExtendsFrom_None extends ExtendsFrom {
+public class StaticPom_None extends StaticPom {
 
-    public ExtendsFrom_None () {
+    public StaticPom_None () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class ExtendsFrom_None extends ExtendsFrom {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ExtendsFrom_None(\n");
+        buffer.append("StaticPom_None(\n");
 
         buffer.append(tab);
-        buffer.append(") [ExtendsFrom_None]");
+        buffer.append(") [StaticPom_None]");
         return buffer.toString();
     }
 }
