@@ -1,0 +1,111 @@
+INFO  13:06:23,153 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat final\workspace\MJCompiler\test\program.mj
+INFO  13:06:23,397 - #2 program
+INFO  13:06:23,397 - #15 MJProgram
+INFO  13:06:23,397 - #15 int
+INFO  13:06:23,404 - #15 x
+INFO  13:06:23,410 - #5 ;
+INFO  13:06:23,410 - #15 int
+INFO  13:06:23,419 - #15 y
+INFO  13:06:23,419 - #5 ;
+INFO  13:06:23,419 - #3 {
+INFO  13:06:23,419 - #15 int
+INFO  13:06:23,425 - #15 main
+INFO  13:06:23,425 - #6 (
+INFO  13:06:23,425 - #7 )
+INFO  13:06:23,430 - #3 {
+INFO  13:06:23,436 - #12 print
+INFO  13:06:23,441 - #6 (
+INFO  13:06:23,441 - #14 1
+INFO  13:06:23,441 - #7 )
+INFO  13:06:23,448 - #5 ;
+INFO  13:06:23,448 - #15 x
+INFO  13:06:23,449 - #8 =
+INFO  13:06:23,456 - #15 y
+INFO  13:06:23,456 - #10 +
+INFO  13:06:23,456 - #14 5
+INFO  13:06:23,461 - #10 +
+INFO  13:06:23,462 - #5 ;
+ERROR 13:06:23,462 - 
+Sintaksna greska na liniji 8
+INFO  13:06:23,462 - #12 print
+INFO  13:06:23,462 - #6 (
+INFO  13:06:23,462 - #14 2
+ERROR 13:06:23,463 - Izvrsen oporavak do ; u liniji 8
+INFO  13:06:23,468 - #7 )
+INFO  13:06:23,468 - #5 ;
+INFO  13:06:23,468 - #4 }
+INFO  13:06:23,468 - #4 }
+INFO  13:06:23,477 - Program(
+ MJProgram
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgConstDescarations(
+        ConstDecl(
+          Type(
+           int
+          ) [Type]
+         x
+        ) [ConstDecl]
+      ) [ProgConstDescarations]
+    ) [ProgDeclListObj]
+    ProgConstDescarations(
+      ConstDecl(
+        Type(
+         int
+        ) [Type]
+       y
+      ) [ConstDecl]
+    ) [ProgConstDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      Type(
+       int
+      ) [Type]
+     main
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              PrintStmt(
+                TermExpr(
+                  Term(
+                    Const(
+                     1
+                    ) [Const]
+                  ) [Term]
+                ) [TermExpr]
+              ) [PrintStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            ErrorStmt(
+            ) [ErrorStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term(
+                Const(
+                 2
+                ) [Const]
+              ) [Term]
+            ) [TermExpr]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  13:06:23,477 - ===================================

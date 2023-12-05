@@ -40,6 +40,7 @@ import java_cup.runtime.Symbol;
 "print" 	{ return new_symbol(sym.PRINT, yytext()); }
 "return" 	{ return new_symbol(sym.RETURN, yytext()); }
 "void" 		{ return new_symbol(sym.VOID, yytext()); }
+"namespace"   { return new_symbol(sym.NAMESPACE, yytext()); }
 
 "const" 	{ return new_symbol(sym.CONST, yytext()); }
 "class" 	{ return new_symbol(sym.CLASS, yytext()); }

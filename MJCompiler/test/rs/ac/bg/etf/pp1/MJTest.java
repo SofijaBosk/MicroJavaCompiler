@@ -24,7 +24,6 @@ public class MJTest {
 		Logger log = Logger.getLogger(MJTest.class);
 		Reader br = null;
 		try {
-			
 			//String filename="test/program.mj";
 			String filename="test/primerSaSajta.mj";
 			File sourceCode = new File(filename);	

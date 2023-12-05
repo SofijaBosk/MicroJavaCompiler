@@ -1,0 +1,152 @@
+INFO  13:24:11,981 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat final\workspace\MJCompiler\test\program.mj
+INFO  13:24:12,078 - #2 program
+INFO  13:24:12,078 - #15 MJProgram
+INFO  13:24:12,079 - #15 int
+INFO  13:24:12,080 - #15 x
+INFO  13:24:12,082 - #5 ;
+INFO  13:24:12,083 - #15 int
+INFO  13:24:12,085 - #15 y
+INFO  13:24:12,085 - #5 ;
+INFO  13:24:12,085 - #3 {
+INFO  13:24:12,085 - #15 int
+INFO  13:24:12,087 - #15 main
+INFO  13:24:12,087 - #6 (
+INFO  13:24:12,087 - #7 )
+INFO  13:24:12,089 - #3 {
+INFO  13:24:12,090 - #12 print
+INFO  13:24:12,092 - #6 (
+INFO  13:24:12,092 - #14 1
+INFO  13:24:12,092 - #7 )
+INFO  13:24:12,094 - #5 ;
+INFO  13:24:12,095 - #15 int
+INFO  13:24:12,096 - #15 z
+ERROR 13:24:12,098 - 
+Sintaksna greska na liniji 8
+INFO  13:24:12,098 - #8 =
+INFO  13:24:12,098 - #14 10
+INFO  13:24:12,098 - #5 ;
+INFO  13:24:12,100 - #15 x
+INFO  13:24:12,100 - #8 =
+INFO  13:24:12,100 - #15 y
+ERROR 13:24:12,100 - Izvrsen oporavak do ; u liniji 8
+INFO  13:24:12,101 - #10 +
+INFO  13:24:12,102 - #14 5
+INFO  13:24:12,103 - #5 ;
+INFO  13:24:12,103 - #12 print
+INFO  13:24:12,103 - #6 (
+INFO  13:24:12,104 - #14 2
+INFO  13:24:12,104 - #7 )
+INFO  13:24:12,104 - #5 ;
+INFO  13:24:12,104 - #4 }
+INFO  13:24:12,104 - #4 }
+INFO  13:24:12,108 - Program(
+ MJProgram
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type(
+         int
+        ) [Type]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      ReturnMethod_Type(
+        Type(
+         int
+        ) [Type]
+      ) [ReturnMethod_Type]
+     main
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          Statements(
+            Statements(
+              NoStmt(
+              ) [NoStmt]
+              MatchedStmt(
+                PrintStmt(
+                  TermExpr(
+                    Term(
+                      Const(
+                       1
+                      ) [Const]
+                    ) [Term]
+                  ) [TermExpr]
+                ) [PrintStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              ErrorStmt(
+              ) [ErrorStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            Assignment(
+              Designator(
+               x
+              ) [Designator]
+              AddExpr(
+                TermExpr(
+                  Term(
+                    Var(
+                      Designator(
+                       y
+                      ) [Designator]
+                    ) [Var]
+                  ) [Term]
+                ) [TermExpr]
+                Addop(
+                ) [Addop]
+                Term(
+                  Const(
+                   5
+                  ) [Const]
+                ) [Term]
+              ) [AddExpr]
+            ) [Assignment]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term(
+                Const(
+                 2
+                ) [Const]
+              ) [Term]
+            ) [TermExpr]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  13:24:12,109 - ===================================

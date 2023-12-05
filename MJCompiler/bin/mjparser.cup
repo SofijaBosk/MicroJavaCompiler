@@ -54,24 +54,59 @@ scan with {:
 :}
 
 
-terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, COMMA, PRINT, RETURN, PLUS, EQUAL, VOID;
-terminal Integer NUMBER ;
-terminal String IDENT ;
-terminal IF, ELSE;
 
-nonterminal MethodDeclList, VarDecl;
+terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, EQUAL, RETURN, PLUS, COMMA, PRINT, VOID;
+terminal Integer NUMBER;
+terminal String IDENT;
+terminal IF, ELSE;
+terminal Integer NUM_CONST;
+terminal Character CHAR_CONST;
+terminal String BOOL_CONST;
+terminal EQUALS, CONST;
+terminal LSQUARE, RSQUARE;
+terminal CLASS, EXTENDS;
+terminal READ, CONTINUE, BREAK, WHILE;
+terminal OR, AND, MINUS;
+terminal NEW;
+terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
+terminal INC, DEC;
+terminal COLON, ASSIGN, FOREACH;
+
+
+
+nonterminal MethodDeclList;
 nonterminal FormalParamList, FormalParamDecl, FormPars, ActualPars, ActualParamList; 
 nonterminal StatementList, Statement, Addop;
 nonterminal Unmatched, Matched;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName, Designator, MethodDecl, MethodTypeName; 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Term, Expr, Factor, VarDeclList; 
+nonterminal Program, Designator, MethodDecl, MethodTypeName; 
+nonterminal Type, Term, Expr, Factor, VarDeclList; 
 
-Program ::= (Program) PROG ProgName:p VarDeclList LBRACE MethodDeclList RBRACE 
-;
+nonterminal ProgDeclList, NamespaceList, Namespace;
+nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
+/*Program_START*/
+/*"program" ident {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
 
-ProgName ::= (ProgName) IDENT:pName 
-;
+Program ::= (Program) PROG IDENT NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE;
+
+NamespaceList ::= (NamespaceList_Single) NamespaceList Namespace
+					|
+					(NamespaceList_Multiple) Namespace
+					;
+
+ProgDeclList ::= (ProgDeclListObj) ProgDeclList ProgDecl
+				|
+				(ProgDeclListNone) /* epsilon */
+				;
+
+ProgDecl ::= (ProgConstDescarations) ConstDecl
+				| 
+				(ProgVarDescarations) VarDecl
+				| 
+				(ProgClassDescarations) ClassDecl
+				;
+				
+/*Program_END*/	
 
 VarDeclList ::= (VarDeclarations) VarDeclList VarDecl  
 				|
