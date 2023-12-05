@@ -124,6 +124,10 @@ nonterminal DesignatorStatement DesignatorStatement;
 nonterminal CondFact CondFact;
 nonterminal DesignatorList DesignatorList;
 nonterminal ActPars ActPars;
+nonterminal CondTerm CondTerm;
+nonterminal Assignop Assignop;
+nonterminal Relop Relop;
+nonterminal Mulop Mulop;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -373,7 +377,7 @@ Designator (Assignop Expr | "(" [ActPars] ")" | "++" | "‐‐")
 */
 
 
-DesignatorStatement ::= (DesignatorStatement_Expr) Designator:D1 EQUALS Expr:E2 {: RESULT=new DesignatorStatement_Expr(D1, E2); RESULT.setLine(D1left); :}
+DesignatorStatement ::= (DesignatorStatement_Expr) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new DesignatorStatement_Expr(D1, A2, E3); RESULT.setLine(D1left); :}
 					| 
 					(DesignatorStatement_INC) Designator:D1 INC {: RESULT=new DesignatorStatement_INC(D1); RESULT.setLine(D1left); :}
 					| 
@@ -396,12 +400,58 @@ DesignatorList ::= (DesignatorList_List) Designator:D1 COMMA DesignatorList:D2 {
 	              					
 /*DesignatorStatement_END*/
 
+/*ActPars_START*/
+/*Expr {"," Expr}*/
 
-			  
-Expr ::= (AddExpr) Expr:te Addop:A1 Term:t {: RESULT=new AddExpr(te, A1, t); RESULT.setLine(teleft); :}
+ActPars ::=  (ActPars_Single) Expr:E1 {: RESULT=new ActPars_Single(E1); RESULT.setLine(E1left); :}
+			|
+			(ActPars_List) ActPars:A1 COMMA Expr:E2 {: RESULT=new ActPars_List(A1, E2); RESULT.setLine(A1left); :}
+            ;
+
+/*ActPars_END*/
+
+/*Condition_START*/
+/*CondTerm {"||" CondTerm}*/
+
+Condition ::= (Condition_List) Condition:C1 OR CondTerm:C2 {: RESULT=new Condition_List(C1, C2); RESULT.setLine(C1left); :}
+              |
+              (Condition_Single) CondTerm:C1 {: RESULT=new Condition_Single(C1); RESULT.setLine(C1left); :}
+              ;
+
+/*Condition_END*/
+
+/*CondTerm_START*/
+/*CondFact {"&&" CondFact}*/
+
+CondTerm ::= (CondTerm_Chain) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTerm_Chain(C1, C2); RESULT.setLine(C1left); :}
+             |
+             (CondTerm_Item) CondFact:C1 {: RESULT=new CondTerm_Item(C1); RESULT.setLine(C1left); :}
+             ;
+
+/*CondTerm_END*/
+	
+/*CondFact_START*/	
+/*Expr [Relop Expr]*/
+
+CondFact ::= (CondFact_Expr) Expr:E1 {: RESULT=new CondFact_Expr(E1); RESULT.setLine(E1left); :}
+             |
+             (CondFact_Relop) Expr:E1 Relop:R2 Expr:E3 {: RESULT=new CondFact_Relop(E1, R2, E3); RESULT.setLine(E1left); :}
+             ;
+            
+/*CondFact_END*/
+	
+/*Expr_START*/	
+/* ["-"] Term {Addop Term} */
+
+Expr ::= (AddExpr) Expr:E1 Addop:A2 Term:T3 {: RESULT=new AddExpr(E1, A2, T3); RESULT.setLine(E1left); :}
+ 		 |
+		 (TermExpr_Minus) MINUS Term:T1 {: RESULT=new TermExpr_Minus(T1); RESULT.setLine(T1left); :}
 		 |
-		 (TermExpr) Term:t {: RESULT=new TermExpr(t); RESULT.setLine(tleft); :}
+		 (TermExpr) Term:T1 {: RESULT=new TermExpr(T1); RESULT.setLine(T1left); :}
 		 ;
+ 
+/*Expr_END*/	
+			  
 
 Term ::= (Term) Factor:t {: RESULT=new Term(t); RESULT.setLine(tleft); :} 
 ;
@@ -426,4 +476,34 @@ ActualParamList ::= (ActualParams) ActualParamList:A1 COMMA Expr:E2 {: RESULT=ne
 Designator ::= (Designator) IDENT:name {: RESULT=new Designator(name); RESULT.setLine(nameleft); :}
 ;
 
-Addop ::= (Addop) PLUS {: RESULT=new Addop(); :} ;
+/*Operators_START*/	
+		
+Assignop ::= EQUALS {: RESULT=new AssignopDerived1(); :};	
+
+Relop ::= (Relop_EQ) BOOL_EQUAL {: RESULT=new Relop_EQ(); :}
+          |
+          (Relop_NEQ) BOOL_NOT_EQUAL {: RESULT=new Relop_NEQ(); :}
+          |
+          (Relop_GRE) GREATER {: RESULT=new Relop_GRE(); :}
+          |
+          (Relop_GEQ) GREATER_OR_EQUAL {: RESULT=new Relop_GEQ(); :}
+          |
+          (Relop_LES) LESS {: RESULT=new Relop_LES(); :}
+          |
+          (Relop_LEQ) LESS_OR_EQUAL {: RESULT=new Relop_LEQ(); :}
+          ;
+		
+Addop ::= (Addop_PLUS) PLUS {: RESULT=new Addop_PLUS(); :}
+		  |
+	      (Addop_MINUS) MINUS {: RESULT=new Addop_MINUS(); :}
+	      ;
+	
+Mulop ::= (Mulop_MUL) MUL {: RESULT=new Mulop_MUL(); :}
+          |
+          (Mulop_DIV) DIV {: RESULT=new Mulop_DIV(); :}
+          |
+          (Mulop_MOD) MOD {: RESULT=new Mulop_MOD(); :}
+          ;
+
+/*Operators_END*/	
+

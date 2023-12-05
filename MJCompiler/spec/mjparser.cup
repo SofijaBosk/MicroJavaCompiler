@@ -91,6 +91,8 @@ nonterminal StaticPom;
 nonterminal ReturnMethod;
 nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement, CondFact;
 nonterminal DesignatorList, ActPars;
+nonterminal CondTerm;
+nonterminal Assignop, Relop, Mulop;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -340,7 +342,7 @@ Designator (Assignop Expr | "(" [ActPars] ")" | "++" | "‐‐")
 */
 
 
-DesignatorStatement ::= (DesignatorStatement_Expr) Designator EQUALS Expr
+DesignatorStatement ::= (DesignatorStatement_Expr) Designator Assignop Expr
 					| 
 					(DesignatorStatement_INC) Designator INC
 					| 
@@ -363,12 +365,58 @@ DesignatorList ::= (DesignatorList_List) Designator COMMA DesignatorList
 	              					
 /*DesignatorStatement_END*/
 
+/*ActPars_START*/
+/*Expr {"," Expr}*/
 
-			  
-Expr ::= (AddExpr) Expr:te Addop Term:t
+ActPars ::=  (ActPars_Single) Expr
+			|
+			(ActPars_List) ActPars COMMA Expr
+            ;
+
+/*ActPars_END*/
+
+/*Condition_START*/
+/*CondTerm {"||" CondTerm}*/
+
+Condition ::= (Condition_List) Condition OR CondTerm
+              |
+              (Condition_Single) CondTerm
+              ;
+
+/*Condition_END*/
+
+/*CondTerm_START*/
+/*CondFact {"&&" CondFact}*/
+
+CondTerm ::= (CondTerm_Chain) CondTerm AND CondFact
+             |
+             (CondTerm_Item) CondFact
+             ;
+
+/*CondTerm_END*/
+	
+/*CondFact_START*/	
+/*Expr [Relop Expr]*/
+
+CondFact ::= (CondFact_Expr) Expr
+             |
+             (CondFact_Relop) Expr Relop Expr
+             ;
+            
+/*CondFact_END*/
+	
+/*Expr_START*/	
+/* ["-"] Term {Addop Term} */
+
+Expr ::= (AddExpr) Expr Addop Term
+ 		 |
+		 (TermExpr_Minus) MINUS Term
 		 |
-		 (TermExpr) Term:t
+		 (TermExpr) Term
 		 ;
+ 
+/*Expr_END*/	
+			  
 
 Term ::= (Term) Factor:t 
 ;
@@ -393,4 +441,34 @@ ActualParamList ::= (ActualParams) ActualParamList COMMA Expr
 Designator ::= (Designator) IDENT:name
 ;
 
-Addop ::= (Addop) PLUS ;
+/*Operators_START*/	
+		
+Assignop ::= EQUALS;	
+
+Relop ::= (Relop_EQ) BOOL_EQUAL
+          |
+          (Relop_NEQ) BOOL_NOT_EQUAL
+          |
+          (Relop_GRE) GREATER
+          |
+          (Relop_GEQ) GREATER_OR_EQUAL
+          |
+          (Relop_LES) LESS
+          |
+          (Relop_LEQ) LESS_OR_EQUAL
+          ;
+		
+Addop ::= (Addop_PLUS) PLUS
+		  |
+	      (Addop_MINUS) MINUS
+	      ;
+	
+Mulop ::= (Mulop_MUL) MUL
+          |
+          (Mulop_DIV) DIV
+          |
+          (Mulop_MOD) MOD
+          ;
+
+/*Operators_END*/	
+
