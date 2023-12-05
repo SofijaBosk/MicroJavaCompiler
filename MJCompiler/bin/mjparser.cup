@@ -71,7 +71,7 @@ terminal NEW;
 terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, MUL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-
+terminal NAMESPACE;
 
 
 nonterminal MethodDeclList;
@@ -84,8 +84,9 @@ nonterminal Type, Term, Expr, Factor, VarDeclList;
 
 nonterminal ProgDeclList, NamespaceList, Namespace;
 nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
+
 /*Program_START*/
-/*"program" ident {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
+/*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
 
 Program ::= (Program) PROG IDENT NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE;
 
@@ -107,6 +108,14 @@ ProgDecl ::= (ProgConstDescarations) ConstDecl
 				;
 				
 /*Program_END*/	
+
+/*Namespace_START*/
+/*namespaceʺ ident ʺ{ʺ {ConstDecl | VarDecl | ClassDecl } ʺ{ʺ {MethodDecl} ʺ}ʺ ʺ}"*/
+
+Namespace ::= (NamespaceProg) NAMESPACE IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE;
+				
+/*Namespace_END*/	
+
 
 VarDeclList ::= (VarDeclarations) VarDeclList VarDecl  
 				|

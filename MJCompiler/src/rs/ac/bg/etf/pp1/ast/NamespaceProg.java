@@ -5,19 +5,14 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Program implements SyntaxNode {
+public class NamespaceProg extends Namespace {
 
-    private SyntaxNode parent;
-    private int line;
     private String I1;
-    private NamespaceList NamespaceList;
     private ProgDeclList ProgDeclList;
     private MethodDeclList MethodDeclList;
 
-    public Program (String I1, NamespaceList NamespaceList, ProgDeclList ProgDeclList, MethodDeclList MethodDeclList) {
+    public NamespaceProg (String I1, ProgDeclList ProgDeclList, MethodDeclList MethodDeclList) {
         this.I1=I1;
-        this.NamespaceList=NamespaceList;
-        if(NamespaceList!=null) NamespaceList.setParent(this);
         this.ProgDeclList=ProgDeclList;
         if(ProgDeclList!=null) ProgDeclList.setParent(this);
         this.MethodDeclList=MethodDeclList;
@@ -30,14 +25,6 @@ public class Program implements SyntaxNode {
 
     public void setI1(String I1) {
         this.I1=I1;
-    }
-
-    public NamespaceList getNamespaceList() {
-        return NamespaceList;
-    }
-
-    public void setNamespaceList(NamespaceList NamespaceList) {
-        this.NamespaceList=NamespaceList;
     }
 
     public ProgDeclList getProgDeclList() {
@@ -56,41 +43,22 @@ public class Program implements SyntaxNode {
         this.MethodDeclList=MethodDeclList;
     }
 
-    public SyntaxNode getParent() {
-        return parent;
-    }
-
-    public void setParent(SyntaxNode parent) {
-        this.parent=parent;
-    }
-
-    public int getLine() {
-        return line;
-    }
-
-    public void setLine(int line) {
-        this.line=line;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(NamespaceList!=null) NamespaceList.accept(visitor);
         if(ProgDeclList!=null) ProgDeclList.accept(visitor);
         if(MethodDeclList!=null) MethodDeclList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(NamespaceList!=null) NamespaceList.traverseTopDown(visitor);
         if(ProgDeclList!=null) ProgDeclList.traverseTopDown(visitor);
         if(MethodDeclList!=null) MethodDeclList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(NamespaceList!=null) NamespaceList.traverseBottomUp(visitor);
         if(ProgDeclList!=null) ProgDeclList.traverseBottomUp(visitor);
         if(MethodDeclList!=null) MethodDeclList.traverseBottomUp(visitor);
         accept(visitor);
@@ -99,15 +67,9 @@ public class Program implements SyntaxNode {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Program(\n");
+        buffer.append("NamespaceProg(\n");
 
         buffer.append(" "+tab+I1);
-        buffer.append("\n");
-
-        if(NamespaceList!=null)
-            buffer.append(NamespaceList.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(ProgDeclList!=null)
@@ -123,7 +85,7 @@ public class Program implements SyntaxNode {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [Program]");
+        buffer.append(") [NamespaceProg]");
         return buffer.toString();
     }
 }
