@@ -1,15 +1,29 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 14:14:26
+// 9/11/2023 20:7:52
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public abstract class MethodTypeName implements SyntaxNode {
+public class MethodTypeName implements SyntaxNode {
 
     private SyntaxNode parent;
-
     private int line;
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
+
+    private String methName;
+
+    public MethodTypeName (String methName) {
+        this.methName=methName;
+    }
+
+    public String getMethName() {
+        return methName;
+    }
+
+    public void setMethName(String methName) {
+        this.methName=methName;
+    }
 
     public SyntaxNode getParent() {
         return parent;
@@ -27,11 +41,31 @@ public abstract class MethodTypeName implements SyntaxNode {
         this.line=line;
     }
 
-    public abstract void accept(Visitor visitor);
-    public abstract void childrenAccept(Visitor visitor);
-    public abstract void traverseTopDown(Visitor visitor);
-    public abstract void traverseBottomUp(Visitor visitor);
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
-    public String toString() { return toString(""); }
-    public abstract String toString(String tab);
+    public void childrenAccept(Visitor visitor) {
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("MethodTypeName(\n");
+
+        buffer.append(" "+tab+methName);
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [MethodTypeName]");
+        return buffer.toString();
+    }
 }

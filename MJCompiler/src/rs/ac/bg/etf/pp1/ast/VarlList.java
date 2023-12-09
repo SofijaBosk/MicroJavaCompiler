@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 14:14:26
+// 9/11/2023 20:7:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,8 @@ public abstract class VarlList implements SyntaxNode {
     private SyntaxNode parent;
 
     private int line;
+
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
     public SyntaxNode getParent() {
         return parent;

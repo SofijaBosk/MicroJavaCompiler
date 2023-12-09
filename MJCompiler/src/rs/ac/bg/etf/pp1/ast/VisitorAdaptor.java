@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 14:14:26
+// 9/11/2023 20:7:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -27,16 +27,16 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Pom Pom) { }
     public void visit(DesignatorHelper DesignatorHelper) { }
     public void visit(ConstList ConstList) { }
-    public void visit(ProgDecl ProgDecl) { }
     public void visit(Designator Designator) { }
+    public void visit(ProgDecl ProgDecl) { }
     public void visit(Term Term) { }
     public void visit(Condition Condition) { }
     public void visit(ConstSingle ConstSingle) { }
     public void visit(ConstValue ConstValue) { }
     public void visit(MethodDeclListBrace MethodDeclListBrace) { }
     public void visit(ActParsList ActParsList) { }
-    public void visit(DesignatorStatementList DesignatorStatementList) { }
     public void visit(VarSingle VarSingle) { }
+    public void visit(DesignatorStatementList DesignatorStatementList) { }
     public void visit(VarlList VarlList) { }
     public void visit(ActualParamList ActualParamList) { }
     public void visit(VarDeclList VarDeclList) { }
@@ -45,7 +45,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(NamespaceNT NamespaceNT) { }
     public void visit(ActPars ActPars) { }
     public void visit(DesignatorList DesignatorList) { }
-    public void visit(MethodTypeName MethodTypeName) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(ActualPars ActualPars) { }
     public void visit(StaticPom StaticPom) { }
@@ -87,9 +86,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ExprActParsChoice_Expr ExprActParsChoice_Expr) { visit(); }
     public void visit(ParenExprFactor ParenExprFactor) { visit(); }
     public void visit(NewFactor NewFactor) { visit(); }
-    public void visit(ConstValueFactor ConstValueFactor) { visit(); }
-    public void visit(DesignatorFactorActPars DesignatorFactorActPars) { visit(); }
-    public void visit(DesignatorFactoraaaa DesignatorFactoraaaa) { visit(); }
+    public void visit(ConstFactor ConstFactor) { visit(); }
+    public void visit(FuncCall FuncCall) { visit(); }
+    public void visit(VarFactor VarFactor) { visit(); }
     public void visit(Term_Mulop Term_Mulop) { visit(); }
     public void visit(Term_Factor Term_Factor) { visit(); }
     public void visit(TermExpr TermExpr) { visit(); }
@@ -110,7 +109,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DesignatorStatement_ActPars DesignatorStatement_ActPars) { visit(); }
     public void visit(DesignatorStatement_DEC DesignatorStatement_DEC) { visit(); }
     public void visit(DesignatorStatement_INC DesignatorStatement_INC) { visit(); }
-    public void visit(DesignatorStatement_Expr DesignatorStatement_Expr) { visit(); }
+    public void visit(Assignment Assignment) { visit(); }
     public void visit(DesignatorStatementList_Single DesignatorStatementList_Single) { visit(); }
     public void visit(DesignatorStatementList_List DesignatorStatementList_List) { visit(); }
     public void visit(NumConstList_None NumConstList_None) { visit(); }
@@ -144,6 +143,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormParams FormParams) { visit(); }
     public void visit(ReturnMethod_Void ReturnMethod_Void) { visit(); }
     public void visit(ReturnMethod_Type ReturnMethod_Type) { visit(); }
+    public void visit(MethodTypeName MethodTypeName) { visit(); }
     public void visit(MethodDecl MethodDecl) { visit(); }
     public void visit(NoMethodDecl NoMethodDecl) { visit(); }
     public void visit(MethodDeclarations MethodDeclarations) { visit(); }
@@ -182,6 +182,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ProgDeclListObj ProgDeclListObj) { visit(); }
     public void visit(NamespaceList_Multiple NamespaceList_Multiple) { visit(); }
     public void visit(NamespaceList_Single NamespaceList_Single) { visit(); }
+    public void visit(ProgName ProgName) { visit(); }
     public void visit(Program Program) { visit(); }
 
 

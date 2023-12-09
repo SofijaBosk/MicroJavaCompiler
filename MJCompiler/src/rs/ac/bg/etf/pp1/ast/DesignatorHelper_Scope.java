@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 14:14:26
+// 9/11/2023 20:7:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,11 +8,11 @@ package rs.ac.bg.etf.pp1.ast;
 public class DesignatorHelper_Scope extends DesignatorHelper {
 
     private String I1;
-    private String I2;
+    private String name;
 
-    public DesignatorHelper_Scope (String I1, String I2) {
+    public DesignatorHelper_Scope (String I1, String name) {
         this.I1=I1;
-        this.I2=I2;
+        this.name=name;
     }
 
     public String getI1() {
@@ -23,12 +23,12 @@ public class DesignatorHelper_Scope extends DesignatorHelper {
         this.I1=I1;
     }
 
-    public String getI2() {
-        return I2;
+    public String getName() {
+        return name;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setName(String name) {
+        this.name=name;
     }
 
     public void accept(Visitor visitor) {
@@ -54,7 +54,7 @@ public class DesignatorHelper_Scope extends DesignatorHelper {
         buffer.append(" "+tab+I1);
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
         buffer.append(tab);

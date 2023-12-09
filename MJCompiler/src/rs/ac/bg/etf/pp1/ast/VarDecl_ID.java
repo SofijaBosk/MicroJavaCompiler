@@ -1,24 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 14:14:26
+// 9/11/2023 20:7:52
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class VarDecl_ID extends VarSingle {
 
-    private String I1;
+    private String varName;
 
-    public VarDecl_ID (String I1) {
-        this.I1=I1;
+    public VarDecl_ID (String varName) {
+        this.varName=varName;
     }
 
-    public String getI1() {
-        return I1;
+    public String getVarName() {
+        return varName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setVarName(String varName) {
+        this.varName=varName;
     }
 
     public void accept(Visitor visitor) {
@@ -41,7 +41,7 @@ public class VarDecl_ID extends VarSingle {
         buffer.append(tab);
         buffer.append("VarDecl_ID(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+varName);
         buffer.append("\n");
 
         buffer.append(tab);

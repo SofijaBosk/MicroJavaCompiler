@@ -79,14 +79,12 @@ nonterminal MethodDeclList;
 nonterminal FormalParamList, FormalParamDecl, FormPars, ActualPars, ActualParamList; 
 nonterminal StatementList, Statement, Addop;
 nonterminal Unmatched, Matched;
-
-nonterminal Program, Designator, MethodDecl, MethodTypeName; 
-nonterminal Type, Term, Expr, Factor, VarDeclList; 
+ 
+nonterminal VarDeclList; 
 
 nonterminal ProgDeclList, NamespaceList;
-nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
+nonterminal ProgDecl, ClassDecl, ConstDecl;
 nonterminal ConstList, ConstSingle;
-nonterminal VarlList, VarSingle;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
 nonterminal ReturnMethod;
@@ -95,14 +93,18 @@ nonterminal DesignatorList, ActPars;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
 nonterminal ExprActParsChoice, ActParsList, ConstValue;
-nonterminal DesignatorHelper;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
 nonterminal NamespaceNT;
-	            
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Term, Factor, Expr;
+
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
 
-Program ::= (Program) PROG IDENT NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE;
+Program ::= (Program) PROG ProgName NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE;
+
+ProgName ::= (ProgName) IDENT:progName;
 
 NamespaceList ::= (NamespaceList_Single) NamespaceList NamespaceNT
 					|
@@ -160,16 +162,16 @@ Type ::= (Type) IDENT:typeName;
 /*VarDecl_START*/
 /*Type ident ["[" "]"] {"," ident ["[" "]"]} ";".*/
 
-VarDecl ::= (VarDecl) Type:varType VarlList SEMI;
+VarDecl ::= (VarDecl) Type:varType VarlList:varName SEMI;
 
-VarlList ::= (SingleVarDecl) VarSingle
+VarlList ::= (SingleVarDecl) VarSingle:name
 			|
 			(MultipleVarDecl) VarlList COMMA VarSingle
              ;
              
-VarSingle ::= (VarDecl_ID) IDENT
+VarSingle ::= (VarDecl_ID) IDENT:varName
               |
-              (VarDecl_SQ) IDENT LSQUARE RSQUARE
+              (VarDecl_SQ) IDENT:varName LSQUARE RSQUARE
               ;
 
 /*VarDecl_END*/
@@ -233,7 +235,9 @@ MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
 				(NoMethodDecl) /* epsilon */
 				;
 				
-MethodDecl ::= (MethodDecl) ReturnMethod IDENT:methName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
+MethodDecl ::= (MethodDecl) ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
+
+MethodTypeName ::= (MethodTypeName) IDENT:methName;
 
 ReturnMethod ::= (ReturnMethod_Type) Type
 				|
@@ -347,7 +351,7 @@ Designator (Assignop Expr | ʺ(ʺ [ActPars] ʺ)ʺ | ʺ++ʺ | ʺ‐‐ʺ) |
 */
 
 
-DesignatorStatement ::= (DesignatorStatement_Expr) Designator Assignop Expr
+DesignatorStatement ::= (Assignment) Designator Assignop Expr
 					| 
 					(DesignatorStatement_INC) Designator INC
 					| 
@@ -443,11 +447,11 @@ Designator ["(" [ActPars] ")"]
 | "(" Expr ")".
 */
 
-Factor ::= (DesignatorFactoraaaa) Designator:d
+Factor ::= (VarFactor) Designator:d
            |
-           (DesignatorFactorActPars) Designator LPAREN ActParsList RPAREN
+           (FuncCall) Designator:func LPAREN ActParsList RPAREN
            |
-           (ConstValueFactor) ConstValue
+           (ConstFactor) ConstValue
            |
            (NewFactor) NEW Type ExprActParsChoice
            |
@@ -481,9 +485,9 @@ ConstValue ::= (ConstValue_Num) NUM_CONST
 Designator ::= (Designator_Ident) DesignatorHelper DesignatorHelper2;
 
 
-DesignatorHelper ::= (DesignatorHelper_Scope) IDENT SCOPE IDENT
+DesignatorHelper ::= (DesignatorHelper_Scope) IDENT SCOPE IDENT:name
 				|
-				(DesignatorHelper_None) IDENT
+				(DesignatorHelper_None) IDENT:name
                 ;
 
 DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
