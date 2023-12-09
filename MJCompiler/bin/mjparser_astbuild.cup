@@ -350,7 +350,7 @@ Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI {: RESULT=ne
 		   |
 		   (StatementList_List) LBRACE StatementList:S1 RBRACE {: RESULT=new StatementList_List(S1); RESULT.setLine(S1left); :}
 	     	|
-		   (FORStmt_NoDS) FOR LBRACE DesignatorStatementHelper:D1 SEMI CondFactHelper:C2 SEMI DesignatorStatementHelper:D3 RBRACE {: RESULT=new FORStmt_NoDS(D1, C2, D3); RESULT.setLine(D1left); :}	   
+		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper:D1 SEMI CondFactHelper:C2 SEMI DesignatorStatementHelper:D3 RPAREN {: RESULT=new FORStmt_NoDS(D1, C2, D3); RESULT.setLine(D1left); :}	   
 		   |
 		   (MatchedStatement) IF Condition:C1 Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedStatement(C1, M2, M3); RESULT.setLine(C1left); :}
 		   ;

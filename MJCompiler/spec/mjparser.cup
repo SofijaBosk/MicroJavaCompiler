@@ -312,7 +312,7 @@ Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI
 		   |
 		   (StatementList_List) LBRACE StatementList RBRACE
 	     	|
-		   (FORStmt_NoDS) FOR LBRACE DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RBRACE	   
+		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RPAREN	   
 		   |
 		   (MatchedStatement) IF Condition Matched ELSE Matched
 		   ;
