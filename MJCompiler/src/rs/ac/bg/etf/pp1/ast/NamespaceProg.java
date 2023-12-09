@@ -1,11 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 11:53:46
+// 9/11/2023 14:9:50
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class NamespaceProg extends Namespace {
+public class NamespaceProg extends NamespaceNT {
 
     private String I1;
     private ProgDeclList ProgDeclList;

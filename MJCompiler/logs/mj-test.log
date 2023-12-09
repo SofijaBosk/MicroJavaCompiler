@@ -1,412 +1,787 @@
-INFO  13:09:22,614 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\primerSaSajta.mj
-INFO  13:09:22,623 - #2 program
-INFO  13:09:22,623 - #15 p
-INFO  13:09:22,624 - #15 namespace
-INFO  13:09:22,624 - #15 sizes
-INFO  13:09:22,624 - #3 {
-INFO  13:09:22,624 - #22 const
-INFO  13:09:22,624 - #15 int
-INFO  13:09:22,624 - #15 tableSize
-INFO  13:09:22,624 - #21 =
-INFO  13:09:22,625 - #18 10
-INFO  13:09:22,625 - #5 ;
-INFO  13:09:22,625 - #3 {
-INFO  13:09:22,625 - #4 }
-INFO  13:09:22,625 - #4 }
-INFO  13:09:22,625 - #25 class
-INFO  13:09:22,626 - #15 Table
-INFO  13:09:22,626 - #3 {
-INFO  13:09:22,626 - #15 int
-INFO  13:09:22,626 - #15 pos
-INFO  13:09:22,627 - #23 [
-INFO  13:09:22,627 - #24 ]
-INFO  13:09:22,627 - #11 ,
-INFO  13:09:22,627 - #15 neg
-INFO  13:09:22,627 - #23 [
-INFO  13:09:22,627 - #24 ]
-INFO  13:09:22,627 - #11 ,
-INFO  13:09:22,627 - #15 factor
-INFO  13:09:22,627 - #5 ;
-INFO  13:09:22,628 - #15 static
-INFO  13:09:22,628 - #15 int
-INFO  13:09:22,628 - #15 id
-INFO  13:09:22,628 - #5 ;
-INFO  13:09:22,628 - #15 static
-INFO  13:09:22,628 - #3 {
-INFO  13:09:22,628 - #15 id
-INFO  13:09:22,628 - #21 =
-INFO  13:09:22,628 - #18 0
-INFO  13:09:22,628 - #5 ;
-INFO  13:09:22,628 - #4 }
-INFO  13:09:22,629 - #3 {
-INFO  13:09:22,629 - #13 void
-INFO  13:09:22,629 - #15 setfactor
-INFO  13:09:22,629 - #6 (
-INFO  13:09:22,629 - #15 int
-INFO  13:09:22,629 - #15 factor
-INFO  13:09:22,629 - #7 )
-INFO  13:09:22,629 - #3 {
-INFO  13:09:22,629 - #15 this
-INFO  13:09:22,630 - #35 .
-INFO  13:09:22,630 - #15 factor
-INFO  13:09:22,630 - #21 =
-INFO  13:09:22,630 - #15 factor
-INFO  13:09:22,630 - #5 ;
-INFO  13:09:22,630 - #4 }
-INFO  13:09:22,630 - #13 void
-INFO  13:09:22,630 - #15 putp
-INFO  13:09:22,631 - #6 (
-INFO  13:09:22,631 - #15 int
-INFO  13:09:22,631 - #15 a
-INFO  13:09:22,631 - #11 ,
-INFO  13:09:22,631 - #15 int
-INFO  13:09:22,631 - #15 idx
-INFO  13:09:22,631 - #7 )
-INFO  13:09:22,632 - #3 {
-INFO  13:09:22,632 - #15 this
-INFO  13:09:22,632 - #35 .
-INFO  13:09:22,632 - #15 pos
-INFO  13:09:22,632 - #23 [
-INFO  13:09:22,632 - #15 idx
-INFO  13:09:22,632 - #24 ]
-INFO  13:09:22,633 - #21 =
-INFO  13:09:22,633 - #15 a
-INFO  13:09:22,633 - #5 ;
-INFO  13:09:22,633 - #4 }
-INFO  13:09:22,633 - #13 void
-INFO  13:09:22,633 - #15 putn
-INFO  13:09:22,633 - #6 (
-INFO  13:09:22,633 - #15 int
-INFO  13:09:22,633 - #15 a
-INFO  13:09:22,634 - #11 ,
-INFO  13:09:22,634 - #15 int
-INFO  13:09:22,634 - #15 idx
-INFO  13:09:22,634 - #7 )
-INFO  13:09:22,634 - #3 {
-INFO  13:09:22,634 - #15 this
-INFO  13:09:22,634 - #35 .
-INFO  13:09:22,635 - #15 neg
-INFO  13:09:22,635 - #23 [
-INFO  13:09:22,635 - #15 idx
-INFO  13:09:22,635 - #24 ]
-INFO  13:09:22,635 - #21 =
-INFO  13:09:22,635 - #15 a
-INFO  13:09:22,635 - #5 ;
-INFO  13:09:22,635 - #4 }
-INFO  13:09:22,635 - #15 int
-INFO  13:09:22,636 - #15 getp
-INFO  13:09:22,636 - #6 (
-INFO  13:09:22,636 - #15 int
-INFO  13:09:22,636 - #15 idx
-INFO  13:09:22,636 - #7 )
-INFO  13:09:22,636 - #3 {
-INFO  13:09:22,636 - #9 return
-INFO  13:09:22,636 - #15 pos
-INFO  13:09:22,636 - #23 [
-INFO  13:09:22,636 - #15 idx
-INFO  13:09:22,637 - #24 ]
-INFO  13:09:22,637 - #5 ;
-INFO  13:09:22,637 - #4 }
-INFO  13:09:22,637 - #15 int
-INFO  13:09:22,637 - #15 getn
-INFO  13:09:22,637 - #6 (
-INFO  13:09:22,637 - #15 int
-INFO  13:09:22,637 - #15 idx
-INFO  13:09:22,637 - #7 )
-INFO  13:09:22,638 - #3 {
-INFO  13:09:22,638 - #9 return
-INFO  13:09:22,638 - #15 neg
-INFO  13:09:22,638 - #23 [
-INFO  13:09:22,638 - #15 idx
-INFO  13:09:22,638 - #24 ]
-INFO  13:09:22,638 - #5 ;
-INFO  13:09:22,638 - #4 }
-INFO  13:09:22,638 - #4 }
-INFO  13:09:22,638 - #4 }
-INFO  13:09:22,638 - #15 Table
-INFO  13:09:22,639 - #15 val
-INFO  13:09:22,639 - #5 ;
-INFO  13:09:22,639 - #15 int
-INFO  13:09:22,639 - #15 rows
-INFO  13:09:22,639 - #11 ,
-INFO  13:09:22,639 - #15 columns
-INFO  13:09:22,639 - #5 ;
-INFO  13:09:22,639 - #3 {
-INFO  13:09:22,639 - #13 void
-INFO  13:09:22,639 - #15 f
-INFO  13:09:22,639 - #6 (
-INFO  13:09:22,640 - #15 char
-INFO  13:09:22,640 - #15 ch
-INFO  13:09:22,640 - #11 ,
-INFO  13:09:22,640 - #15 int
-INFO  13:09:22,640 - #15 a
-INFO  13:09:22,640 - #11 ,
-INFO  13:09:22,640 - #15 int
-INFO  13:09:22,640 - #15 arg
-INFO  13:09:22,640 - #7 )
-INFO  13:09:22,641 - #15 int
-INFO  13:09:22,641 - #15 x
-INFO  13:09:22,641 - #5 ;
-INFO  13:09:22,641 - #3 {
-INFO  13:09:22,641 - #15 x
-INFO  13:09:22,641 - #21 =
-INFO  13:09:22,641 - #15 arg
-INFO  13:09:22,641 - #5 ;
-INFO  13:09:22,641 - #4 }
-INFO  13:09:22,641 - #13 void
-INFO  13:09:22,642 - #15 main
-INFO  13:09:22,642 - #6 (
-INFO  13:09:22,642 - #7 )
-INFO  13:09:22,642 - #15 int
-INFO  13:09:22,642 - #15 x
-INFO  13:09:22,642 - #11 ,
-INFO  13:09:22,642 - #15 i
-INFO  13:09:22,642 - #5 ;
-INFO  13:09:22,643 - #15 char
-INFO  13:09:22,644 - #15 c
-INFO  13:09:22,644 - #11 ,
-INFO  13:09:22,644 - #15 int
-INFO  13:09:22,644 - #23 [
-INFO  13:09:22,644 - #24 ]
-INFO  13:09:22,644 - #15 arr
-INFO  13:09:22,644 - #5 ;
-INFO  13:09:22,644 - #3 {
-INFO  13:09:22,645 - #15 val
-INFO  13:09:22,645 - #21 =
-INFO  13:09:22,645 - #15 new
-INFO  13:09:22,645 - #15 Table
-INFO  13:09:22,645 - #6 (
-INFO  13:09:22,645 - #7 )
-INFO  13:09:22,645 - #5 ;
-INFO  13:09:22,645 - #15 val
-INFO  13:09:22,645 - #35 .
-INFO  13:09:22,645 - #15 setfactor
-INFO  13:09:22,645 - #6 (
-INFO  13:09:22,646 - #18 2
-INFO  13:09:22,646 - #7 )
-INFO  13:09:22,646 - #5 ;
-INFO  13:09:22,646 - #15 arr
-INFO  13:09:22,646 - #21 =
-INFO  13:09:22,646 - #15 new
-INFO  13:09:22,646 - #15 int
-INFO  13:09:22,646 - #23 [
-INFO  13:09:22,646 - #18 3
-INFO  13:09:22,646 - #24 ]
-INFO  13:09:22,647 - #5 ;
-INFO  13:09:22,647 - #15 for
-INFO  13:09:22,647 - #6 (
-INFO  13:09:22,647 - #15 i
-INFO  13:09:22,647 - #21 =
-INFO  13:09:22,647 - #18 0
-INFO  13:09:22,647 - #5 ;
-INFO  13:09:22,647 - #15 i
-INFO  13:09:22,647 - #40 <
-INFO  13:09:22,648 - #18 3
-INFO  13:09:22,648 - #5 ;
-INFO  13:09:22,648 - #15 i
-INFO  13:09:22,648 - #45 ++
-INFO  13:09:22,648 - #7 )
-INFO  13:09:22,648 - #3 {
-INFO  13:09:22,648 - #15 arr
-INFO  13:09:22,648 - #23 [
-INFO  13:09:22,648 - #15 i
-INFO  13:09:22,648 - #24 ]
-INFO  13:09:22,648 - #21 =
-INFO  13:09:22,649 - #15 i
-INFO  13:09:22,649 - #5 ;
-INFO  13:09:22,649 - #4 }
-INFO  13:09:22,649 - #15 for
-INFO  13:09:22,649 - #6 (
-INFO  13:09:22,649 - #15 i
-INFO  13:09:22,649 - #21 =
-INFO  13:09:22,649 - #18 0
-INFO  13:09:22,649 - #5 ;
-INFO  13:09:22,649 - #15 i
-INFO  13:09:22,649 - #40 <
-INFO  13:09:22,650 - #18 3
-INFO  13:09:22,650 - #5 ;
-INFO  13:09:22,650 - #15 i
-INFO  13:09:22,650 - #45 ++
-INFO  13:09:22,650 - #7 )
-INFO  13:09:22,650 - #12 print
-INFO  13:09:22,650 - #6 (
-INFO  13:09:22,650 - #15 arr
-INFO  13:09:22,650 - #23 [
-INFO  13:09:22,650 - #15 i
-INFO  13:09:22,651 - #24 ]
-INFO  13:09:22,651 - #7 )
-INFO  13:09:22,651 - #5 ;
-INFO  13:09:22,651 - #15 val
-INFO  13:09:22,651 - #35 .
-INFO  13:09:22,651 - #15 pos
-INFO  13:09:22,651 - #21 =
-INFO  13:09:22,651 - #15 new
-INFO  13:09:22,651 - #15 int
-INFO  13:09:22,651 - #23 [
-INFO  13:09:22,651 - #15 sizes
-INFO  13:09:22,651 - #47 :
-INFO  13:09:22,652 - #47 :
-INFO  13:09:22,652 - #15 tableSize
-INFO  13:09:22,652 - #24 ]
-INFO  13:09:22,652 - #5 ;
-INFO  13:09:22,652 - #15 val
-INFO  13:09:22,652 - #35 .
-INFO  13:09:22,652 - #15 neg
-INFO  13:09:22,652 - #21 =
-INFO  13:09:22,653 - #15 new
-INFO  13:09:22,653 - #15 int
-INFO  13:09:22,653 - #23 [
-INFO  13:09:22,653 - #15 sizes
-INFO  13:09:22,653 - #47 :
-INFO  13:09:22,653 - #47 :
-INFO  13:09:22,654 - #15 tableSize
-INFO  13:09:22,654 - #24 ]
-INFO  13:09:22,654 - #5 ;
-INFO  13:09:22,654 - #27 read
-INFO  13:09:22,654 - #6 (
-INFO  13:09:22,654 - #15 x
-INFO  13:09:22,654 - #7 )
-INFO  13:09:22,654 - #5 ;
-INFO  13:09:22,654 - #23 [
-INFO  13:09:22,654 - #15 i
-INFO  13:09:22,654 - #11 ,
-INFO  13:09:22,654 - #11 ,
-INFO  13:09:22,654 - #15 x
-INFO  13:09:22,654 - #24 ]
-INFO  13:09:22,654 - #21 =
-INFO  13:09:22,654 - #15 arr
-INFO  13:09:22,655 - #5 ;
-INFO  13:09:22,655 - #15 for
-INFO  13:09:22,655 - #6 (
-INFO  13:09:22,655 - #5 ;
-INFO  13:09:22,655 - #15 i
-INFO  13:09:22,655 - #40 <
-INFO  13:09:22,655 - #15 sizes
-INFO  13:09:22,655 - #47 :
-INFO  13:09:22,655 - #47 :
-INFO  13:09:22,655 - #15 tableSize
-INFO  13:09:22,655 - #5 ;
-INFO  13:09:22,655 - #15 i
-INFO  13:09:22,655 - #45 ++
-INFO  13:09:22,656 - #7 )
-INFO  13:09:22,656 - #3 {
-INFO  13:09:22,656 - #15 val
-INFO  13:09:22,656 - #35 .
-INFO  13:09:22,656 - #15 putp
-INFO  13:09:22,656 - #6 (
-INFO  13:09:22,656 - #18 0
-INFO  13:09:22,656 - #11 ,
-INFO  13:09:22,656 - #15 i
-INFO  13:09:22,656 - #7 )
-INFO  13:09:22,656 - #5 ;
-INFO  13:09:22,656 - #15 val
-INFO  13:09:22,656 - #35 .
-INFO  13:09:22,657 - #15 putn
-INFO  13:09:22,657 - #6 (
-INFO  13:09:22,657 - #18 0
-INFO  13:09:22,657 - #11 ,
-INFO  13:09:22,657 - #15 i
-INFO  13:09:22,657 - #7 )
-INFO  13:09:22,657 - #5 ;
-INFO  13:09:22,657 - #4 }
-INFO  13:09:22,657 - #15 f
-INFO  13:09:22,657 - #6 (
-INFO  13:09:22,657 - #15 c
-INFO  13:09:22,657 - #11 ,
-INFO  13:09:22,657 - #15 x
-INFO  13:09:22,657 - #11 ,
-INFO  13:09:22,657 - #15 i
-INFO  13:09:22,658 - #7 )
-INFO  13:09:22,658 - #5 ;
-INFO  13:09:22,658 - #27 read
-INFO  13:09:22,658 - #6 (
-INFO  13:09:22,658 - #15 rows
-INFO  13:09:22,658 - #7 )
-INFO  13:09:22,658 - #5 ;
-INFO  13:09:22,658 - #15 x
-INFO  13:09:22,658 - #21 =
-INFO  13:09:22,658 - #15 rows
-INFO  13:09:22,658 - #5 ;
-INFO  13:09:22,658 - #15 for
-INFO  13:09:22,658 - #6 (
-INFO  13:09:22,658 - #5 ;
-INFO  13:09:22,658 - #5 ;
-INFO  13:09:22,658 - #7 )
-INFO  13:09:22,658 - #3 {
-INFO  13:09:22,659 - #16 if
-INFO  13:09:22,659 - #6 (
-INFO  13:09:22,659 - #15 x
-INFO  13:09:22,659 - #41 <=
-INFO  13:09:22,659 - #18 0
-INFO  13:09:22,659 - #7 )
-INFO  13:09:22,659 - #29 break
-INFO  13:09:22,659 - #5 ;
-INFO  13:09:22,659 - #16 if
-INFO  13:09:22,659 - #6 (
-INFO  13:09:22,659 - #18 0
-INFO  13:09:22,659 - #41 <=
-INFO  13:09:22,659 - #15 x
-INFO  13:09:22,659 - #32 &&
-INFO  13:09:22,659 - #15 x
-INFO  13:09:22,659 - #40 <
-INFO  13:09:22,659 - #15 sizes
-INFO  13:09:22,659 - #47 :
-INFO  13:09:22,659 - #47 :
-INFO  13:09:22,659 - #15 tableSize
-INFO  13:09:22,660 - #7 )
-INFO  13:09:22,660 - #3 {
-INFO  13:09:22,660 - #15 val
-INFO  13:09:22,660 - #35 .
-INFO  13:09:22,660 - #15 putp
-INFO  13:09:22,660 - #6 (
-INFO  13:09:22,660 - #15 val
-INFO  13:09:22,660 - #35 .
-INFO  13:09:22,660 - #15 getp
-INFO  13:09:22,660 - #6 (
-INFO  13:09:22,660 - #15 x
-INFO  13:09:22,660 - #7 )
-INFO  13:09:22,660 - #10 +
-INFO  13:09:22,660 - #18 1
-INFO  13:09:22,660 - #7 )
-INFO  13:09:22,660 - #5 ;
-INFO  13:09:22,660 - #4 }
-INFO  13:09:22,660 - #17 else
-INFO  13:09:22,660 - #16 if
-INFO  13:09:22,661 - #6 (
-INFO  13:09:22,661 - #33 -
-INFO  13:09:22,661 - #15 sizes
-INFO  13:09:22,661 - #47 :
-INFO  13:09:22,661 - #47 :
-INFO  13:09:22,661 - #15 tableSize
-INFO  13:09:22,661 - #40 <
-INFO  13:09:22,661 - #15 x
-INFO  13:09:22,661 - #32 &&
-INFO  13:09:22,661 - #15 x
-INFO  13:09:22,661 - #40 <
-INFO  13:09:22,661 - #18 0
-INFO  13:09:22,661 - #7 )
-INFO  13:09:22,661 - #3 {
-INFO  13:09:22,661 - #15 val
-INFO  13:09:22,661 - #35 .
-INFO  13:09:22,661 - #15 putn
-INFO  13:09:22,662 - #6 (
-INFO  13:09:22,662 - #15 val
-INFO  13:09:22,662 - #35 .
-INFO  13:09:22,662 - #15 getn
-INFO  13:09:22,662 - #6 (
-INFO  13:09:22,662 - #33 -
-INFO  13:09:22,662 - #15 x
-INFO  13:09:22,662 - #7 )
-INFO  13:09:22,662 - #10 +
-INFO  13:09:22,662 - #18 1
-INFO  13:09:22,662 - #7 )
-INFO  13:09:22,662 - #5 ;
-INFO  13:09:22,662 - #4 }
-INFO  13:09:22,662 - #27 read
-INFO  13:09:22,662 - #6 (
-INFO  13:09:22,662 - #15 x
-INFO  13:09:22,662 - #7 )
-INFO  13:09:22,662 - #5 ;
-INFO  13:09:22,662 - #4 }
-INFO  13:09:22,663 - #4 }
-INFO  13:09:22,663 - #4 }
+INFO  14:11:00,112 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test1.mj
+INFO  14:11:00,805 - #2 program
+INFO  14:11:00,805 - #53 MJProgram
+INFO  14:11:00,805 - #53 int
+INFO  14:11:00,815 - #53 x
+INFO  14:11:00,821 - #5 ;
+INFO  14:11:00,822 - #53 int
+INFO  14:11:00,829 - #53 y
+INFO  14:11:00,829 - #5 ;
+INFO  14:11:00,829 - #53 int
+INFO  14:11:00,829 - #53 rows
+INFO  14:11:00,829 - #11 ,
+INFO  14:11:00,829 - #53 columns
+INFO  14:11:00,829 - #5 ;
+INFO  14:11:00,830 - #3 {
+INFO  14:11:00,830 - #13 void
+INFO  14:11:00,834 - #53 setfactor
+INFO  14:11:00,839 - #6 (
+INFO  14:11:00,839 - #53 int
+INFO  14:11:00,839 - #53 factor
+INFO  14:11:00,841 - #7 )
+INFO  14:11:00,841 - #3 {
+INFO  14:11:00,846 - #53 this
+INFO  14:11:00,852 - #34 .
+INFO  14:11:00,857 - #53 factor
+INFO  14:11:00,857 - #20 =
+INFO  14:11:00,858 - #53 factor
+INFO  14:11:00,867 - #5 ;
+INFO  14:11:00,867 - #4 }
+INFO  14:11:00,868 - #13 void
+INFO  14:11:00,875 - #53 putp
+INFO  14:11:00,875 - #6 (
+INFO  14:11:00,875 - #53 int
+INFO  14:11:00,876 - #53 a
+INFO  14:11:00,876 - #11 ,
+INFO  14:11:00,876 - #53 int
+INFO  14:11:00,876 - #53 idx
+INFO  14:11:00,876 - #7 )
+INFO  14:11:00,876 - #3 {
+INFO  14:11:00,877 - #53 this
+INFO  14:11:00,877 - #34 .
+INFO  14:11:00,877 - #53 pos
+INFO  14:11:00,877 - #22 [
+INFO  14:11:00,877 - #53 idx
+INFO  14:11:00,877 - #23 ]
+INFO  14:11:00,877 - #20 =
+INFO  14:11:00,878 - #53 a
+INFO  14:11:00,878 - #5 ;
+INFO  14:11:00,878 - #4 }
+INFO  14:11:00,878 - #13 void
+INFO  14:11:00,878 - #53 putn
+INFO  14:11:00,878 - #6 (
+INFO  14:11:00,878 - #53 int
+INFO  14:11:00,878 - #53 a
+INFO  14:11:00,878 - #11 ,
+INFO  14:11:00,879 - #53 int
+INFO  14:11:00,879 - #53 idx
+INFO  14:11:00,879 - #7 )
+INFO  14:11:00,879 - #3 {
+INFO  14:11:00,879 - #53 this
+INFO  14:11:00,879 - #34 .
+INFO  14:11:00,879 - #53 neg
+INFO  14:11:00,879 - #22 [
+INFO  14:11:00,879 - #53 idx
+INFO  14:11:00,879 - #23 ]
+INFO  14:11:00,880 - #20 =
+INFO  14:11:00,880 - #53 a
+INFO  14:11:00,880 - #5 ;
+INFO  14:11:00,880 - #4 }
+INFO  14:11:00,880 - #53 int
+INFO  14:11:00,880 - #53 getp
+INFO  14:11:00,880 - #6 (
+INFO  14:11:00,880 - #53 int
+INFO  14:11:00,880 - #53 idx
+INFO  14:11:00,880 - #7 )
+INFO  14:11:00,880 - #3 {
+INFO  14:11:00,880 - #9 return
+INFO  14:11:00,880 - #53 pos
+INFO  14:11:00,881 - #22 [
+INFO  14:11:00,881 - #53 idx
+INFO  14:11:00,881 - #23 ]
+INFO  14:11:00,881 - #5 ;
+INFO  14:11:00,881 - #4 }
+INFO  14:11:00,881 - #53 int
+INFO  14:11:00,881 - #53 getn
+INFO  14:11:00,881 - #6 (
+INFO  14:11:00,881 - #53 int
+INFO  14:11:00,881 - #53 idx
+INFO  14:11:00,881 - #7 )
+INFO  14:11:00,881 - #3 {
+INFO  14:11:00,882 - #9 return
+INFO  14:11:00,882 - #53 neg
+INFO  14:11:00,882 - #22 [
+INFO  14:11:00,882 - #53 idx
+INFO  14:11:00,882 - #23 ]
+INFO  14:11:00,882 - #5 ;
+INFO  14:11:00,882 - #4 }
+INFO  14:11:00,882 - #13 void
+INFO  14:11:00,882 - #53 main
+INFO  14:11:00,882 - #6 (
+INFO  14:11:00,882 - #7 )
+INFO  14:11:00,888 - #53 int
+INFO  14:11:00,888 - #53 x
+INFO  14:11:00,888 - #11 ,
+INFO  14:11:00,888 - #53 i
+INFO  14:11:00,888 - #5 ;
+INFO  14:11:00,888 - #53 char
+INFO  14:11:00,888 - #53 c
+INFO  14:11:00,889 - #5 ;
+INFO  14:11:00,889 - #53 int
+INFO  14:11:00,889 - #53 arr
+INFO  14:11:00,889 - #22 [
+INFO  14:11:00,889 - #23 ]
+INFO  14:11:00,889 - #5 ;
+INFO  14:11:00,889 - #3 {
+INFO  14:11:00,889 - #53 val
+INFO  14:11:00,889 - #34 .
+INFO  14:11:00,889 - #53 setfactor
+INFO  14:11:00,889 - #6 (
+INFO  14:11:00,889 - #17 2
+INFO  14:11:00,889 - #7 )
+INFO  14:11:00,889 - #5 ;
+INFO  14:11:00,890 - #53 arr
+INFO  14:11:00,890 - #20 =
+INFO  14:11:00,890 - #33 new
+INFO  14:11:00,890 - #53 int
+INFO  14:11:00,890 - #22 [
+INFO  14:11:00,890 - #17 3
+INFO  14:11:00,890 - #23 ]
+INFO  14:11:00,890 - #5 ;
+INFO  14:11:00,890 - #53 i
+INFO  14:11:00,890 - #20 =
+INFO  14:11:00,890 - #17 0
+INFO  14:11:00,890 - #5 ;
+INFO  14:11:00,890 - #26 read
+INFO  14:11:00,890 - #6 (
+INFO  14:11:00,891 - #53 x
+INFO  14:11:00,891 - #7 )
+INFO  14:11:00,891 - #5 ;
+INFO  14:11:00,891 - #53 val
+INFO  14:11:00,891 - #34 .
+INFO  14:11:00,891 - #53 putp
+INFO  14:11:00,891 - #6 (
+INFO  14:11:00,891 - #17 0
+INFO  14:11:00,891 - #11 ,
+INFO  14:11:00,891 - #53 i
+INFO  14:11:00,891 - #7 )
+INFO  14:11:00,891 - #5 ;
+INFO  14:11:00,891 - #53 val
+INFO  14:11:00,891 - #34 .
+INFO  14:11:00,891 - #53 putn
+INFO  14:11:00,891 - #6 (
+INFO  14:11:00,892 - #17 0
+INFO  14:11:00,892 - #11 ,
+INFO  14:11:00,892 - #53 i
+INFO  14:11:00,892 - #7 )
+INFO  14:11:00,892 - #5 ;
+INFO  14:11:00,892 - #4 }
+INFO  14:11:00,892 - #4 }
+INFO  14:11:00,900 - Program(
+ MJProgram
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListObj(
+        ProgDeclListNone(
+        ) [ProgDeclListNone]
+        ProgVarDescarations(
+          VarDecl(
+            Type(
+             int
+            ) [Type]
+            SingleVarDecl(
+              VarDecl_ID(
+               x
+              ) [VarDecl_ID]
+            ) [SingleVarDecl]
+          ) [VarDecl]
+        ) [ProgVarDescarations]
+      ) [ProgDeclListObj]
+      ProgVarDescarations(
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          SingleVarDecl(
+            VarDecl_ID(
+             y
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type(
+         int
+        ) [Type]
+        MultipleVarDecl(
+          SingleVarDecl(
+            VarDecl_ID(
+             rows
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+          VarDecl_ID(
+           columns
+          ) [VarDecl_ID]
+        ) [MultipleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    MethodDeclarations(
+      MethodDeclarations(
+        MethodDeclarations(
+          MethodDeclarations(
+            MethodDeclarations(
+              NoMethodDecl(
+              ) [NoMethodDecl]
+              MethodDecl(
+                ReturnMethod_Void(
+                ) [ReturnMethod_Void]
+               setfactor
+                FormParams(
+                  SingleFormalParamDecl(
+                    FormParDecl_Single(
+                      Type(
+                       int
+                      ) [Type]
+                     factor
+                    ) [FormParDecl_Single]
+                  ) [SingleFormalParamDecl]
+                ) [FormParams]
+                NoVarDecl(
+                ) [NoVarDecl]
+                Statements(
+                  NoStmt(
+                  ) [NoStmt]
+                  MatchedStmt(
+                    DesignatorStatementStmt(
+                      DesignatorStatement_Expr(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           this
+                          ) [DesignatorHelper_None]
+                          DesignatorHelper_Dot(
+                            DesignatorHelper_NoneExpr(
+                            ) [DesignatorHelper_NoneExpr]
+                           factor
+                          ) [DesignatorHelper_Dot]
+                        ) [Designator_Ident]
+                        AssignopDerived1(
+                        ) [AssignopDerived1]
+                        TermExpr(
+                          Term_Factor(
+                            DesignatorFactoraaaa(
+                              Designator_Ident(
+                                DesignatorHelper_None(
+                                 factor
+                                ) [DesignatorHelper_None]
+                                DesignatorHelper_NoneExpr(
+                                ) [DesignatorHelper_NoneExpr]
+                              ) [Designator_Ident]
+                            ) [DesignatorFactoraaaa]
+                          ) [Term_Factor]
+                        ) [TermExpr]
+                      ) [DesignatorStatement_Expr]
+                    ) [DesignatorStatementStmt]
+                  ) [MatchedStmt]
+                ) [Statements]
+              ) [MethodDecl]
+            ) [MethodDeclarations]
+            MethodDecl(
+              ReturnMethod_Void(
+              ) [ReturnMethod_Void]
+             putp
+              FormParams(
+                FormalParamDecls(
+                  SingleFormalParamDecl(
+                    FormParDecl_Single(
+                      Type(
+                       int
+                      ) [Type]
+                     a
+                    ) [FormParDecl_Single]
+                  ) [SingleFormalParamDecl]
+                  FormParDecl_Single(
+                    Type(
+                     int
+                    ) [Type]
+                   idx
+                  ) [FormParDecl_Single]
+                ) [FormalParamDecls]
+              ) [FormParams]
+              NoVarDecl(
+              ) [NoVarDecl]
+              Statements(
+                NoStmt(
+                ) [NoStmt]
+                MatchedStmt(
+                  DesignatorStatementStmt(
+                    DesignatorStatement_Expr(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         this
+                        ) [DesignatorHelper_None]
+                        DesignatorHelper_Expr(
+                          DesignatorHelper_Dot(
+                            DesignatorHelper_NoneExpr(
+                            ) [DesignatorHelper_NoneExpr]
+                           pos
+                          ) [DesignatorHelper_Dot]
+                          TermExpr(
+                            Term_Factor(
+                              DesignatorFactoraaaa(
+                                Designator_Ident(
+                                  DesignatorHelper_None(
+                                   idx
+                                  ) [DesignatorHelper_None]
+                                  DesignatorHelper_NoneExpr(
+                                  ) [DesignatorHelper_NoneExpr]
+                                ) [Designator_Ident]
+                              ) [DesignatorFactoraaaa]
+                            ) [Term_Factor]
+                          ) [TermExpr]
+                        ) [DesignatorHelper_Expr]
+                      ) [Designator_Ident]
+                      AssignopDerived1(
+                      ) [AssignopDerived1]
+                      TermExpr(
+                        Term_Factor(
+                          DesignatorFactoraaaa(
+                            Designator_Ident(
+                              DesignatorHelper_None(
+                               a
+                              ) [DesignatorHelper_None]
+                              DesignatorHelper_NoneExpr(
+                              ) [DesignatorHelper_NoneExpr]
+                            ) [Designator_Ident]
+                          ) [DesignatorFactoraaaa]
+                        ) [Term_Factor]
+                      ) [TermExpr]
+                    ) [DesignatorStatement_Expr]
+                  ) [DesignatorStatementStmt]
+                ) [MatchedStmt]
+              ) [Statements]
+            ) [MethodDecl]
+          ) [MethodDeclarations]
+          MethodDecl(
+            ReturnMethod_Void(
+            ) [ReturnMethod_Void]
+           putn
+            FormParams(
+              FormalParamDecls(
+                SingleFormalParamDecl(
+                  FormParDecl_Single(
+                    Type(
+                     int
+                    ) [Type]
+                   a
+                  ) [FormParDecl_Single]
+                ) [SingleFormalParamDecl]
+                FormParDecl_Single(
+                  Type(
+                   int
+                  ) [Type]
+                 idx
+                ) [FormParDecl_Single]
+              ) [FormalParamDecls]
+            ) [FormParams]
+            NoVarDecl(
+            ) [NoVarDecl]
+            Statements(
+              NoStmt(
+              ) [NoStmt]
+              MatchedStmt(
+                DesignatorStatementStmt(
+                  DesignatorStatement_Expr(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       this
+                      ) [DesignatorHelper_None]
+                      DesignatorHelper_Expr(
+                        DesignatorHelper_Dot(
+                          DesignatorHelper_NoneExpr(
+                          ) [DesignatorHelper_NoneExpr]
+                         neg
+                        ) [DesignatorHelper_Dot]
+                        TermExpr(
+                          Term_Factor(
+                            DesignatorFactoraaaa(
+                              Designator_Ident(
+                                DesignatorHelper_None(
+                                 idx
+                                ) [DesignatorHelper_None]
+                                DesignatorHelper_NoneExpr(
+                                ) [DesignatorHelper_NoneExpr]
+                              ) [Designator_Ident]
+                            ) [DesignatorFactoraaaa]
+                          ) [Term_Factor]
+                        ) [TermExpr]
+                      ) [DesignatorHelper_Expr]
+                    ) [Designator_Ident]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    TermExpr(
+                      Term_Factor(
+                        DesignatorFactoraaaa(
+                          Designator_Ident(
+                            DesignatorHelper_None(
+                             a
+                            ) [DesignatorHelper_None]
+                            DesignatorHelper_NoneExpr(
+                            ) [DesignatorHelper_NoneExpr]
+                          ) [Designator_Ident]
+                        ) [DesignatorFactoraaaa]
+                      ) [Term_Factor]
+                    ) [TermExpr]
+                  ) [DesignatorStatement_Expr]
+                ) [DesignatorStatementStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+          ) [MethodDecl]
+        ) [MethodDeclarations]
+        MethodDecl(
+          ReturnMethod_Type(
+            Type(
+             int
+            ) [Type]
+          ) [ReturnMethod_Type]
+         getp
+          FormParams(
+            SingleFormalParamDecl(
+              FormParDecl_Single(
+                Type(
+                 int
+                ) [Type]
+               idx
+              ) [FormParDecl_Single]
+            ) [SingleFormalParamDecl]
+          ) [FormParams]
+          NoVarDecl(
+          ) [NoVarDecl]
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              ReturnExpr(
+                TermExpr(
+                  Term_Factor(
+                    DesignatorFactoraaaa(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         pos
+                        ) [DesignatorHelper_None]
+                        DesignatorHelper_Expr(
+                          DesignatorHelper_NoneExpr(
+                          ) [DesignatorHelper_NoneExpr]
+                          TermExpr(
+                            Term_Factor(
+                              DesignatorFactoraaaa(
+                                Designator_Ident(
+                                  DesignatorHelper_None(
+                                   idx
+                                  ) [DesignatorHelper_None]
+                                  DesignatorHelper_NoneExpr(
+                                  ) [DesignatorHelper_NoneExpr]
+                                ) [Designator_Ident]
+                              ) [DesignatorFactoraaaa]
+                            ) [Term_Factor]
+                          ) [TermExpr]
+                        ) [DesignatorHelper_Expr]
+                      ) [Designator_Ident]
+                    ) [DesignatorFactoraaaa]
+                  ) [Term_Factor]
+                ) [TermExpr]
+              ) [ReturnExpr]
+            ) [MatchedStmt]
+          ) [Statements]
+        ) [MethodDecl]
+      ) [MethodDeclarations]
+      MethodDecl(
+        ReturnMethod_Type(
+          Type(
+           int
+          ) [Type]
+        ) [ReturnMethod_Type]
+       getn
+        FormParams(
+          SingleFormalParamDecl(
+            FormParDecl_Single(
+              Type(
+               int
+              ) [Type]
+             idx
+            ) [FormParDecl_Single]
+          ) [SingleFormalParamDecl]
+        ) [FormParams]
+        NoVarDecl(
+        ) [NoVarDecl]
+        Statements(
+          NoStmt(
+          ) [NoStmt]
+          MatchedStmt(
+            ReturnExpr(
+              TermExpr(
+                Term_Factor(
+                  DesignatorFactoraaaa(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       neg
+                      ) [DesignatorHelper_None]
+                      DesignatorHelper_Expr(
+                        DesignatorHelper_NoneExpr(
+                        ) [DesignatorHelper_NoneExpr]
+                        TermExpr(
+                          Term_Factor(
+                            DesignatorFactoraaaa(
+                              Designator_Ident(
+                                DesignatorHelper_None(
+                                 idx
+                                ) [DesignatorHelper_None]
+                                DesignatorHelper_NoneExpr(
+                                ) [DesignatorHelper_NoneExpr]
+                              ) [Designator_Ident]
+                            ) [DesignatorFactoraaaa]
+                          ) [Term_Factor]
+                        ) [TermExpr]
+                      ) [DesignatorHelper_Expr]
+                    ) [Designator_Ident]
+                  ) [DesignatorFactoraaaa]
+                ) [Term_Factor]
+              ) [TermExpr]
+            ) [ReturnExpr]
+          ) [MatchedStmt]
+        ) [Statements]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      ReturnMethod_Void(
+      ) [ReturnMethod_Void]
+     main
+      NoFormParam(
+      ) [NoFormParam]
+      VarDeclarations(
+        VarDeclarations(
+          VarDeclarations(
+            NoVarDecl(
+            ) [NoVarDecl]
+            VarDecl(
+              Type(
+               int
+              ) [Type]
+              MultipleVarDecl(
+                SingleVarDecl(
+                  VarDecl_ID(
+                   x
+                  ) [VarDecl_ID]
+                ) [SingleVarDecl]
+                VarDecl_ID(
+                 i
+                ) [VarDecl_ID]
+              ) [MultipleVarDecl]
+            ) [VarDecl]
+          ) [VarDeclarations]
+          VarDecl(
+            Type(
+             char
+            ) [Type]
+            SingleVarDecl(
+              VarDecl_ID(
+               c
+              ) [VarDecl_ID]
+            ) [SingleVarDecl]
+          ) [VarDecl]
+        ) [VarDeclarations]
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          SingleVarDecl(
+            VarDecl_SQ(
+             arr
+            ) [VarDecl_SQ]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [VarDeclarations]
+      Statements(
+        Statements(
+          Statements(
+            Statements(
+              Statements(
+                Statements(
+                  NoStmt(
+                  ) [NoStmt]
+                  MatchedStmt(
+                    DesignatorStatementStmt(
+                      DesignatorStatement_ActPars(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           val
+                          ) [DesignatorHelper_None]
+                          DesignatorHelper_Dot(
+                            DesignatorHelper_NoneExpr(
+                            ) [DesignatorHelper_NoneExpr]
+                           setfactor
+                          ) [DesignatorHelper_Dot]
+                        ) [Designator_Ident]
+                        ActPars_Single(
+                          TermExpr(
+                            Term_Factor(
+                              ConstValueFactor(
+                                ConstValue_Num(
+                                 2
+                                ) [ConstValue_Num]
+                              ) [ConstValueFactor]
+                            ) [Term_Factor]
+                          ) [TermExpr]
+                        ) [ActPars_Single]
+                      ) [DesignatorStatement_ActPars]
+                    ) [DesignatorStatementStmt]
+                  ) [MatchedStmt]
+                ) [Statements]
+                MatchedStmt(
+                  DesignatorStatementStmt(
+                    DesignatorStatement_Expr(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         arr
+                        ) [DesignatorHelper_None]
+                        DesignatorHelper_NoneExpr(
+                        ) [DesignatorHelper_NoneExpr]
+                      ) [Designator_Ident]
+                      AssignopDerived1(
+                      ) [AssignopDerived1]
+                      TermExpr(
+                        Term_Factor(
+                          NewFactor(
+                            Type(
+                             int
+                            ) [Type]
+                            ExprActParsChoice_Expr(
+                              TermExpr(
+                                Term_Factor(
+                                  ConstValueFactor(
+                                    ConstValue_Num(
+                                     3
+                                    ) [ConstValue_Num]
+                                  ) [ConstValueFactor]
+                                ) [Term_Factor]
+                              ) [TermExpr]
+                            ) [ExprActParsChoice_Expr]
+                          ) [NewFactor]
+                        ) [Term_Factor]
+                      ) [TermExpr]
+                    ) [DesignatorStatement_Expr]
+                  ) [DesignatorStatementStmt]
+                ) [MatchedStmt]
+              ) [Statements]
+              MatchedStmt(
+                DesignatorStatementStmt(
+                  DesignatorStatement_Expr(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       i
+                      ) [DesignatorHelper_None]
+                      DesignatorHelper_NoneExpr(
+                      ) [DesignatorHelper_NoneExpr]
+                    ) [Designator_Ident]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    TermExpr(
+                      Term_Factor(
+                        ConstValueFactor(
+                          ConstValue_Num(
+                           0
+                          ) [ConstValue_Num]
+                        ) [ConstValueFactor]
+                      ) [Term_Factor]
+                    ) [TermExpr]
+                  ) [DesignatorStatement_Expr]
+                ) [DesignatorStatementStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              ReadStmt(
+                Designator_Ident(
+                  DesignatorHelper_None(
+                   x
+                  ) [DesignatorHelper_None]
+                  DesignatorHelper_NoneExpr(
+                  ) [DesignatorHelper_NoneExpr]
+                ) [Designator_Ident]
+              ) [ReadStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            DesignatorStatementStmt(
+              DesignatorStatement_ActPars(
+                Designator_Ident(
+                  DesignatorHelper_None(
+                   val
+                  ) [DesignatorHelper_None]
+                  DesignatorHelper_Dot(
+                    DesignatorHelper_NoneExpr(
+                    ) [DesignatorHelper_NoneExpr]
+                   putp
+                  ) [DesignatorHelper_Dot]
+                ) [Designator_Ident]
+                ActPars_List(
+                  ActPars_Single(
+                    TermExpr(
+                      Term_Factor(
+                        ConstValueFactor(
+                          ConstValue_Num(
+                           0
+                          ) [ConstValue_Num]
+                        ) [ConstValueFactor]
+                      ) [Term_Factor]
+                    ) [TermExpr]
+                  ) [ActPars_Single]
+                  TermExpr(
+                    Term_Factor(
+                      DesignatorFactoraaaa(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           i
+                          ) [DesignatorHelper_None]
+                          DesignatorHelper_NoneExpr(
+                          ) [DesignatorHelper_NoneExpr]
+                        ) [Designator_Ident]
+                      ) [DesignatorFactoraaaa]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                ) [ActPars_List]
+              ) [DesignatorStatement_ActPars]
+            ) [DesignatorStatementStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          DesignatorStatementStmt(
+            DesignatorStatement_ActPars(
+              Designator_Ident(
+                DesignatorHelper_None(
+                 val
+                ) [DesignatorHelper_None]
+                DesignatorHelper_Dot(
+                  DesignatorHelper_NoneExpr(
+                  ) [DesignatorHelper_NoneExpr]
+                 putn
+                ) [DesignatorHelper_Dot]
+              ) [Designator_Ident]
+              ActPars_List(
+                ActPars_Single(
+                  TermExpr(
+                    Term_Factor(
+                      ConstValueFactor(
+                        ConstValue_Num(
+                         0
+                        ) [ConstValue_Num]
+                      ) [ConstValueFactor]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                ) [ActPars_Single]
+                TermExpr(
+                  Term_Factor(
+                    DesignatorFactoraaaa(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         i
+                        ) [DesignatorHelper_None]
+                        DesignatorHelper_NoneExpr(
+                        ) [DesignatorHelper_NoneExpr]
+                      ) [Designator_Ident]
+                    ) [DesignatorFactoraaaa]
+                  ) [Term_Factor]
+                ) [TermExpr]
+              ) [ActPars_List]
+            ) [DesignatorStatement_ActPars]
+          ) [DesignatorStatementStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  14:11:00,901 - ===================================

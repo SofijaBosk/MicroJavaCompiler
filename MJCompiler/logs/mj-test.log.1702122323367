@@ -1,0 +1,114 @@
+INFO  12:43:23,172 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\primerSaSajta.mj
+INFO  12:43:23,307 - #2 program
+INFO  12:43:23,307 - #15 p
+INFO  12:43:23,307 - #22 const
+INFO  12:43:23,309 - #15 int
+INFO  12:43:23,309 - #15 tableSize
+INFO  12:43:23,310 - #21 =
+INFO  12:43:23,310 - #18 10
+INFO  12:43:23,310 - #5 ;
+INFO  12:43:23,311 - #15 int
+INFO  12:43:23,312 - #15 rows
+INFO  12:43:23,312 - #11 ,
+INFO  12:43:23,313 - #15 columns
+INFO  12:43:23,313 - #5 ;
+INFO  12:43:23,313 - #3 {
+INFO  12:43:23,314 - #13 void
+INFO  12:43:23,315 - #15 f
+INFO  12:43:23,316 - #6 (
+INFO  12:43:23,317 - #15 char
+INFO  12:43:23,317 - #15 ch
+INFO  12:43:23,324 - #11 ,
+INFO  12:43:23,324 - #15 int
+INFO  12:43:23,324 - #15 a
+INFO  12:43:23,324 - #11 ,
+INFO  12:43:23,325 - #15 int
+INFO  12:43:23,325 - #15 arg
+INFO  12:43:23,325 - #7 )
+INFO  12:43:23,325 - #15 int
+INFO  12:43:23,326 - #15 x
+INFO  12:43:23,327 - #5 ;
+INFO  12:43:23,327 - #3 {
+INFO  12:43:23,327 - #15 x
+INFO  12:43:23,328 - #21 =
+INFO  12:43:23,329 - #15 arg
+INFO  12:43:23,329 - #5 ;
+INFO  12:43:23,329 - #4 }
+INFO  12:43:23,330 - #13 void
+INFO  12:43:23,331 - #15 main
+INFO  12:43:23,331 - #6 (
+INFO  12:43:23,331 - #7 )
+INFO  12:43:23,332 - #15 int
+INFO  12:43:23,332 - #15 x
+INFO  12:43:23,332 - #11 ,
+INFO  12:43:23,333 - #15 i
+INFO  12:43:23,333 - #5 ;
+INFO  12:43:23,333 - #15 char
+INFO  12:43:23,333 - #15 c
+INFO  12:43:23,333 - #5 ;
+INFO  12:43:23,333 - #15 int
+INFO  12:43:23,333 - #15 arr
+INFO  12:43:23,333 - #23 [
+INFO  12:43:23,333 - #24 ]
+INFO  12:43:23,333 - #5 ;
+INFO  12:43:23,333 - #3 {
+INFO  12:43:23,334 - #15 val
+INFO  12:43:23,334 - #35 .
+INFO  12:43:23,334 - #15 setfactor
+INFO  12:43:23,334 - #6 (
+INFO  12:43:23,334 - #18 2
+INFO  12:43:23,334 - #7 )
+INFO  12:43:23,334 - #5 ;
+INFO  12:43:23,335 - #22 const
+ERROR 12:43:23,335 - 
+Sintaksna greska na liniji 36
+INFO  12:43:23,335 - #15 int
+INFO  12:43:23,335 - #15 tri
+INFO  12:43:23,335 - #21 =
+INFO  12:43:23,336 - #18 3
+INFO  12:43:23,336 - #5 ;
+INFO  12:43:23,336 - #15 arr
+INFO  12:43:23,337 - #21 =
+INFO  12:43:23,337 - #15 new
+ERROR 12:43:23,337 - Izvrsen oporavak do ; u liniji 35
+INFO  12:43:23,338 - #15 int
+ERROR 12:43:23,338 - 
+Sintaksna greska na liniji 37
+INFO  12:43:23,338 - #23 [
+INFO  12:43:23,338 - #15 tri
+INFO  12:43:23,338 - #24 ]
+INFO  12:43:23,339 - #5 ;
+INFO  12:43:23,339 - #15 for
+INFO  12:43:23,339 - #6 (
+INFO  12:43:23,339 - #15 i
+ERROR 12:43:23,339 - Izvrsen oporavak do ; u liniji 37
+INFO  12:43:23,339 - #21 =
+ERROR 12:43:23,339 - 
+Sintaksna greska na liniji 38
+INFO  12:43:23,339 - #18 0
+INFO  12:43:23,339 - #5 ;
+INFO  12:43:23,340 - #15 i
+INFO  12:43:23,340 - #40 <
+INFO  12:43:23,340 - #18 3
+INFO  12:43:23,341 - #5 ;
+INFO  12:43:23,341 - #15 i
+INFO  12:43:23,341 - #44 ++
+INFO  12:43:23,341 - #7 )
+ERROR 12:43:23,341 - Izvrsen oporavak do ; u liniji 38
+ERROR 12:43:23,342 - 
+Sintaksna greska na liniji 38
+INFO  12:43:23,342 - #3 {
+INFO  12:43:23,342 - #15 arr
+INFO  12:43:23,342 - #23 [
+INFO  12:43:23,343 - #15 i
+INFO  12:43:23,343 - #24 ]
+INFO  12:43:23,343 - #21 =
+INFO  12:43:23,343 - #15 i
+INFO  12:43:23,343 - #5 ;
+INFO  12:43:23,344 - #4 }
+INFO  12:43:23,344 - #15 for
+INFO  12:43:23,344 - #6 (
+ERROR 12:43:23,344 - Izvrsen oporavak do ; u liniji 38
+ERROR 12:43:23,344 - 
+Sintaksna greska na liniji 41
+ERROR 12:43:23,345 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 41

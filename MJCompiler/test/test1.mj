@@ -1,0 +1,26 @@
+program MJProgram
+	int x; int y;
+	int rows, columns;
+{
+
+    void setfactor(int factor) {this.factor = factor;}
+    void putp (int a, int idx) { this.pos[idx] = a; }
+    void putn (int a, int idx) { this.neg[idx] = a; }
+    int getp (int idx) { return pos[idx]; }
+    int getn (int idx) { return neg[idx]; }
+
+	
+	void main() int x, i; char c; int arr[] ;
+	{
+		val.setfactor(2);
+		arr = new int[3];
+		i=0;
+		//for (i=0; i<3; i++) print(arr[i]);
+		//val.pos = new int [tableSize];
+		//val.neg = new int [tableSize];
+		read(x);
+		//[i,,x] = arr;
+		val.putp(0, i);
+		val.putn(0, i);
+	}
+}

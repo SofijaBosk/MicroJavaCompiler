@@ -1,0 +1,207 @@
+INFO  12:59:59,641 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test1.mj
+INFO  12:59:59,781 - #2 program
+INFO  12:59:59,781 - #15 MJProgram
+INFO  12:59:59,781 - #15 int
+INFO  12:59:59,784 - #15 x
+INFO  12:59:59,785 - #5 ;
+INFO  12:59:59,785 - #15 int
+INFO  12:59:59,787 - #15 y
+INFO  12:59:59,787 - #5 ;
+INFO  12:59:59,787 - #3 {
+INFO  12:59:59,787 - #15 int
+INFO  12:59:59,788 - #15 main
+INFO  12:59:59,788 - #6 (
+INFO  12:59:59,789 - #7 )
+INFO  12:59:59,790 - #15 int
+INFO  12:59:59,791 - #15 tri
+INFO  12:59:59,791 - #5 ;
+INFO  12:59:59,791 - #3 {
+INFO  12:59:59,792 - #12 print
+INFO  12:59:59,793 - #6 (
+INFO  12:59:59,793 - #18 1
+INFO  12:59:59,799 - #7 )
+INFO  12:59:59,801 - #5 ;
+INFO  12:59:59,801 - #15 tri
+INFO  12:59:59,801 - #21 =
+INFO  12:59:59,802 - #18 3
+INFO  12:59:59,804 - #5 ;
+INFO  12:59:59,804 - #15 x
+INFO  12:59:59,804 - #21 =
+INFO  12:59:59,804 - #15 y
+INFO  12:59:59,804 - #10 +
+INFO  12:59:59,805 - #18 5
+INFO  12:59:59,806 - #5 ;
+INFO  12:59:59,807 - #12 print
+INFO  12:59:59,807 - #6 (
+INFO  12:59:59,807 - #18 2
+INFO  12:59:59,807 - #7 )
+INFO  12:59:59,807 - #5 ;
+INFO  12:59:59,807 - #4 }
+INFO  12:59:59,807 - #4 }
+INFO  12:59:59,811 - Program(
+ MJProgram
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type(
+         int
+        ) [Type]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      ReturnMethod_Type(
+        Type(
+         int
+        ) [Type]
+      ) [ReturnMethod_Type]
+     main
+      NoFormParam(
+      ) [NoFormParam]
+      VarDeclarations(
+        NoVarDecl(
+        ) [NoVarDecl]
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          SingleVarDecl(
+            VarDecl_ID(
+             tri
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [VarDeclarations]
+      Statements(
+        Statements(
+          Statements(
+            Statements(
+              NoStmt(
+              ) [NoStmt]
+              MatchedStmt(
+                PrintStmt(
+                  TermExpr(
+                    Term_Factor(
+                      ConstValueFactor(
+                        ConstValue_Num(
+                         1
+                        ) [ConstValue_Num]
+                      ) [ConstValueFactor]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                  NumConstList_None(
+                  ) [NumConstList_None]
+                ) [PrintStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              DesignatorStatementStmt(
+                DesignatorStatement_Expr(
+                  Designator_Ident(
+                    DesignatorHelper_None(
+                     tri
+                    ) [DesignatorHelper_None]
+                    DesignatorHelper_NoneExpr(
+                    ) [DesignatorHelper_NoneExpr]
+                  ) [Designator_Ident]
+                  AssignopDerived1(
+                  ) [AssignopDerived1]
+                  TermExpr(
+                    Term_Factor(
+                      ConstValueFactor(
+                        ConstValue_Num(
+                         3
+                        ) [ConstValue_Num]
+                      ) [ConstValueFactor]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                ) [DesignatorStatement_Expr]
+              ) [DesignatorStatementStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            DesignatorStatementStmt(
+              DesignatorStatement_Expr(
+                Designator_Ident(
+                  DesignatorHelper_None(
+                   x
+                  ) [DesignatorHelper_None]
+                  DesignatorHelper_NoneExpr(
+                  ) [DesignatorHelper_NoneExpr]
+                ) [Designator_Ident]
+                AssignopDerived1(
+                ) [AssignopDerived1]
+                AddExpr(
+                  TermExpr(
+                    Term_Factor(
+                      DesignatorFactoraaaa(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           y
+                          ) [DesignatorHelper_None]
+                          DesignatorHelper_NoneExpr(
+                          ) [DesignatorHelper_NoneExpr]
+                        ) [Designator_Ident]
+                      ) [DesignatorFactoraaaa]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                  Addop_PLUS(
+                  ) [Addop_PLUS]
+                  Term_Factor(
+                    ConstValueFactor(
+                      ConstValue_Num(
+                       5
+                      ) [ConstValue_Num]
+                    ) [ConstValueFactor]
+                  ) [Term_Factor]
+                ) [AddExpr]
+              ) [DesignatorStatement_Expr]
+            ) [DesignatorStatementStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term_Factor(
+                ConstValueFactor(
+                  ConstValue_Num(
+                   2
+                  ) [ConstValue_Num]
+                ) [ConstValueFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+            NumConstList_None(
+            ) [NumConstList_None]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  12:59:59,813 - ===================================

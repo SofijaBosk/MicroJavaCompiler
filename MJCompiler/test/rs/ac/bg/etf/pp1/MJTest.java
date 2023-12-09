@@ -25,7 +25,8 @@ public class MJTest {
 		Reader br = null;
 		try {
 			//String filename="test/program.mj";
-			String filename="test/primerSaSajta.mj";
+			//String filename="test/primerSaSajta.mj";
+			String filename="test/test1.mj";
 			File sourceCode = new File(filename);	
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			

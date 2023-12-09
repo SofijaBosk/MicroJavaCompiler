@@ -28,8 +28,10 @@ public class MJParserTest {
 		
 		Reader br = null;
 		try {
-			//String filename="test/program.mj";
-			String filename="test/primerSaSajta.mj";
+			String filename;
+			//filename="test/program.mj";
+			//filename="test/primerSaSajta.mj";
+			filename="test/test1.mj";
 			File sourceCode = new File(filename);
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			

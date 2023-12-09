@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/11/2023 11:53:46
+// 9/11/2023 14:9:50
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,13 +8,13 @@ package rs.ac.bg.etf.pp1.ast;
 public class NamespaceList_Single extends NamespaceList {
 
     private NamespaceList NamespaceList;
-    private Namespace Namespace;
+    private NamespaceNT NamespaceNT;
 
-    public NamespaceList_Single (NamespaceList NamespaceList, Namespace Namespace) {
+    public NamespaceList_Single (NamespaceList NamespaceList, NamespaceNT NamespaceNT) {
         this.NamespaceList=NamespaceList;
         if(NamespaceList!=null) NamespaceList.setParent(this);
-        this.Namespace=Namespace;
-        if(Namespace!=null) Namespace.setParent(this);
+        this.NamespaceNT=NamespaceNT;
+        if(NamespaceNT!=null) NamespaceNT.setParent(this);
     }
 
     public NamespaceList getNamespaceList() {
@@ -25,12 +25,12 @@ public class NamespaceList_Single extends NamespaceList {
         this.NamespaceList=NamespaceList;
     }
 
-    public Namespace getNamespace() {
-        return Namespace;
+    public NamespaceNT getNamespaceNT() {
+        return NamespaceNT;
     }
 
-    public void setNamespace(Namespace Namespace) {
-        this.Namespace=Namespace;
+    public void setNamespaceNT(NamespaceNT NamespaceNT) {
+        this.NamespaceNT=NamespaceNT;
     }
 
     public void accept(Visitor visitor) {
@@ -39,18 +39,18 @@ public class NamespaceList_Single extends NamespaceList {
 
     public void childrenAccept(Visitor visitor) {
         if(NamespaceList!=null) NamespaceList.accept(visitor);
-        if(Namespace!=null) Namespace.accept(visitor);
+        if(NamespaceNT!=null) NamespaceNT.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(NamespaceList!=null) NamespaceList.traverseTopDown(visitor);
-        if(Namespace!=null) Namespace.traverseTopDown(visitor);
+        if(NamespaceNT!=null) NamespaceNT.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(NamespaceList!=null) NamespaceList.traverseBottomUp(visitor);
-        if(Namespace!=null) Namespace.traverseBottomUp(visitor);
+        if(NamespaceNT!=null) NamespaceNT.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -65,8 +65,8 @@ public class NamespaceList_Single extends NamespaceList {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Namespace!=null)
-            buffer.append(Namespace.toString("  "+tab));
+        if(NamespaceNT!=null)
+            buffer.append(NamespaceNT.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

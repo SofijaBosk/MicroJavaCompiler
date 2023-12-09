@@ -57,7 +57,7 @@ scan with {:
 
 terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, EQUAL, RETURN, PLUS, COMMA, PRINT, VOID;
 terminal Integer NUMBER;
-terminal String IDENT;
+
 terminal IF, ELSE;
 terminal Integer NUM_CONST;
 terminal Character CHAR_CONST;
@@ -71,8 +71,9 @@ terminal NEW;
 terminal DOT, BOOL_EQUAL, BOOL_NOT_EQUAL, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, DIV, MOD;
 terminal INC, DEC;
 terminal COLON, ASSIGN, FOREACH;
-terminal NAMESPACE, STATIC, FOR, MUL;
+terminal NAMESP, STATIC, FOR, MUL;
 terminal SCOPE;
+terminal String IDENT;
 
 nonterminal MethodDeclList;
 nonterminal FormalParamList, FormalParamDecl, FormPars, ActualPars, ActualParamList; 
@@ -82,7 +83,7 @@ nonterminal Unmatched, Matched;
 nonterminal Program, Designator, MethodDecl, MethodTypeName; 
 nonterminal Type, Term, Expr, Factor, VarDeclList; 
 
-nonterminal ProgDeclList, NamespaceList, Namespace;
+nonterminal ProgDeclList, NamespaceList;
 nonterminal ProgDecl, VarDecl, ClassDecl, ConstDecl;
 nonterminal ConstList, ConstSingle;
 nonterminal VarlList, VarSingle;
@@ -96,16 +97,16 @@ nonterminal Assignop, Relop, Mulop;
 nonterminal ExprActParsChoice, ActParsList, ConstValue;
 nonterminal DesignatorHelper;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
-	
+nonterminal NamespaceNT;
 	            
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
 
 Program ::= (Program) PROG IDENT NamespaceList ProgDeclList LBRACE MethodDeclList RBRACE;
 
-NamespaceList ::= (NamespaceList_Single) NamespaceList Namespace
+NamespaceList ::= (NamespaceList_Single) NamespaceList NamespaceNT
 					|
-					(NamespaceList_Multiple) Namespace
+					(NamespaceList_Multiple) /* epsilon */
 					;
 
 ProgDeclList ::= (ProgDeclListObj) ProgDeclList ProgDecl
@@ -125,7 +126,7 @@ ProgDecl ::= (ProgConstDescarations) ConstDecl
 /*Namespace_START*/
 /*namespaceʺ ident ʺ{ʺ {ConstDecl | VarDecl | ClassDecl } ʺ{ʺ {MethodDecl} ʺ}ʺ ʺ}"*/
 
-Namespace ::= (NamespaceProg) NAMESPACE IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE;
+NamespaceNT ::= (NamespaceProg) NAMESP IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE;
 				
 /*Namespace_END*/	
 
@@ -356,8 +357,9 @@ DesignatorStatement ::= (DesignatorStatement_Expr) Designator Assignop Expr
 					| 
 					(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
 					|
-                    (DesignatorStatement_Mul) FOR LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
-                   	|                  	
+                    /*(DesignatorStatement_Mul) LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
+                   	|
+                   	*/                  	
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :}
 					;
@@ -447,7 +449,7 @@ Factor ::= (DesignatorFactoraaaa) Designator:d
            |
            (ConstValueFactor) ConstValue
            |
-           (NewFactor) NEW Type LPAREN ExprActParsChoice RPAREN
+           (NewFactor) NEW Type ExprActParsChoice
            |
            (ParenExprFactor) LPAREN Expr RPAREN
            ;

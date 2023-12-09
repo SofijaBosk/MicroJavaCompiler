@@ -37,11 +37,13 @@ import java_cup.runtime.Symbol;
 "\f" 	{ }
 
 "program"   { return new_symbol(sym.PROG, yytext()); }
+"namespace" { return new_symbol(sym.NAMESP, yytext()); }
+"new"       { return new_symbol(sym.NEW, yytext()); }
 "print" 	{ return new_symbol(sym.PRINT, yytext()); }
 "return" 	{ return new_symbol(sym.RETURN, yytext()); }
 "void" 		{ return new_symbol(sym.VOID, yytext()); }
-"namespace"   { return new_symbol(sym.NAMESPACE, yytext()); }
 "static" 	{ return new_symbol(sym.STATIC, yytext()); }
+
 
 "const" 	{ return new_symbol(sym.CONST, yytext()); }
 "class" 	{ return new_symbol(sym.CLASS, yytext()); }
@@ -92,6 +94,7 @@ import java_cup.runtime.Symbol;
 <YYINITIAL> "//" 		     { yybegin(COMMENT); }
 <COMMENT> .      { yybegin(COMMENT); }
 <COMMENT> "\r\n" { yybegin(YYINITIAL); }
+
 
 "true"							{ return new_symbol(sym.BOOL_CONST, new Boolean(yytext())); }
 "false"							{ return new_symbol(sym.BOOL_CONST, new Boolean(yytext())); }
