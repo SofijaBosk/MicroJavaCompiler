@@ -356,9 +356,8 @@ DesignatorStatement ::= (DesignatorStatement_Expr) Designator Assignop Expr
 					| 
 					(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
 					|
-                    /*(DesignatorStatement_Mul) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator                 
-                   	|
-                   	*/
+                    (DesignatorStatement_Mul) FOR LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
+                   	|                  	
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :}
 					;
@@ -491,6 +490,7 @@ DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
 		|
 		(DesignatorHelper_NoneExpr) /**/
 		;
+  
 
  /*               
 DesignatorHelper2 ::= (DesignatorHelper_Ident) DesignatorHelper2 DOT IDENT

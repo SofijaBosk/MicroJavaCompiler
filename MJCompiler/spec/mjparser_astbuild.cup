@@ -395,9 +395,8 @@ DesignatorStatement ::= (DesignatorStatement_Expr) Designator:D1 Assignop:A2 Exp
 					| 
 					(DesignatorStatement_NoActPars) Designator:D1 LPAREN RPAREN {: RESULT=new DesignatorStatement_NoActPars(D1); RESULT.setLine(D1left); :}
 					|
-                    /*(DesignatorStatement_Mul) LSQUARE DesignatorList MUL Designator RSQUARE EQUALS Designator                 
-                   	|
-                   	*/
+                    (DesignatorStatement_Mul) FOR LSQUARE Designator:D1 MUL Designator:D2 RSQUARE EQUALS Designator:D3 {: RESULT=new DesignatorStatement_Mul(D1, D2, D3); RESULT.setLine(D1left); :}               
+                   	|                  	
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :} {: RESULT=new DesigatorStatementError(); :}
 					;
@@ -530,6 +529,7 @@ DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2:D1 DOT IDENT:I2 {
 		|
 		(DesignatorHelper_NoneExpr) {: RESULT=new DesignatorHelper_NoneExpr(); :} /**/
 		;
+  
 
  /*               
 DesignatorHelper2 ::= (DesignatorHelper_Ident) DesignatorHelper2 DOT IDENT
