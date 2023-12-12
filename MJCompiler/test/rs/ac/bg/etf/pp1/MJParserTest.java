@@ -29,7 +29,7 @@ public class MJParserTest {
 		
 		Reader br = null;
 		try {
-			File sourceCode = new File("test/program.mj");
+			File sourceCode = new File("test/test1.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -44,18 +44,8 @@ public class MJParserTest {
 			log.info(prog.toString(""));
 			log.info("===================================");
 
-			// ispis prepoznatih programskih konstrukcija
-			SemanticPass v = new SemanticPass();
-			prog.traverseBottomUp(v); 
-	      
-			log.info(" Print count calls = " + v.printCallCount);
-
-			log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
 			
-			log.info("===================================");
-			Tab.dump();
-			
-			if(!p.errorDetected && v.passed()){
+			if(!p.errorDetected){
 				log.info("Parsiranje uspesno zavrseno!");
 			}else{
 				log.error("Parsiranje NIJE uspesno zavrseno!");

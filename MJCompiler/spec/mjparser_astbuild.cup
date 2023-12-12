@@ -320,9 +320,9 @@ Statement ::= (MatchedStmt) Matched:M1 {: RESULT=new MatchedStmt(M1); RESULT.set
 		   (UnmatchedStmt) Unmatched:U1 {: RESULT=new UnmatchedStmt(U1); RESULT.setLine(U1left); :}
 		   ; 
 
-Unmatched ::= (UnmatchedIf) IF Condition:C1 Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
+Unmatched ::= (UnmatchedIf) IF LPAREN Condition:C1 RPAREN Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
 		 	|
-		 	(UnmatchedIfElse) IF Condition:C1 Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
+		 	(UnmatchedIfElse) IF LPAREN Condition:C1 RPAREN Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
 		 	;
 		 
 
@@ -347,7 +347,7 @@ Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI {: RESULT=ne
 	     	|
 		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper:D1 SEMI CondFactHelper:C2 SEMI DesignatorStatementHelper:D3 RPAREN {: RESULT=new FORStmt_NoDS(D1, C2, D3); RESULT.setLine(D1left); :}	   
 		   |
-		   (MatchedStatement) IF Condition:C1 Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedStatement(C1, M2, M3); RESULT.setLine(C1left); :}
+		   (MatchedStatement) IF LPAREN Condition:C1 RPAREN Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedStatement(C1, M2, M3); RESULT.setLine(C1left); :}
 		   ;
 		   
 DesignatorStatementHelper ::= (DesignatorStatementHelper_DS) DesignatorStatement:D1 DesignatorStatementList:D2 {: RESULT=new DesignatorStatementHelper_DS(D1, D2); RESULT.setLine(D1left); :}

@@ -291,9 +291,9 @@ Statement ::= (MatchedStmt) Matched
 		   (UnmatchedStmt) Unmatched
 		   ; 
 
-Unmatched ::= (UnmatchedIf) IF Condition Statement
+Unmatched ::= (UnmatchedIf) IF LPAREN Condition RPAREN Statement
 		 	|
-		 	(UnmatchedIfElse) IF Condition Matched ELSE Unmatched
+		 	(UnmatchedIfElse) IF LPAREN Condition RPAREN Matched ELSE Unmatched
 		 	;
 		 
 
@@ -318,7 +318,7 @@ Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI
 	     	|
 		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RPAREN	   
 		   |
-		   (MatchedStatement) IF Condition Matched ELSE Matched
+		   (MatchedStatement) IF LPAREN Condition RPAREN Matched ELSE Matched
 		   ;
 		   
 DesignatorStatementHelper ::= (DesignatorStatementHelper_DS) DesignatorStatement DesignatorStatementList
