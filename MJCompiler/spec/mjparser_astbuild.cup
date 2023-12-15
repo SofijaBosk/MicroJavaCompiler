@@ -103,7 +103,6 @@ nonterminal StaticInitializer StaticInitializer;
 nonterminal MethodDeclListBrace MethodDeclListBrace;
 nonterminal ClassDeclPom ClassDeclPom;
 nonterminal StaticPom StaticPom;
-nonterminal ReturnMethod ReturnMethod;
 nonterminal DesignatorStatementHelper DesignatorStatementHelper;
 nonterminal CondFactHelper CondFactHelper;
 nonterminal DesignatorStatementList DesignatorStatementList;
@@ -125,7 +124,7 @@ nonterminal DesignatorHelper3 DesignatorHelper3;
 nonterminal Pom Pom;	
 nonterminal NamespaceNT NamespaceNT;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Term, Factor, Expr;
 
 /*Program_START*/
@@ -184,7 +183,11 @@ ConstSingle ::= (BooleanConst) IDENT:booleanConstName EQUALS BOOL_CONST:booleanC
 
 /*Type_START*/
 
-Type ::= (Type) IDENT:typeName {: RESULT=new Type(typeName); RESULT.setLine(typeNameleft); :};
+Type ::= (Type_ID) IDENT:typeName {: RESULT=new Type_ID(typeName); RESULT.setLine(typeNameleft); :}
+		/*|
+		(Type_NS) NAMESP SCOPE IDENT:typeName
+		*/
+		;
 
 /*Type_END*/
 
@@ -264,9 +267,9 @@ MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESUL
 				(NoMethodDecl) {: RESULT=new NoMethodDecl(); :} /* epsilon */
 				;
 				
-MethodDecl ::= (MethodDecl) ReturnMethod:R1 MethodTypeName:M2 LPAREN FormPars:F3 RPAREN VarDeclList:V4 LBRACE StatementList:S5 RBRACE {: RESULT=new MethodDecl(R1, M2, F3, V4, S5); RESULT.setLine(R1left); :};
+MethodDecl ::= (MethodDecl)  MethodTypeName:M1 LPAREN FormPars:F2 RPAREN VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(M1, F2, V3, S4); RESULT.setLine(M1left); :};
 
-MethodTypeName ::= (MethodTypeName) IDENT:methName {: RESULT=new MethodTypeName(methName); RESULT.setLine(methNameleft); :};
+MethodTypeName ::= (MethodTypeName) ReturnMethod:R1 IDENT:methName {: RESULT=new MethodTypeName(R1, methName); RESULT.setLine(R1left); :};
 
 ReturnMethod ::= (ReturnMethod_Type) Type:T1 {: RESULT=new ReturnMethod_Type(T1); RESULT.setLine(T1left); :}
 				|

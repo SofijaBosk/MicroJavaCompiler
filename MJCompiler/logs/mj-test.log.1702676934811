@@ -1,0 +1,168 @@
+INFO  22:23:14,289 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\program.mj
+INFO  22:23:14,412 - #2 program
+INFO  22:23:14,413 - #53 MJProgram
+INFO  22:23:14,413 - #53 int
+INFO  22:23:14,415 - #53 x
+INFO  22:23:14,416 - #5 ;
+INFO  22:23:14,416 - #53 int
+INFO  22:23:14,417 - #53 y
+INFO  22:23:14,417 - #5 ;
+INFO  22:23:14,418 - #3 {
+INFO  22:23:14,418 - #53 int
+INFO  22:23:14,419 - #53 main
+INFO  22:23:14,420 - #6 (
+INFO  22:23:14,421 - #7 )
+INFO  22:23:14,422 - #3 {
+INFO  22:23:14,423 - #12 print
+INFO  22:23:14,424 - #6 (
+INFO  22:23:14,424 - #17 1
+INFO  22:23:14,424 - #7 )
+INFO  22:23:14,426 - #5 ;
+INFO  22:23:14,427 - #53 x
+INFO  22:23:14,433 - #20 =
+INFO  22:23:14,435 - #53 y
+INFO  22:23:14,437 - #10 +
+INFO  22:23:14,437 - #17 5
+INFO  22:23:14,438 - #5 ;
+INFO  22:23:14,439 - #12 print
+INFO  22:23:14,439 - #6 (
+INFO  22:23:14,439 - #17 2
+INFO  22:23:14,439 - #7 )
+INFO  22:23:14,439 - #5 ;
+INFO  22:23:14,439 - #4 }
+INFO  22:23:14,440 - #4 }
+INFO  22:23:14,454 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      ReturnMethod_Type(
+        Type_ID(
+         int
+        ) [Type_ID]
+      ) [ReturnMethod_Type]
+      MethodTypeName(
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              PrintStmt(
+                TermExpr(
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       1
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+                NumConstList_None(
+                ) [NumConstList_None]
+              ) [PrintStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            DesignatorStatementStmt(
+              Assignment(
+                Designator_Ident(
+                  DesignatorHelper_None(
+                   x
+                  ) [DesignatorHelper_None]
+                  DesignatorHelper_NoneExpr(
+                  ) [DesignatorHelper_NoneExpr]
+                ) [Designator_Ident]
+                AssignopDerived1(
+                ) [AssignopDerived1]
+                AddExpr(
+                  TermExpr(
+                    Term_Factor(
+                      VarFactor(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           y
+                          ) [DesignatorHelper_None]
+                          DesignatorHelper_NoneExpr(
+                          ) [DesignatorHelper_NoneExpr]
+                        ) [Designator_Ident]
+                      ) [VarFactor]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                  Addop_PLUS(
+                  ) [Addop_PLUS]
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       5
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [AddExpr]
+              ) [Assignment]
+            ) [DesignatorStatementStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   2
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+            NumConstList_None(
+            ) [NumConstList_None]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  22:23:14,456 - ===================================
+ERROR 22:23:14,461 - Greska na liniji 8 : ime x nije deklarisano! 
+ERROR 22:23:14,461 - Greska na liniji 8 : ime y nije deklarisano! 

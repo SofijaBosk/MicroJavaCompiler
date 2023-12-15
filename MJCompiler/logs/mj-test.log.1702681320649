@@ -1,0 +1,123 @@
+INFO  23:59:41,799 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test2.mj
+INFO  23:59:41,886 - #2 program
+INFO  23:59:41,887 - #53 MJProgram
+INFO  23:59:41,887 - #53 int
+INFO  23:59:41,888 - #53 x
+INFO  23:59:41,888 - #5 ;
+INFO  23:59:41,889 - #53 int
+INFO  23:59:41,890 - #53 y
+INFO  23:59:41,890 - #5 ;
+INFO  23:59:41,891 - #3 {
+INFO  23:59:41,891 - #13 void
+INFO  23:59:41,892 - #53 main
+INFO  23:59:41,892 - #6 (
+INFO  23:59:41,893 - #7 )
+INFO  23:59:41,894 - #3 {
+INFO  23:59:41,895 - #53 x
+INFO  23:59:41,895 - #20 =
+INFO  23:59:41,896 - #53 y
+INFO  23:59:41,897 - #10 +
+INFO  23:59:41,898 - #17 5
+INFO  23:59:41,899 - #5 ;
+INFO  23:59:41,899 - #4 }
+INFO  23:59:41,900 - #4 }
+INFO  23:59:41,906 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Void(
+        ) [ReturnMethod_Void]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          DesignatorStatementStmt(
+            Assignment(
+              Designator_Ident(
+                DesignatorHelper_None(
+                 x
+                ) [DesignatorHelper_None]
+                DesignatorHelper_NoneExpr(
+                ) [DesignatorHelper_NoneExpr]
+              ) [Designator_Ident]
+              AssignopDerived1(
+              ) [AssignopDerived1]
+              AddExpr(
+                TermExpr(
+                  Term_Factor(
+                    VarFactor(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         y
+                        ) [DesignatorHelper_None]
+                        DesignatorHelper_NoneExpr(
+                        ) [DesignatorHelper_NoneExpr]
+                      ) [Designator_Ident]
+                    ) [VarFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+                Addop_PLUS(
+                ) [Addop_PLUS]
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     5
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [AddExpr]
+            ) [Assignment]
+          ) [DesignatorStatementStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  23:59:41,906 - ===================================
+INFO  23:59:41,918 - Deklarisana promenljiva x na liniji 2
+INFO  23:59:41,918 - Deklarisana promenljiva y na liniji 2
+INFO  23:59:41,918 - Obradjuje se funkcija main na liniji 4
+INFO  23:59:41,918 - Obradjuje se funkcija main na liniji 4

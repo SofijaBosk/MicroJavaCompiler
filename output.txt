@@ -15,23 +15,22 @@ parserGen:
      [java] Warning: Non terminal "ActualParamList" was declared but never used
      [java] Warning: Non terminal "ActualPars" was declared but never used
      [java] Warning: Non terminal "DesignatorHelper3" was declared but never used
-     [java] Building parse tables...
+     [java] Building parse tables...------- ast extension v0.8 summary -------
      [java]   Computing non-terminal nullability...
+     [java]   Generated 53 base classes
+     [java]   Generated 118 derived classes
      [java]   Computing first sets...
      [java]   Building state machine...
-     [java] ------- ast extension v0.8 summary -------
-     [java]   Generated 52 base classes
-     [java]   Generated 117 derived classes
-     [java]   Filling in tables...
+     [java]   Generated 7 record classes
+     [java]   Generated interface SyntaxNode  Filling in tables...
+     [java]   Generated interface Visitor
      [java]   Checking for non-reduced productions...
      [java] *** Production "DesignatorList ::= " never reduced
-     [java]   Generated 8 record classes
-     [java]   Generated interface SyntaxNode
-     [java]   Generated interface Visitor
      [java]   Generated adapter class VisitorAdaptor
      [java] *** Production "DesignatorList ::= Designator COMMA DesignatorList " never reduced
      [java] *** Production "VarStaticDeclList ::= " never reduced
-     [java] *** Production "VarStaticDeclList ::= VarStaticDeclList STATIC VarDecl " never reduced-----------------------------------------------
+     [java] -----------------------------------------------
+     [java] *** Production "VarStaticDeclList ::= VarStaticDeclList STATIC VarDecl " never reduced
      [java] *** Production "StaticInitializerList ::= StaticInitializerList StaticInitializer " never reduced
      [java] *** Production "StaticInitializerList ::= " never reduced
      [java] Writing parser...
@@ -1789,15 +1788,17 @@ parserGen:
      [java] }
      [java] -------------------
      [java] lalr_state [171]: {
+     [java]   [MethodTypeName ::= (*) ReturnMethod IDENT , {LPAREN }]
      [java]   [MethodDeclList ::= MethodDeclList (*) MethodDecl , {RBRACE VOID IDENT }]
      [java]   [ReturnMethod ::= (*) VOID , {IDENT }]
-     [java]   [MethodDecl ::= (*) ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= (*) MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [Program ::= PROG ProgName NamespaceList ProgDeclList LBRACE MethodDeclList (*) RBRACE , {EOF }]
      [java]   [ReturnMethod ::= (*) Type , {IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java] }
-     [java] transition on VOID to state [176]
-     [java] transition on ReturnMethod to state [175]
+     [java] transition on VOID to state [177]
+     [java] transition on ReturnMethod to state [176]
+     [java] transition on MethodTypeName to state [175]
      [java] transition on MethodDecl to state [174]
      [java] transition on IDENT to state [12]
      [java] transition on RBRACE to state [173]
@@ -1816,29 +1817,27 @@ parserGen:
      [java] }
      [java] -------------------
      [java] lalr_state [175]: {
-     [java]   [MethodTypeName ::= (*) IDENT , {LPAREN }]
-     [java]   [MethodDecl ::= ReturnMethod (*) MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
-     [java] }
-     [java] transition on MethodTypeName to state [178]
-     [java] transition on IDENT to state [177]
-     [java] -------------------
-     [java] lalr_state [176]: {
-     [java]   [ReturnMethod ::= VOID (*) , {IDENT }]
-     [java] }
-     [java] -------------------
-     [java] lalr_state [177]: {
-     [java]   [MethodTypeName ::= IDENT (*) , {LPAREN }]
-     [java] }
-     [java] -------------------
-     [java] lalr_state [178]: {
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName (*) LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= MethodTypeName (*) LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
      [java] transition on LPAREN to state [179]
      [java] -------------------
+     [java] lalr_state [176]: {
+     [java]   [MethodTypeName ::= ReturnMethod (*) IDENT , {LPAREN }]
+     [java] }
+     [java] transition on IDENT to state [178]
+     [java] -------------------
+     [java] lalr_state [177]: {
+     [java]   [ReturnMethod ::= VOID (*) , {IDENT }]
+     [java] }
+     [java] -------------------
+     [java] lalr_state [178]: {
+     [java]   [MethodTypeName ::= ReturnMethod IDENT (*) , {LPAREN }]
+     [java] }
+     [java] -------------------
      [java] lalr_state [179]: {
      [java]   [FormalParamDecl ::= (*) Type IDENT LSQUARE RSQUARE , {RPAREN COMMA }]
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN (*) FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [FormalParamList ::= (*) FormalParamList COMMA FormalParamDecl , {RPAREN COMMA }]
+     [java]   [MethodDecl ::= MethodTypeName LPAREN (*) FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [FormalParamDecl ::= (*) Type IDENT , {RPAREN COMMA }]
      [java]   [FormPars ::= (*) , {RPAREN }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
@@ -1864,7 +1863,7 @@ parserGen:
      [java] transition on COMMA to state [189]
      [java] -------------------
      [java] lalr_state [182]: {
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN FormPars (*) RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= MethodTypeName LPAREN FormPars (*) RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
      [java] transition on RPAREN to state [184]
      [java] -------------------
@@ -1873,9 +1872,9 @@ parserGen:
      [java] }
      [java] -------------------
      [java] lalr_state [184]: {
+     [java]   [MethodDecl ::= MethodTypeName LPAREN FormPars RPAREN (*) VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [VarDeclList ::= (*) VarDeclList VarDecl , {LBRACE IDENT }]
      [java]   [VarDeclList ::= (*) , {LBRACE IDENT }]
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN FormPars RPAREN (*) VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
      [java] transition on VarDeclList to state [185]
      [java] -------------------
@@ -1883,7 +1882,7 @@ parserGen:
      [java]   [VarDeclList ::= VarDeclList (*) VarDecl , {LBRACE IDENT }]
      [java]   [VarDecl ::= (*) Type VarlList SEMI , {LBRACE IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList (*) LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= MethodTypeName LPAREN FormPars RPAREN VarDeclList (*) LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
      [java] transition on IDENT to state [12]
      [java] transition on VarDecl to state [169]
@@ -1893,12 +1892,13 @@ parserGen:
      [java] lalr_state [186]: {
      [java]   [StatementList ::= (*) , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
      [java]   [StatementList ::= (*) StatementList Statement , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE (*) StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE (*) StatementList RBRACE , {RBRACE VOID IDENT }]
      [java] }
      [java] transition on StatementList to state [187]
      [java] -------------------
      [java] lalr_state [187]: {
      [java]   [Statement ::= (*) Matched , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
+     [java]   [MethodDecl ::= MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList (*) RBRACE , {RBRACE VOID IDENT }]
      [java]   [Matched ::= (*) error SEMI , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
      [java]   [DesignatorHelper ::= (*) IDENT SCOPE IDENT , {LPAREN EQUALS LSQUARE DOT INC DEC }]
      [java]   [Matched ::= (*) CONTINUE SEMI , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
@@ -1923,13 +1923,12 @@ parserGen:
      [java]   [Matched ::= (*) READ LPAREN Designator RPAREN SEMI , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
      [java]   [Matched ::= (*) LBRACE StatementList RBRACE , {error LBRACE RBRACE RETURN PRINT IF READ CONTINUE BREAK FOR IDENT }]
      [java]   [DesignatorStatement ::= (*) Designator LPAREN RPAREN , {SEMI }]
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList (*) RBRACE , {RBRACE VOID IDENT }]
      [java] }
      [java] transition on BREAK to state [58]
-     [java] transition on DesignatorHelper to state [57]
      [java] transition on RBRACE to state [188]
-     [java] transition on RETURN to state [55]
+     [java] transition on DesignatorHelper to state [57]
      [java] transition on CONTINUE to state [54]
+     [java] transition on RETURN to state [55]
      [java] transition on Matched to state [53]
      [java] transition on PRINT to state [52]
      [java] transition on error to state [51]
@@ -1944,7 +1943,7 @@ parserGen:
      [java] transition on READ to state [42]
      [java] -------------------
      [java] lalr_state [188]: {
-     [java]   [MethodDecl ::= ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE (*) , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE (*) , {RBRACE VOID IDENT }]
      [java] }
      [java] -------------------
      [java] lalr_state [189]: {
@@ -2030,15 +2029,17 @@ parserGen:
      [java] }
      [java] -------------------
      [java] lalr_state [204]: {
+     [java]   [MethodTypeName ::= (*) ReturnMethod IDENT , {LPAREN }]
      [java]   [MethodDeclList ::= MethodDeclList (*) MethodDecl , {RBRACE VOID IDENT }]
      [java]   [ReturnMethod ::= (*) VOID , {IDENT }]
-     [java]   [MethodDecl ::= (*) ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= (*) MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [ReturnMethod ::= (*) Type , {IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [ClassDecl ::= ClassDeclPom LBRACE MethodDeclList (*) RBRACE RBRACE , {LBRACE CONST CLASS IDENT }]
      [java] }
-     [java] transition on VOID to state [176]
-     [java] transition on ReturnMethod to state [175]
+     [java] transition on VOID to state [177]
+     [java] transition on ReturnMethod to state [176]
+     [java] transition on MethodTypeName to state [175]
      [java] transition on MethodDecl to state [174]
      [java] transition on IDENT to state [12]
      [java] transition on RBRACE to state [205]
@@ -2097,15 +2098,17 @@ parserGen:
      [java] transition on MethodDeclList to state [211]
      [java] -------------------
      [java] lalr_state [211]: {
+     [java]   [MethodTypeName ::= (*) ReturnMethod IDENT , {LPAREN }]
      [java]   [MethodDeclList ::= MethodDeclList (*) MethodDecl , {RBRACE VOID IDENT }]
      [java]   [ReturnMethod ::= (*) VOID , {IDENT }]
-     [java]   [MethodDecl ::= (*) ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
+     [java]   [MethodDecl ::= (*) MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE , {RBRACE VOID IDENT }]
      [java]   [ReturnMethod ::= (*) Type , {IDENT }]
      [java]   [Type ::= (*) IDENT , {IDENT }]
      [java]   [NamespaceNT ::= NAMESP IDENT LBRACE ProgDeclList LBRACE MethodDeclList (*) RBRACE RBRACE , {LBRACE CONST CLASS NAMESP IDENT }]
      [java] }
-     [java] transition on VOID to state [176]
-     [java] transition on ReturnMethod to state [175]
+     [java] transition on VOID to state [177]
+     [java] transition on ReturnMethod to state [176]
+     [java] transition on MethodTypeName to state [175]
      [java] transition on MethodDecl to state [174]
      [java] transition on IDENT to state [12]
      [java] transition on RBRACE to state [212]
@@ -2136,10 +2139,10 @@ parserGen:
      [java]   Code written to "MJParser.java", and "sym.java".
      [java] ---------------------------------------------------- (v0.10k)
 repackage:
-  [replace] Replaced 180 occurrences in 180 files.
+  [replace] Replaced 181 occurrences in 181 files.
 compile:
-    [javac] Compiling 187 source files
+    [javac] Compiling 188 source files
     [javac] Note: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\src\rs\ac\bg\etf\pp1\Yylex.java uses or overrides a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
 BUILD SUCCESSFUL
-Total time: 13 seconds
+Total time: 7 seconds

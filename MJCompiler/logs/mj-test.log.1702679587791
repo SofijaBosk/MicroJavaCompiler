@@ -1,0 +1,74 @@
+INFO  23:32:02,705 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test2.mj
+INFO  23:32:02,840 - #2 program
+INFO  23:32:02,840 - #53 MJProgram
+INFO  23:32:02,840 - #53 int
+INFO  23:32:02,844 - #53 x
+INFO  23:32:02,845 - #5 ;
+INFO  23:32:02,845 - #53 int
+INFO  23:32:02,847 - #53 y
+INFO  23:32:02,847 - #5 ;
+INFO  23:32:02,847 - #3 {
+INFO  23:32:02,847 - #13 void
+INFO  23:32:02,849 - #53 main
+INFO  23:32:02,851 - #6 (
+INFO  23:32:02,852 - #7 )
+INFO  23:32:02,854 - #3 {
+INFO  23:32:02,856 - #4 }
+INFO  23:32:02,858 - #4 }
+INFO  23:32:02,874 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Void(
+        ) [ReturnMethod_Void]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      NoStmt(
+      ) [NoStmt]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  23:32:02,876 - ===================================
+INFO  23:32:02,881 - Deklarisana promenljiva x na liniji 2
+INFO  23:32:02,882 - Deklarisana promenljiva y na liniji 2

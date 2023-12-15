@@ -15,6 +15,10 @@ public class SemanticPass extends VisitorAdaptor {
 	boolean returnFound = false;
 	boolean errorDetected = false;
 	
+	int globalArrayCnt = 0;
+	int globalVarCnt = 0;
+	int mainLocalVarCnt = 0;
+	
 	int nVars;
 	
 	Logger log = Logger.getLogger(getClass());
@@ -41,16 +45,55 @@ public class SemanticPass extends VisitorAdaptor {
 		log.info(msg.toString());
 	}
 	
+	private void insertVar(String name,Struct type, int line) {
+		
+		if(Tab.currentScope().findSymbol(name) != null)
+		{
+			report_error("Greska na " + line + "(" + name + ") vec deklarisano",null);
+			return;
+		}
+          
+		int kind;
+		
+//        if (currentMethod.equals(Tab.noObj)) {
+//            kind = Obj.Fld;
+//        } else {
+            kind = Obj.Var;
+//        }
+        
+        
+        Obj tempObj = Tab.insert(kind, name, type);
+
+        if (tempObj.getKind() == Obj.Var) {
+            if (tempObj.getType().getKind() == Struct.Array) {
+                if (tempObj.getLevel() == 0) {
+                    globalArrayCnt++;
+                }
+            } else {
+                if (tempObj.getLevel() == 0) {
+                    globalVarCnt++;
+                }
+//                 else if ("main".equalsIgnoreCase(currentMethod.getName())) {
+//                    mainLocalVarCnt++;
+//                }
+            }
+        }
+        	        
+	}
+	
 	public void visit(VarDecl_ID varDecl){
 		varDeclCount++;
 		report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
-		Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
+		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
+		
+		insertVar(varDecl.getVarName(),Tab.noType,varDecl.getLine());
 		//varDecl.getType().struct
 	}
 	public void visit(VarDecl_SQ varDecl){
 		varDeclCount++;
 		report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
-		Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
+		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
+		insertVar(varDecl.getVarName(),new Struct(Struct.Array, Tab.noType),varDecl.getLine());
 	}
 	
     public void visit(PrintStmt print) {
@@ -70,38 +113,40 @@ public class SemanticPass extends VisitorAdaptor {
     	Tab.closeScope();
     }
     
-    public void visit(Type type){
-    	Obj typeNode = Tab.find(type.getTypeName());
-    	//Proveravamo da li se radi o tipu ili ne
-    	if(typeNode == Tab.noObj){
-    		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
-    		type.struct = Tab.noType;
-    	}else{//nadjeno u tabeli
-    		if(Obj.Type == typeNode.getKind()){
-    			type.struct = typeNode.getType();
-    		}else{
-    			report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
-    			type.struct = Tab.noType;
-    		}
-    	}
-    }
-    
-//    public void visit(MethodTypeName methodTypeName){
-//    	currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethName(), methodTypeName.getType().struct);
-//    	methodTypeName.obj = currentMethod;
-//    	Tab.openScope(); //otvaramo scope unutar metode
-//		report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
+//    public void visit(Type type){
+//    	Obj typeNode = Tab.find(type.getTypeName());
+//    	//Proveravamo da li se radi o tipu ili ne
+//    	if(typeNode == Tab.noObj){
+//    		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
+//    		type.struct = Tab.noType;
+//    	}else{//nadjeno u tabeli
+//    		if(Obj.Type == typeNode.getKind()){
+//    			type.struct = typeNode.getType();
+//    		}else{
+//    			report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
+//    			type.struct = Tab.noType;
+//    		}
+//    	}
 //    }
     
-    public void visit(MethodDecl methodDecl){
-    	if(!returnFound && currentMethod.getType() != Tab.noType){
-			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funkcija " + currentMethod.getName() + " nema return iskaz!", null);
-    	}
-    	Tab.chainLocalSymbols(currentMethod);
-    	Tab.closeScope();
-    	
-    	returnFound = false;
-    	currentMethod = null;
+    public void visit(MethodTypeName methodTypeName){
+    	boolean a=true;
+    	Object methObj = Tab.currentScope().findSymbol(methodTypeName.getMethName());
+		if(methObj==null) a=false;
+    	report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
+    	System.out.println("aaaaaaaa"+(a?"da":"ne"));
+    	currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethName(), methodTypeName.getReturnMethod().obj.getType());
+    	methodTypeName.obj = currentMethod;
+    	Tab.openScope(); //otvaramo scope unutar metode
+		report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
+    }
+    
+    public void visit(ReturnMethod_Type returnMethod){
+    	returnMethod.obj =Tab.noObj; //returnMethod.getType();
+    }
+    
+    public void visit(ReturnMethod_Void returnMethod){    	
+    	returnMethod.obj = Tab.noObj;
     }
     
     public void visit(DesignatorHelper_Scope designator){

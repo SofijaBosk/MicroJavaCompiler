@@ -1,0 +1,57 @@
+INFO  22:59:03,290 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test2.mj
+INFO  22:59:03,464 - #2 program
+INFO  22:59:03,465 - #53 MJProgram
+INFO  22:59:03,465 - #53 int
+INFO  22:59:03,469 - #53 x
+INFO  22:59:03,470 - #5 ;
+INFO  22:59:03,470 - #53 int
+INFO  22:59:03,473 - #53 y
+INFO  22:59:03,473 - #5 ;
+INFO  22:59:03,474 - #3 {
+INFO  22:59:03,474 - #4 }
+INFO  22:59:03,488 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  NoMethodDecl(
+  ) [NoMethodDecl]
+) [Program]
+INFO  22:59:03,490 - ===================================
+INFO  22:59:03,495 - Deklarisana promenljiva x na liniji 2
+INFO  22:59:03,495 - Deklarisana promenljiva y na liniji 2
+INFO  22:59:03,496 -  Print count calls = 0
+INFO  22:59:03,496 -  Deklarisanih promenljivih ima = 2
+INFO  22:59:03,496 - ===================================
+INFO  22:59:03,497 - Parsiranje uspesno zavrseno!

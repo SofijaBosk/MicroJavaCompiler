@@ -44,7 +44,6 @@ import java_cup.runtime.Symbol;
 "void" 		{ return new_symbol(sym.VOID, yytext()); }
 "static" 	{ return new_symbol(sym.STATIC, yytext()); }
 
-
 "const" 	{ return new_symbol(sym.CONST, yytext()); }
 "class" 	{ return new_symbol(sym.CLASS, yytext()); }
 "if" 		{ return new_symbol(sym.IF, yytext()); }

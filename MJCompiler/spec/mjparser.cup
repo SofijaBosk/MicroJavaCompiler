@@ -87,7 +87,6 @@ nonterminal ProgDecl, ClassDecl, ConstDecl;
 nonterminal ConstList, ConstSingle;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
-nonterminal ReturnMethod;
 nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement, CondFact;
 nonterminal DesignatorList, ActPars;
 nonterminal CondTerm;
@@ -96,7 +95,7 @@ nonterminal ExprActParsChoice, ActParsList, ConstValue;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
 nonterminal NamespaceNT;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Term, Factor, Expr;
 
 /*Program_START*/
@@ -155,7 +154,11 @@ ConstSingle ::= (BooleanConst) IDENT:booleanConstName EQUALS BOOL_CONST:booleanC
 
 /*Type_START*/
 
-Type ::= (Type) IDENT:typeName;
+Type ::= (Type_ID) IDENT:typeName
+		/*|
+		(Type_NS) NAMESP SCOPE IDENT:typeName
+		*/
+		;
 
 /*Type_END*/
 
@@ -235,9 +238,9 @@ MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
 				(NoMethodDecl) /* epsilon */
 				;
 				
-MethodDecl ::= (MethodDecl) ReturnMethod MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
+MethodDecl ::= (MethodDecl)  MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
 
-MethodTypeName ::= (MethodTypeName) IDENT:methName;
+MethodTypeName ::= (MethodTypeName) ReturnMethod IDENT:methName;
 
 ReturnMethod ::= (ReturnMethod_Type) Type
 				|

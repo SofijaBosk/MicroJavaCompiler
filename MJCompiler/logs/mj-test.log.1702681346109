@@ -1,0 +1,80 @@
+INFO  00:02:00,655 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test2.mj
+INFO  00:02:00,752 - #2 program
+INFO  00:02:00,752 - #53 MJProgram
+INFO  00:02:00,752 - #53 int
+INFO  00:02:00,754 - #53 x
+INFO  00:02:00,754 - #5 ;
+INFO  00:02:00,754 - #53 int
+INFO  00:02:00,755 - #53 y
+INFO  00:02:00,755 - #5 ;
+INFO  00:02:00,755 - #3 {
+INFO  00:02:00,755 - #13 void
+INFO  00:02:00,756 - #53 main
+INFO  00:02:00,756 - #6 (
+INFO  00:02:00,757 - #7 )
+INFO  00:02:00,758 - #3 {
+INFO  00:02:00,758 - #4 }
+INFO  00:02:00,759 - #4 }
+INFO  00:02:00,764 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Void(
+        ) [ReturnMethod_Void]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      NoStmt(
+      ) [NoStmt]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  00:02:00,764 - ===================================
+INFO  00:02:00,767 - Deklarisana promenljiva x na liniji 2
+INFO  00:02:00,767 - Deklarisana promenljiva y na liniji 2
+INFO  00:02:00,768 - Obradjuje se funkcija main na liniji 4
+INFO  00:02:00,768 - Obradjuje se funkcija main na liniji 4
+INFO  00:02:00,768 -  Print count calls = 0
+INFO  00:02:00,768 -  Deklarisanih promenljivih ima = 2
+INFO  00:02:00,768 - ===================================
+INFO  00:02:00,768 - Parsiranje uspesno zavrseno!
