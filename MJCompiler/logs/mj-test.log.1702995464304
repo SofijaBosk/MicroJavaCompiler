@@ -1,0 +1,129 @@
+INFO  15:17:16,534 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  15:17:16,595 - #2 program
+INFO  15:17:16,595 - #53 MJProgram
+INFO  15:17:16,595 - #53 int
+INFO  15:17:16,597 - #53 x
+INFO  15:17:16,597 - #5 ;
+INFO  15:17:16,598 - #53 int
+INFO  15:17:16,598 - #53 y
+INFO  15:17:16,599 - #5 ;
+INFO  15:17:16,599 - #3 {
+INFO  15:17:16,599 - #53 int
+INFO  15:17:16,599 - #53 main
+INFO  15:17:16,600 - #6 (
+INFO  15:17:16,600 - #7 )
+INFO  15:17:16,601 - #3 {
+INFO  15:17:16,601 - #12 print
+INFO  15:17:16,602 - #6 (
+INFO  15:17:16,602 - #17 1
+INFO  15:17:16,602 - #7 )
+INFO  15:17:16,604 - #5 ;
+INFO  15:17:16,604 - #12 print
+INFO  15:17:16,604 - #6 (
+INFO  15:17:16,605 - #17 2
+INFO  15:17:16,605 - #7 )
+INFO  15:17:16,605 - #5 ;
+INFO  15:17:16,605 - #4 }
+INFO  15:17:16,605 - #4 }
+INFO  15:17:16,612 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Type(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [ReturnMethod_Type]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          NoStmt(
+          ) [NoStmt]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     1
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   2
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+            NumConstList_None(
+            ) [NumConstList_None]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:17:16,613 - ===================================
+INFO  15:17:16,617 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
+INFO  15:17:16,617 - Deklarisana promenljiva x na liniji 2
+INFO  15:17:16,617 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
+INFO  15:17:16,617 - Deklarisana promenljiva y na liniji 2
+INFO  15:17:16,617 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
+INFO  15:17:16,617 - Obradjuje se funkcija main na liniji 4
+INFO  15:17:16,617 -  Print count calls = 2
+INFO  15:17:16,618 -  Deklarisanih promenljivih ima = 2
+INFO  15:17:16,618 - ===================================
+INFO  15:17:16,618 - Parsiranje uspesno zavrseno!

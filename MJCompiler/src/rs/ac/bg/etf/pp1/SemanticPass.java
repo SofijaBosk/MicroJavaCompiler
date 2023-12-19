@@ -11,13 +11,15 @@ public class SemanticPass extends VisitorAdaptor {
 	int i=0;
 	int printCallCount = 0;
 	int varDeclCount = 0;
-	Obj currentMethod = null;
+	Obj currentMethod = Tab.noObj;;
 	boolean returnFound = false;
 	boolean errorDetected = false;
 	
+	
 	int globalArrayCnt = 0;
 	int globalVarCnt = 0;
-	int mainLocalVarCnt = 0;
+	int mainLocalVarCnt = 0;	
+	int methodCnt=0;
 	
 	int nVars;
 	
@@ -113,40 +115,62 @@ public class SemanticPass extends VisitorAdaptor {
     	Tab.closeScope();
     }
     
-//    public void visit(Type type){
-//    	Obj typeNode = Tab.find(type.getTypeName());
-//    	//Proveravamo da li se radi o tipu ili ne
-//    	if(typeNode == Tab.noObj){
-//    		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
-//    		type.struct = Tab.noType;
-//    	}else{//nadjeno u tabeli
-//    		if(Obj.Type == typeNode.getKind()){
-//    			type.struct = typeNode.getType();
-//    		}else{
-//    			report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
-//    			type.struct = Tab.noType;
-//    		}
-//    	}
-//    }
+    public void visit(Type_ID type){
+    	Obj typeNode = Tab.find(type.getTypeName());
+    	//Proveravamo da li se radi o tipu ili ne
+    	if(typeNode == Tab.noObj){
+    		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
+    		type.obj = Tab.noObj;
+    	}else{//nadjeno u tabeli
+    		if(Obj.Type == typeNode.getKind()){
+    			type.obj = typeNode;
+    			report_info("Sta"+typeNode.toString(), null);
+    		}else{
+    			report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
+    			type.obj = Tab.noObj;
+    		}
+    	}
+    }
     
     public void visit(MethodTypeName methodTypeName){
     	boolean a=true;
     	Object methObj = Tab.currentScope().findSymbol(methodTypeName.getMethName());
 		if(methObj==null) a=false;
     	report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
-    	System.out.println("aaaaaaaa"+(a?"da":"ne"));
     	currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethName(), methodTypeName.getReturnMethod().obj.getType());
     	methodTypeName.obj = currentMethod;
     	Tab.openScope(); //otvaramo scope unutar metode
-		report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
-    }
+ }
     
     public void visit(ReturnMethod_Type returnMethod){
-    	returnMethod.obj =Tab.noObj; //returnMethod.getType();
+    	returnFound = true;
+    	returnMethod.obj = returnMethod.getType().obj;
     }
     
     public void visit(ReturnMethod_Void returnMethod){    	
     	returnMethod.obj = Tab.noObj;
+    }
+    
+    public void visit(MethodDecl methodDecl) {
+        methodCnt++;
+        
+        if (returnFound && !currentMethod.getType().equals(Tab.noType)) {
+            report_error("Greska na " + methodDecl.getLine() + "(" + currentMethod.getName() + ") nema return iskaz",null);
+        }
+
+        Tab.chainLocalSymbols(currentMethod);
+        Tab.closeScope();
+
+        currentMethod = Tab.noObj;
+        returnFound = false;
+    }
+    
+    public void visit(ReturnExpr returnExpr){
+    	returnFound = true;
+    	Struct currMethType = currentMethod.getType();
+    	if(!currMethType.compatibleWith(returnExpr.getExpr().struct)){
+			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
+    	}
     }
     
     public void visit(DesignatorHelper_Scope designator){
@@ -204,13 +228,6 @@ public class SemanticPass extends VisitorAdaptor {
     	var.struct = var.getDesignator().obj.getType();
     }
     
-    public void visit(ReturnExpr returnExpr){
-    	returnFound = true;
-    	Struct currMethType = currentMethod.getType();
-    	if(!currMethType.compatibleWith(returnExpr.getExpr().struct)){
-			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
-    	}
-    }
     
     public void visit(Assignment assignment){
     	if(!assignment.getExpr().struct.assignableTo(assignment.getDesignator().obj.getType()))

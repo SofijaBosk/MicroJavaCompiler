@@ -1,0 +1,124 @@
+INFO  00:02:26,116 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test2.mj
+INFO  00:02:26,229 - #2 program
+INFO  00:02:26,230 - #53 MJProgram
+INFO  00:02:26,230 - #53 int
+INFO  00:02:26,232 - #53 x
+INFO  00:02:26,232 - #5 ;
+INFO  00:02:26,232 - #53 int
+INFO  00:02:26,233 - #53 y
+INFO  00:02:26,233 - #5 ;
+INFO  00:02:26,234 - #3 {
+INFO  00:02:26,234 - #13 void
+INFO  00:02:26,235 - #53 main
+INFO  00:02:26,236 - #6 (
+INFO  00:02:26,237 - #7 )
+INFO  00:02:26,238 - #3 {
+INFO  00:02:26,239 - #12 print
+INFO  00:02:26,240 - #6 (
+INFO  00:02:26,240 - #17 1
+INFO  00:02:26,240 - #7 )
+INFO  00:02:26,241 - #5 ;
+INFO  00:02:26,241 - #12 print
+INFO  00:02:26,242 - #6 (
+INFO  00:02:26,242 - #17 2
+INFO  00:02:26,242 - #7 )
+INFO  00:02:26,242 - #5 ;
+INFO  00:02:26,242 - #4 }
+INFO  00:02:26,242 - #4 }
+INFO  00:02:26,250 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Void(
+        ) [ReturnMethod_Void]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          NoStmt(
+          ) [NoStmt]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     1
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   2
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+            NumConstList_None(
+            ) [NumConstList_None]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  00:02:26,250 - ===================================
+INFO  00:02:26,255 - Deklarisana promenljiva x na liniji 2
+INFO  00:02:26,255 - Deklarisana promenljiva y na liniji 2
+INFO  00:02:26,255 - Obradjuje se funkcija main na liniji 4
+INFO  00:02:26,255 - Obradjuje se funkcija main na liniji 4
+INFO  00:02:26,255 -  Print count calls = 2
+INFO  00:02:26,255 -  Deklarisanih promenljivih ima = 2
+INFO  00:02:26,255 - ===================================
+INFO  00:02:26,256 - Parsiranje uspesno zavrseno!

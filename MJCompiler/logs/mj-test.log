@@ -1,31 +1,31 @@
-INFO  00:02:26,116 - Compiling source file: C:\Users\sofij\Documents\Faks\7semestar\pp1\Projekat\Projekat 20232024\Domaci\workspace\MJCompiler\test\test2.mj
-INFO  00:02:26,229 - #2 program
-INFO  00:02:26,230 - #53 MJProgram
-INFO  00:02:26,230 - #53 int
-INFO  00:02:26,232 - #53 x
-INFO  00:02:26,232 - #5 ;
-INFO  00:02:26,232 - #53 int
-INFO  00:02:26,233 - #53 y
-INFO  00:02:26,233 - #5 ;
-INFO  00:02:26,234 - #3 {
-INFO  00:02:26,234 - #13 void
-INFO  00:02:26,235 - #53 main
-INFO  00:02:26,236 - #6 (
-INFO  00:02:26,237 - #7 )
-INFO  00:02:26,238 - #3 {
-INFO  00:02:26,239 - #12 print
-INFO  00:02:26,240 - #6 (
-INFO  00:02:26,240 - #17 1
-INFO  00:02:26,240 - #7 )
-INFO  00:02:26,241 - #5 ;
-INFO  00:02:26,241 - #12 print
-INFO  00:02:26,242 - #6 (
-INFO  00:02:26,242 - #17 2
-INFO  00:02:26,242 - #7 )
-INFO  00:02:26,242 - #5 ;
-INFO  00:02:26,242 - #4 }
-INFO  00:02:26,242 - #4 }
-INFO  00:02:26,250 - Program(
+INFO  15:22:25,642 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  15:22:25,697 - #2 program
+INFO  15:22:25,698 - #53 MJProgram
+INFO  15:22:25,698 - #53 int
+INFO  15:22:25,699 - #53 x
+INFO  15:22:25,700 - #5 ;
+INFO  15:22:25,700 - #53 int
+INFO  15:22:25,701 - #53 y
+INFO  15:22:25,701 - #5 ;
+INFO  15:22:25,701 - #3 {
+INFO  15:22:25,701 - #53 int
+INFO  15:22:25,702 - #53 main
+INFO  15:22:25,703 - #6 (
+INFO  15:22:25,704 - #7 )
+INFO  15:22:25,705 - #3 {
+INFO  15:22:25,705 - #12 print
+INFO  15:22:25,706 - #6 (
+INFO  15:22:25,706 - #17 1
+INFO  15:22:25,706 - #7 )
+INFO  15:22:25,707 - #5 ;
+INFO  15:22:25,707 - #12 print
+INFO  15:22:25,708 - #6 (
+INFO  15:22:25,709 - #17 2
+INFO  15:22:25,709 - #7 )
+INFO  15:22:25,709 - #5 ;
+INFO  15:22:25,709 - #4 }
+INFO  15:22:25,709 - #4 }
+INFO  15:22:25,715 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -66,8 +66,11 @@ INFO  00:02:26,250 - Program(
     ) [NoMethodDecl]
     MethodDecl(
       MethodTypeName(
-        ReturnMethod_Void(
-        ) [ReturnMethod_Void]
+        ReturnMethod_Type(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [ReturnMethod_Type]
        main
       ) [MethodTypeName]
       NoFormParam(
@@ -113,12 +116,15 @@ INFO  00:02:26,250 - Program(
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  00:02:26,250 - ===================================
-INFO  00:02:26,255 - Deklarisana promenljiva x na liniji 2
-INFO  00:02:26,255 - Deklarisana promenljiva y na liniji 2
-INFO  00:02:26,255 - Obradjuje se funkcija main na liniji 4
-INFO  00:02:26,255 - Obradjuje se funkcija main na liniji 4
-INFO  00:02:26,255 -  Print count calls = 2
-INFO  00:02:26,255 -  Deklarisanih promenljivih ima = 2
-INFO  00:02:26,255 - ===================================
-INFO  00:02:26,256 - Parsiranje uspesno zavrseno!
+INFO  15:22:25,716 - ===================================
+INFO  15:22:25,720 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
+INFO  15:22:25,720 - Deklarisana promenljiva x na liniji 2
+INFO  15:22:25,720 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
+INFO  15:22:25,720 - Deklarisana promenljiva y na liniji 2
+INFO  15:22:25,720 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
+INFO  15:22:25,720 - Obradjuje se funkcija main na liniji 4
+ERROR 15:22:25,720 - Greska na 4(main) nema return iskaz
+INFO  15:22:25,721 -  Print count calls = 2
+INFO  15:22:25,721 -  Deklarisanih promenljivih ima = 2
+INFO  15:22:25,721 - ===================================
+ERROR 15:22:25,721 - Parsiranje NIJE uspesno zavrseno!

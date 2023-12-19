@@ -124,8 +124,8 @@ nonterminal DesignatorHelper3 DesignatorHelper3;
 nonterminal Pom Pom;	
 nonterminal NamespaceNT NamespaceNT;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Term, Factor, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -378,7 +378,7 @@ DesignatorStatementList ::= (DesignatorStatementList_List) DesignatorStatementLi
 
 /*DesignatorStatement_START*/
 /*
-Designator (Assignop Expr | ʺ(ʺ [ActPars] ʺ)ʺ | ʺ++ʺ | ʺ‐‐ʺ) |
+Designator (Assignop Expr | ʺ(ʺ [ActPars] ʺ)ʺ | ʺ++ʺ | ʺ�?�?ʺ) |
 ʺ[ʺ {[Designator] ʺ,ʺ} ʺ*ʺDesignator ʺ]ʺ ʺ=ʺ Designator
 */
 
