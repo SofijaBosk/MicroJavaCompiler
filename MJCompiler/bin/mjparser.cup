@@ -84,7 +84,7 @@ nonterminal VarDeclList;
 
 nonterminal ProgDeclList, NamespaceList;
 nonterminal ProgDecl, ClassDecl, ConstDecl;
-nonterminal ConstList, ConstSingle;
+nonterminal ConstList;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
 nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement, CondFact;
@@ -95,7 +95,7 @@ nonterminal ExprActParsChoice, ActParsList, ConstValue;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
 nonterminal NamespaceNT;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr;
 
 /*Program_START*/

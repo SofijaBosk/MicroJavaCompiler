@@ -21,6 +21,8 @@ public class SemanticPass extends VisitorAdaptor {
 	int mainLocalVarCnt = 0;	
 	int methodCnt=0;
 	
+	int globalConstCnt=0;
+	
 	int nVars;
 	
 	Logger log = Logger.getLogger(getClass());
@@ -57,11 +59,11 @@ public class SemanticPass extends VisitorAdaptor {
           
 		int kind;
 		
-//        if (currentMethod.equals(Tab.noObj)) {
-//            kind = Obj.Fld;
-//        } else {
+        //if (currentMethod.equals(Tab.noObj)) {
+        //    kind = Obj.Fld;
+        //} else {
             kind = Obj.Var;
-//        }
+        //}
         
         
         Obj tempObj = Tab.insert(kind, name, type);
@@ -75,9 +77,9 @@ public class SemanticPass extends VisitorAdaptor {
                 if (tempObj.getLevel() == 0) {
                     globalVarCnt++;
                 }
-//                 else if ("main".equalsIgnoreCase(currentMethod.getName())) {
-//                    mainLocalVarCnt++;
-//                }
+                 else if ("main".equalsIgnoreCase(currentMethod.getName())) {
+                    mainLocalVarCnt++;
+                }
             }
         }
         	        
@@ -124,7 +126,6 @@ public class SemanticPass extends VisitorAdaptor {
     	}else{//nadjeno u tabeli
     		if(Obj.Type == typeNode.getKind()){
     			type.obj = typeNode;
-    			report_info("Sta"+typeNode.toString(), null);
     		}else{
     			report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
     			type.obj = Tab.noObj;
@@ -133,9 +134,7 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     public void visit(MethodTypeName methodTypeName){
-    	boolean a=true;
     	Object methObj = Tab.currentScope().findSymbol(methodTypeName.getMethName());
-		if(methObj==null) a=false;
     	report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
     	currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethName(), methodTypeName.getReturnMethod().obj.getType());
     	methodTypeName.obj = currentMethod;
@@ -143,7 +142,6 @@ public class SemanticPass extends VisitorAdaptor {
  }
     
     public void visit(ReturnMethod_Type returnMethod){
-    	returnFound = true;
     	returnMethod.obj = returnMethod.getType().obj;
     }
     
@@ -154,7 +152,7 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(MethodDecl methodDecl) {
         methodCnt++;
         
-        if (returnFound && !currentMethod.getType().equals(Tab.noType)) {
+        if (!returnFound && !currentMethod.getType().equals(Tab.noType)) {
             report_error("Greska na " + methodDecl.getLine() + "(" + currentMethod.getName() + ") nema return iskaz",null);
         }
 
@@ -223,6 +221,50 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(ConstFactor cnst){
     	cnst.struct = Tab.intType;
     }
+    
+    
+   
+    public void visit(IntegerConst constDecl) {
+    	constDecl.obj = new Obj(Obj.Con, "", Tab.intType, constDecl.getIntConstValue().intValue(), Obj.NO_VALUE);
+    	Obj tempObj = constDecl.obj;
+            if (Tab.currentScope().findSymbol(constDecl.getIntConstName()) == null) {
+                Obj temp = Tab.insert(tempObj.getKind(), constDecl.getIntConstName(), tempObj.getType());
+                temp.setAdr(tempObj.getAdr());
+
+                if (temp.getLevel() == 0) {
+                    globalConstCnt++;
+                }
+            }
+	}
+    
+    
+//TO DO : BOOL TYPE (Extend Tab?)   
+//    public void visit(BooleanConst constDecl) { 
+//    	constDecl.obj = new Obj(Obj.Con, "", Tab.boolType, constDecl.getIntConstValue().intValue(), Obj.NO_VALUE);
+//    	Obj tempObj = constDecl.obj;
+//            if (Tab.currentScope().findSymbol(constDecl.getIntConstName()) == null) {
+//                Obj temp = Tab.insert(tempObj.getKind(), constDecl.getIntConstName(), tempObj.getType());
+//                temp.setAdr(tempObj.getAdr());
+//
+//                if (temp.getLevel() == 0) {
+//                    globalConstCnt++;
+//                }
+//            }
+//	}
+    
+    public void visit(CharacterConst constDecl) {
+    	constDecl.obj = new Obj(Obj.Con, "", Tab.charType, constDecl.getCharConstValue().charValue(), Obj.NO_VALUE);
+    	Obj tempObj = constDecl.obj;
+            if (Tab.currentScope().findSymbol(constDecl.getCharConstName()) == null) {
+                Obj temp = Tab.insert(tempObj.getKind(), constDecl.getCharConstName(), tempObj.getType());
+                temp.setAdr(tempObj.getAdr());
+
+                if (temp.getLevel() == 0) {
+                    globalConstCnt++;
+                }
+            }
+	}
+    
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();

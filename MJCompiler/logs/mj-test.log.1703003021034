@@ -1,0 +1,182 @@
+INFO  15:58:35,955 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  15:58:36,009 - #2 program
+INFO  15:58:36,009 - #53 MJProgram
+INFO  15:58:36,009 - #53 int
+INFO  15:58:36,011 - #53 x
+INFO  15:58:36,011 - #5 ;
+INFO  15:58:36,011 - #53 int
+INFO  15:58:36,012 - #53 y
+INFO  15:58:36,012 - #5 ;
+INFO  15:58:36,012 - #53 int
+INFO  15:58:36,012 - #53 z
+INFO  15:58:36,013 - #22 [
+INFO  15:58:36,013 - #23 ]
+INFO  15:58:36,013 - #5 ;
+INFO  15:58:36,013 - #3 {
+INFO  15:58:36,013 - #53 int
+INFO  15:58:36,014 - #53 main
+INFO  15:58:36,014 - #6 (
+INFO  15:58:36,015 - #7 )
+INFO  15:58:36,015 - #53 int
+INFO  15:58:36,016 - #53 p
+INFO  15:58:36,016 - #5 ;
+INFO  15:58:36,022 - #3 {
+INFO  15:58:36,022 - #12 print
+INFO  15:58:36,023 - #6 (
+INFO  15:58:36,023 - #17 1
+INFO  15:58:36,023 - #7 )
+INFO  15:58:36,024 - #5 ;
+INFO  15:58:36,024 - #12 print
+INFO  15:58:36,025 - #6 (
+INFO  15:58:36,025 - #17 2
+INFO  15:58:36,025 - #7 )
+INFO  15:58:36,025 - #5 ;
+INFO  15:58:36,025 - #9 return
+INFO  15:58:36,025 - #17 0
+INFO  15:58:36,025 - #5 ;
+INFO  15:58:36,025 - #4 }
+INFO  15:58:36,026 - #4 }
+INFO  15:58:36,032 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListObj(
+        ProgDeclListNone(
+        ) [ProgDeclListNone]
+        ProgVarDescarations(
+          VarDecl(
+            Type_ID(
+             int
+            ) [Type_ID]
+            SingleVarDecl(
+              VarDecl_ID(
+               x
+              ) [VarDecl_ID]
+            ) [SingleVarDecl]
+          ) [VarDecl]
+        ) [ProgVarDescarations]
+      ) [ProgDeclListObj]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             y
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_SQ(
+           z
+          ) [VarDecl_SQ]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Type(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [ReturnMethod_Type]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      VarDeclarations(
+        NoVarDecl(
+        ) [NoVarDecl]
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             p
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [VarDeclarations]
+      Statements(
+        Statements(
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              PrintStmt(
+                TermExpr(
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       1
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+                NumConstList_None(
+                ) [NumConstList_None]
+              ) [PrintStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     2
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          ReturnExpr(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   0
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+          ) [ReturnExpr]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:58:36,032 - ===================================
+INFO  15:58:36,037 - Deklarisana promenljiva x na liniji 3
+INFO  15:58:36,037 - Deklarisana promenljiva y na liniji 3
+INFO  15:58:36,037 - Deklarisana promenljiva z na liniji 3
+INFO  15:58:36,037 - Obradjuje se funkcija main na liniji 5
+INFO  15:58:36,038 - Deklarisana promenljiva p na liniji 5
+INFO  15:58:36,038 -  Deklarisanih lokalnih promenljivih ima = 4
+INFO  15:58:36,038 -  Globalne promenljive = 2
+INFO  15:58:36,038 -  Globalni nizovi = 1
+INFO  15:58:36,038 -  Lokalne promenjive u main = 1
+INFO  15:58:36,038 - ===================================
+INFO  15:58:36,038 - Parsiranje uspesno zavrseno!

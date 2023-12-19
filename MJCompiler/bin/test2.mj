@@ -1,12 +1,18 @@
+
 program MJProgram
-	int x; int y;
+const int NIZ = 10;
+const char c = 'a';
+	int x; int y; int z[];
 {
-	int main() {
+	int main() int p;{
 		
 		print(1);
+		
 		
 		//x = y + 5;
 		
 		print(2);
+		
+		return 0;
 	}
 }

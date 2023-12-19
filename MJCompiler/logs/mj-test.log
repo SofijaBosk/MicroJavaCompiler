@@ -1,31 +1,54 @@
-INFO  15:22:25,642 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
-INFO  15:22:25,697 - #2 program
-INFO  15:22:25,698 - #53 MJProgram
-INFO  15:22:25,698 - #53 int
-INFO  15:22:25,699 - #53 x
-INFO  15:22:25,700 - #5 ;
-INFO  15:22:25,700 - #53 int
-INFO  15:22:25,701 - #53 y
-INFO  15:22:25,701 - #5 ;
-INFO  15:22:25,701 - #3 {
-INFO  15:22:25,701 - #53 int
-INFO  15:22:25,702 - #53 main
-INFO  15:22:25,703 - #6 (
-INFO  15:22:25,704 - #7 )
-INFO  15:22:25,705 - #3 {
-INFO  15:22:25,705 - #12 print
-INFO  15:22:25,706 - #6 (
-INFO  15:22:25,706 - #17 1
-INFO  15:22:25,706 - #7 )
-INFO  15:22:25,707 - #5 ;
-INFO  15:22:25,707 - #12 print
-INFO  15:22:25,708 - #6 (
-INFO  15:22:25,709 - #17 2
-INFO  15:22:25,709 - #7 )
-INFO  15:22:25,709 - #5 ;
-INFO  15:22:25,709 - #4 }
-INFO  15:22:25,709 - #4 }
-INFO  15:22:25,715 - Program(
+INFO  17:40:53,665 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  17:40:53,698 - #2 program
+INFO  17:40:53,698 - #53 MJProgram
+INFO  17:40:53,698 - #21 const
+INFO  17:40:53,699 - #53 int
+INFO  17:40:53,699 - #53 NIZ
+INFO  17:40:53,699 - #20 =
+INFO  17:40:53,699 - #17 10
+INFO  17:40:53,699 - #5 ;
+INFO  17:40:53,699 - #21 const
+INFO  17:40:53,700 - #53 char
+INFO  17:40:53,700 - #53 c
+INFO  17:40:53,700 - #20 =
+INFO  17:40:53,700 - #18 a
+INFO  17:40:53,700 - #5 ;
+INFO  17:40:53,700 - #53 int
+INFO  17:40:53,700 - #53 x
+INFO  17:40:53,700 - #5 ;
+INFO  17:40:53,701 - #53 int
+INFO  17:40:53,701 - #53 y
+INFO  17:40:53,701 - #5 ;
+INFO  17:40:53,701 - #53 int
+INFO  17:40:53,708 - #53 z
+INFO  17:40:53,708 - #22 [
+INFO  17:40:53,708 - #23 ]
+INFO  17:40:53,708 - #5 ;
+INFO  17:40:53,708 - #3 {
+INFO  17:40:53,708 - #53 int
+INFO  17:40:53,709 - #53 main
+INFO  17:40:53,709 - #6 (
+INFO  17:40:53,709 - #7 )
+INFO  17:40:53,709 - #53 int
+INFO  17:40:53,710 - #53 p
+INFO  17:40:53,710 - #5 ;
+INFO  17:40:53,710 - #3 {
+INFO  17:40:53,710 - #12 print
+INFO  17:40:53,710 - #6 (
+INFO  17:40:53,710 - #17 1
+INFO  17:40:53,710 - #7 )
+INFO  17:40:53,711 - #5 ;
+INFO  17:40:53,711 - #12 print
+INFO  17:40:53,711 - #6 (
+INFO  17:40:53,711 - #17 2
+INFO  17:40:53,711 - #7 )
+INFO  17:40:53,711 - #5 ;
+INFO  17:40:53,711 - #9 return
+INFO  17:40:53,711 - #17 0
+INFO  17:40:53,711 - #5 ;
+INFO  17:40:53,711 - #4 }
+INFO  17:40:53,712 - #4 }
+INFO  17:40:53,715 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -33,8 +56,52 @@ INFO  15:22:25,715 - Program(
   ) [NamespaceList_Multiple]
   ProgDeclListObj(
     ProgDeclListObj(
-      ProgDeclListNone(
-      ) [ProgDeclListNone]
+      ProgDeclListObj(
+        ProgDeclListObj(
+          ProgDeclListObj(
+            ProgDeclListNone(
+            ) [ProgDeclListNone]
+            ProgConstDescarations(
+              ConstDecl(
+                Type_ID(
+                 int
+                ) [Type_ID]
+                SingleConstDecl(
+                  IntegerConst(
+                   NIZ
+                   10
+                  ) [IntegerConst]
+                ) [SingleConstDecl]
+              ) [ConstDecl]
+            ) [ProgConstDescarations]
+          ) [ProgDeclListObj]
+          ProgConstDescarations(
+            ConstDecl(
+              Type_ID(
+               char
+              ) [Type_ID]
+              SingleConstDecl(
+                CharacterConst(
+                 c
+                 a
+                ) [CharacterConst]
+              ) [SingleConstDecl]
+            ) [ConstDecl]
+          ) [ProgConstDescarations]
+        ) [ProgDeclListObj]
+        ProgVarDescarations(
+          VarDecl(
+            Type_ID(
+             int
+            ) [Type_ID]
+            SingleVarDecl(
+              VarDecl_ID(
+               x
+              ) [VarDecl_ID]
+            ) [SingleVarDecl]
+          ) [VarDecl]
+        ) [ProgVarDescarations]
+      ) [ProgDeclListObj]
       ProgVarDescarations(
         VarDecl(
           Type_ID(
@@ -42,7 +109,7 @@ INFO  15:22:25,715 - Program(
           ) [Type_ID]
           SingleVarDecl(
             VarDecl_ID(
-             x
+             y
             ) [VarDecl_ID]
           ) [SingleVarDecl]
         ) [VarDecl]
@@ -54,9 +121,9 @@ INFO  15:22:25,715 - Program(
          int
         ) [Type_ID]
         SingleVarDecl(
-          VarDecl_ID(
-           y
-          ) [VarDecl_ID]
+          VarDecl_SQ(
+           z
+          ) [VarDecl_SQ]
         ) [SingleVarDecl]
       ) [VarDecl]
     ) [ProgVarDescarations]
@@ -75,19 +142,48 @@ INFO  15:22:25,715 - Program(
       ) [MethodTypeName]
       NoFormParam(
       ) [NoFormParam]
-      NoVarDecl(
-      ) [NoVarDecl]
+      VarDeclarations(
+        NoVarDecl(
+        ) [NoVarDecl]
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             p
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [VarDeclarations]
       Statements(
         Statements(
-          NoStmt(
-          ) [NoStmt]
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              PrintStmt(
+                TermExpr(
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       1
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+                NumConstList_None(
+                ) [NumConstList_None]
+              ) [PrintStmt]
+            ) [MatchedStmt]
+          ) [Statements]
           MatchedStmt(
             PrintStmt(
               TermExpr(
                 Term_Factor(
                   ConstFactor(
                     ConstValue_Num(
-                     1
+                     2
                     ) [ConstValue_Num]
                   ) [ConstFactor]
                 ) [Term_Factor]
@@ -98,33 +194,31 @@ INFO  15:22:25,715 - Program(
           ) [MatchedStmt]
         ) [Statements]
         MatchedStmt(
-          PrintStmt(
+          ReturnExpr(
             TermExpr(
               Term_Factor(
                 ConstFactor(
                   ConstValue_Num(
-                   2
+                   0
                   ) [ConstValue_Num]
                 ) [ConstFactor]
               ) [Term_Factor]
             ) [TermExpr]
-            NumConstList_None(
-            ) [NumConstList_None]
-          ) [PrintStmt]
+          ) [ReturnExpr]
         ) [MatchedStmt]
       ) [Statements]
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  15:22:25,716 - ===================================
-INFO  15:22:25,720 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
-INFO  15:22:25,720 - Deklarisana promenljiva x na liniji 2
-INFO  15:22:25,720 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
-INFO  15:22:25,720 - Deklarisana promenljiva y na liniji 2
-INFO  15:22:25,720 - Stars.etf.pp1.symboltable.concepts.Obj@11c20519
-INFO  15:22:25,720 - Obradjuje se funkcija main na liniji 4
-ERROR 15:22:25,720 - Greska na 4(main) nema return iskaz
-INFO  15:22:25,721 -  Print count calls = 2
-INFO  15:22:25,721 -  Deklarisanih promenljivih ima = 2
-INFO  15:22:25,721 - ===================================
-ERROR 15:22:25,721 - Parsiranje NIJE uspesno zavrseno!
+INFO  17:40:53,715 - ===================================
+INFO  17:40:53,718 - Deklarisana promenljiva x na liniji 5
+INFO  17:40:53,718 - Deklarisana promenljiva y na liniji 5
+INFO  17:40:53,718 - Deklarisana promenljiva z na liniji 5
+INFO  17:40:53,718 - Obradjuje se funkcija main na liniji 7
+INFO  17:40:53,718 - Deklarisana promenljiva p na liniji 7
+INFO  17:40:53,718 -  Deklarisanih lokalnih promenljivih ima = 4
+INFO  17:40:53,718 -  Globalne promenljive = 2
+INFO  17:40:53,718 -  Globalni nizovi = 1
+INFO  17:40:53,718 -  Lokalne promenjive u main = 1
+INFO  17:40:53,718 - ===================================
+INFO  17:40:53,718 - Parsiranje uspesno zavrseno!

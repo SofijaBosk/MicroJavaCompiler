@@ -48,9 +48,14 @@ public class MJSemanticTest {
 			SemanticPass v = new SemanticPass();
 			prog.traverseBottomUp(v); 
 	      
-			log.info(" Print count calls = " + v.printCallCount);
+			//log.info(" Print count calls = " + v.printCallCount);
 
-			log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
+			log.info(" Deklarisanih lokalnih promenljivih ima = " + v.varDeclCount);
+			log.info(" Globalne promenljive = " + v.globalVarCnt);
+			log.info(" Globalni nizovi = " + v.globalArrayCnt);
+			log.info(" Lokalne promenjive u main = " + v.mainLocalVarCnt);
+			
+			 
 			
 			log.info("===================================");
 			Tab.dump();

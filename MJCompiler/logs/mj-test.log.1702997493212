@@ -1,0 +1,144 @@
+INFO  15:44:36,172 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  15:44:36,233 - #2 program
+INFO  15:44:36,233 - #53 MJProgram
+INFO  15:44:36,234 - #53 int
+INFO  15:44:36,235 - #53 x
+INFO  15:44:36,236 - #5 ;
+INFO  15:44:36,236 - #53 int
+INFO  15:44:36,238 - #53 y
+INFO  15:44:36,238 - #5 ;
+INFO  15:44:36,238 - #3 {
+INFO  15:44:36,238 - #53 int
+INFO  15:44:36,239 - #53 main
+INFO  15:44:36,239 - #6 (
+INFO  15:44:36,240 - #7 )
+INFO  15:44:36,241 - #3 {
+INFO  15:44:36,241 - #12 print
+INFO  15:44:36,242 - #6 (
+INFO  15:44:36,242 - #17 1
+INFO  15:44:36,242 - #7 )
+INFO  15:44:36,244 - #5 ;
+INFO  15:44:36,244 - #12 print
+INFO  15:44:36,245 - #6 (
+INFO  15:44:36,246 - #17 2
+INFO  15:44:36,246 - #7 )
+INFO  15:44:36,246 - #5 ;
+INFO  15:44:36,246 - #9 return
+INFO  15:44:36,246 - #17 0
+INFO  15:44:36,246 - #5 ;
+INFO  15:44:36,246 - #4 }
+INFO  15:44:36,246 - #4 }
+INFO  15:44:36,253 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Type(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [ReturnMethod_Type]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              PrintStmt(
+                TermExpr(
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       1
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+                NumConstList_None(
+                ) [NumConstList_None]
+              ) [PrintStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     2
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          ReturnExpr(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   0
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+          ) [ReturnExpr]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:44:36,253 - ===================================
+INFO  15:44:36,257 - Deklarisana promenljiva x na liniji 2
+INFO  15:44:36,257 - Deklarisana promenljiva y na liniji 2
+INFO  15:44:36,257 - Obradjuje se funkcija main na liniji 4
+INFO  15:44:36,257 -  Deklarisanih lokalnih promenljivih ima = 2
+INFO  15:44:36,257 -  Deklarisanih globalnih promenljivih ima = 2
+INFO  15:44:36,257 - ===================================
+INFO  15:44:36,258 - Parsiranje uspesno zavrseno!

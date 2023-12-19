@@ -1,0 +1,127 @@
+INFO  15:39:58,038 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  15:39:58,099 - #2 program
+INFO  15:39:58,099 - #53 MJProgram
+INFO  15:39:58,099 - #53 int
+INFO  15:39:58,101 - #53 x
+INFO  15:39:58,101 - #5 ;
+INFO  15:39:58,102 - #53 int
+INFO  15:39:58,103 - #53 y
+INFO  15:39:58,103 - #5 ;
+INFO  15:39:58,103 - #3 {
+INFO  15:39:58,103 - #53 int
+INFO  15:39:58,104 - #53 main
+INFO  15:39:58,104 - #6 (
+INFO  15:39:58,105 - #7 )
+INFO  15:39:58,105 - #3 {
+INFO  15:39:58,106 - #12 print
+INFO  15:39:58,106 - #6 (
+INFO  15:39:58,106 - #17 1
+INFO  15:39:58,106 - #7 )
+INFO  15:39:58,108 - #5 ;
+INFO  15:39:58,108 - #12 print
+INFO  15:39:58,108 - #6 (
+INFO  15:39:58,110 - #17 2
+INFO  15:39:58,110 - #7 )
+INFO  15:39:58,110 - #5 ;
+INFO  15:39:58,110 - #4 }
+INFO  15:39:58,110 - #4 }
+INFO  15:39:58,117 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          Type_ID(
+           int
+          ) [Type_ID]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        Type_ID(
+         int
+        ) [Type_ID]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Type(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [ReturnMethod_Type]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          NoStmt(
+          ) [NoStmt]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     1
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   2
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+            NumConstList_None(
+            ) [NumConstList_None]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:39:58,117 - ===================================
+INFO  15:39:58,121 - Deklarisana promenljiva x na liniji 2
+INFO  15:39:58,121 - Deklarisana promenljiva y na liniji 2
+INFO  15:39:58,121 - Obradjuje se funkcija main na liniji 4
+ERROR 15:39:58,122 - Greska na 4(main) nema return iskaz
+INFO  15:39:58,122 -  Print count calls = 2
+INFO  15:39:58,122 -  Deklarisanih promenljivih ima = 2
+INFO  15:39:58,122 - ===================================
+ERROR 15:39:58,122 - Parsiranje NIJE uspesno zavrseno!
