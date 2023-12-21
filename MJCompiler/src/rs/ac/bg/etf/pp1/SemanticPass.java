@@ -239,18 +239,19 @@ public class SemanticPass extends VisitorAdaptor {
     
     
 //TO DO : BOOL TYPE (Extend Tab?)   
-//    public void visit(BooleanConst constDecl) { 
-//    	constDecl.obj = new Obj(Obj.Con, "", Tab.boolType, constDecl.getIntConstValue().intValue(), Obj.NO_VALUE);
-//    	Obj tempObj = constDecl.obj;
-//            if (Tab.currentScope().findSymbol(constDecl.getIntConstName()) == null) {
-//                Obj temp = Tab.insert(tempObj.getKind(), constDecl.getIntConstName(), tempObj.getType());
-//                temp.setAdr(tempObj.getAdr());
-//
-//                if (temp.getLevel() == 0) {
-//                    globalConstCnt++;
-//                }
-//            }
-//	}
+    public void visit(BooleanConst constDecl) { 
+    	//Boolean.valueOf((Boolean)constDecl.getBooleanConstValue()) ? 1 : 0
+    	constDecl.obj = new Obj(Obj.Con, "", SystemTableEx.boolType,constDecl.getBooleanConstValue()=="true"?1:0, Obj.NO_VALUE);
+    	Obj tempObj = constDecl.obj;
+            if (Tab.currentScope().findSymbol(constDecl.getBooleanConstName()) == null) {
+                Obj temp = Tab.insert(tempObj.getKind(), constDecl.getBooleanConstName(), tempObj.getType());
+                temp.setAdr(tempObj.getAdr());
+
+                if (temp.getLevel() == 0) {
+                    globalConstCnt++;
+                }
+            }
+	}
     
     public void visit(CharacterConst constDecl) {
     	constDecl.obj = new Obj(Obj.Con, "", Tab.charType, constDecl.getCharConstValue().charValue(), Obj.NO_VALUE);
