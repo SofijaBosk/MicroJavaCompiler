@@ -2,7 +2,7 @@
 program MJProgram
 const int NIZ = 10;
 const char c = 'a';
-const bool b=true;
+//const bool b=true;
 	int x; int y; int z[];
 {
 	int main() int p;{
@@ -10,7 +10,11 @@ const bool b=true;
 		print(1);
 		
 		
-		//x = y + 5;
+		y=x;
+		
+		y = 10;
+		
+	    x = y + 5;
 		
 		print(2);
 		

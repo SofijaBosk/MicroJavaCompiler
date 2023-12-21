@@ -123,7 +123,7 @@ nonterminal DesignatorHelper3 DesignatorHelper3;
 nonterminal Pom Pom;	
 nonterminal NamespaceNT NamespaceNT;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr;
 
 /*Program_START*/
@@ -193,7 +193,9 @@ Type ::= (Type_ID) IDENT:typeName {: RESULT=new Type_ID(typeName); RESULT.setLin
 /*VarDecl_START*/
 /*Type ident ["[" "]"] {"," ident ["[" "]"]} ";".*/
 
-VarDecl ::= (VarDecl) Type:varType VarlList:varName SEMI {: RESULT=new VarDecl(varType, varName); RESULT.setLine(varTypeleft); :};
+VarDecl ::= (VarDecl) TypeDummy:T1 VarlList:varName SEMI {: RESULT=new VarDecl(T1, varName); RESULT.setLine(T1left); :};
+ 
+TypeDummy ::= (TypeDummy) Type:T1 {: RESULT=new TypeDummy(T1); RESULT.setLine(T1left); :} ;
 
 VarlList ::= (SingleVarDecl) VarSingle:name {: RESULT=new SingleVarDecl(name); RESULT.setLine(nameleft); :}
 			|

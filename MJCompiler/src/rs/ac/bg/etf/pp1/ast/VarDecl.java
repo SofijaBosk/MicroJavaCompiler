@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/11/2023 14:50:29
+// 21/11/2023 16:22:8
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,22 +11,22 @@ public class VarDecl implements SyntaxNode {
     private int line;
     public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
-    private Type Type;
+    private TypeDummy TypeDummy;
     private VarlList VarlList;
 
-    public VarDecl (Type Type, VarlList VarlList) {
-        this.Type=Type;
-        if(Type!=null) Type.setParent(this);
+    public VarDecl (TypeDummy TypeDummy, VarlList VarlList) {
+        this.TypeDummy=TypeDummy;
+        if(TypeDummy!=null) TypeDummy.setParent(this);
         this.VarlList=VarlList;
         if(VarlList!=null) VarlList.setParent(this);
     }
 
-    public Type getType() {
-        return Type;
+    public TypeDummy getTypeDummy() {
+        return TypeDummy;
     }
 
-    public void setType(Type Type) {
-        this.Type=Type;
+    public void setTypeDummy(TypeDummy TypeDummy) {
+        this.TypeDummy=TypeDummy;
     }
 
     public VarlList getVarlList() {
@@ -58,18 +58,18 @@ public class VarDecl implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Type!=null) Type.accept(visitor);
+        if(TypeDummy!=null) TypeDummy.accept(visitor);
         if(VarlList!=null) VarlList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Type!=null) Type.traverseTopDown(visitor);
+        if(TypeDummy!=null) TypeDummy.traverseTopDown(visitor);
         if(VarlList!=null) VarlList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Type!=null) Type.traverseBottomUp(visitor);
+        if(TypeDummy!=null) TypeDummy.traverseBottomUp(visitor);
         if(VarlList!=null) VarlList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -79,8 +79,8 @@ public class VarDecl implements SyntaxNode {
         buffer.append(tab);
         buffer.append("VarDecl(\n");
 
-        if(Type!=null)
-            buffer.append(Type.toString("  "+tab));
+        if(TypeDummy!=null)
+            buffer.append(TypeDummy.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

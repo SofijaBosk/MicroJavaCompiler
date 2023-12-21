@@ -15,6 +15,7 @@ public class SemanticPass extends VisitorAdaptor {
 	boolean returnFound = false;
 	boolean errorDetected = false;
 	
+	private Obj currType = Tab.noObj;
 	
 	int globalArrayCnt = 0;
 	int globalVarCnt = 0;
@@ -65,7 +66,6 @@ public class SemanticPass extends VisitorAdaptor {
             kind = Obj.Var;
         //}
         
-        
         Obj tempObj = Tab.insert(kind, name, type);
 
         if (tempObj.getKind() == Obj.Var) {
@@ -85,19 +85,37 @@ public class SemanticPass extends VisitorAdaptor {
         	        
 	}
 	
+//	public void visit(VarDecl varDecl){
+//		currType=varDecl.getType().obj;
+//	}
+	
+	
+	//Treba nam dummy funkcija inace prvi var ce biti noType
+  public void visit(TypeDummy typeDummy) {
+	  currType = typeDummy.getType().obj;
+  }
+	
+	public void visit(SingleVarDecl varDecl){
+		currType = new Obj(1, "vardecl", Tab.intType);
+	}
+	public void visit(MultipleVarDecl varDecl){
+		currType = new Obj(1, "vardecl", Tab.intType);
+	}
+	
+	
 	public void visit(VarDecl_ID varDecl){
 		varDeclCount++;
 		report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
 		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
 		
-		insertVar(varDecl.getVarName(),Tab.noType,varDecl.getLine());
+		insertVar(varDecl.getVarName(),currType.getType(),varDecl.getLine());
 		//varDecl.getType().struct
 	}
 	public void visit(VarDecl_SQ varDecl){
 		varDeclCount++;
 		report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
 		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
-		insertVar(varDecl.getVarName(),new Struct(Struct.Array, Tab.noType),varDecl.getLine());
+		insertVar(varDecl.getVarName(),new Struct(Struct.Array, currType.getType()),varDecl.getLine());
 	}
 	
     public void visit(PrintStmt print) {
@@ -119,6 +137,7 @@ public class SemanticPass extends VisitorAdaptor {
     
     public void visit(Type_ID type){
     	Obj typeNode = Tab.find(type.getTypeName());
+    	//type.obj = typeNode;
     	//Proveravamo da li se radi o tipu ili ne
     	if(typeNode == Tab.noObj){
     		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
@@ -132,6 +151,9 @@ public class SemanticPass extends VisitorAdaptor {
     		}
     	}
     }
+    
+    
+
     
     public void visit(MethodTypeName methodTypeName){
     	Object methObj = Tab.currentScope().findSymbol(methodTypeName.getMethName());
@@ -210,12 +232,14 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(AddExpr addExpr){
     	Struct te = addExpr.getExpr().struct;
     	Struct t = addExpr.getTerm().struct;
-    	if(te.equals(t) && te == Tab.intType){
+    	if(te.equals(t)) { //&& te == Tab.intType){
     		addExpr.struct = te;
     	}else{
-			report_error("Greska na liniji "+ addExpr.getLine()+" : nekompatibilni tipovi u izrazu za sabiranje.", null);
+			report_error("Nekompatibilni tipovi u izrazu za sabiranje", addExpr);
 			addExpr.struct = Tab.noType;
     	}
+    	
+    	addExpr.struct = addExpr.getExpr().struct;
     }
     
     public void visit(ConstFactor cnst){
@@ -267,14 +291,27 @@ public class SemanticPass extends VisitorAdaptor {
 	}
     
     
-    public void visit(VarFactor var){
-    	var.struct = var.getDesignator().obj.getType();
+    public void visit(Assignment assignment) {
+        Obj desigObj = assignment.getDesignator().obj;
+        int kind = desigObj.getKind();
+
+        if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
+            report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
+        }
+        else if(!(desigObj.getType().equals(assignment.getExpr().struct))){
+        	report_error("Nekompatibilni tipovi u dodeli vrednosti ", assignment);
+        }
+        
     }
     
+    public void visit(Designator_Ident desg){
+    	desg.obj = desg.getDesignatorHelper().obj;
+    }
     
-    public void visit(Assignment assignment){
-    	if(!assignment.getExpr().struct.assignableTo(assignment.getDesignator().obj.getType()))
-    		report_error("Greska na liniji " + assignment.getLine() + " : " + "nekompatibilni tipovi u dodeli vrednosti! ", null);
+   
+    
+    public void visit(VarFactor var){
+    	var.struct = var.getDesignator().obj.getType();
     }
     
     

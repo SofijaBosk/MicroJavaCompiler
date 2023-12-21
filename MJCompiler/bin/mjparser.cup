@@ -95,7 +95,7 @@ nonterminal ExprActParsChoice, ActParsList, ConstValue;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
 nonterminal NamespaceNT;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr;
 
 /*Program_START*/
@@ -165,7 +165,9 @@ Type ::= (Type_ID) IDENT:typeName
 /*VarDecl_START*/
 /*Type ident ["[" "]"] {"," ident ["[" "]"]} ";".*/
 
-VarDecl ::= (VarDecl) Type:varType VarlList:varName SEMI;
+VarDecl ::= (VarDecl) TypeDummy VarlList:varName SEMI;
+ 
+TypeDummy ::= (TypeDummy) Type ;
 
 VarlList ::= (SingleVarDecl) VarSingle:name
 			|
