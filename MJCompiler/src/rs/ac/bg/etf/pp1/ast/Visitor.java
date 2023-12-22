@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/11/2023 16:22:8
+// 22/11/2023 12:53:16
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -26,6 +26,7 @@ public interface Visitor {
     public void visit(CondTerm CondTerm);
     public void visit(Pom Pom);
     public void visit(DesignatorHelper DesignatorHelper);
+    public void visit(ActParsIE ActParsIE);
     public void visit(ConstList ConstList);
     public void visit(Designator Designator);
     public void visit(ProgDecl ProgDecl);
@@ -42,8 +43,8 @@ public interface Visitor {
     public void visit(VarDeclList VarDeclList);
     public void visit(FormalParamList FormalParamList);
     public void visit(Expr Expr);
-    public void visit(NamespaceNT NamespaceNT);
     public void visit(ActPars ActPars);
+    public void visit(NamespaceNT NamespaceNT);
     public void visit(DesignatorList DesignatorList);
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(ActualPars ActualPars);
@@ -105,9 +106,11 @@ public interface Visitor {
     public void visit(ActPars_Single ActPars_Single);
     public void visit(DesignatorList_Single DesignatorList_Single);
     public void visit(DesignatorList_List DesignatorList_List);
+    public void visit(ActParsIE_None ActParsIE_None);
+    public void visit(ActParsIE_ActPars ActParsIE_ActPars);
+    public void visit(FunctionCall FunctionCall);
     public void visit(DesigatorStatementError DesigatorStatementError);
-    public void visit(DesignatorStatement_NoActPars DesignatorStatement_NoActPars);
-    public void visit(DesignatorStatement_ActPars DesignatorStatement_ActPars);
+    public void visit(DesignatorStatement_FunctionCall DesignatorStatement_FunctionCall);
     public void visit(DesignatorStatement_DEC DesignatorStatement_DEC);
     public void visit(DesignatorStatement_INC DesignatorStatement_INC);
     public void visit(Assignment Assignment);

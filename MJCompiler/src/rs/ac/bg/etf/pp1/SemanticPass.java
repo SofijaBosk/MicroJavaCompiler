@@ -1,5 +1,9 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.ast.*;
@@ -23,10 +27,18 @@ public class SemanticPass extends VisitorAdaptor {
 	int methodCnt=0;
 	
 	int globalConstCnt=0;
+	int mainFuncCallCnt=0;
 	
 	int nVars;
 	
+	private Stack<ArrayList<Struct>> ActParList;
+	
 	Logger log = Logger.getLogger(getClass());
+	
+	public SemanticPass() {
+		ActParList = new Stack<>();
+		ActParList.push(new ArrayList<Struct>());
+	}
 	
 	public void tester()
 	{
@@ -328,6 +340,62 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(Designator_Ident desg){
     	desg.obj = desg.getDesignatorHelper().obj;
     }
+    
+    public void visit(ActPars_Single actPars) {
+    	ActParList.peek().add(actPars.getExpr().struct);
+    }
+    
+    public void visit(ActPars_List actPars) {
+    	ActParList.peek().add(actPars.getExpr().struct);
+    }
+    
+    
+    public void visit(FunctionCall func){
+        if ("main".equalsIgnoreCase(currentMethod.getName())) {
+            mainFuncCallCnt++;
+        }
+
+        Obj desigObj = func.getDesignator().obj;
+        ArrayList<Struct> currentActParTypes = ActParList.pop();
+
+        if (desigObj.getKind() != Obj.Meth) {
+            report_error("Greska na " + func.getLine() + "(" + desigObj.getName() + ") nije funkcija",null);
+            func.struct = Tab.noType;
+        } else {
+            int numOfFPs = desigObj.getLevel();
+            if (numOfFPs != currentActParTypes.size()) {
+                report_error("Greska neispravan broj parametara funkcije",func);
+            } else {
+                ArrayList<Obj> methLocalParams = new ArrayList<>(desigObj.getLocalSymbols());
+                if (desigObj.equals(currentMethod)) {
+                    // specijalni slucaj: rekurzija, lokalni simboli metode su jos u trenutnom scope-u
+                    methLocalParams = new ArrayList<>(Tab.currentScope().values());
+                }
+
+                if ("len".equals(desigObj.getName())) {
+                    Struct arr = currentActParTypes.get(0);
+                    if (arr.getKind() != Struct.Array || (!arr.getElemType().equals(Tab.intType) && !arr.getElemType().equals(Tab.charType))) {
+                        report_error("Greska neispravni argumenti metode len(arr)",func);
+                    }
+                } else {
+                    int offset = 0;
+
+                    for (int i = 0; i < numOfFPs; i++) {
+                        Obj formPar = methLocalParams.get(offset + i);
+                        Struct actParType = currentActParTypes.get(i);
+                        if (!actParType.assignableTo(formPar.getType())) {
+                            report_error("Greska (" + desigObj.getName() + ") poziv nema ispravne parametre",func);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            func.struct = desigObj.getType();
+        }
+    }
+    
+    
     
    
     

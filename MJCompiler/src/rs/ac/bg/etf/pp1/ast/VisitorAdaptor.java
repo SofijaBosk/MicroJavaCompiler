@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/11/2023 16:22:8
+// 22/11/2023 12:53:16
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -26,6 +26,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondTerm CondTerm) { }
     public void visit(Pom Pom) { }
     public void visit(DesignatorHelper DesignatorHelper) { }
+    public void visit(ActParsIE ActParsIE) { }
     public void visit(ConstList ConstList) { }
     public void visit(Designator Designator) { }
     public void visit(ProgDecl ProgDecl) { }
@@ -42,8 +43,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDeclList VarDeclList) { }
     public void visit(FormalParamList FormalParamList) { }
     public void visit(Expr Expr) { }
-    public void visit(NamespaceNT NamespaceNT) { }
     public void visit(ActPars ActPars) { }
+    public void visit(NamespaceNT NamespaceNT) { }
     public void visit(DesignatorList DesignatorList) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(ActualPars ActualPars) { }
@@ -105,9 +106,11 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActPars_Single ActPars_Single) { visit(); }
     public void visit(DesignatorList_Single DesignatorList_Single) { visit(); }
     public void visit(DesignatorList_List DesignatorList_List) { visit(); }
+    public void visit(ActParsIE_None ActParsIE_None) { visit(); }
+    public void visit(ActParsIE_ActPars ActParsIE_ActPars) { visit(); }
+    public void visit(FunctionCall FunctionCall) { visit(); }
     public void visit(DesigatorStatementError DesigatorStatementError) { visit(); }
-    public void visit(DesignatorStatement_NoActPars DesignatorStatement_NoActPars) { visit(); }
-    public void visit(DesignatorStatement_ActPars DesignatorStatement_ActPars) { visit(); }
+    public void visit(DesignatorStatement_FunctionCall DesignatorStatement_FunctionCall) { visit(); }
     public void visit(DesignatorStatement_DEC DesignatorStatement_DEC) { visit(); }
     public void visit(DesignatorStatement_INC DesignatorStatement_INC) { visit(); }
     public void visit(Assignment Assignment) { visit(); }

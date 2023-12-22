@@ -88,15 +88,15 @@ nonterminal ConstList;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
 nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement, CondFact;
-nonterminal DesignatorList, ActPars;
+nonterminal DesignatorList;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
 nonterminal ExprActParsChoice, ActParsList, ConstValue;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
-nonterminal NamespaceNT;
+nonterminal NamespaceNT, ActParsIE;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -362,16 +362,23 @@ DesignatorStatement ::= (Assignment) Designator Assignop Expr
 					| 
 					(DesignatorStatement_DEC) Designator DEC
 					| 
-					(DesignatorStatement_ActPars) Designator LPAREN ActPars RPAREN
+					(DesignatorStatement_FunctionCall) FunctionCall
 					| 
-					(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
+					/*(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
 					|
-                    /*(DesignatorStatement_Mul) LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
+                    (DesignatorStatement_Mul) LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
                    	|
                    	*/                  	
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :}
 					;
+
+FunctionCall ::= (FunctionCall) Designator LPAREN ActParsIE RPAREN;
+
+ActParsIE ::= (ActParsIE_ActPars) ActPars
+               |
+               (ActParsIE_None) /* epsilon */
+               ;
 
 DesignatorList ::= (DesignatorList_List) Designator COMMA DesignatorList
 	              |

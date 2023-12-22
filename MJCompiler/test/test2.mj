@@ -5,6 +5,10 @@ const char c = 'a';
 //const bool b=true;
 	int x, y; int z[];char t;
 {
+	void pom(int o){
+		o++;
+	}
+
 	int main() int p;{
 		
 		print(1);
@@ -17,8 +21,8 @@ const char c = 'a';
 	    x = y + 5;
 	    
 	    x++;
-	    l++;
-	    t++;
+	    //l++;
+	    //t++;
 		
 		print(2);
 		

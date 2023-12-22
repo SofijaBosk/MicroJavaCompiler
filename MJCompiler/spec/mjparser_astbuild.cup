@@ -110,7 +110,6 @@ nonterminal Condition Condition;
 nonterminal DesignatorStatement DesignatorStatement;
 nonterminal CondFact CondFact;
 nonterminal DesignatorList DesignatorList;
-nonterminal ActPars ActPars;
 nonterminal CondTerm CondTerm;
 nonterminal Assignop Assignop;
 nonterminal Relop Relop;
@@ -122,9 +121,10 @@ nonterminal DesignatorHelper2 DesignatorHelper2;
 nonterminal DesignatorHelper3 DesignatorHelper3;
 nonterminal Pom Pom;	
 nonterminal NamespaceNT NamespaceNT;
+nonterminal ActParsIE ActParsIE;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -390,16 +390,23 @@ DesignatorStatement ::= (Assignment) Designator:D1 Assignop:A2 Expr:E3 {: RESULT
 					| 
 					(DesignatorStatement_DEC) Designator:D1 DEC {: RESULT=new DesignatorStatement_DEC(D1); RESULT.setLine(D1left); :}
 					| 
-					(DesignatorStatement_ActPars) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new DesignatorStatement_ActPars(D1, A2); RESULT.setLine(D1left); :}
+					(DesignatorStatement_FunctionCall) FunctionCall:F1 {: RESULT=new DesignatorStatement_FunctionCall(F1); RESULT.setLine(F1left); :}
 					| 
-					(DesignatorStatement_NoActPars) Designator:D1 LPAREN RPAREN {: RESULT=new DesignatorStatement_NoActPars(D1); RESULT.setLine(D1left); :}
+					/*(DesignatorStatement_NoActPars) Designator LPAREN RPAREN
 					|
-                    /*(DesignatorStatement_Mul) LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
+                    (DesignatorStatement_Mul) LSQUARE Designator MUL Designator RSQUARE EQUALS Designator               
                    	|
                    	*/                  	
 					(DesigatorStatementError) error SEMI:l
 					{: parser.report_error("Designator statement error recovering. " + lleft, null); :} {: RESULT=new DesigatorStatementError(); :}
 					;
+
+FunctionCall ::= (FunctionCall) Designator:D1 LPAREN ActParsIE:A2 RPAREN {: RESULT=new FunctionCall(D1, A2); RESULT.setLine(D1left); :};
+
+ActParsIE ::= (ActParsIE_ActPars) ActPars:A1 {: RESULT=new ActParsIE_ActPars(A1); RESULT.setLine(A1left); :}
+               |
+               (ActParsIE_None) {: RESULT=new ActParsIE_None(); :} /* epsilon */
+               ;
 
 DesignatorList ::= (DesignatorList_List) Designator:D1 COMMA DesignatorList:D2 {: RESULT=new DesignatorList_List(D1, D2); RESULT.setLine(D1left); :}
 	              |
