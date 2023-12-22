@@ -245,8 +245,7 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(ConstFactor cnst){
     	cnst.struct = Tab.intType;
     }
-    
-    
+        
    
     public void visit(IntegerConst constDecl) {
     	constDecl.obj = new Obj(Obj.Con, "", Tab.intType, constDecl.getIntConstValue().intValue(), Obj.NO_VALUE);
@@ -290,7 +289,7 @@ public class SemanticPass extends VisitorAdaptor {
             }
 	}
     
-    
+    /*DesignatorStatement*/
     public void visit(Assignment assignment) {
         Obj desigObj = assignment.getDesignator().obj;
         int kind = desigObj.getKind();
@@ -302,6 +301,28 @@ public class SemanticPass extends VisitorAdaptor {
         	report_error("Nekompatibilni tipovi u dodeli vrednosti ", assignment);
         }
         
+    }
+    
+    public void visit(DesignatorStatement_INC ds){
+    	Obj desigObj = ds.getDesignator().obj;
+        int kind = desigObj.getKind();
+
+        if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld ) {
+            report_error("Greska (" + desigObj.getName() + ") nije promenljiva",ds);
+        } else if (!desigObj.getType().equals(Tab.intType)) {
+            report_error("Greska (" + desigObj.getName() + ") nije int",ds);
+        }
+    }
+    
+    public void visit(DesignatorStatement_DEC ds){
+    	Obj desigObj = ds.getDesignator().obj;
+        int kind = desigObj.getKind();
+
+        if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld ) {
+            report_error("Greska (" + desigObj.getName() + ") nije promenljiva",ds);
+        } else if (!desigObj.getType().equals(Tab.intType)) {
+            report_error("Greska (" + desigObj.getName() + ") nije int",ds);
+        }
     }
     
     public void visit(Designator_Ident desg){

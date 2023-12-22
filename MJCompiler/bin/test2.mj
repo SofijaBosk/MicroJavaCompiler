@@ -3,7 +3,7 @@ program MJProgram
 const int NIZ = 10;
 const char c = 'a';
 //const bool b=true;
-	int x; int y; int z[];
+	int x, y; int z[];char t;
 {
 	int main() int p;{
 		
@@ -15,6 +15,10 @@ const char c = 'a';
 		y = 10;
 		
 	    x = y + 5;
+	    
+	    x++;
+	    l++;
+	    t++;
 		
 		print(2);
 		
