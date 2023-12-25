@@ -460,9 +460,21 @@ public class SemanticPass extends VisitorAdaptor {
         }
     }
     
-    
-    
-   
+    public void visit(ReadStmt stmt){
+    	 if ("main".equalsIgnoreCase(currentMethod.getName())) {
+             mainFuncCallCnt++;
+         }
+
+         Obj desigObj = stmt.getDesignator().obj;
+         int kind = desigObj.getKind();
+
+         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
+             report_error("Greska parametar read funkcije nije promenljiva",stmt);
+         } else if (!desigObj.getType().equals(Tab.intType) && !desigObj.getType().equals(Tab.charType)) {
+             report_error("Greska parametar read funkcije je nepravilnog tipa",stmt);
+         }
+    }
+  
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();
