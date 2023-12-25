@@ -380,7 +380,7 @@ public class SemanticPass extends VisitorAdaptor {
         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
             report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
         }
-        else if(!(desigObj.getType().equals(assignment.getExpr().struct))){
+        else if(!(desigObj.getType().compatibleWith(assignment.getExpr().struct))){
         	report_error("Nekompatibilni tipovi u dodeli vrednosti ", assignment);
         }
         
@@ -511,6 +511,12 @@ public class SemanticPass extends VisitorAdaptor {
         //condFact_relop.struct = Tab.boolType; TO DO sredi prvo bool type
     }
   
+    public void visit(TermExpr_Minus term){
+    	if(!term.getTerm().struct.compatibleWith(Tab.intType)) {
+    		report_error("Greska term mora biti tipa int", term);
+    	}
+    	term.struct = term.getTerm().struct;
+    }
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();
