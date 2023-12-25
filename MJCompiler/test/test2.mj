@@ -12,10 +12,12 @@ const char c = 'a';
 
 	int main() int p;{
 		
-		print(1);
+		if(x!=y){
+			y=x;
+		}
 		
 		
-		y=x;
+		
 		
 		y = 10;
 		

@@ -108,7 +108,6 @@ nonterminal DesignatorStatementList DesignatorStatementList;
 nonterminal NumConstList NumConstList;
 nonterminal Condition Condition;
 nonterminal DesignatorStatement DesignatorStatement;
-nonterminal CondFact CondFact;
 nonterminal DesignatorList DesignatorList;
 nonterminal CondTerm CondTerm;
 nonterminal Assignop Assignop;
@@ -125,7 +124,7 @@ nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -273,7 +272,7 @@ MethodDecl ::= (MethodDecl) MethodParams:M1 VarDeclList:V2 LBRACE StatementList:
 
 MethodParams ::= (MethodParams) MethodTypeName:M1 LPAREN FormParsDummy:F2 FormPars:F3 RPAREN {: RESULT=new MethodParams(M1, F2, F3); RESULT.setLine(M1left); :};
 
-FormParsDummy ::= (FormParsDummy) {: RESULT=new FormParsDummy(); :} /* epsilon */ ; /*Bez ovoga nece da ucita parametre*/
+FormParsDummy ::= (FormParsDummy) {: RESULT=new FormParsDummy(); :} /* epsilon */ ; /*Moramo da deklarisemo niz parametara*/
 
 MethodTypeName ::= (MethodTypeName) ReturnMethod:R1 IDENT:methName {: RESULT=new MethodTypeName(R1, methName); RESULT.setLine(R1left); :};
 

@@ -93,7 +93,7 @@ import java_cup.runtime.Symbol;
 
 <YYINITIAL> "//" 		     { yybegin(COMMENT); }
 <COMMENT> .      { yybegin(COMMENT); }
-<COMMENT> "\r\n" { yybegin(YYINITIAL); }
+<COMMENT> "\r\n" { yybegin(YYINITI==AL); }
 
 
 "true"							{ return new_symbol(sym.BOOL_CONST, new Boolean(yytext())); }

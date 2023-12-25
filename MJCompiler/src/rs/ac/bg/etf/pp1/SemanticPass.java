@@ -10,6 +10,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
 
+
 public class SemanticPass extends VisitorAdaptor {
 
 	int i=0;
@@ -491,6 +492,23 @@ public class SemanticPass extends VisitorAdaptor {
         if (!type.equals(Tab.intType) && !type.equals(Tab.charType)) {
             report_error("Greska parametar print funkcije je nepravilnog tipa",stmt);
         }
+    }
+    
+    
+    public void visit(CondFact_Expr condFact_expr) {
+        condFact_expr.struct = condFact_expr.getExpr().struct;
+    }
+
+    public void visit(CondFact_Relop condFact_relop) {
+        if (!condFact_relop.getExpr().struct.compatibleWith(condFact_relop.getExpr1().struct)) {
+            report_error("Greska tipovi relacionog izraza nisu kompatibilni",condFact_relop);
+        } else {
+            if (!(condFact_relop.getRelop() instanceof Relop_EQ || condFact_relop.getRelop() instanceof Relop_NEQ)) {
+                report_error("Greska relacioni izraz sa referentnim tipovima moze koristiti samo '==' i '!=' operatore",condFact_relop);
+            }
+        }
+
+        //condFact_relop.struct = Tab.boolType; TO DO sredi prvo bool type
     }
   
     
