@@ -131,10 +131,7 @@ public class SemanticPass extends VisitorAdaptor {
 		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
 		insertVar(varDecl.getVarName(),new Struct(Struct.Array, currType.getType()),varDecl.getLine());
 	}
-	
-    public void visit(PrintStmt print) {
-		printCallCount++;
-	}
+
     
     public void visit(ProgName progName){
     	progName.obj = Tab.insert(Obj.Prog, progName.getProgName(), Tab.noType);
@@ -473,6 +470,19 @@ public class SemanticPass extends VisitorAdaptor {
          } else if (!desigObj.getType().equals(Tab.intType) && !desigObj.getType().equals(Tab.charType)) {
              report_error("Greska parametar read funkcije je nepravilnog tipa",stmt);
          }
+    }
+    
+    public void visit(PrintStmt stmt) {
+    	printCallCount++;    
+        if ("main".equalsIgnoreCase(currentMethod.getName())) {
+            mainFuncCallCnt++;
+        }
+
+        Struct type = stmt.getExpr().struct;
+
+        if (!type.equals(Tab.intType) && !type.equals(Tab.charType)) {
+            report_error("Greska parametar print funkcije je nepravilnog tipa",stmt);
+        }
     }
   
     
