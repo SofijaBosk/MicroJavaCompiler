@@ -267,6 +267,14 @@ public class SemanticPass extends VisitorAdaptor {
     	}
     }
     
+    public void visit(ReturnNoExpr returnExpr){
+    	Struct currMethType = currentMethod.getType();
+    	if(!currMethType.compatibleWith(Tab.noType)){
+			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
+    	}
+    }
+    
+    
     public void visit(DesignatorHelper_Scope designator){
     	Obj obj = Tab.find(designator.getName());
     	if(obj == Tab.noObj){
