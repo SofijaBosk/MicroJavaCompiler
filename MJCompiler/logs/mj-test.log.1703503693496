@@ -1,0 +1,411 @@
+INFO  12:06:05,898 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test2.mj
+INFO  12:06:05,954 - #2 program
+INFO  12:06:05,955 - #53 MJProgram
+INFO  12:06:05,955 - #21 const
+INFO  12:06:05,956 - #53 int
+INFO  12:06:05,956 - #53 NIZ
+INFO  12:06:05,957 - #20 =
+INFO  12:06:05,957 - #17 10
+INFO  12:06:05,957 - #5 ;
+INFO  12:06:05,957 - #21 const
+INFO  12:06:05,958 - #53 char
+INFO  12:06:05,958 - #53 c
+INFO  12:06:05,958 - #20 =
+INFO  12:06:05,958 - #18 a
+INFO  12:06:05,959 - #5 ;
+INFO  12:06:05,959 - #53 int
+INFO  12:06:05,959 - #53 x
+INFO  12:06:05,959 - #11 ,
+INFO  12:06:05,960 - #53 y
+INFO  12:06:05,960 - #5 ;
+INFO  12:06:05,960 - #53 int
+INFO  12:06:05,962 - #53 z
+INFO  12:06:05,962 - #22 [
+INFO  12:06:05,962 - #23 ]
+INFO  12:06:05,962 - #5 ;
+INFO  12:06:05,962 - #53 char
+INFO  12:06:05,962 - #53 t
+INFO  12:06:05,962 - #5 ;
+INFO  12:06:05,962 - #3 {
+INFO  12:06:05,962 - #13 void
+INFO  12:06:05,963 - #53 pom
+INFO  12:06:05,963 - #6 (
+INFO  12:06:05,964 - #53 int
+INFO  12:06:05,964 - #53 o
+INFO  12:06:05,964 - #7 )
+INFO  12:06:05,964 - #3 {
+INFO  12:06:05,965 - #53 o
+INFO  12:06:05,965 - #43 ++
+INFO  12:06:05,966 - #5 ;
+INFO  12:06:05,967 - #4 }
+INFO  12:06:05,967 - #53 int
+INFO  12:06:05,968 - #53 main
+INFO  12:06:05,968 - #6 (
+INFO  12:06:05,968 - #7 )
+INFO  12:06:05,969 - #53 int
+INFO  12:06:05,969 - #53 p
+INFO  12:06:05,969 - #5 ;
+INFO  12:06:05,969 - #3 {
+INFO  12:06:05,970 - #12 print
+INFO  12:06:05,970 - #6 (
+INFO  12:06:05,970 - #17 1
+INFO  12:06:05,970 - #7 )
+INFO  12:06:05,971 - #5 ;
+INFO  12:06:05,972 - #53 y
+INFO  12:06:05,972 - #20 =
+INFO  12:06:05,972 - #53 x
+INFO  12:06:05,973 - #5 ;
+INFO  12:06:05,973 - #53 y
+INFO  12:06:05,973 - #20 =
+INFO  12:06:05,973 - #17 10
+INFO  12:06:05,974 - #5 ;
+INFO  12:06:05,974 - #53 x
+INFO  12:06:05,974 - #20 =
+INFO  12:06:05,974 - #53 y
+INFO  12:06:05,974 - #10 +
+INFO  12:06:05,974 - #17 5
+INFO  12:06:05,975 - #5 ;
+INFO  12:06:05,976 - #53 x
+INFO  12:06:05,976 - #43 ++
+INFO  12:06:05,976 - #5 ;
+INFO  12:06:05,976 - #12 print
+INFO  12:06:05,976 - #6 (
+INFO  12:06:05,976 - #17 2
+INFO  12:06:05,976 - #7 )
+INFO  12:06:05,976 - #5 ;
+INFO  12:06:05,976 - #9 return
+INFO  12:06:05,976 - #17 0
+INFO  12:06:05,976 - #5 ;
+INFO  12:06:05,977 - #4 }
+INFO  12:06:05,977 - #4 }
+INFO  12:06:05,983 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListObj(
+        ProgDeclListObj(
+          ProgDeclListObj(
+            ProgDeclListNone(
+            ) [ProgDeclListNone]
+            ProgConstDescarations(
+              ConstDecl(
+                Type_ID(
+                 int
+                ) [Type_ID]
+                SingleConstDecl(
+                  IntegerConst(
+                   NIZ
+                   10
+                  ) [IntegerConst]
+                ) [SingleConstDecl]
+              ) [ConstDecl]
+            ) [ProgConstDescarations]
+          ) [ProgDeclListObj]
+          ProgConstDescarations(
+            ConstDecl(
+              Type_ID(
+               char
+              ) [Type_ID]
+              SingleConstDecl(
+                CharacterConst(
+                 c
+                 a
+                ) [CharacterConst]
+              ) [SingleConstDecl]
+            ) [ConstDecl]
+          ) [ProgConstDescarations]
+        ) [ProgDeclListObj]
+        ProgVarDescarations(
+          VarDecl(
+            TypeDummy(
+              Type_ID(
+               int
+              ) [Type_ID]
+            ) [TypeDummy]
+            MultipleVarDecl(
+              SingleVarDecl(
+                VarDecl_ID(
+                 x
+                ) [VarDecl_ID]
+              ) [SingleVarDecl]
+              VarDecl_ID(
+               y
+              ) [VarDecl_ID]
+            ) [MultipleVarDecl]
+          ) [VarDecl]
+        ) [ProgVarDescarations]
+      ) [ProgDeclListObj]
+      ProgVarDescarations(
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_SQ(
+             z
+            ) [VarDecl_SQ]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           char
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           t
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    MethodDeclarations(
+      NoMethodDecl(
+      ) [NoMethodDecl]
+      MethodDecl(
+        MethodTypeName(
+          ReturnMethod_Void(
+          ) [ReturnMethod_Void]
+         pom
+        ) [MethodTypeName]
+        FormParams(
+          SingleFormalParamDecl(
+            FormParDecl_Single(
+              Type_ID(
+               int
+              ) [Type_ID]
+             o
+            ) [FormParDecl_Single]
+          ) [SingleFormalParamDecl]
+        ) [FormParams]
+        NoVarDecl(
+        ) [NoVarDecl]
+        Statements(
+          NoStmt(
+          ) [NoStmt]
+          MatchedStmt(
+            DesignatorStatementStmt(
+              DesignatorStatement_INC(
+                Designator_Ident(
+                  DesignatorHelper_None(
+                   o
+                  ) [DesignatorHelper_None]
+                  DesignatorHelper_NoneExpr(
+                  ) [DesignatorHelper_NoneExpr]
+                ) [Designator_Ident]
+              ) [DesignatorStatement_INC]
+            ) [DesignatorStatementStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      MethodTypeName(
+        ReturnMethod_Type(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [ReturnMethod_Type]
+       main
+      ) [MethodTypeName]
+      NoFormParam(
+      ) [NoFormParam]
+      VarDeclarations(
+        NoVarDecl(
+        ) [NoVarDecl]
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_ID(
+             p
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [VarDeclarations]
+      Statements(
+        Statements(
+          Statements(
+            Statements(
+              Statements(
+                Statements(
+                  Statements(
+                    NoStmt(
+                    ) [NoStmt]
+                    MatchedStmt(
+                      PrintStmt(
+                        TermExpr(
+                          Term_Factor(
+                            ConstFactor(
+                              ConstValue_Num(
+                               1
+                              ) [ConstValue_Num]
+                            ) [ConstFactor]
+                          ) [Term_Factor]
+                        ) [TermExpr]
+                        NumConstList_None(
+                        ) [NumConstList_None]
+                      ) [PrintStmt]
+                    ) [MatchedStmt]
+                  ) [Statements]
+                  MatchedStmt(
+                    DesignatorStatementStmt(
+                      Assignment(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           y
+                          ) [DesignatorHelper_None]
+                          DesignatorHelper_NoneExpr(
+                          ) [DesignatorHelper_NoneExpr]
+                        ) [Designator_Ident]
+                        AssignopDerived1(
+                        ) [AssignopDerived1]
+                        TermExpr(
+                          Term_Factor(
+                            VarFactor(
+                              Designator_Ident(
+                                DesignatorHelper_None(
+                                 x
+                                ) [DesignatorHelper_None]
+                                DesignatorHelper_NoneExpr(
+                                ) [DesignatorHelper_NoneExpr]
+                              ) [Designator_Ident]
+                            ) [VarFactor]
+                          ) [Term_Factor]
+                        ) [TermExpr]
+                      ) [Assignment]
+                    ) [DesignatorStatementStmt]
+                  ) [MatchedStmt]
+                ) [Statements]
+                MatchedStmt(
+                  DesignatorStatementStmt(
+                    Assignment(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         y
+                        ) [DesignatorHelper_None]
+                        DesignatorHelper_NoneExpr(
+                        ) [DesignatorHelper_NoneExpr]
+                      ) [Designator_Ident]
+                      AssignopDerived1(
+                      ) [AssignopDerived1]
+                      TermExpr(
+                        Term_Factor(
+                          ConstFactor(
+                            ConstValue_Num(
+                             10
+                            ) [ConstValue_Num]
+                          ) [ConstFactor]
+                        ) [Term_Factor]
+                      ) [TermExpr]
+                    ) [Assignment]
+                  ) [DesignatorStatementStmt]
+                ) [MatchedStmt]
+              ) [Statements]
+              MatchedStmt(
+                DesignatorStatementStmt(
+                  Assignment(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       x
+                      ) [DesignatorHelper_None]
+                      DesignatorHelper_NoneExpr(
+                      ) [DesignatorHelper_NoneExpr]
+                    ) [Designator_Ident]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    AddExpr(
+                      TermExpr(
+                        Term_Factor(
+                          VarFactor(
+                            Designator_Ident(
+                              DesignatorHelper_None(
+                               y
+                              ) [DesignatorHelper_None]
+                              DesignatorHelper_NoneExpr(
+                              ) [DesignatorHelper_NoneExpr]
+                            ) [Designator_Ident]
+                          ) [VarFactor]
+                        ) [Term_Factor]
+                      ) [TermExpr]
+                      Addop_PLUS(
+                      ) [Addop_PLUS]
+                      Term_Factor(
+                        ConstFactor(
+                          ConstValue_Num(
+                           5
+                          ) [ConstValue_Num]
+                        ) [ConstFactor]
+                      ) [Term_Factor]
+                    ) [AddExpr]
+                  ) [Assignment]
+                ) [DesignatorStatementStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              DesignatorStatementStmt(
+                DesignatorStatement_INC(
+                  Designator_Ident(
+                    DesignatorHelper_None(
+                     x
+                    ) [DesignatorHelper_None]
+                    DesignatorHelper_NoneExpr(
+                    ) [DesignatorHelper_NoneExpr]
+                  ) [Designator_Ident]
+                ) [DesignatorStatement_INC]
+              ) [DesignatorStatementStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     2
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          ReturnExpr(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   0
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+          ) [ReturnExpr]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  12:06:05,983 - ===================================
+INFO  12:06:05,988 - Deklarisana promenljiva x na liniji 6
+INFO  12:06:05,988 - Deklarisana promenljiva y na liniji 6
+INFO  12:06:05,988 - Deklarisana promenljiva z na liniji 6
+INFO  12:06:05,988 - Deklarisana promenljiva t na liniji 6
+INFO  12:06:05,988 - Obradjuje se funkcija pom na liniji 8

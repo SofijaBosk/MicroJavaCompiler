@@ -32,12 +32,14 @@ public class SemanticPass extends VisitorAdaptor {
 	int nVars;
 	
 	private Stack<ArrayList<Struct>> ActParList;
+	private ArrayList<Obj> currentMethFormPars;
 	
 	Logger log = Logger.getLogger(getClass());
 	
 	public SemanticPass() {
 		ActParList = new Stack<>();
 		ActParList.push(new ArrayList<Struct>());
+		currentMethFormPars = null;
 	}
 	
 	public void tester()
@@ -183,6 +185,11 @@ public class SemanticPass extends VisitorAdaptor {
     	returnMethod.obj = Tab.noObj;
     }
     
+    
+    public void visit(FormPars fpars){    	
+    	currentMethFormPars = new ArrayList<>();
+    }
+    
     public void visit(MethodDecl methodDecl) {
         methodCnt++;
         
@@ -195,7 +202,65 @@ public class SemanticPass extends VisitorAdaptor {
 
         currentMethod = Tab.noObj;
         returnFound = false;
+        
     }
+    
+    public void visit(FormParsDummy formParsDummy) {
+        currentMethFormPars = new ArrayList<>();
+    }
+    
+    
+    public void visit(MethodParams methodDecl){  
+    	String methName=methodDecl.getMethodTypeName().getMethName();
+        Obj tempObj = Tab.currentScope().findSymbol(methName);
+        
+        if (tempObj == null) { // new Method Decl     
+            currentMethod = Tab.insert(Obj.Meth, methName, methodDecl.getMethodTypeName().obj.getType());
+            Tab.openScope();
+            
+            int fpCnt = 1;
+            for (Obj methFormPar : currentMethFormPars) {
+                Obj temp = Tab.insert(methFormPar.getKind(), methFormPar.getName(), methFormPar.getType());
+                temp.setFpPos(fpCnt++);
+            }
+
+            currentMethod.setLevel(currentMethFormPars.size());
+        } else {
+            report_error("Greska (" + methName + ") vec deklarisano",methodDecl);
+        }
+    
+        if (currentMethod.equals(Tab.noObj)) {
+            currentMethod = new Obj(Obj.Meth, "methodErrorDummy", methodDecl.getMethodTypeName().obj.getType());
+            Tab.openScope();
+
+            int fpCnt = 1;
+            for (Obj methFormPar : currentMethFormPars) {
+                Obj temp = Tab.insert(methFormPar.getKind(), methFormPar.getName(), methFormPar.getType());
+                temp.setFpPos(fpCnt);
+            }
+
+            currentMethod.setLevel(currentMethFormPars.size());
+        }
+
+        methodDecl.obj = currentMethod;
+        currentMethFormPars = null;     
+        
+    }
+    	
+    
+    
+    
+    public void visit(FormParDecl_Single fpars){
+    	
+    	Obj formParObj = new Obj(Obj.Var, fpars.getName(),fpars.getType().obj.getType());
+        currentMethFormPars.add(formParObj);
+    }
+    
+    public void visit(FormParDecl_Array fpars){
+    	
+    	Obj formParObj = new Obj(Obj.Var, fpars.getName(),new Struct(Struct.Array, fpars.getType().obj.getType()));
+        currentMethFormPars.add(formParObj);        
+    } 
     
     public void visit(ReturnExpr returnExpr){
     	returnFound = true;

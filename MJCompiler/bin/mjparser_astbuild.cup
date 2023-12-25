@@ -122,8 +122,9 @@ nonterminal DesignatorHelper3 DesignatorHelper3;
 nonterminal Pom Pom;	
 nonterminal NamespaceNT NamespaceNT;
 nonterminal ActParsIE ActParsIE;
+nonterminal FormParsDummy FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall;
 
 /*Program_START*/
@@ -268,7 +269,11 @@ MethodDeclList ::= (MethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESUL
 				(NoMethodDecl) {: RESULT=new NoMethodDecl(); :} /* epsilon */
 				;
 				
-MethodDecl ::= (MethodDecl)  MethodTypeName:M1 LPAREN FormPars:F2 RPAREN VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(M1, F2, V3, S4); RESULT.setLine(M1left); :};
+MethodDecl ::= (MethodDecl) MethodParams:M1 VarDeclList:V2 LBRACE StatementList:S3 RBRACE {: RESULT=new MethodDecl(M1, V2, S3); RESULT.setLine(M1left); :} ;
+
+MethodParams ::= (MethodParams) MethodTypeName:M1 LPAREN FormParsDummy:F2 FormPars:F3 RPAREN {: RESULT=new MethodParams(M1, F2, F3); RESULT.setLine(M1left); :};
+
+FormParsDummy ::= (FormParsDummy) {: RESULT=new FormParsDummy(); :} /* epsilon */ ; /*Bez ovoga nece da ucita parametre*/
 
 MethodTypeName ::= (MethodTypeName) ReturnMethod:R1 IDENT:methName {: RESULT=new MethodTypeName(R1, methName); RESULT.setLine(R1left); :};
 
@@ -292,9 +297,9 @@ FormalParamList ::= (FormalParamDecls) FormalParamList:F1 COMMA FormalParamDecl:
 				(SingleFormalParamDecl) FormalParamDecl:F1 {: RESULT=new SingleFormalParamDecl(F1); RESULT.setLine(F1left); :}
 				;
 				
-FormalParamDecl ::= (FormParDecl_Single) Type:T1 IDENT:I2 {: RESULT=new FormParDecl_Single(T1, I2); RESULT.setLine(T1left); :}
+FormalParamDecl ::= (FormParDecl_Single) Type:T1 IDENT:name {: RESULT=new FormParDecl_Single(T1, name); RESULT.setLine(T1left); :}
                 |
-                (FormParDecl_Array) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new FormParDecl_Array(T1, I2); RESULT.setLine(T1left); :}
+                (FormParDecl_Array) Type:T1 IDENT:name LSQUARE RSQUARE {: RESULT=new FormParDecl_Array(T1, name); RESULT.setLine(T1left); :}
                 ;				
 
 /*FormPars_END*/

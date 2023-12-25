@@ -93,9 +93,9 @@ nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
 nonterminal ExprActParsChoice, ActParsList, ConstValue;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
-nonterminal NamespaceNT, ActParsIE;
+nonterminal NamespaceNT, ActParsIE, FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall;
 
 /*Program_START*/
@@ -240,7 +240,11 @@ MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
 				(NoMethodDecl) /* epsilon */
 				;
 				
-MethodDecl ::= (MethodDecl)  MethodTypeName LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
+MethodDecl ::= (MethodDecl) MethodParams VarDeclList LBRACE StatementList RBRACE ;
+
+MethodParams ::= (MethodParams) MethodTypeName LPAREN FormParsDummy FormPars RPAREN;
+
+FormParsDummy ::= (FormParsDummy) /* epsilon */ ; /*Moramo da deklarisemo niz parametara*/
 
 MethodTypeName ::= (MethodTypeName) ReturnMethod IDENT:methName;
 
@@ -264,9 +268,9 @@ FormalParamList ::= (FormalParamDecls) FormalParamList COMMA FormalParamDecl
 				(SingleFormalParamDecl) FormalParamDecl
 				;
 				
-FormalParamDecl ::= (FormParDecl_Single) Type IDENT
+FormalParamDecl ::= (FormParDecl_Single) Type IDENT:name
                 |
-                (FormParDecl_Array) Type IDENT LSQUARE RSQUARE
+                (FormParDecl_Array) Type IDENT:name LSQUARE RSQUARE
                 ;				
 
 /*FormPars_END*/
