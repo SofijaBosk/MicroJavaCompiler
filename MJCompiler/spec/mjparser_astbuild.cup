@@ -113,7 +113,6 @@ nonterminal CondTerm CondTerm;
 nonterminal Assignop Assignop;
 nonterminal Relop Relop;
 nonterminal Mulop Mulop;
-nonterminal ExprActParsChoice ExprActParsChoice;
 nonterminal ActParsList ActParsList;
 nonterminal ConstValue ConstValue;
 nonterminal DesignatorHelper2 DesignatorHelper2;
@@ -124,7 +123,7 @@ nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -497,7 +496,11 @@ Factor ::= (VarFactor) Designator:d {: RESULT=new VarFactor(d); RESULT.setLine(d
            |
            (ConstFactor) ConstValue:C1 {: RESULT=new ConstFactor(C1); RESULT.setLine(C1left); :}
            |
-           (NewFactor) NEW Type:T1 ExprActParsChoice:E2 {: RESULT=new NewFactor(T1, E2); RESULT.setLine(T1left); :}
+           (NewFactor) NEW Type:T1 {: RESULT=new NewFactor(T1); RESULT.setLine(T1left); :}
+           |
+           (NewFactor_Expr) NEW Type:T1 LSQUARE Expr:E2 RSQUARE {: RESULT=new NewFactor_Expr(T1, E2); RESULT.setLine(T1left); :}
+           |
+           (NewFactor_ActPars) NEW Type:T1 LPAREN ActParsList:A2 RPAREN {: RESULT=new NewFactor_ActPars(T1, A2); RESULT.setLine(T1left); :}
            |
            (ParenExprFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ParenExprFactor(E1); RESULT.setLine(E1left); :}
            ;

@@ -543,7 +543,16 @@ public class SemanticPass extends VisitorAdaptor {
 
         factor.struct = factor.getType().obj.getType();
     }
-
+    
+    public void visit(NewFactor_Expr factor) {
+       if(!factor.getExpr().struct.equals(Tab.intType))
+	   {
+    	   report_error("Greska expr u new iskazu mora biti integer",factor);
+	   }
+       
+       factor.struct = new Struct(Struct.Array, factor.getType().obj.getType());       
+    }
+        
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();

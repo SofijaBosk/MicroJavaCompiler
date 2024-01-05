@@ -91,12 +91,12 @@ nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, 
 nonterminal DesignatorList;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
-nonterminal ExprActParsChoice, ActParsList, ConstValue;
+nonterminal ActParsList, ConstValue;
 nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
 nonterminal NamespaceNT, ActParsIE, FormParsDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice;
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -469,15 +469,20 @@ Factor ::= (VarFactor) Designator:d
            |
            (ConstFactor) ConstValue
            |
-           (NewFactor) NEW Type ExprActParsChoice
+           (NewFactor) NEW Type
+           |
+           (NewFactor_Expr) NEW Type LSQUARE Expr RSQUARE
+           |
+           (NewFactor_ActPars) NEW Type LPAREN ActParsList RPAREN
            |
            (ParenExprFactor) LPAREN Expr RPAREN
            ;
-           
+  /*         
 ExprActParsChoice ::= (ExprActParsChoice_Expr) LSQUARE Expr RSQUARE
  						|
  						(ExprActParsChoice_ActPars) LPAREN ActParsList RPAREN
            				;
+           				*/
            				
 ActParsList ::= (ActParsList_Single) ActPars
 				|
