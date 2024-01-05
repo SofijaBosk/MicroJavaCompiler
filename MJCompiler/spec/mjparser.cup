@@ -465,7 +465,7 @@ Designator ["(" [ActPars] ")"]
 
 Factor ::= (VarFactor) Designator:d
            |
-           (FuncCall) Designator:func LPAREN ActParsList RPAREN
+           (FuncCall) FunctionCall/*Designator:func LPAREN ActParsList RPAREN*/
            |
            (ConstFactor) ConstValue
            |

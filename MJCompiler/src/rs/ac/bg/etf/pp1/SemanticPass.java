@@ -293,16 +293,17 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     
-    public void visit(FuncCall funcCall){
-    	Obj func = funcCall.getDesignator().obj;
-    	if(Obj.Meth == func.getKind()){
-			report_info("Pronadjen poziv funkcije " + func.getName() + " na liniji " + funcCall.getLine(), null);
-			funcCall.struct = func.getType();
-    	}else{
-			report_error("Greska na liniji " + funcCall.getLine()+" : ime " + func.getName() + " nije funkcija!", null);
-			funcCall.struct = Tab.noType;
-    	}
-    }
+//    public void visit(FuncCall funcCall){
+//    	Obj func = funcCall.getDesignator().obj;
+//    	if(Obj.Meth == func.getKind()){
+//			report_info("Pronadjen poziv funkcije " + func.getName() + " na liniji " + funcCall.getLine(), null);
+//			funcCall.struct = func.getType();
+//    	}else{
+//			report_error("Greska na liniji " + funcCall.getLine()+" : ime " + func.getName() + " nije funkcija!", null);
+//			funcCall.struct = Tab.noType;
+//    	}
+//    }
+    
     
    public void visit(Term_Factor term){
     	term.struct = term.getFactor().struct;
@@ -315,7 +316,7 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(AddExpr addExpr){
     	Struct te = addExpr.getExpr().struct;
     	Struct t = addExpr.getTerm().struct;
-    	if(te.equals(t)) { //&& te == Tab.intType){
+    	if(te.equals(t) && te == Tab.intType){
     		addExpr.struct = te;
     	}else{
 			report_error("Nekompatibilni tipovi u izrazu za sabiranje", addExpr);
@@ -324,6 +325,20 @@ public class SemanticPass extends VisitorAdaptor {
     	
     	addExpr.struct = addExpr.getExpr().struct;
     }
+    
+    public void visit (Term_Mulop term) {
+    	Struct te = term.getTerm().struct;
+    	Struct t = term.getFactor().struct;
+    	if(te.equals(t) && te == Tab.intType){
+    		term.struct = te;
+    	}else{
+			report_error("Nekompatibilni tipovi u izrazu za mnozenje", term);
+			term.struct = Tab.noType;
+    	}
+    	
+    	term.struct = term.getTerm().struct;
+    }
+    
     
     public void visit(ConstFactor cnst){
     	cnst.struct = Tab.intType;
@@ -517,6 +532,18 @@ public class SemanticPass extends VisitorAdaptor {
     	}
     	term.struct = term.getTerm().struct;
     }
+    
+    
+    
+    public void visit(NewFactor factor) {
+        Obj typeObj = factor.getType().obj;
+        if (typeObj.getType().equals(Tab.nullType)) {
+            report_error("Greska tip u new iskazu ne predstavlja klasu",factor);
+        }
+
+        factor.struct = factor.getType().obj.getType();
+    }
+
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();

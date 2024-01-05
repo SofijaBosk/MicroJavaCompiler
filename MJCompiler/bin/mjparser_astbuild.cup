@@ -493,7 +493,7 @@ Designator ["(" [ActPars] ")"]
 
 Factor ::= (VarFactor) Designator:d {: RESULT=new VarFactor(d); RESULT.setLine(dleft); :}
            |
-           (FuncCall) Designator:func LPAREN ActParsList:A1 RPAREN {: RESULT=new FuncCall(func, A1); RESULT.setLine(funcleft); :}
+           (FuncCall) FunctionCall:F1 {: RESULT=new FuncCall(F1); RESULT.setLine(F1left); :}/*Designator:func LPAREN ActParsList RPAREN*/
            |
            (ConstFactor) ConstValue:C1 {: RESULT=new ConstFactor(C1); RESULT.setLine(C1left); :}
            |

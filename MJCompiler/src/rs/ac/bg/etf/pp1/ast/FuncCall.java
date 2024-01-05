@@ -1,36 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/11/2023 13:14:53
+// 29/11/2023 9:20:13
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class FuncCall extends Factor {
 
-    private Designator Designator;
-    private ActParsList ActParsList;
+    private FunctionCall FunctionCall;
 
-    public FuncCall (Designator Designator, ActParsList ActParsList) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
-        this.ActParsList=ActParsList;
-        if(ActParsList!=null) ActParsList.setParent(this);
+    public FuncCall (FunctionCall FunctionCall) {
+        this.FunctionCall=FunctionCall;
+        if(FunctionCall!=null) FunctionCall.setParent(this);
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public FunctionCall getFunctionCall() {
+        return FunctionCall;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
-    }
-
-    public ActParsList getActParsList() {
-        return ActParsList;
-    }
-
-    public void setActParsList(ActParsList ActParsList) {
-        this.ActParsList=ActParsList;
+    public void setFunctionCall(FunctionCall FunctionCall) {
+        this.FunctionCall=FunctionCall;
     }
 
     public void accept(Visitor visitor) {
@@ -38,19 +27,16 @@ public class FuncCall extends Factor {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
-        if(ActParsList!=null) ActParsList.accept(visitor);
+        if(FunctionCall!=null) FunctionCall.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
-        if(ActParsList!=null) ActParsList.traverseTopDown(visitor);
+        if(FunctionCall!=null) FunctionCall.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
-        if(ActParsList!=null) ActParsList.traverseBottomUp(visitor);
+        if(FunctionCall!=null) FunctionCall.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +45,8 @@ public class FuncCall extends Factor {
         buffer.append(tab);
         buffer.append("FuncCall(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(ActParsList!=null)
-            buffer.append(ActParsList.toString("  "+tab));
+        if(FunctionCall!=null)
+            buffer.append(FunctionCall.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

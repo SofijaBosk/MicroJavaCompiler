@@ -19,9 +19,12 @@ const char c = 'a';
 		
 		
 		
-		y = -t;
+		y = -y;
 		
 	    x = y + 5;
+	    
+	    y=x*5;
+	   // y=new Int
 	    
 	    read(t);
 	    
