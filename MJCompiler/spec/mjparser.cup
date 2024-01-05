@@ -92,10 +92,10 @@ nonterminal DesignatorList;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
 nonterminal ActParsList, ConstValue;
-nonterminal DesignatorHelper2, DesignatorHelper3, Pom;	
+nonterminal DesignatorHelper3, Pom;	
 nonterminal NamespaceNT, ActParsIE, FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice;
 
 /*Program_START*/
@@ -518,11 +518,6 @@ DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
 		(DesignatorHelper_NoneExpr) /**/
 		;
   
-
- /*               
-DesignatorHelper2 ::= (DesignatorHelper_Ident) DesignatorHelper2 DOT IDENT
-;
-*/
                 
 /*Designator_END*/
 

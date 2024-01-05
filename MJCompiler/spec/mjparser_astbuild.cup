@@ -115,14 +115,13 @@ nonterminal Relop Relop;
 nonterminal Mulop Mulop;
 nonterminal ActParsList ActParsList;
 nonterminal ConstValue ConstValue;
-nonterminal DesignatorHelper2 DesignatorHelper2;
 nonterminal DesignatorHelper3 DesignatorHelper3;
 nonterminal Pom Pom;	
 nonterminal NamespaceNT NamespaceNT;
 nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice;
 
 /*Program_START*/
@@ -504,11 +503,12 @@ Factor ::= (VarFactor) Designator:d {: RESULT=new VarFactor(d); RESULT.setLine(d
            |
            (ParenExprFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ParenExprFactor(E1); RESULT.setLine(E1left); :}
            ;
-           
-ExprActParsChoice ::= (ExprActParsChoice_Expr) LSQUARE Expr:E1 RSQUARE {: RESULT=new ExprActParsChoice_Expr(E1); RESULT.setLine(E1left); :}
+  /*         
+ExprActParsChoice ::= (ExprActParsChoice_Expr) LSQUARE Expr RSQUARE
  						|
- 						(ExprActParsChoice_ActPars) LPAREN ActParsList:A1 RPAREN {: RESULT=new ExprActParsChoice_ActPars(A1); RESULT.setLine(A1left); :}
+ 						(ExprActParsChoice_ActPars) LPAREN ActParsList RPAREN
            				;
+           				*/
            				
 ActParsList ::= (ActParsList_Single) ActPars:A1 {: RESULT=new ActParsList_Single(A1); RESULT.setLine(A1left); :}
 				|
@@ -544,11 +544,6 @@ DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2:D1 DOT IDENT:I2 {
 		(DesignatorHelper_NoneExpr) {: RESULT=new DesignatorHelper_NoneExpr(); :} /**/
 		;
   
-
- /*               
-DesignatorHelper2 ::= (DesignatorHelper_Ident) DesignatorHelper2 DOT IDENT
-;
-*/
                 
 /*Designator_END*/
 

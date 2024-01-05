@@ -293,6 +293,7 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     
+    
 //    public void visit(FuncCall funcCall){
 //    	Obj func = funcCall.getDesignator().obj;
 //    	if(Obj.Meth == func.getKind()){
@@ -425,7 +426,23 @@ public class SemanticPass extends VisitorAdaptor {
     
     public void visit(Designator_Ident desg){
     	desg.obj = desg.getDesignatorHelper().obj;
+    	
+    	desg.getDesignatorHelper2().setParent(desg);
     }
+    public void visit(DesignatorHelper_Expr desg){
+    	desg.obj = ((Designator_Ident)desg.getParent()).obj;
+    	if(desg.obj.equals(null))
+    	{
+    		report_error("Greska kod designatora",desg);
+    	}
+    	
+    	if(desg.obj.getType().getKind() != Struct.Array)
+    	{
+    		report_error("Greska nije niz",desg);
+    	}
+    	  	
+    }
+    
     
     public void visit(ActPars_Single actPars) {
     	ActParList.peek().add(actPars.getExpr().struct);
@@ -552,7 +569,6 @@ public class SemanticPass extends VisitorAdaptor {
        
        factor.struct = new Struct(Struct.Array, factor.getType().obj.getType());       
     }
-        
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();
