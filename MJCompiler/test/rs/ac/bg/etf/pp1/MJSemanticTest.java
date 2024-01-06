@@ -32,6 +32,7 @@ public class MJSemanticTest {
 			//File sourceCode = new File("test/test2.mj");
 			//File sourceCode = new File("test/testovi/test301.mj");
 			File sourceCode = new File("test/test301_moje.mj");
+			//File sourceCode = new File("test/testovi/test302.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -41,8 +42,9 @@ public class MJSemanticTest {
 	        Symbol s = p.parse();  //pocetak parsiranja
 	        
 	        Program prog = (Program)(s.value); 
-	        Tab.init();
-			// ispis sintaksnog stabla
+	        //Tab.init();
+	        SystemTableEx.init();
+	        // ispis sintaksnog stabla
 			log.info(prog.toString(""));
 			log.info("===================================");
 

@@ -18,18 +18,19 @@ parserGen:
      [java] Warning: Non terminal "DesignatorHelper3" was declared but never used
      [java] Warning: Non terminal "DesignatorHelper2" was declared but never used
      [java] Building parse tables...------- ast extension v0.8 summary -------
-     [java]   Generated 54 base classes
      [java]   Computing non-terminal nullability...
      [java]   Computing first sets...
-     [java]   Building state machine...  Generated 119 derived classes
-     [java]   Filling in tables...  Generated 12 record classes
-     [java]   Checking for non-reduced productions...
-     [java] *** Production "DesignatorList ::= " never reduced
+     [java]   Generated 54 base classes
+     [java]   Building state machine...
+     [java]   Generated 119 derived classes
+     [java]   Filling in tables...
+     [java]   Generated 12 record classes  Checking for non-reduced productions...
      [java]   Generated interface SyntaxNode
-     [java]   Generated interface Visitor*** Production "DesignatorList ::= Designator COMMA DesignatorList " never reduced
+     [java]   Generated interface Visitor
+     [java] *** Production "DesignatorList ::= " never reduced
      [java]   Generated adapter class VisitorAdaptor
-     [java] *** Production "VarStaticDeclList ::= " never reduced
-     [java] -----------------------------------------------
+     [java] *** Production "DesignatorList ::= Designator COMMA DesignatorList " never reduced
+     [java] *** Production "VarStaticDeclList ::= " never reduced-----------------------------------------------
      [java] *** Production "VarStaticDeclList ::= VarStaticDeclList STATIC VarDecl " never reduced
      [java] *** Production "StaticInitializerList ::= StaticInitializerList StaticInitializer " never reduced
      [java] *** Production "StaticInitializerList ::= " never reduced
@@ -2298,4 +2299,4 @@ compile:
     [javac]                                              ^
     [javac] 3 warnings
 BUILD SUCCESSFUL
-Total time: 9 seconds
+Total time: 5 seconds

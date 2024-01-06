@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import javax.swing.text.TabExpander;
+
 import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.ast.*;
@@ -388,7 +390,7 @@ public class SemanticPass extends VisitorAdaptor {
 //TO DO : BOOL TYPE (Extend Tab?)   
     public void visit(BooleanConst constDecl) { 
     	//Boolean.valueOf((Boolean)constDecl.getBooleanConstValue()) ? 1 : 0
-    	constDecl.obj = new Obj(Obj.Con, "", SystemTableEx.boolType,constDecl.getBooleanConstValue()=="true"?1:0, Obj.NO_VALUE);
+    	constDecl.obj = new Obj(Obj.Con, "", SystemTableEx.boolType,Boolean.valueOf(constDecl.getBooleanConstValue()) ? 1 : 0/*constDecl.getBooleanConstValue()=="true"?1:0*/, Obj.NO_VALUE);
     	Obj tempObj = constDecl.obj;
             if (Tab.currentScope().findSymbol(constDecl.getBooleanConstName()) == null) {
                 Obj temp = Tab.insert(tempObj.getKind(), constDecl.getBooleanConstName(), tempObj.getType());
@@ -398,7 +400,15 @@ public class SemanticPass extends VisitorAdaptor {
                     globalConstCnt++;
                 }
             }
+            System.out.println("BoolType "+constDecl.getBooleanConstValue() +"  "+SystemTableEx.boolType);
 	}
+    
+    
+    public void visit(ConstValue_Bool constDecl) { 
+    	constDecl.struct = SystemTableEx.boolType;
+	}
+    
+    
     
     public void visit(CharacterConst constDecl) {
     	constDecl.obj = new Obj(Obj.Con, "", Tab.charType, constDecl.getCharConstValue().charValue(), Obj.NO_VALUE);
@@ -547,7 +557,7 @@ public class SemanticPass extends VisitorAdaptor {
             }
         }
 
-        //condFact_relop.struct = Tab.boolType; TO DO sredi prvo bool type
+        condFact_relop.struct = SystemTableEx.boolType;
     }
   
     public void visit(TermExpr_Minus term){
