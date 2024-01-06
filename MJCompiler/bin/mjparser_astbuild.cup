@@ -122,7 +122,7 @@ nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice; 
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -181,9 +181,8 @@ ConstSingle ::= (BooleanConst) IDENT:booleanConstName EQUALS BOOL_CONST:booleanC
 /*Type_START*/
 
 Type ::= (Type_ID) IDENT:typeName {: RESULT=new Type_ID(typeName); RESULT.setLine(typeNameleft); :}
-		/*|
-		(Type_NS) NAMESP SCOPE IDENT:typeName
-		*/
+		|
+		(Type_NS) IDENT:I1 SCOPE IDENT:typeName {: RESULT=new Type_NS(I1, typeName); RESULT.setLine(I1left); :}
 		;
 
 /*Type_END*/
@@ -529,21 +528,31 @@ ConstValue ::= (ConstValue_Num) NUM_CONST:N1 {: RESULT=new ConstValue_Num(N1); R
 /* [ident ʺ::ʺ] ident {"." ident | "[" Expr "]"}*/
 
 
-Designator ::= (Designator_Ident) DesignatorHelper:D1 DesignatorHelper2:D2 {: RESULT=new Designator_Ident(D1, D2); RESULT.setLine(D1left); :};
+/*
+Designator ::= (Designator_Ident) DesignatorHelper DesignatorHelper2;
+*/
+
+Designator ::= (DesignatorHelper_Dot) Designator:D1 DOT IDENT:I2 {: RESULT=new DesignatorHelper_Dot(D1, I2); RESULT.setLine(D1left); :}
+				|
+				(DesignatorHelper_Expr) Designator:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignatorHelper_Expr(D1, E2); RESULT.setLine(D1left); :}
+				|
+				(Designator_Ident) DesignatorHelper:D1 {: RESULT=new Designator_Ident(D1); RESULT.setLine(D1left); :}
+				;
 
 
 DesignatorHelper ::= (DesignatorHelper_Scope) IDENT:I1 SCOPE IDENT:name {: RESULT=new DesignatorHelper_Scope(I1, name); RESULT.setLine(I1left); :}
 				|
 				(DesignatorHelper_None) IDENT:name {: RESULT=new DesignatorHelper_None(name); RESULT.setLine(nameleft); :}
                 ;
-
-DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2:D1 DOT IDENT:I2 {: RESULT=new DesignatorHelper_Dot(D1, I2); RESULT.setLine(D1left); :}
+/*
+DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
 		|
-		(DesignatorHelper_Expr) DesignatorHelper2:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignatorHelper_Expr(D1, E2); RESULT.setLine(D1left); :}
+		(DesignatorHelper_Expr) DesignatorHelper2 LSQUARE Expr RSQUARE
 		|
-		(DesignatorHelper_NoneExpr) {: RESULT=new DesignatorHelper_NoneExpr(); :} /**/
+		(DesignatorHelper_NoneExpr) 
 		;
   
+ */
                 
 /*Designator_END*/
 

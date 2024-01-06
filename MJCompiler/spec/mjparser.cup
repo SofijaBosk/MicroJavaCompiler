@@ -96,7 +96,7 @@ nonterminal DesignatorHelper3, Pom;
 nonterminal NamespaceNT, ActParsIE, FormParsDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice; 
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/
@@ -155,9 +155,8 @@ ConstSingle ::= (BooleanConst) IDENT:booleanConstName EQUALS BOOL_CONST:booleanC
 /*Type_START*/
 
 Type ::= (Type_ID) IDENT:typeName
-		/*|
-		(Type_NS) NAMESP SCOPE IDENT:typeName
-		*/
+		|
+		(Type_NS) IDENT SCOPE IDENT:typeName
 		;
 
 /*Type_END*/
@@ -503,21 +502,31 @@ ConstValue ::= (ConstValue_Num) NUM_CONST
 /* [ident ʺ::ʺ] ident {"." ident | "[" Expr "]"}*/
 
 
+/*
 Designator ::= (Designator_Ident) DesignatorHelper DesignatorHelper2;
+*/
+
+Designator ::= (DesignatorHelper_Dot) Designator DOT IDENT
+				|
+				(DesignatorHelper_Expr) Designator LSQUARE Expr RSQUARE
+				|
+				(Designator_Ident) DesignatorHelper
+				;
 
 
 DesignatorHelper ::= (DesignatorHelper_Scope) IDENT SCOPE IDENT:name
 				|
 				(DesignatorHelper_None) IDENT:name
                 ;
-
+/*
 DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
 		|
 		(DesignatorHelper_Expr) DesignatorHelper2 LSQUARE Expr RSQUARE
 		|
-		(DesignatorHelper_NoneExpr) /**/
+		(DesignatorHelper_NoneExpr) 
 		;
   
+ */
                 
 /*Designator_END*/
 

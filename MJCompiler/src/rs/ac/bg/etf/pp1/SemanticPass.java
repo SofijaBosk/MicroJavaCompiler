@@ -16,7 +16,8 @@ public class SemanticPass extends VisitorAdaptor {
 	int i=0;
 	int printCallCount = 0;
 	int varDeclCount = 0;
-	Obj currentMethod = Tab.noObj;;
+	Obj currentMethod = Tab.noObj;
+	Obj currentDesignator = Tab.noObj;
 	boolean returnFound = false;
 	boolean errorDetected = false;
 	
@@ -148,6 +149,24 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     public void visit(Type_ID type){
+    	Obj typeNode = Tab.find(type.getTypeName());
+    	//type.obj = typeNode;
+    	//Proveravamo da li se radi o tipu ili ne
+    	if(typeNode == Tab.noObj){
+    		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
+    		type.obj = Tab.noObj;
+    	}else{//nadjeno u tabeli
+    		if(Obj.Type == typeNode.getKind()){
+    			type.obj = typeNode;
+    		}else{
+    			report_error("Greska: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
+    			type.obj = Tab.noObj;
+    		}
+    	}
+    }
+    
+    
+    public void visit(Type_NS type){
     	Obj typeNode = Tab.find(type.getTypeName());
     	//type.obj = typeNode;
     	//Proveravamo da li se radi o tipu ili ne
@@ -424,25 +443,6 @@ public class SemanticPass extends VisitorAdaptor {
         }
     }
     
-    public void visit(Designator_Ident desg){
-    	desg.obj = desg.getDesignatorHelper().obj;
-    	
-    	desg.getDesignatorHelper2().setParent(desg);
-    }
-    public void visit(DesignatorHelper_Expr desg){
-    	desg.obj = ((Designator_Ident)desg.getParent()).obj;
-    	if(desg.obj.equals(null))
-    	{
-    		report_error("Greska kod designatora",desg);
-    	}
-    	
-    	if(desg.obj.getType().getKind() != Struct.Array)
-    	{
-    		report_error("Greska nije niz",desg);
-    	}
-    	  	
-    }
-    
     
     public void visit(ActPars_Single actPars) {
     	ActParList.peek().add(actPars.getExpr().struct);
@@ -573,6 +573,41 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();
     }
+    
+    
+    
+	public void visit(Designator_Ident desg){
+		desg.obj = desg.getDesignatorHelper().obj;
+		currentDesignator=desg.obj;
+		
+		desg.obj = Tab.find(desg.getDesignatorHelper().obj.getName());
+	
+	    if (desg.obj.equals(Tab.noObj)) {
+	        report_error("Greska (" +desg.getDesignatorHelper().obj.getName() + ") nije nadjeno",desg);
+	    }
+	 }
+
+	public void visit(DesignatorHelper_Expr desg){
+		if(currentDesignator.equals(null) || currentDesignator.getType().getKind() != Struct.Array)
+		{
+			report_error("Greska nije niz",desg);
+		}
+		
+		desg.obj = new Obj(Obj.Elem, currentDesignator.getName() + "_elem", currentDesignator.getType().getElemType());
+	
+		currentDesignator=Tab.noObj;
+	}
+
+	public void visit(DesignatorHelper_Dot desg) {
+		if(currentDesignator.equals(null) || currentDesignator.getType().getKind() != Struct.Array)
+		{
+			report_error("Greska nije niz",desg);
+		}
+		
+		desg.obj = new Obj(Obj.Elem, currentDesignator.getName() + "_elem", currentDesignator.getType().getElemType());
+	
+		currentDesignator=Tab.noObj;
+	}
     
     
     public boolean passed(){

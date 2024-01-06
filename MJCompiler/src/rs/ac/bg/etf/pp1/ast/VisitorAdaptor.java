@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/0/2024 12:4:53
+// 6/0/2024 12:40:27
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -73,12 +73,11 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Relop_NEQ Relop_NEQ) { visit(); }
     public void visit(Relop_EQ Relop_EQ) { visit(); }
     public void visit(AssignopDerived1 AssignopDerived1) { visit(); }
-    public void visit(DesignatorHelper_NoneExpr DesignatorHelper_NoneExpr) { visit(); }
-    public void visit(DesignatorHelper_Expr DesignatorHelper_Expr) { visit(); }
-    public void visit(DesignatorHelper_Dot DesignatorHelper_Dot) { visit(); }
     public void visit(DesignatorHelper_None DesignatorHelper_None) { visit(); }
     public void visit(DesignatorHelper_Scope DesignatorHelper_Scope) { visit(); }
     public void visit(Designator_Ident Designator_Ident) { visit(); }
+    public void visit(DesignatorHelper_Expr DesignatorHelper_Expr) { visit(); }
+    public void visit(DesignatorHelper_Dot DesignatorHelper_Dot) { visit(); }
     public void visit(ConstValue_Bool ConstValue_Bool) { visit(); }
     public void visit(ConstValue_Char ConstValue_Char) { visit(); }
     public void visit(ConstValue_Num ConstValue_Num) { visit(); }
@@ -174,6 +173,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SingleVarDecl SingleVarDecl) { visit(); }
     public void visit(TypeDummy TypeDummy) { visit(); }
     public void visit(VarDecl VarDecl) { visit(); }
+    public void visit(Type_NS Type_NS) { visit(); }
     public void visit(Type_ID Type_ID) { visit(); }
     public void visit(CharacterConst CharacterConst) { visit(); }
     public void visit(IntegerConst IntegerConst) { visit(); }

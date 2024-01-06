@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/0/2024 12:4:53
+// 6/0/2024 12:40:27
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class DesignatorHelper_Expr extends DesignatorHelper2 {
+public class DesignatorHelper_Expr extends Designator {
 
-    private DesignatorHelper2 DesignatorHelper2;
+    private Designator Designator;
     private Expr Expr;
 
-    public DesignatorHelper_Expr (DesignatorHelper2 DesignatorHelper2, Expr Expr) {
-        this.DesignatorHelper2=DesignatorHelper2;
-        if(DesignatorHelper2!=null) DesignatorHelper2.setParent(this);
+    public DesignatorHelper_Expr (Designator Designator, Expr Expr) {
+        this.Designator=Designator;
+        if(Designator!=null) Designator.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
     }
 
-    public DesignatorHelper2 getDesignatorHelper2() {
-        return DesignatorHelper2;
+    public Designator getDesignator() {
+        return Designator;
     }
 
-    public void setDesignatorHelper2(DesignatorHelper2 DesignatorHelper2) {
-        this.DesignatorHelper2=DesignatorHelper2;
+    public void setDesignator(Designator Designator) {
+        this.Designator=Designator;
     }
 
     public Expr getExpr() {
@@ -38,18 +38,18 @@ public class DesignatorHelper_Expr extends DesignatorHelper2 {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(DesignatorHelper2!=null) DesignatorHelper2.accept(visitor);
+        if(Designator!=null) Designator.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(DesignatorHelper2!=null) DesignatorHelper2.traverseTopDown(visitor);
+        if(Designator!=null) Designator.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(DesignatorHelper2!=null) DesignatorHelper2.traverseBottomUp(visitor);
+        if(Designator!=null) Designator.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,8 +59,8 @@ public class DesignatorHelper_Expr extends DesignatorHelper2 {
         buffer.append(tab);
         buffer.append("DesignatorHelper_Expr(\n");
 
-        if(DesignatorHelper2!=null)
-            buffer.append(DesignatorHelper2.toString("  "+tab));
+        if(Designator!=null)
+            buffer.append(Designator.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

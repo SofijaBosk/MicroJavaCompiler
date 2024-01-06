@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 5/0/2024 12:4:53
+// 6/0/2024 12:40:27
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class DesignatorHelper_Dot extends DesignatorHelper2 {
+public class DesignatorHelper_Dot extends Designator {
 
-    private DesignatorHelper2 DesignatorHelper2;
+    private Designator Designator;
     private String I2;
 
-    public DesignatorHelper_Dot (DesignatorHelper2 DesignatorHelper2, String I2) {
-        this.DesignatorHelper2=DesignatorHelper2;
-        if(DesignatorHelper2!=null) DesignatorHelper2.setParent(this);
+    public DesignatorHelper_Dot (Designator Designator, String I2) {
+        this.Designator=Designator;
+        if(Designator!=null) Designator.setParent(this);
         this.I2=I2;
     }
 
-    public DesignatorHelper2 getDesignatorHelper2() {
-        return DesignatorHelper2;
+    public Designator getDesignator() {
+        return Designator;
     }
 
-    public void setDesignatorHelper2(DesignatorHelper2 DesignatorHelper2) {
-        this.DesignatorHelper2=DesignatorHelper2;
+    public void setDesignator(Designator Designator) {
+        this.Designator=Designator;
     }
 
     public String getI2() {
@@ -37,16 +37,16 @@ public class DesignatorHelper_Dot extends DesignatorHelper2 {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(DesignatorHelper2!=null) DesignatorHelper2.accept(visitor);
+        if(Designator!=null) Designator.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(DesignatorHelper2!=null) DesignatorHelper2.traverseTopDown(visitor);
+        if(Designator!=null) Designator.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(DesignatorHelper2!=null) DesignatorHelper2.traverseBottomUp(visitor);
+        if(Designator!=null) Designator.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -55,8 +55,8 @@ public class DesignatorHelper_Dot extends DesignatorHelper2 {
         buffer.append(tab);
         buffer.append("DesignatorHelper_Dot(\n");
 
-        if(DesignatorHelper2!=null)
-            buffer.append(DesignatorHelper2.toString("  "+tab));
+        if(Designator!=null)
+            buffer.append(Designator.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
