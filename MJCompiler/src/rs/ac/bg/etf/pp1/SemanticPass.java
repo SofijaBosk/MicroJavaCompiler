@@ -334,6 +334,11 @@ public class SemanticPass extends VisitorAdaptor {
 
     }
     
+    public void visit(ParenExprFactor term){
+    	term.struct = term.getExpr().struct;
+
+    }
+    
     public void visit(AddExpr addExpr){
     	Struct te = addExpr.getExpr().struct;
     	Struct t = addExpr.getTerm().struct;
