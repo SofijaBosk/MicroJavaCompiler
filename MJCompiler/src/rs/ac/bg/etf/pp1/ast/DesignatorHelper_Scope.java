@@ -1,26 +1,26 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2024 12:40:27
+// 6/0/2024 13:29:57
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignatorHelper_Scope extends DesignatorHelper {
 
-    private String I1;
+    private String namespace;
     private String name;
 
-    public DesignatorHelper_Scope (String I1, String name) {
-        this.I1=I1;
+    public DesignatorHelper_Scope (String namespace, String name) {
+        this.namespace=namespace;
         this.name=name;
     }
 
-    public String getI1() {
-        return I1;
+    public String getNamespace() {
+        return namespace;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setNamespace(String namespace) {
+        this.namespace=namespace;
     }
 
     public String getName() {
@@ -51,7 +51,7 @@ public class DesignatorHelper_Scope extends DesignatorHelper {
         buffer.append(tab);
         buffer.append("DesignatorHelper_Scope(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+namespace);
         buffer.append("\n");
 
         buffer.append(" "+tab+name);

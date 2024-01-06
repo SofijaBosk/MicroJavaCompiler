@@ -87,7 +87,7 @@ nonterminal ProgDecl, ClassDecl, ConstDecl;
 nonterminal ConstList;
 nonterminal ExtendsFrom, VarStaticDeclList, StaticInitializerList, StaticInitializer, MethodDeclListBrace, ClassDeclPom;
 nonterminal StaticPom;
-nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition, DesignatorStatement;
+nonterminal DesignatorStatementHelper, CondFactHelper, DesignatorStatementList, NumConstList, Condition;
 nonterminal DesignatorList;
 nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
@@ -95,7 +95,7 @@ nonterminal ActParsList, ConstValue;
 nonterminal DesignatorHelper3, Pom;	
 nonterminal NamespaceNT, ActParsIE, FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams, NamespaceName, DesignatorStatement;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice; 
 
 /*Program_START*/
@@ -127,8 +127,10 @@ ProgDecl ::= (ProgConstDescarations) ConstDecl
 /*Namespace_START*/
 /*namespaceʺ ident ʺ{ʺ {ConstDecl | VarDecl | ClassDecl } ʺ{ʺ {MethodDecl} ʺ}ʺ ʺ}"*/
 
-NamespaceNT ::= (NamespaceProg) NAMESP IDENT LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE;
+NamespaceNT ::= (NamespaceProg) NAMESP NamespaceName LBRACE ProgDeclList LBRACE MethodDeclList RBRACE RBRACE;
 				
+NamespaceName ::= (NamespaceName) IDENT:name;	
+	
 /*Namespace_END*/	
 
 
@@ -514,7 +516,7 @@ Designator ::= (DesignatorHelper_Dot) Designator DOT IDENT
 				;
 
 
-DesignatorHelper ::= (DesignatorHelper_Scope) IDENT SCOPE IDENT:name
+DesignatorHelper ::= (DesignatorHelper_Scope) IDENT:namespace SCOPE IDENT:name
 				|
 				(DesignatorHelper_None) IDENT:name
                 ;

@@ -107,7 +107,6 @@ nonterminal CondFactHelper CondFactHelper;
 nonterminal DesignatorStatementList DesignatorStatementList;
 nonterminal NumConstList NumConstList;
 nonterminal Condition Condition;
-nonterminal DesignatorStatement DesignatorStatement;
 nonterminal DesignatorList DesignatorList;
 nonterminal CondTerm CondTerm;
 nonterminal Assignop Assignop;
@@ -121,7 +120,7 @@ nonterminal NamespaceNT NamespaceNT;
 nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams, NamespaceName, DesignatorStatement;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice; 
 
 /*Program_START*/
@@ -153,8 +152,10 @@ ProgDecl ::= (ProgConstDescarations) ConstDecl:C1 {: RESULT=new ProgConstDescara
 /*Namespace_START*/
 /*namespaceʺ ident ʺ{ʺ {ConstDecl | VarDecl | ClassDecl } ʺ{ʺ {MethodDecl} ʺ}ʺ ʺ}"*/
 
-NamespaceNT ::= (NamespaceProg) NAMESP IDENT:I1 LBRACE ProgDeclList:P2 LBRACE MethodDeclList:M3 RBRACE RBRACE {: RESULT=new NamespaceProg(I1, P2, M3); RESULT.setLine(I1left); :};
+NamespaceNT ::= (NamespaceProg) NAMESP NamespaceName:N1 LBRACE ProgDeclList:P2 LBRACE MethodDeclList:M3 RBRACE RBRACE {: RESULT=new NamespaceProg(N1, P2, M3); RESULT.setLine(N1left); :};
 				
+NamespaceName ::= (NamespaceName) IDENT:name {: RESULT=new NamespaceName(name); RESULT.setLine(nameleft); :};	
+	
 /*Namespace_END*/	
 
 
@@ -540,7 +541,7 @@ Designator ::= (DesignatorHelper_Dot) Designator:D1 DOT IDENT:I2 {: RESULT=new D
 				;
 
 
-DesignatorHelper ::= (DesignatorHelper_Scope) IDENT:I1 SCOPE IDENT:name {: RESULT=new DesignatorHelper_Scope(I1, name); RESULT.setLine(I1left); :}
+DesignatorHelper ::= (DesignatorHelper_Scope) IDENT:namespace SCOPE IDENT:name {: RESULT=new DesignatorHelper_Scope(namespace, name); RESULT.setLine(namespaceleft); :}
 				|
 				(DesignatorHelper_None) IDENT:name {: RESULT=new DesignatorHelper_None(name); RESULT.setLine(nameleft); :}
                 ;

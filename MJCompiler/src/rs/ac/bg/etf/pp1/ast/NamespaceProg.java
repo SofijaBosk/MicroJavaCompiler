@@ -1,30 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2024 12:40:27
+// 6/0/2024 13:29:57
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class NamespaceProg extends NamespaceNT {
 
-    private String I1;
+    private NamespaceName NamespaceName;
     private ProgDeclList ProgDeclList;
     private MethodDeclList MethodDeclList;
 
-    public NamespaceProg (String I1, ProgDeclList ProgDeclList, MethodDeclList MethodDeclList) {
-        this.I1=I1;
+    public NamespaceProg (NamespaceName NamespaceName, ProgDeclList ProgDeclList, MethodDeclList MethodDeclList) {
+        this.NamespaceName=NamespaceName;
+        if(NamespaceName!=null) NamespaceName.setParent(this);
         this.ProgDeclList=ProgDeclList;
         if(ProgDeclList!=null) ProgDeclList.setParent(this);
         this.MethodDeclList=MethodDeclList;
         if(MethodDeclList!=null) MethodDeclList.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public NamespaceName getNamespaceName() {
+        return NamespaceName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setNamespaceName(NamespaceName NamespaceName) {
+        this.NamespaceName=NamespaceName;
     }
 
     public ProgDeclList getProgDeclList() {
@@ -48,17 +49,20 @@ public class NamespaceProg extends NamespaceNT {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(NamespaceName!=null) NamespaceName.accept(visitor);
         if(ProgDeclList!=null) ProgDeclList.accept(visitor);
         if(MethodDeclList!=null) MethodDeclList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(NamespaceName!=null) NamespaceName.traverseTopDown(visitor);
         if(ProgDeclList!=null) ProgDeclList.traverseTopDown(visitor);
         if(MethodDeclList!=null) MethodDeclList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(NamespaceName!=null) NamespaceName.traverseBottomUp(visitor);
         if(ProgDeclList!=null) ProgDeclList.traverseBottomUp(visitor);
         if(MethodDeclList!=null) MethodDeclList.traverseBottomUp(visitor);
         accept(visitor);
@@ -69,7 +73,10 @@ public class NamespaceProg extends NamespaceNT {
         buffer.append(tab);
         buffer.append("NamespaceProg(\n");
 
-        buffer.append(" "+tab+I1);
+        if(NamespaceName!=null)
+            buffer.append(NamespaceName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(ProgDeclList!=null)

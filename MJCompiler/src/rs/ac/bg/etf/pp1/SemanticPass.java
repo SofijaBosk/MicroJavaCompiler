@@ -148,6 +148,21 @@ public class SemanticPass extends VisitorAdaptor {
     	Tab.closeScope();
     }
     
+//    public void visit(NamespaceName nsName){
+//    	nsName.obj = Tab.insert(Obj.Type, nsName.getName(), Tab.noType);
+//    	//progName.obj - obj koju je insert napravio i stavio u tabelu simbola    	
+//    	Tab.openScope();
+//    	 System.out.println("Deklarisan namespace"+nsName.getName());
+//    }
+//    
+//    public void visit(NamespaceProg nsProgram){
+//    	//nVars = Tab.currentScope.getnVars();
+//    	Tab.chainLocalSymbols(nsProgram.getNamespaceName().obj);
+//    	Tab.closeScope();
+//    }
+    
+    
+    
     public void visit(Type_ID type){
     	Obj typeNode = Tab.find(type.getTypeName());
     	//type.obj = typeNode;
@@ -294,22 +309,7 @@ public class SemanticPass extends VisitorAdaptor {
     	}
     }
     
-    
-    public void visit(DesignatorHelper_Scope designator){
-    	Obj obj = Tab.find(designator.getName());
-    	if(obj == Tab.noObj){
-			report_error("Greska na liniji " + designator.getLine()+ " : ime "+designator.getName()+" nije deklarisano! ", null);
-    	}
-    	designator.obj = obj;
-    }
-    
-    public void visit(DesignatorHelper_None designator){
-    	Obj obj = Tab.find(designator.getName());
-    	if(obj == Tab.noObj){
-			report_error("Greska na liniji " + designator.getLine()+ " : ime "+designator.getName()+" nije deklarisano! ", null);
-    	}
-    	designator.obj = obj;
-    }
+   
     
     
     
@@ -331,6 +331,7 @@ public class SemanticPass extends VisitorAdaptor {
     
     public void visit(TermExpr termExpr){
     	termExpr.struct = termExpr.getTerm().struct;
+
     }
     
     public void visit(AddExpr addExpr){
@@ -411,6 +412,7 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(Assignment assignment) {
         Obj desigObj = assignment.getDesignator().obj;
         int kind = desigObj.getKind();
+        assignment.obj= new Obj(Obj.Elem, assignment.getDesignator().obj.getName() + "_elem",  assignment.getDesignator().obj.getType());
 
         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
             report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
@@ -572,28 +574,30 @@ public class SemanticPass extends VisitorAdaptor {
     
     public void visit(VarFactor var){
     	var.struct = var.getDesignator().obj.getType();
+    	//System.out.println(var.getDesignator().obj.getType());
     }
     
     
     
 	public void visit(Designator_Ident desg){
-		desg.obj = desg.getDesignatorHelper().obj;
-		currentDesignator=desg.obj;
-		
+		//desg.obj = desg.getDesignatorHelper().obj;
+
 		desg.obj = Tab.find(desg.getDesignatorHelper().obj.getName());
-	
+		
+		//System.out.println("Designator: "+desg.getDesignatorHelper().obj.getName());
+		currentDesignator=desg.obj;
 	    if (desg.obj.equals(Tab.noObj)) {
 	        report_error("Greska (" +desg.getDesignatorHelper().obj.getName() + ") nije nadjeno",desg);
 	    }
 	 }
 
 	public void visit(DesignatorHelper_Expr desg){
-		if(currentDesignator.equals(null) || currentDesignator.getType().getKind() != Struct.Array)
-		{
-			report_error("Greska nije niz",desg);
-		}
+//		if(currentDesignator.equals(null) || currentDesignator.getType().getKind() != Struct.Array)
+//		{
+//			report_error("Greska "+ currentDesignator.getName()+ " nije niz",desg);
+//		}
 		
-		desg.obj = new Obj(Obj.Elem, currentDesignator.getName() + "_elem", currentDesignator.getType().getElemType());
+		desg.obj = new Obj(Obj.Elem, "expr" + "_elem", desg.getExpr().struct);
 	
 		currentDesignator=Tab.noObj;
 	}
@@ -601,13 +605,31 @@ public class SemanticPass extends VisitorAdaptor {
 	public void visit(DesignatorHelper_Dot desg) {
 		if(currentDesignator.equals(null) || currentDesignator.getType().getKind() != Struct.Array)
 		{
-			report_error("Greska nije niz",desg);
+			report_error("Greska "+ currentDesignator.getName()+ " nije niz",desg);
 		}
 		
 		desg.obj = new Obj(Obj.Elem, currentDesignator.getName() + "_elem", currentDesignator.getType().getElemType());
 	
 		currentDesignator=Tab.noObj;
 	}
+	
+	
+    public void visit(DesignatorHelper_Scope designator){
+    	Obj obj = Tab.find(designator.getName());
+    	if(obj == Tab.noObj){
+			report_error("Greska na liniji " + designator.getLine()+ " : ime "+designator.getName()+" nije deklarisano! ", null);
+    	}
+    	designator.obj = obj;
+    }
+    
+    public void visit(DesignatorHelper_None designator){
+    	Obj obj = Tab.find(designator.getName());
+    	if(obj == Tab.noObj){
+			report_error("Greska na liniji " + designator.getLine()+ " : ime "+designator.getName()+" nije deklarisano! ", null);
+    	}
+    	designator.obj = obj;
+    	//System.out.println("DesignatorHelper_None "+designator.getName());
+    }
     
     
     public boolean passed(){
