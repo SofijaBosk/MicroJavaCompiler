@@ -61,7 +61,7 @@ terminal Integer NUMBER;
 terminal IF, ELSE;
 terminal Integer NUM_CONST;
 terminal Character CHAR_CONST;
-terminal BOOL_CONST;
+terminal String BOOL_CONST;
 terminal EQUALS, CONST;
 terminal LSQUARE, RSQUARE;
 terminal CLASS, EXTENDS;

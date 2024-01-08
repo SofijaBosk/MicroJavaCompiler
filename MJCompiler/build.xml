@@ -10,6 +10,7 @@
 				<exclude name="RuleVisitor.java"/>
 				<exclude name="SemanticPass.java"/>
 				<exclude name="SystemTableEx.java"/>
+				<exclude name="CodeGenerator.java"/>
 			</fileset>
 		</delete>
 		<delete>
