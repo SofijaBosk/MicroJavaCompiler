@@ -1,0 +1,389 @@
+INFO  14:37:14,038 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  14:37:14,069 - #2 program
+INFO  14:37:14,070 - #53 MJProgram
+INFO  14:37:14,070 - #53 int
+INFO  14:37:14,071 - #53 x
+INFO  14:37:14,071 - #5 ;
+INFO  14:37:14,071 - #53 int
+INFO  14:37:14,072 - #53 y
+INFO  14:37:14,072 - #5 ;
+INFO  14:37:14,072 - #3 {
+INFO  14:37:14,072 - #53 int
+INFO  14:37:14,072 - #53 k
+INFO  14:37:14,072 - #6 (
+INFO  14:37:14,073 - #7 )
+INFO  14:37:14,073 - #53 int
+INFO  14:37:14,074 - #53 c
+INFO  14:37:14,074 - #5 ;
+INFO  14:37:14,074 - #3 {
+INFO  14:37:14,074 - #53 c
+INFO  14:37:14,075 - #20 =
+INFO  14:37:14,075 - #17 2
+INFO  14:37:14,075 - #5 ;
+INFO  14:37:14,076 - #12 print
+INFO  14:37:14,076 - #6 (
+INFO  14:37:14,076 - #17 0
+INFO  14:37:14,077 - #7 )
+INFO  14:37:14,077 - #5 ;
+INFO  14:37:14,077 - #9 return
+INFO  14:37:14,077 - #53 c
+INFO  14:37:14,077 - #5 ;
+INFO  14:37:14,077 - #4 }
+INFO  14:37:14,077 - #53 int
+INFO  14:37:14,078 - #53 main
+INFO  14:37:14,078 - #6 (
+INFO  14:37:14,078 - #7 )
+INFO  14:37:14,078 - #3 {
+INFO  14:37:14,078 - #53 x
+INFO  14:37:14,078 - #20 =
+INFO  14:37:14,078 - #17 3
+INFO  14:37:14,078 - #5 ;
+INFO  14:37:14,078 - #12 print
+INFO  14:37:14,078 - #6 (
+INFO  14:37:14,078 - #17 1
+INFO  14:37:14,078 - #7 )
+INFO  14:37:14,078 - #5 ;
+INFO  14:37:14,078 - #53 y
+INFO  14:37:14,078 - #20 =
+INFO  14:37:14,078 - #17 4
+INFO  14:37:14,078 - #10 +
+INFO  14:37:14,078 - #17 9
+INFO  14:37:14,079 - #5 ;
+INFO  14:37:14,079 - #12 print
+INFO  14:37:14,079 - #6 (
+INFO  14:37:14,079 - #53 x
+INFO  14:37:14,079 - #7 )
+INFO  14:37:14,079 - #5 ;
+INFO  14:37:14,079 - #53 k
+INFO  14:37:14,079 - #6 (
+INFO  14:37:14,079 - #7 )
+INFO  14:37:14,080 - #5 ;
+INFO  14:37:14,080 - #12 print
+INFO  14:37:14,080 - #6 (
+INFO  14:37:14,080 - #53 y
+INFO  14:37:14,080 - #7 )
+INFO  14:37:14,080 - #5 ;
+INFO  14:37:14,080 - #9 return
+INFO  14:37:14,080 - #17 1
+INFO  14:37:14,080 - #5 ;
+INFO  14:37:14,080 - #4 }
+INFO  14:37:14,080 - #4 }
+INFO  14:37:14,084 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    MethodDeclarations(
+      NoMethodDecl(
+      ) [NoMethodDecl]
+      MethodDecl(
+        MethodParams(
+          MethodTypeName(
+            ReturnMethod_Type(
+              Type_ID(
+               int
+              ) [Type_ID]
+            ) [ReturnMethod_Type]
+           k
+          ) [MethodTypeName]
+          FormParsDummy(
+          ) [FormParsDummy]
+          NoFormParam(
+          ) [NoFormParam]
+        ) [MethodParams]
+        VarDeclarations(
+          NoVarDecl(
+          ) [NoVarDecl]
+          VarDecl(
+            TypeDummy(
+              Type_ID(
+               int
+              ) [Type_ID]
+            ) [TypeDummy]
+            SingleVarDecl(
+              VarDecl_ID(
+               c
+              ) [VarDecl_ID]
+            ) [SingleVarDecl]
+          ) [VarDecl]
+        ) [VarDeclarations]
+        Statements(
+          Statements(
+            Statements(
+              NoStmt(
+              ) [NoStmt]
+              MatchedStmt(
+                DesignatorStatementStmt(
+                  Assignment(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       c
+                      ) [DesignatorHelper_None]
+                    ) [Designator_Ident]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    TermExpr(
+                      Term_Factor(
+                        ConstFactor(
+                          ConstValue_Num(
+                           2
+                          ) [ConstValue_Num]
+                        ) [ConstFactor]
+                      ) [Term_Factor]
+                    ) [TermExpr]
+                  ) [Assignment]
+                ) [DesignatorStatementStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              PrintStmt(
+                TermExpr(
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       0
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+                NumConstList_None(
+                ) [NumConstList_None]
+              ) [PrintStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            ReturnExpr(
+              TermExpr(
+                Term_Factor(
+                  VarFactor(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       c
+                      ) [DesignatorHelper_None]
+                    ) [Designator_Ident]
+                  ) [VarFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+            ) [ReturnExpr]
+          ) [MatchedStmt]
+        ) [Statements]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Type(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [ReturnMethod_Type]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        Statements(
+          Statements(
+            Statements(
+              Statements(
+                Statements(
+                  Statements(
+                    NoStmt(
+                    ) [NoStmt]
+                    MatchedStmt(
+                      DesignatorStatementStmt(
+                        Assignment(
+                          Designator_Ident(
+                            DesignatorHelper_None(
+                             x
+                            ) [DesignatorHelper_None]
+                          ) [Designator_Ident]
+                          AssignopDerived1(
+                          ) [AssignopDerived1]
+                          TermExpr(
+                            Term_Factor(
+                              ConstFactor(
+                                ConstValue_Num(
+                                 3
+                                ) [ConstValue_Num]
+                              ) [ConstFactor]
+                            ) [Term_Factor]
+                          ) [TermExpr]
+                        ) [Assignment]
+                      ) [DesignatorStatementStmt]
+                    ) [MatchedStmt]
+                  ) [Statements]
+                  MatchedStmt(
+                    PrintStmt(
+                      TermExpr(
+                        Term_Factor(
+                          ConstFactor(
+                            ConstValue_Num(
+                             1
+                            ) [ConstValue_Num]
+                          ) [ConstFactor]
+                        ) [Term_Factor]
+                      ) [TermExpr]
+                      NumConstList_None(
+                      ) [NumConstList_None]
+                    ) [PrintStmt]
+                  ) [MatchedStmt]
+                ) [Statements]
+                MatchedStmt(
+                  DesignatorStatementStmt(
+                    Assignment(
+                      Designator_Ident(
+                        DesignatorHelper_None(
+                         y
+                        ) [DesignatorHelper_None]
+                      ) [Designator_Ident]
+                      AssignopDerived1(
+                      ) [AssignopDerived1]
+                      AddExpr(
+                        TermExpr(
+                          Term_Factor(
+                            ConstFactor(
+                              ConstValue_Num(
+                               4
+                              ) [ConstValue_Num]
+                            ) [ConstFactor]
+                          ) [Term_Factor]
+                        ) [TermExpr]
+                        Addop_PLUS(
+                        ) [Addop_PLUS]
+                        Term_Factor(
+                          ConstFactor(
+                            ConstValue_Num(
+                             9
+                            ) [ConstValue_Num]
+                          ) [ConstFactor]
+                        ) [Term_Factor]
+                      ) [AddExpr]
+                    ) [Assignment]
+                  ) [DesignatorStatementStmt]
+                ) [MatchedStmt]
+              ) [Statements]
+              MatchedStmt(
+                PrintStmt(
+                  TermExpr(
+                    Term_Factor(
+                      VarFactor(
+                        Designator_Ident(
+                          DesignatorHelper_None(
+                           x
+                          ) [DesignatorHelper_None]
+                        ) [Designator_Ident]
+                      ) [VarFactor]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                  NumConstList_None(
+                  ) [NumConstList_None]
+                ) [PrintStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              DesignatorStatementStmt(
+                DesignatorStatement_FunctionCall(
+                  FunctionCall(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       k
+                      ) [DesignatorHelper_None]
+                    ) [Designator_Ident]
+                    ActParsIE_None(
+                    ) [ActParsIE_None]
+                  ) [FunctionCall]
+                ) [DesignatorStatement_FunctionCall]
+              ) [DesignatorStatementStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  VarFactor(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       y
+                      ) [DesignatorHelper_None]
+                    ) [Designator_Ident]
+                  ) [VarFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+        MatchedStmt(
+          ReturnExpr(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   1
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+          ) [ReturnExpr]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  14:37:14,084 - ===================================
+INFO  14:37:14,086 - Deklarisana promenljiva x na liniji 2
+INFO  14:37:14,086 - Deklarisana promenljiva y na liniji 2
+INFO  14:37:14,086 - Obradjuje se funkcija k na liniji 5
+INFO  14:37:14,086 - Deklarisana promenljiva c na liniji 5
+INFO  14:37:14,087 - Obradjuje se funkcija main na liniji 13
+INFO  14:37:14,087 -  Deklarisanih lokalnih promenljivih ima = 3
+INFO  14:37:14,087 -  Globalne promenljive = 2
+INFO  14:37:14,087 -  Globalni nizovi = 0
+INFO  14:37:14,087 -  Lokalne promenjive u main = 0
+INFO  14:37:14,087 -  Lokalne promenjive u nVars = 0
+INFO  14:37:14,087 - ===================================
+INFO  14:37:14,087 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  14:37:14,089 - Parsiranje uspesno zavrseno!

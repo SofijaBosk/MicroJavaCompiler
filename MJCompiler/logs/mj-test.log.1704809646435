@@ -1,0 +1,213 @@
+INFO  15:13:38,621 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  15:13:38,653 - #2 program
+INFO  15:13:38,653 - #53 MJProgram
+INFO  15:13:38,653 - #53 int
+INFO  15:13:38,654 - #53 x
+INFO  15:13:38,654 - #5 ;
+INFO  15:13:38,654 - #53 int
+INFO  15:13:38,655 - #53 y
+INFO  15:13:38,655 - #5 ;
+INFO  15:13:38,655 - #3 {
+INFO  15:13:38,655 - #13 void
+INFO  15:13:38,655 - #53 k
+INFO  15:13:38,656 - #6 (
+INFO  15:13:38,656 - #7 )
+INFO  15:13:38,657 - #53 int
+INFO  15:13:38,657 - #53 c
+INFO  15:13:38,657 - #5 ;
+INFO  15:13:38,658 - #3 {
+INFO  15:13:38,658 - #53 c
+INFO  15:13:38,658 - #20 =
+INFO  15:13:38,658 - #17 2
+INFO  15:13:38,659 - #5 ;
+INFO  15:13:38,660 - #12 print
+INFO  15:13:38,660 - #6 (
+INFO  15:13:38,660 - #17 0
+INFO  15:13:38,660 - #7 )
+INFO  15:13:38,660 - #5 ;
+INFO  15:13:38,660 - #4 }
+INFO  15:13:38,660 - #13 void
+INFO  15:13:38,661 - #53 main
+INFO  15:13:38,661 - #6 (
+INFO  15:13:38,661 - #7 )
+INFO  15:13:38,661 - #3 {
+INFO  15:13:38,661 - #53 x
+INFO  15:13:38,661 - #20 =
+INFO  15:13:38,661 - #17 3
+INFO  15:13:38,661 - #5 ;
+INFO  15:13:38,661 - #4 }
+INFO  15:13:38,661 - #4 }
+INFO  15:13:38,664 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    MethodDeclarations(
+      NoMethodDecl(
+      ) [NoMethodDecl]
+      MethodDecl(
+        MethodParams(
+          MethodTypeName(
+            ReturnMethod_Void(
+            ) [ReturnMethod_Void]
+           k
+          ) [MethodTypeName]
+          FormParsDummy(
+          ) [FormParsDummy]
+          NoFormParam(
+          ) [NoFormParam]
+        ) [MethodParams]
+        VarDeclarations(
+          NoVarDecl(
+          ) [NoVarDecl]
+          VarDecl(
+            TypeDummy(
+              Type_ID(
+               int
+              ) [Type_ID]
+            ) [TypeDummy]
+            SingleVarDecl(
+              VarDecl_ID(
+               c
+              ) [VarDecl_ID]
+            ) [SingleVarDecl]
+          ) [VarDecl]
+        ) [VarDeclarations]
+        Statements(
+          Statements(
+            NoStmt(
+            ) [NoStmt]
+            MatchedStmt(
+              DesignatorStatementStmt(
+                Assignment(
+                  Designator_Ident(
+                    DesignatorHelper_None(
+                     c
+                    ) [DesignatorHelper_None]
+                  ) [Designator_Ident]
+                  AssignopDerived1(
+                  ) [AssignopDerived1]
+                  TermExpr(
+                    Term_Factor(
+                      ConstFactor(
+                        ConstValue_Num(
+                         2
+                        ) [ConstValue_Num]
+                      ) [ConstFactor]
+                    ) [Term_Factor]
+                  ) [TermExpr]
+                ) [Assignment]
+              ) [DesignatorStatementStmt]
+            ) [MatchedStmt]
+          ) [Statements]
+          MatchedStmt(
+            PrintStmt(
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     0
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+              NumConstList_None(
+              ) [NumConstList_None]
+            ) [PrintStmt]
+          ) [MatchedStmt]
+        ) [Statements]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Void(
+          ) [ReturnMethod_Void]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          DesignatorStatementStmt(
+            Assignment(
+              Designator_Ident(
+                DesignatorHelper_None(
+                 x
+                ) [DesignatorHelper_None]
+              ) [Designator_Ident]
+              AssignopDerived1(
+              ) [AssignopDerived1]
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     3
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+            ) [Assignment]
+          ) [DesignatorStatementStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:13:38,665 - ===================================
+INFO  15:13:38,667 - Deklarisana promenljiva x na liniji 2
+INFO  15:13:38,667 - Deklarisana promenljiva y na liniji 2
+INFO  15:13:38,667 - Obradjuje se funkcija k na liniji 5
+INFO  15:13:38,667 - Deklarisana promenljiva c na liniji 5
+INFO  15:13:38,667 - Obradjuje se funkcija main na liniji 11
+INFO  15:13:38,667 -  Deklarisanih lokalnih promenljivih ima = 3
+INFO  15:13:38,667 -  Globalne promenljive = 2
+INFO  15:13:38,667 -  Globalni nizovi = 0
+INFO  15:13:38,667 -  Lokalne promenjive u main = 0
+INFO  15:13:38,667 -  Lokalne promenjive u nVars = 0
+INFO  15:13:38,667 - ===================================
+INFO  15:13:38,668 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  15:13:38,669 - Parsiranje uspesno zavrseno!

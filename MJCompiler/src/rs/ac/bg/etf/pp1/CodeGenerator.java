@@ -4,9 +4,11 @@ import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.AddExpr;
 import rs.ac.bg.etf.pp1.ast.Assignment;
+import rs.ac.bg.etf.pp1.ast.ConstValue_Num;
 import rs.ac.bg.etf.pp1.ast.Designator;
+import rs.ac.bg.etf.pp1.ast.FormParDecl_Single;
 import rs.ac.bg.etf.pp1.ast.FormalParamDecl;
-import rs.ac.bg.etf.pp1.ast.FuncCall;
+import rs.ac.bg.etf.pp1.ast.FunctionCall;
 import rs.ac.bg.etf.pp1.ast.MethodDecl;
 import rs.ac.bg.etf.pp1.ast.MethodTypeName;
 import rs.ac.bg.etf.pp1.ast.PrintStmt;
@@ -31,23 +33,39 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	@Override
-	public void visit(MethodTypeName MethodTypeName) {
-		if ("main".equalsIgnoreCase(MethodTypeName.getMethName())) {
-			mainPc = Code.pc;
-		}
-		MethodTypeName.obj.setAdr(Code.pc);
+	public void visit(MethodTypeName methodTypeName) {
+//		if ("main".equalsIgnoreCase(MethodTypeName.getMethName())) {
+//			mainPc = Code.pc;
+//		}
+//		MethodTypeName.obj.setAdr(Code.pc);
+//		
+//		// Collect arguments and local variables.
+////		SyntaxNode methodNode = MethodTypeName.getParent();
+////		VarCounter varCnt = new VarCounter();
+////		methodNode.traverseTopDown(varCnt);
+////		FormParamCounter fpCnt = new FormParamCounter();
+////		methodNode.traverseTopDown(fpCnt);
+//		
+//		System.out.println("nVar = "+varCount);
+//		System.out.println("nPar = "+paramCnt);
+//		
+//		// Generate the entry.
+//		Code.put(Code.enter);
+//		Code.put(varCount);
+//		Code.put(varCount+paramCnt);
 		
-		// Collect arguments and local variables.
-		SyntaxNode methodNode = MethodTypeName.getParent();
-		VarCounter varCnt = new VarCounter();
-		methodNode.traverseTopDown(varCnt);
-		FormParamCounter fpCnt = new FormParamCounter();
-		methodNode.traverseTopDown(fpCnt);
+		 Obj methObj = methodTypeName.obj;
+	        if ("main".equalsIgnoreCase(methObj.getName())) {
+	            mainPc = Code.pc;
+	        }
+
+			Code.put(Code.enter);
+	        Code.put(methObj.getLevel());
+			Code.put(methObj.getLocalSymbols().size());
 		
-		// Generate the entry.
-		Code.put(Code.enter);
-		Code.put(fpCnt.getCountVar());
-		Code.put(varCnt.getCountVar() + fpCnt.getCountVar());
+			System.out.println("Prvi:"+(methObj.getLevel()));
+			System.out.println("Drugi:"+methObj.getLocalSymbols().size());
+			
 	}
 	
 	@Override
@@ -56,7 +74,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	@Override
-	public void visit(FormalParamDecl FormalParam) {
+	public void visit(FormParDecl_Single FormalParam) {
 		paramCnt++;
 	}	
 	
@@ -83,27 +101,27 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.store(Assignment.getDesignator().obj);
 	}
 	
-//	@Override
-//	public void visit(Const Const) {
-//		Code.load(new Obj(Obj.Con, "$", Const.struct, Const.getN1(), 0));
-//	}
-//	
+	@Override
+	public void visit(ConstValue_Num Const) {
+		Code.load(new Obj(Obj.Con, "$", Const.struct, Const.getN1(), 0));
+	}
+	
 	@Override
 	public void visit(Designator Designator) {
 		SyntaxNode parent = Designator.getParent();
-		if (Assignment.class != parent.getClass() && FuncCall.class != parent.getClass()) {
+		if (Assignment.class != parent.getClass() && FunctionCall.class != parent.getClass()) {
 			Code.load(Designator.obj);
 		}
 	}
 	
-//	@Override
-//	public void visit(FuncCall FuncCall) {
-//		Obj functionObj = FuncCall.getDesignator().obj;
-//		int offset = functionObj.getAdr() - Code.pc; 
-//		Code.put(Code.call);
-//		Code.put2(offset);
-//	}
-//	
+	@Override
+	public void visit(FunctionCall FuncCall) {
+		Obj functionObj = FuncCall.getDesignator().obj;
+		int offset = functionObj.getAdr() - Code.pc; 
+		Code.put(Code.call);
+		Code.put2(offset);
+	}
+	
 	@Override
 	public void visit(PrintStmt PrintStmt) {
 		Code.put(Code.const_5);

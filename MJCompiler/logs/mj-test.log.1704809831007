@@ -1,0 +1,71 @@
+INFO  15:16:45,510 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  15:16:45,541 - #2 program
+INFO  15:16:45,541 - #53 MJProgram
+INFO  15:16:45,541 - #53 int
+INFO  15:16:45,542 - #53 x
+INFO  15:16:45,542 - #5 ;
+INFO  15:16:45,542 - #3 {
+INFO  15:16:45,543 - #13 void
+INFO  15:16:45,543 - #53 main
+INFO  15:16:45,543 - #6 (
+INFO  15:16:45,544 - #7 )
+INFO  15:16:45,544 - #3 {
+INFO  15:16:45,545 - #4 }
+INFO  15:16:45,545 - #4 }
+INFO  15:16:45,549 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListNone(
+    ) [ProgDeclListNone]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           x
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Void(
+          ) [ReturnMethod_Void]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      NoStmt(
+      ) [NoStmt]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:16:45,555 - ===================================
+INFO  15:16:45,557 - Deklarisana promenljiva x na liniji 2
+INFO  15:16:45,557 - Obradjuje se funkcija main na liniji 4
+INFO  15:16:45,557 -  Deklarisanih lokalnih promenljivih ima = 1
+INFO  15:16:45,557 -  Globalne promenljive = 1
+INFO  15:16:45,557 -  Globalni nizovi = 0
+INFO  15:16:45,557 -  Lokalne promenjive u main = 0
+INFO  15:16:45,557 -  Lokalne promenjive u nVars = 0
+INFO  15:16:45,557 - ===================================
+INFO  15:16:45,558 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  15:16:45,559 - Parsiranje uspesno zavrseno!

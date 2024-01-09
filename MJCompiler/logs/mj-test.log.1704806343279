@@ -1,0 +1,109 @@
+INFO  13:43:22,417 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  13:43:22,471 - #2 program
+INFO  13:43:22,471 - #53 MJProgram
+INFO  13:43:22,472 - #53 int
+INFO  13:43:22,472 - #53 x
+INFO  13:43:22,473 - #5 ;
+INFO  13:43:22,473 - #53 int
+INFO  13:43:22,473 - #53 y
+INFO  13:43:22,473 - #5 ;
+INFO  13:43:22,473 - #3 {
+INFO  13:43:22,473 - #13 void
+INFO  13:43:22,474 - #53 main
+INFO  13:43:22,474 - #6 (
+INFO  13:43:22,474 - #7 )
+INFO  13:43:22,475 - #53 int
+INFO  13:43:22,476 - #53 z
+INFO  13:43:22,476 - #5 ;
+INFO  13:43:22,476 - #3 {
+INFO  13:43:22,476 - #4 }
+INFO  13:43:22,476 - #4 }
+INFO  13:43:22,479 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Void(
+          ) [ReturnMethod_Void]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      VarDeclarations(
+        NoVarDecl(
+        ) [NoVarDecl]
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_ID(
+             z
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [VarDeclarations]
+      NoStmt(
+      ) [NoStmt]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  13:43:22,485 - ===================================
+INFO  13:43:22,487 - Deklarisana promenljiva x na liniji 2
+INFO  13:43:22,487 - Deklarisana promenljiva y na liniji 2
+INFO  13:43:22,487 - Obradjuje se funkcija main na liniji 4
+INFO  13:43:22,487 - Deklarisana promenljiva z na liniji 4
+INFO  13:43:22,487 -  Deklarisanih lokalnih promenljivih ima = 3
+INFO  13:43:22,487 -  Globalne promenljive = 2
+INFO  13:43:22,487 -  Globalni nizovi = 0
+INFO  13:43:22,488 -  Lokalne promenjive u main = 1
+INFO  13:43:22,488 -  Lokalne promenjive u nVars = 0
+INFO  13:43:22,488 - ===================================
+INFO  13:43:22,488 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  13:43:22,490 - Parsiranje uspesno zavrseno!

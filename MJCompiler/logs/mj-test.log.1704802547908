@@ -1,0 +1,115 @@
+INFO  13:15:20,930 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  13:15:21,010 - #2 program
+INFO  13:15:21,011 - #53 MJProgram
+INFO  13:15:21,011 - #53 int
+INFO  13:15:21,013 - #53 x
+INFO  13:15:21,014 - #5 ;
+INFO  13:15:21,014 - #53 int
+INFO  13:15:21,016 - #53 y
+INFO  13:15:21,016 - #5 ;
+INFO  13:15:21,016 - #3 {
+INFO  13:15:21,016 - #53 int
+INFO  13:15:21,017 - #53 main
+INFO  13:15:21,018 - #6 (
+INFO  13:15:21,019 - #7 )
+INFO  13:15:21,020 - #3 {
+INFO  13:15:21,022 - #12 print
+INFO  13:15:21,023 - #6 (
+INFO  13:15:21,023 - #17 1
+INFO  13:15:21,024 - #7 )
+INFO  13:15:21,025 - #5 ;
+INFO  13:15:21,025 - #4 }
+INFO  13:15:21,025 - #4 }
+INFO  13:15:21,041 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListObj(
+      ProgDeclListNone(
+      ) [ProgDeclListNone]
+      ProgVarDescarations(
+        VarDecl(
+          TypeDummy(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [TypeDummy]
+          SingleVarDecl(
+            VarDecl_ID(
+             x
+            ) [VarDecl_ID]
+          ) [SingleVarDecl]
+        ) [VarDecl]
+      ) [ProgVarDescarations]
+    ) [ProgDeclListObj]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           y
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Type(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [ReturnMethod_Type]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          PrintStmt(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   1
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+            NumConstList_None(
+            ) [NumConstList_None]
+          ) [PrintStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  13:15:21,042 - ===================================
+INFO  13:15:21,046 - Deklarisana promenljiva x na liniji 2
+INFO  13:15:21,046 - Deklarisana promenljiva y na liniji 2
+INFO  13:15:21,046 - Obradjuje se funkcija main na liniji 4
+ERROR 13:15:21,047 - Greska na 4(main) nema return iskaz
+INFO  13:15:21,047 -  Deklarisanih lokalnih promenljivih ima = 2
+INFO  13:15:21,047 -  Globalne promenljive = 2
+INFO  13:15:21,047 -  Globalni nizovi = 0
+INFO  13:15:21,047 -  Lokalne promenjive u main = 0
+INFO  13:15:21,047 - ===================================
+ERROR 13:15:21,048 - Parsiranje NIJE uspesno zavrseno!

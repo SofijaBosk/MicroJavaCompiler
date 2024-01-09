@@ -33,7 +33,7 @@ public class SemanticPass extends VisitorAdaptor {
 	int globalConstCnt=0;
 	int mainFuncCallCnt=0;
 	
-	int nVars;
+	int nVars=0;
 	
 	private Stack<ArrayList<Struct>> ActParList;
 	private ArrayList<Obj> currentMethFormPars;
@@ -94,9 +94,11 @@ public class SemanticPass extends VisitorAdaptor {
             } else {
                 if (tempObj.getLevel() == 0) {
                     globalVarCnt++;
+                    //nVars++;
                 }
                  else if ("main".equalsIgnoreCase(currentMethod.getName())) {
                     mainLocalVarCnt++;
+                    //nVars++;
                 }
             }
         }
@@ -382,6 +384,7 @@ public class SemanticPass extends VisitorAdaptor {
 
                 if (temp.getLevel() == 0) {
                     globalConstCnt++;
+                    //nVars++;
                 }
             }
 	}
@@ -398,6 +401,7 @@ public class SemanticPass extends VisitorAdaptor {
 
                 if (temp.getLevel() == 0) {
                     globalConstCnt++;
+                    //nVars++;
                 }
             }
             System.out.println("BoolType "+constDecl.getBooleanConstValue() +"  "+SystemTableEx.boolType);
@@ -419,6 +423,7 @@ public class SemanticPass extends VisitorAdaptor {
 
                 if (temp.getLevel() == 0) {
                     globalConstCnt++;
+                    //nVars++;
                 }
             }
 	}

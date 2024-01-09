@@ -8,6 +8,10 @@ public class CounterVisitor extends VisitorAdaptor {
 	
 	protected int countVar;
 	
+	public CounterVisitor() {
+		countVar=0;
+	}
+	
 	public int getCountVar() {
 		return countVar;
 	}
