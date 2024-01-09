@@ -1,0 +1,102 @@
+INFO  15:37:46,661 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  15:37:46,692 - #2 program
+INFO  15:37:46,692 - #53 MJProgram
+INFO  15:37:46,692 - #53 int
+INFO  15:37:46,693 - #53 x
+INFO  15:37:46,693 - #5 ;
+INFO  15:37:46,693 - #3 {
+INFO  15:37:46,694 - #53 int
+INFO  15:37:46,694 - #53 main
+INFO  15:37:46,694 - #6 (
+INFO  15:37:46,695 - #7 )
+INFO  15:37:46,696 - #3 {
+INFO  15:37:46,696 - #53 x
+INFO  15:37:46,697 - #20 =
+INFO  15:37:46,697 - #17 5
+INFO  15:37:46,697 - #5 ;
+INFO  15:37:46,697 - #4 }
+INFO  15:37:46,698 - #4 }
+INFO  15:37:46,701 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListNone(
+    ) [ProgDeclListNone]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           x
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Type(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [ReturnMethod_Type]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          DesignatorStatementStmt(
+            Assignment(
+              Designator_Ident(
+                DesignatorHelper_None(
+                 x
+                ) [DesignatorHelper_None]
+              ) [Designator_Ident]
+              AssignopDerived1(
+              ) [AssignopDerived1]
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     5
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+            ) [Assignment]
+          ) [DesignatorStatementStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:37:46,702 - ===================================
+INFO  15:37:46,704 - Deklarisana promenljiva x na liniji 2
+INFO  15:37:46,704 - Obradjuje se funkcija main na liniji 4
+ERROR 15:37:46,704 - Greska na 4(main) nema return iskaz
+INFO  15:37:46,705 -  Deklarisanih lokalnih promenljivih ima = 1
+INFO  15:37:46,705 -  Globalne promenljive = 1
+INFO  15:37:46,705 -  Globalni nizovi = 0
+INFO  15:37:46,705 -  Lokalne promenjive u main = 0
+INFO  15:37:46,705 -  Lokalne promenjive u nVars = 0
+INFO  15:37:46,705 - ===================================
+ERROR 15:37:46,705 - Parsiranje NIJE uspesno zavrseno!

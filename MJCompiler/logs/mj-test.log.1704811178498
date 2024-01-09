@@ -1,0 +1,99 @@
+INFO  15:38:49,759 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  15:38:49,790 - #2 program
+INFO  15:38:49,790 - #53 MJProgram
+INFO  15:38:49,790 - #53 int
+INFO  15:38:49,791 - #53 x
+INFO  15:38:49,792 - #5 ;
+INFO  15:38:49,792 - #3 {
+INFO  15:38:49,792 - #13 void
+INFO  15:38:49,793 - #53 main
+INFO  15:38:49,793 - #6 (
+INFO  15:38:49,793 - #7 )
+INFO  15:38:49,794 - #3 {
+INFO  15:38:49,795 - #53 x
+INFO  15:38:49,795 - #20 =
+INFO  15:38:49,795 - #17 5
+INFO  15:38:49,796 - #5 ;
+INFO  15:38:49,796 - #4 }
+INFO  15:38:49,796 - #4 }
+INFO  15:38:49,800 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListNone(
+    ) [ProgDeclListNone]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           x
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Void(
+          ) [ReturnMethod_Void]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          DesignatorStatementStmt(
+            Assignment(
+              Designator_Ident(
+                DesignatorHelper_None(
+                 x
+                ) [DesignatorHelper_None]
+              ) [Designator_Ident]
+              AssignopDerived1(
+              ) [AssignopDerived1]
+              TermExpr(
+                Term_Factor(
+                  ConstFactor(
+                    ConstValue_Num(
+                     5
+                    ) [ConstValue_Num]
+                  ) [ConstFactor]
+                ) [Term_Factor]
+              ) [TermExpr]
+            ) [Assignment]
+          ) [DesignatorStatementStmt]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:38:49,801 - ===================================
+INFO  15:38:49,803 - Deklarisana promenljiva x na liniji 2
+INFO  15:38:49,803 - Obradjuje se funkcija main na liniji 4
+INFO  15:38:49,803 -  Deklarisanih lokalnih promenljivih ima = 1
+INFO  15:38:49,803 -  Globalne promenljive = 1
+INFO  15:38:49,803 -  Globalni nizovi = 0
+INFO  15:38:49,803 -  Lokalne promenjive u main = 0
+INFO  15:38:49,803 -  Lokalne promenjive u nVars = 0
+INFO  15:38:49,803 - ===================================
+INFO  15:38:49,804 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  15:38:49,805 - Parsiranje uspesno zavrseno!

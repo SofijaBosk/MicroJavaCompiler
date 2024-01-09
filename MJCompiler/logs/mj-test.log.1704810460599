@@ -1,0 +1,79 @@
+INFO  15:26:54,602 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  15:26:54,634 - #2 program
+INFO  15:26:54,635 - #53 MJProgram
+INFO  15:26:54,635 - #53 int
+INFO  15:26:54,636 - #53 x
+INFO  15:26:54,636 - #5 ;
+INFO  15:26:54,636 - #3 {
+INFO  15:26:54,637 - #13 void
+INFO  15:26:54,637 - #53 main
+INFO  15:26:54,637 - #6 (
+INFO  15:26:54,638 - #7 )
+INFO  15:26:54,639 - #3 {
+INFO  15:26:54,639 - #9 return
+INFO  15:26:54,640 - #5 ;
+INFO  15:26:54,640 - #4 }
+INFO  15:26:54,640 - #4 }
+INFO  15:26:54,644 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListNone(
+    ) [ProgDeclListNone]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           x
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Void(
+          ) [ReturnMethod_Void]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          ReturnNoExpr(
+          ) [ReturnNoExpr]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:26:54,651 - ===================================
+INFO  15:26:54,653 - Deklarisana promenljiva x na liniji 2
+INFO  15:26:54,653 - Obradjuje se funkcija main na liniji 4
+INFO  15:26:54,653 -  Deklarisanih lokalnih promenljivih ima = 1
+INFO  15:26:54,654 -  Globalne promenljive = 1
+INFO  15:26:54,654 -  Globalni nizovi = 0
+INFO  15:26:54,654 -  Lokalne promenjive u main = 0
+INFO  15:26:54,654 -  Lokalne promenjive u nVars = 0
+INFO  15:26:54,654 - ===================================
+INFO  15:26:54,654 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  15:26:54,656 - Parsiranje uspesno zavrseno!

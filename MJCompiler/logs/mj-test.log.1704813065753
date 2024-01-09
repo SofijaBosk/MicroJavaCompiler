@@ -1,54 +1,54 @@
-INFO  17:32:18,923 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
-INFO  17:32:18,954 - #2 program
-INFO  17:32:18,954 - #53 MJProgram
-INFO  17:32:18,954 - #53 int
-INFO  17:32:18,955 - #53 x
-INFO  17:32:18,955 - #5 ;
-INFO  17:32:18,956 - #53 int
-INFO  17:32:18,956 - #53 y
-INFO  17:32:18,956 - #5 ;
-INFO  17:32:18,956 - #3 {
-INFO  17:32:18,956 - #53 int
-INFO  17:32:18,957 - #53 k
-INFO  17:32:18,957 - #6 (
-INFO  17:32:18,957 - #7 )
-INFO  17:32:18,958 - #53 int
-INFO  17:32:18,958 - #53 c
-INFO  17:32:18,959 - #5 ;
-INFO  17:32:18,959 - #3 {
-INFO  17:32:18,959 - #53 c
-INFO  17:32:18,959 - #20 =
-INFO  17:32:18,959 - #17 1
-INFO  17:32:18,960 - #5 ;
-INFO  17:32:18,966 - #9 return
-INFO  17:32:18,966 - #53 c
-INFO  17:32:18,966 - #5 ;
-INFO  17:32:18,966 - #4 }
-INFO  17:32:18,967 - #53 int
-INFO  17:32:18,967 - #53 main
-INFO  17:32:18,967 - #6 (
-INFO  17:32:18,967 - #7 )
-INFO  17:32:18,967 - #3 {
-INFO  17:32:18,968 - #53 x
-INFO  17:32:18,968 - #20 =
-INFO  17:32:18,968 - #17 3
-INFO  17:32:18,968 - #5 ;
-INFO  17:32:18,968 - #12 print
-INFO  17:32:18,968 - #6 (
-INFO  17:32:18,968 - #17 2
-INFO  17:32:18,968 - #7 )
-INFO  17:32:18,968 - #5 ;
-INFO  17:32:18,968 - #12 print
-INFO  17:32:18,968 - #6 (
-INFO  17:32:18,968 - #53 x
-INFO  17:32:18,968 - #7 )
-INFO  17:32:18,968 - #5 ;
-INFO  17:32:18,969 - #9 return
-INFO  17:32:18,969 - #17 0
-INFO  17:32:18,969 - #5 ;
-INFO  17:32:18,969 - #4 }
-INFO  17:32:18,969 - #4 }
-INFO  17:32:18,973 - Program(
+INFO  16:09:52,128 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  16:09:52,159 - #2 program
+INFO  16:09:52,159 - #53 MJProgram
+INFO  16:09:52,159 - #53 int
+INFO  16:09:52,160 - #53 x
+INFO  16:09:52,160 - #5 ;
+INFO  16:09:52,160 - #53 int
+INFO  16:09:52,161 - #53 y
+INFO  16:09:52,161 - #5 ;
+INFO  16:09:52,161 - #3 {
+INFO  16:09:52,161 - #53 int
+INFO  16:09:52,161 - #53 k
+INFO  16:09:52,162 - #6 (
+INFO  16:09:52,162 - #7 )
+INFO  16:09:52,163 - #53 int
+INFO  16:09:52,163 - #53 c
+INFO  16:09:52,163 - #5 ;
+INFO  16:09:52,163 - #3 {
+INFO  16:09:52,164 - #53 c
+INFO  16:09:52,164 - #20 =
+INFO  16:09:52,164 - #17 1
+INFO  16:09:52,165 - #5 ;
+INFO  16:09:52,171 - #9 return
+INFO  16:09:52,171 - #53 c
+INFO  16:09:52,171 - #5 ;
+INFO  16:09:52,171 - #4 }
+INFO  16:09:52,171 - #53 int
+INFO  16:09:52,172 - #53 main
+INFO  16:09:52,172 - #6 (
+INFO  16:09:52,172 - #7 )
+INFO  16:09:52,172 - #3 {
+INFO  16:09:52,172 - #53 x
+INFO  16:09:52,172 - #20 =
+INFO  16:09:52,172 - #17 3
+INFO  16:09:52,172 - #5 ;
+INFO  16:09:52,172 - #12 print
+INFO  16:09:52,172 - #6 (
+INFO  16:09:52,172 - #17 1
+INFO  16:09:52,172 - #7 )
+INFO  16:09:52,173 - #5 ;
+INFO  16:09:52,173 - #12 print
+INFO  16:09:52,173 - #6 (
+INFO  16:09:52,173 - #53 x
+INFO  16:09:52,173 - #7 )
+INFO  16:09:52,173 - #5 ;
+INFO  16:09:52,173 - #9 return
+INFO  16:09:52,173 - #17 0
+INFO  16:09:52,173 - #5 ;
+INFO  16:09:52,173 - #4 }
+INFO  16:09:52,173 - #4 }
+INFO  16:09:52,177 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -220,7 +220,7 @@ INFO  17:32:18,973 - Program(
                   Term_Factor(
                     ConstFactor(
                       ConstValue_Num(
-                       2
+                       1
                       ) [ConstValue_Num]
                     ) [ConstFactor]
                   ) [Term_Factor]
@@ -265,17 +265,17 @@ INFO  17:32:18,973 - Program(
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  17:32:18,973 - ===================================
-INFO  17:32:18,975 - Deklarisana promenljiva x na liniji 2
-INFO  17:32:18,975 - Deklarisana promenljiva y na liniji 2
-INFO  17:32:18,975 - Obradjuje se funkcija k na liniji 5
-INFO  17:32:18,975 - Deklarisana promenljiva c na liniji 5
-INFO  17:32:18,975 - Obradjuje se funkcija main na liniji 10
-INFO  17:32:18,975 -  Deklarisanih lokalnih promenljivih ima = 3
-INFO  17:32:18,975 -  Globalne promenljive = 2
-INFO  17:32:18,975 -  Globalni nizovi = 0
-INFO  17:32:18,975 -  Lokalne promenjive u main = 0
-INFO  17:32:18,975 -  Lokalne promenjive u nVars = 0
-INFO  17:32:18,975 - ===================================
-INFO  17:32:18,976 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
-INFO  17:32:18,977 - Parsiranje uspesno zavrseno!
+INFO  16:09:52,177 - ===================================
+INFO  16:09:52,179 - Deklarisana promenljiva x na liniji 2
+INFO  16:09:52,180 - Deklarisana promenljiva y na liniji 2
+INFO  16:09:52,180 - Obradjuje se funkcija k na liniji 5
+INFO  16:09:52,180 - Deklarisana promenljiva c na liniji 5
+INFO  16:09:52,180 - Obradjuje se funkcija main na liniji 10
+INFO  16:09:52,180 -  Deklarisanih lokalnih promenljivih ima = 3
+INFO  16:09:52,180 -  Globalne promenljive = 2
+INFO  16:09:52,180 -  Globalni nizovi = 0
+INFO  16:09:52,180 -  Lokalne promenjive u main = 0
+INFO  16:09:52,180 -  Lokalne promenjive u nVars = 0
+INFO  16:09:52,180 - ===================================
+INFO  16:09:52,180 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  16:09:52,183 - Parsiranje uspesno zavrseno!

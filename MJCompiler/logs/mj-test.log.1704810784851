@@ -1,0 +1,92 @@
+INFO  15:28:14,293 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  15:28:14,325 - #2 program
+INFO  15:28:14,325 - #53 MJProgram
+INFO  15:28:14,325 - #53 int
+INFO  15:28:14,326 - #53 x
+INFO  15:28:14,326 - #5 ;
+INFO  15:28:14,327 - #3 {
+INFO  15:28:14,327 - #53 int
+INFO  15:28:14,328 - #53 main
+INFO  15:28:14,328 - #6 (
+INFO  15:28:14,328 - #7 )
+INFO  15:28:14,329 - #3 {
+INFO  15:28:14,329 - #9 return
+INFO  15:28:14,330 - #17 6
+INFO  15:28:14,330 - #5 ;
+INFO  15:28:14,330 - #4 }
+INFO  15:28:14,330 - #4 }
+INFO  15:28:14,334 - Program(
+  ProgName(
+   MJProgram
+  ) [ProgName]
+  NamespaceList_Multiple(
+  ) [NamespaceList_Multiple]
+  ProgDeclListObj(
+    ProgDeclListNone(
+    ) [ProgDeclListNone]
+    ProgVarDescarations(
+      VarDecl(
+        TypeDummy(
+          Type_ID(
+           int
+          ) [Type_ID]
+        ) [TypeDummy]
+        SingleVarDecl(
+          VarDecl_ID(
+           x
+          ) [VarDecl_ID]
+        ) [SingleVarDecl]
+      ) [VarDecl]
+    ) [ProgVarDescarations]
+  ) [ProgDeclListObj]
+  MethodDeclarations(
+    NoMethodDecl(
+    ) [NoMethodDecl]
+    MethodDecl(
+      MethodParams(
+        MethodTypeName(
+          ReturnMethod_Type(
+            Type_ID(
+             int
+            ) [Type_ID]
+          ) [ReturnMethod_Type]
+         main
+        ) [MethodTypeName]
+        FormParsDummy(
+        ) [FormParsDummy]
+        NoFormParam(
+        ) [NoFormParam]
+      ) [MethodParams]
+      NoVarDecl(
+      ) [NoVarDecl]
+      Statements(
+        NoStmt(
+        ) [NoStmt]
+        MatchedStmt(
+          ReturnExpr(
+            TermExpr(
+              Term_Factor(
+                ConstFactor(
+                  ConstValue_Num(
+                   6
+                  ) [ConstValue_Num]
+                ) [ConstFactor]
+              ) [Term_Factor]
+            ) [TermExpr]
+          ) [ReturnExpr]
+        ) [MatchedStmt]
+      ) [Statements]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+INFO  15:28:14,335 - ===================================
+INFO  15:28:14,337 - Deklarisana promenljiva x na liniji 2
+INFO  15:28:14,337 - Obradjuje se funkcija main na liniji 4
+INFO  15:28:14,337 -  Deklarisanih lokalnih promenljivih ima = 1
+INFO  15:28:14,337 -  Globalne promenljive = 1
+INFO  15:28:14,337 -  Globalni nizovi = 0
+INFO  15:28:14,337 -  Lokalne promenjive u main = 0
+INFO  15:28:14,337 -  Lokalne promenjive u nVars = 0
+INFO  15:28:14,337 - ===================================
+INFO  15:28:14,337 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  15:28:14,339 - Parsiranje uspesno zavrseno!

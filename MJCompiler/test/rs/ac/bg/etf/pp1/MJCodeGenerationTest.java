@@ -62,7 +62,7 @@ public class MJCodeGenerationTest {
 			log.info(" Globalni nizovi = " + v.globalArrayCnt);
 			log.info(" Lokalne promenjive u main = " + v.mainLocalVarCnt);
 			log.info(" Lokalne promenjive u nVars = " + v.nVars);
-			 
+			 int dataSize=v.globalVarCnt;
 			
 			log.info("===================================");
 			Tab.dump();
@@ -74,10 +74,10 @@ public class MJCodeGenerationTest {
 	        		objFile.delete();
 	        	
 				//Code generation...
-	        	System.out.println("Data size"+v.nVars);
+	        	System.out.println("Data size"+dataSize);
 				CodeGenerator codeGenerator = new CodeGenerator();
 				prog.traverseBottomUp(codeGenerator);
-				Code.dataSize = v.nVars;
+				Code.dataSize = dataSize;
 				Code.mainPc = codeGenerator.getMainPc();
 				Code.write(new FileOutputStream(objFile));
 				log.info("Parsiranje uspesno zavrseno!");
