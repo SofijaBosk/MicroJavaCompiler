@@ -7,19 +7,24 @@ import rs.ac.bg.etf.pp1.ast.Assignment;
 import rs.ac.bg.etf.pp1.ast.ConstFactor;
 import rs.ac.bg.etf.pp1.ast.ConstValue_Num;
 import rs.ac.bg.etf.pp1.ast.Designator;
+import rs.ac.bg.etf.pp1.ast.DesignatorHelper_Expr;
 import rs.ac.bg.etf.pp1.ast.DesignatorHelper_None;
 import rs.ac.bg.etf.pp1.ast.DesignatorStatement_DEC;
 import rs.ac.bg.etf.pp1.ast.DesignatorStatement_INC;
+import rs.ac.bg.etf.pp1.ast.Designator_Ident;
 import rs.ac.bg.etf.pp1.ast.FormParDecl_Single;
 import rs.ac.bg.etf.pp1.ast.FormalParamDecl;
 import rs.ac.bg.etf.pp1.ast.FunctionCall;
 import rs.ac.bg.etf.pp1.ast.MethodDecl;
 import rs.ac.bg.etf.pp1.ast.MethodTypeName;
 import rs.ac.bg.etf.pp1.ast.Mulop_MUL;
+import rs.ac.bg.etf.pp1.ast.NewFactor;
+import rs.ac.bg.etf.pp1.ast.NewFactor_Expr;
 import rs.ac.bg.etf.pp1.ast.PrintStmt;
 import rs.ac.bg.etf.pp1.ast.ReturnExpr;
 import rs.ac.bg.etf.pp1.ast.ReturnNoExpr;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
+import rs.ac.bg.etf.pp1.ast.TermExpr;
 import rs.ac.bg.etf.pp1.ast.Term_Mulop;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
 import rs.ac.bg.etf.pp1.ast.VarFactor;
@@ -27,6 +32,7 @@ import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
 
 public class CodeGenerator extends VisitorAdaptor {
 	
@@ -35,6 +41,8 @@ public class CodeGenerator extends VisitorAdaptor {
 	private int paramCnt;
 	
 	private int mainPc;
+	
+	private static final int WORD = 4;
 	
 	public int getMainPc() {
 		return mainPc;
@@ -185,4 +193,66 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	
 	
+	public void visit(NewFactor factor) {
+        Obj classType = factor.getType().obj;
+	    int s = WORD * (classType.getType().getNumberOfFields());
+	    Code.put(Code.new_);
+	    Code.put2(s);
+
+	    Code.put(Code.dup);
+	    Code.loadConst(classType.getAdr());
+        Code.put(Code.putfield);
+        Code.put2(0);
+    }
+	
+	
+	public void visit(NewFactor_Expr factor) {
+		Code.put(Code.newarray);
+        Code.put(factor.struct.getElemType().equals(Tab.charType) ? 0 : 1);
+    }
+		
+	
+   public void visit(DesignatorHelper_Expr dsgn) {
+	   //Code.load(dsgn.getExpr())
+	   
+	   //Code.load(dsgn.getDesignator().obj); 
+	   
+	   int field= Code.get(Code.pop);
+	   Code.put(Code.pop);
+	   Code.load(dsgn.getDesignator().obj);
+	   Code.put(Code.const_n+field);
+	   /*if (dsgn.obj.getType().getKind()==Struct.Array) {
+    	   int field= Code.get(Code.pop);
+    	   Code.put(Code.pop);
+    	   Code.load(dsgn.getDesignator().obj);
+    	   Code.put(Code.const_n+field);
+    	   Code.put(Code.astore);
+    	   System.out.println("lalalal");
+    	   //Code.put(Code.load_n);
+   			}
+	    */
+    }
+   
+//   public void visit(TermExpr term) {
+//	   //Code.load(dsgn.getExpr())
+//	   Code.load(dsgn.getDesignator().obj);  
+//    }
+   
+   
+   
+   public void visit(Designator_Ident dsgn) {
+	  // System.out.println("Designator: "+dsgn.getDesignatorHelper().obj.getName()+" type "+dsgn.obj.getType());
+//       if (dsgn.obj.getType().getKind()==Struct.Array) {
+//    	   int field= Code.get(Code.pop);
+//    	   Code.put(Code.pop);
+//    	   Code.load(dsgn.getDesignatorHelper().obj);
+//    	   Code.put(Code.const_n+field);
+//    	   Code.put(Code.astore);
+//    	   //System.out.println("lalalal");
+//    	  // Code.put(Code.load_n);
+//       }     
+   }
+   
+   
+   
 }

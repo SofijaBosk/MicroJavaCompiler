@@ -604,7 +604,7 @@ public class SemanticPass extends VisitorAdaptor {
 
 		desg.obj = Tab.find(desg.getDesignatorHelper().obj.getName());
 		
-		//System.out.println("Designator: "+desg.getDesignatorHelper().obj.getName());
+		System.out.println("Designator: "+desg.getDesignatorHelper().obj.getName()+" type "+desg.obj.getType());
 		currentDesignator=desg.obj;
 	    if (desg.obj.equals(Tab.noObj)) {
 	        report_error("Greska (" +desg.getDesignatorHelper().obj.getName() + ") nije nadjeno",desg);
@@ -650,6 +650,8 @@ public class SemanticPass extends VisitorAdaptor {
     	designator.obj = obj;
     	//System.out.println("DesignatorHelper_None "+designator.getName());
     }
+    
+   
     
     
     public boolean passed(){

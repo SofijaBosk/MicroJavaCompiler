@@ -7,8 +7,14 @@ program MJProgram
 		return c;
 	}
 	
-	int main() int y; {
+	int main() int y; int z[]; int p; {
 		x=3;
+		
+		z=new int[3];
+		
+		z[0]=5;
+		p=z[0];
+		
 		
 		y=x+1;
 		y++;
@@ -16,7 +22,7 @@ program MJProgram
 		
 		print(2);
 		print(y);
-		
+		print(p);
 		return 0;
 	}
 }
