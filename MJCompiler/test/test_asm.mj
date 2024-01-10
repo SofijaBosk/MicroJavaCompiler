@@ -10,8 +10,9 @@ program MJProgram
 	int main() int y; {
 		x=3;
 		
-		y=6+x;
+		y=x+1;
 		y++;
+		y=y*2;
 		
 		print(2);
 		print(y);

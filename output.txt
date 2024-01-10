@@ -14,13 +14,17 @@ disasm:
      [java] 10: enter 0 1
      [java] 13: const_3
      [java] 14: putstatic 0
-     [java] 17: const 6
-     [java] 22: getstatic 0
+     [java] 17: getstatic 0
+     [java] 20: const_1
+     [java] 21: add
+     [java] 22: store_0
+     [java] 23: load_0
+     [java] 24: const_1
      [java] 25: add
      [java] 26: store_0
      [java] 27: load_0
-     [java] 28: const_1
-     [java] 29: add
+     [java] 28: const_2
+     [java] 29: mul
      [java] 30: store_0
      [java] 31: const_2
      [java] 32: const_5
@@ -37,4 +41,4 @@ runObj:
      [java]     2   10
      [java] Completion took 0 ms
 BUILD SUCCESSFUL
-Total time: 407 milliseconds
+Total time: 396 milliseconds

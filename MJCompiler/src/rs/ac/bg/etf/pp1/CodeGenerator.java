@@ -15,10 +15,12 @@ import rs.ac.bg.etf.pp1.ast.FormalParamDecl;
 import rs.ac.bg.etf.pp1.ast.FunctionCall;
 import rs.ac.bg.etf.pp1.ast.MethodDecl;
 import rs.ac.bg.etf.pp1.ast.MethodTypeName;
+import rs.ac.bg.etf.pp1.ast.Mulop_MUL;
 import rs.ac.bg.etf.pp1.ast.PrintStmt;
 import rs.ac.bg.etf.pp1.ast.ReturnExpr;
 import rs.ac.bg.etf.pp1.ast.ReturnNoExpr;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
+import rs.ac.bg.etf.pp1.ast.Term_Mulop;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
 import rs.ac.bg.etf.pp1.ast.VarFactor;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
@@ -166,5 +168,21 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.add);
 		Code.store(stmt.getDesignator().obj);
 	}
+	
+	@Override
+	public void visit(Term_Mulop term) {
+//		Code.load(new Obj(Obj.Var, , term.getTerm().struct));
+//		Code.load(new Obj(Obj.Var, "$", term.getFactor().struct));
+//		Code.put(Code.mul);
+//		//Code.store(stmt.getDesignator().obj);
+		Code.put(Code.mul);
+	}
+	
+	
+//	 public void visit(Mulop_MUL mulop_mul) {
+//			Code.put(Code.mul);
+//	 }
+	
+	
 	
 }
