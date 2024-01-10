@@ -1,66 +1,63 @@
-INFO  13:17:27,196 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
-INFO  13:17:27,256 - #2 program
-INFO  13:17:27,256 - #53 MJProgram
-INFO  13:17:27,256 - #53 int
-INFO  13:17:27,258 - #53 x
-INFO  13:17:27,259 - #5 ;
-INFO  13:17:27,260 - #53 int
-INFO  13:17:27,261 - #53 y
-INFO  13:17:27,261 - #5 ;
-INFO  13:17:27,261 - #3 {
-INFO  13:17:27,261 - #53 int
-INFO  13:17:27,262 - #53 k
-INFO  13:17:27,262 - #6 (
-INFO  13:17:27,263 - #7 )
-INFO  13:17:27,264 - #53 int
-INFO  13:17:27,266 - #53 c
-INFO  13:17:27,266 - #5 ;
-INFO  13:17:27,266 - #3 {
-INFO  13:17:27,266 - #53 c
-INFO  13:17:27,267 - #20 =
-INFO  13:17:27,268 - #17 1
-INFO  13:17:27,269 - #5 ;
-INFO  13:17:27,276 - #9 return
-INFO  13:17:27,276 - #53 c
-INFO  13:17:27,276 - #5 ;
-INFO  13:17:27,276 - #4 }
-INFO  13:17:27,277 - #53 int
-INFO  13:17:27,278 - #53 main
-INFO  13:17:27,278 - #6 (
-INFO  13:17:27,278 - #7 )
-INFO  13:17:27,278 - #53 int
-INFO  13:17:27,278 - #53 y
-INFO  13:17:27,279 - #5 ;
-INFO  13:17:27,279 - #3 {
-INFO  13:17:27,279 - #53 x
-INFO  13:17:27,279 - #20 =
-INFO  13:17:27,279 - #17 3
-INFO  13:17:27,279 - #5 ;
-INFO  13:17:27,279 - #53 y
-INFO  13:17:27,279 - #20 =
-INFO  13:17:27,279 - #17 6
-INFO  13:17:27,280 - #10 +
-INFO  13:17:27,280 - #53 x
-INFO  13:17:27,282 - #5 ;
-INFO  13:17:27,282 - #53 y
-INFO  13:17:27,282 - #43 ++
-INFO  13:17:27,282 - #5 ;
-INFO  13:17:27,282 - #12 print
-INFO  13:17:27,283 - #6 (
-INFO  13:17:27,283 - #17 2
-INFO  13:17:27,283 - #7 )
-INFO  13:17:27,283 - #5 ;
-INFO  13:17:27,283 - #12 print
-INFO  13:17:27,283 - #6 (
-INFO  13:17:27,284 - #53 y
-INFO  13:17:27,284 - #7 )
-INFO  13:17:27,284 - #5 ;
-INFO  13:17:27,284 - #9 return
-INFO  13:17:27,284 - #17 0
-INFO  13:17:27,284 - #5 ;
-INFO  13:17:27,284 - #4 }
-INFO  13:17:27,284 - #4 }
-INFO  13:17:27,291 - Program(
+INFO  13:06:53,854 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  13:06:53,911 - #2 program
+INFO  13:06:53,911 - #53 MJProgram
+INFO  13:06:53,911 - #53 int
+INFO  13:06:53,913 - #53 x
+INFO  13:06:53,914 - #5 ;
+INFO  13:06:53,914 - #53 int
+INFO  13:06:53,915 - #53 y
+INFO  13:06:53,915 - #5 ;
+INFO  13:06:53,915 - #3 {
+INFO  13:06:53,915 - #53 int
+INFO  13:06:53,916 - #53 k
+INFO  13:06:53,916 - #6 (
+INFO  13:06:53,917 - #7 )
+INFO  13:06:53,918 - #53 int
+INFO  13:06:53,919 - #53 c
+INFO  13:06:53,919 - #5 ;
+INFO  13:06:53,920 - #3 {
+INFO  13:06:53,920 - #53 c
+INFO  13:06:53,920 - #20 =
+INFO  13:06:53,921 - #17 1
+INFO  13:06:53,922 - #5 ;
+INFO  13:06:53,927 - #9 return
+INFO  13:06:53,928 - #53 c
+INFO  13:06:53,928 - #5 ;
+INFO  13:06:53,928 - #4 }
+INFO  13:06:53,928 - #53 int
+INFO  13:06:53,929 - #53 main
+INFO  13:06:53,929 - #6 (
+INFO  13:06:53,929 - #7 )
+INFO  13:06:53,929 - #53 int
+INFO  13:06:53,929 - #53 y
+INFO  13:06:53,930 - #5 ;
+INFO  13:06:53,930 - #3 {
+INFO  13:06:53,930 - #53 x
+INFO  13:06:53,930 - #20 =
+INFO  13:06:53,930 - #17 3
+INFO  13:06:53,930 - #5 ;
+INFO  13:06:53,930 - #53 y
+INFO  13:06:53,930 - #20 =
+INFO  13:06:53,930 - #17 6
+INFO  13:06:53,930 - #10 +
+INFO  13:06:53,931 - #53 x
+INFO  13:06:53,932 - #5 ;
+INFO  13:06:53,932 - #12 print
+INFO  13:06:53,932 - #6 (
+INFO  13:06:53,932 - #17 2
+INFO  13:06:53,932 - #7 )
+INFO  13:06:53,933 - #5 ;
+INFO  13:06:53,933 - #12 print
+INFO  13:06:53,933 - #6 (
+INFO  13:06:53,933 - #53 y
+INFO  13:06:53,933 - #7 )
+INFO  13:06:53,933 - #5 ;
+INFO  13:06:53,933 - #9 return
+INFO  13:06:53,933 - #17 0
+INFO  13:06:53,934 - #5 ;
+INFO  13:06:53,934 - #4 }
+INFO  13:06:53,934 - #4 }
+INFO  13:06:53,940 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -216,77 +213,64 @@ INFO  13:17:27,291 - Program(
           Statements(
             Statements(
               Statements(
-                Statements(
-                  NoStmt(
-                  ) [NoStmt]
-                  MatchedStmt(
-                    DesignatorStatementStmt(
-                      Assignment(
-                        Designator_Ident(
-                          DesignatorHelper_None(
-                           x
-                          ) [DesignatorHelper_None]
-                        ) [Designator_Ident]
-                        AssignopDerived1(
-                        ) [AssignopDerived1]
-                        TermExpr(
-                          Term_Factor(
-                            ConstFactor(
-                              ConstValue_Num(
-                               3
-                              ) [ConstValue_Num]
-                            ) [ConstFactor]
-                          ) [Term_Factor]
-                        ) [TermExpr]
-                      ) [Assignment]
-                    ) [DesignatorStatementStmt]
-                  ) [MatchedStmt]
-                ) [Statements]
+                NoStmt(
+                ) [NoStmt]
                 MatchedStmt(
                   DesignatorStatementStmt(
                     Assignment(
                       Designator_Ident(
                         DesignatorHelper_None(
-                         y
+                         x
                         ) [DesignatorHelper_None]
                       ) [Designator_Ident]
                       AssignopDerived1(
                       ) [AssignopDerived1]
-                      AddExpr(
-                        TermExpr(
-                          Term_Factor(
-                            ConstFactor(
-                              ConstValue_Num(
-                               6
-                              ) [ConstValue_Num]
-                            ) [ConstFactor]
-                          ) [Term_Factor]
-                        ) [TermExpr]
-                        Addop_PLUS(
-                        ) [Addop_PLUS]
+                      TermExpr(
                         Term_Factor(
-                          VarFactor(
-                            Designator_Ident(
-                              DesignatorHelper_None(
-                               x
-                              ) [DesignatorHelper_None]
-                            ) [Designator_Ident]
-                          ) [VarFactor]
+                          ConstFactor(
+                            ConstValue_Num(
+                             3
+                            ) [ConstValue_Num]
+                          ) [ConstFactor]
                         ) [Term_Factor]
-                      ) [AddExpr]
+                      ) [TermExpr]
                     ) [Assignment]
                   ) [DesignatorStatementStmt]
                 ) [MatchedStmt]
               ) [Statements]
               MatchedStmt(
                 DesignatorStatementStmt(
-                  DesignatorStatement_INC(
+                  Assignment(
                     Designator_Ident(
                       DesignatorHelper_None(
                        y
                       ) [DesignatorHelper_None]
                     ) [Designator_Ident]
-                  ) [DesignatorStatement_INC]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    AddExpr(
+                      TermExpr(
+                        Term_Factor(
+                          ConstFactor(
+                            ConstValue_Num(
+                             6
+                            ) [ConstValue_Num]
+                          ) [ConstFactor]
+                        ) [Term_Factor]
+                      ) [TermExpr]
+                      Addop_PLUS(
+                      ) [Addop_PLUS]
+                      Term_Factor(
+                        VarFactor(
+                          Designator_Ident(
+                            DesignatorHelper_None(
+                             x
+                            ) [DesignatorHelper_None]
+                          ) [Designator_Ident]
+                        ) [VarFactor]
+                      ) [Term_Factor]
+                    ) [AddExpr]
+                  ) [Assignment]
                 ) [DesignatorStatementStmt]
               ) [MatchedStmt]
             ) [Statements]
@@ -341,18 +325,18 @@ INFO  13:17:27,291 - Program(
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  13:17:27,291 - ===================================
-INFO  13:17:27,294 - Deklarisana promenljiva x na liniji 2
-INFO  13:17:27,295 - Deklarisana promenljiva y na liniji 2
-INFO  13:17:27,295 - Obradjuje se funkcija k na liniji 5
-INFO  13:17:27,295 - Deklarisana promenljiva c na liniji 5
-INFO  13:17:27,295 - Obradjuje se funkcija main na liniji 10
-INFO  13:17:27,295 - Deklarisana promenljiva y na liniji 10
-INFO  13:17:27,295 -  Deklarisanih lokalnih promenljivih ima = 4
-INFO  13:17:27,296 -  Globalne promenljive = 2
-INFO  13:17:27,296 -  Globalni nizovi = 0
-INFO  13:17:27,296 -  Lokalne promenjive u main = 1
-INFO  13:17:27,296 -  Lokalne promenjive u nVars = 0
-INFO  13:17:27,296 - ===================================
-INFO  13:17:27,296 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
-INFO  13:17:27,300 - Parsiranje uspesno zavrseno!
+INFO  13:06:53,941 - ===================================
+INFO  13:06:53,944 - Deklarisana promenljiva x na liniji 2
+INFO  13:06:53,945 - Deklarisana promenljiva y na liniji 2
+INFO  13:06:53,945 - Obradjuje se funkcija k na liniji 5
+INFO  13:06:53,945 - Deklarisana promenljiva c na liniji 5
+INFO  13:06:53,945 - Obradjuje se funkcija main na liniji 10
+INFO  13:06:53,945 - Deklarisana promenljiva y na liniji 10
+INFO  13:06:53,946 -  Deklarisanih lokalnih promenljivih ima = 4
+INFO  13:06:53,946 -  Globalne promenljive = 2
+INFO  13:06:53,946 -  Globalni nizovi = 0
+INFO  13:06:53,946 -  Lokalne promenjive u main = 1
+INFO  13:06:53,946 -  Lokalne promenjive u nVars = 0
+INFO  13:06:53,946 - ===================================
+INFO  13:06:53,947 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  13:06:53,950 - Parsiranje uspesno zavrseno!

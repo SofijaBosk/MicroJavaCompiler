@@ -1,66 +1,61 @@
-INFO  13:17:27,196 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
-INFO  13:17:27,256 - #2 program
-INFO  13:17:27,256 - #53 MJProgram
-INFO  13:17:27,256 - #53 int
-INFO  13:17:27,258 - #53 x
-INFO  13:17:27,259 - #5 ;
-INFO  13:17:27,260 - #53 int
-INFO  13:17:27,261 - #53 y
-INFO  13:17:27,261 - #5 ;
-INFO  13:17:27,261 - #3 {
-INFO  13:17:27,261 - #53 int
-INFO  13:17:27,262 - #53 k
-INFO  13:17:27,262 - #6 (
-INFO  13:17:27,263 - #7 )
-INFO  13:17:27,264 - #53 int
-INFO  13:17:27,266 - #53 c
-INFO  13:17:27,266 - #5 ;
-INFO  13:17:27,266 - #3 {
-INFO  13:17:27,266 - #53 c
-INFO  13:17:27,267 - #20 =
-INFO  13:17:27,268 - #17 1
-INFO  13:17:27,269 - #5 ;
-INFO  13:17:27,276 - #9 return
-INFO  13:17:27,276 - #53 c
-INFO  13:17:27,276 - #5 ;
-INFO  13:17:27,276 - #4 }
-INFO  13:17:27,277 - #53 int
-INFO  13:17:27,278 - #53 main
-INFO  13:17:27,278 - #6 (
-INFO  13:17:27,278 - #7 )
-INFO  13:17:27,278 - #53 int
-INFO  13:17:27,278 - #53 y
-INFO  13:17:27,279 - #5 ;
-INFO  13:17:27,279 - #3 {
-INFO  13:17:27,279 - #53 x
-INFO  13:17:27,279 - #20 =
-INFO  13:17:27,279 - #17 3
-INFO  13:17:27,279 - #5 ;
-INFO  13:17:27,279 - #53 y
-INFO  13:17:27,279 - #20 =
-INFO  13:17:27,279 - #17 6
-INFO  13:17:27,280 - #10 +
-INFO  13:17:27,280 - #53 x
-INFO  13:17:27,282 - #5 ;
-INFO  13:17:27,282 - #53 y
-INFO  13:17:27,282 - #43 ++
-INFO  13:17:27,282 - #5 ;
-INFO  13:17:27,282 - #12 print
-INFO  13:17:27,283 - #6 (
-INFO  13:17:27,283 - #17 2
-INFO  13:17:27,283 - #7 )
-INFO  13:17:27,283 - #5 ;
-INFO  13:17:27,283 - #12 print
-INFO  13:17:27,283 - #6 (
-INFO  13:17:27,284 - #53 y
-INFO  13:17:27,284 - #7 )
-INFO  13:17:27,284 - #5 ;
-INFO  13:17:27,284 - #9 return
-INFO  13:17:27,284 - #17 0
-INFO  13:17:27,284 - #5 ;
-INFO  13:17:27,284 - #4 }
-INFO  13:17:27,284 - #4 }
-INFO  13:17:27,291 - Program(
+INFO  13:06:17,234 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  13:06:17,293 - #2 program
+INFO  13:06:17,293 - #53 MJProgram
+INFO  13:06:17,293 - #53 int
+INFO  13:06:17,295 - #53 x
+INFO  13:06:17,296 - #5 ;
+INFO  13:06:17,297 - #53 int
+INFO  13:06:17,298 - #53 y
+INFO  13:06:17,298 - #5 ;
+INFO  13:06:17,298 - #3 {
+INFO  13:06:17,298 - #53 int
+INFO  13:06:17,299 - #53 k
+INFO  13:06:17,299 - #6 (
+INFO  13:06:17,300 - #7 )
+INFO  13:06:17,301 - #53 int
+INFO  13:06:17,302 - #53 c
+INFO  13:06:17,302 - #5 ;
+INFO  13:06:17,302 - #3 {
+INFO  13:06:17,303 - #53 c
+INFO  13:06:17,303 - #20 =
+INFO  13:06:17,304 - #17 1
+INFO  13:06:17,304 - #5 ;
+INFO  13:06:17,312 - #9 return
+INFO  13:06:17,312 - #53 c
+INFO  13:06:17,312 - #5 ;
+INFO  13:06:17,312 - #4 }
+INFO  13:06:17,312 - #53 int
+INFO  13:06:17,313 - #53 main
+INFO  13:06:17,313 - #6 (
+INFO  13:06:17,313 - #7 )
+INFO  13:06:17,313 - #53 int
+INFO  13:06:17,313 - #53 y
+INFO  13:06:17,314 - #5 ;
+INFO  13:06:17,314 - #3 {
+INFO  13:06:17,314 - #53 x
+INFO  13:06:17,314 - #20 =
+INFO  13:06:17,314 - #17 3
+INFO  13:06:17,314 - #5 ;
+INFO  13:06:17,314 - #53 y
+INFO  13:06:17,314 - #20 =
+INFO  13:06:17,314 - #17 6
+INFO  13:06:17,314 - #5 ;
+INFO  13:06:17,314 - #12 print
+INFO  13:06:17,315 - #6 (
+INFO  13:06:17,315 - #17 2
+INFO  13:06:17,315 - #7 )
+INFO  13:06:17,316 - #5 ;
+INFO  13:06:17,316 - #12 print
+INFO  13:06:17,316 - #6 (
+INFO  13:06:17,316 - #53 x
+INFO  13:06:17,316 - #7 )
+INFO  13:06:17,316 - #5 ;
+INFO  13:06:17,316 - #9 return
+INFO  13:06:17,316 - #17 0
+INFO  13:06:17,316 - #5 ;
+INFO  13:06:17,316 - #4 }
+INFO  13:06:17,316 - #4 }
+INFO  13:06:17,323 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -216,77 +211,51 @@ INFO  13:17:27,291 - Program(
           Statements(
             Statements(
               Statements(
-                Statements(
-                  NoStmt(
-                  ) [NoStmt]
-                  MatchedStmt(
-                    DesignatorStatementStmt(
-                      Assignment(
-                        Designator_Ident(
-                          DesignatorHelper_None(
-                           x
-                          ) [DesignatorHelper_None]
-                        ) [Designator_Ident]
-                        AssignopDerived1(
-                        ) [AssignopDerived1]
-                        TermExpr(
-                          Term_Factor(
-                            ConstFactor(
-                              ConstValue_Num(
-                               3
-                              ) [ConstValue_Num]
-                            ) [ConstFactor]
-                          ) [Term_Factor]
-                        ) [TermExpr]
-                      ) [Assignment]
-                    ) [DesignatorStatementStmt]
-                  ) [MatchedStmt]
-                ) [Statements]
+                NoStmt(
+                ) [NoStmt]
                 MatchedStmt(
                   DesignatorStatementStmt(
                     Assignment(
                       Designator_Ident(
                         DesignatorHelper_None(
-                         y
+                         x
                         ) [DesignatorHelper_None]
                       ) [Designator_Ident]
                       AssignopDerived1(
                       ) [AssignopDerived1]
-                      AddExpr(
-                        TermExpr(
-                          Term_Factor(
-                            ConstFactor(
-                              ConstValue_Num(
-                               6
-                              ) [ConstValue_Num]
-                            ) [ConstFactor]
-                          ) [Term_Factor]
-                        ) [TermExpr]
-                        Addop_PLUS(
-                        ) [Addop_PLUS]
+                      TermExpr(
                         Term_Factor(
-                          VarFactor(
-                            Designator_Ident(
-                              DesignatorHelper_None(
-                               x
-                              ) [DesignatorHelper_None]
-                            ) [Designator_Ident]
-                          ) [VarFactor]
+                          ConstFactor(
+                            ConstValue_Num(
+                             3
+                            ) [ConstValue_Num]
+                          ) [ConstFactor]
                         ) [Term_Factor]
-                      ) [AddExpr]
+                      ) [TermExpr]
                     ) [Assignment]
                   ) [DesignatorStatementStmt]
                 ) [MatchedStmt]
               ) [Statements]
               MatchedStmt(
                 DesignatorStatementStmt(
-                  DesignatorStatement_INC(
+                  Assignment(
                     Designator_Ident(
                       DesignatorHelper_None(
                        y
                       ) [DesignatorHelper_None]
                     ) [Designator_Ident]
-                  ) [DesignatorStatement_INC]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    TermExpr(
+                      Term_Factor(
+                        ConstFactor(
+                          ConstValue_Num(
+                           6
+                          ) [ConstValue_Num]
+                        ) [ConstFactor]
+                      ) [Term_Factor]
+                    ) [TermExpr]
+                  ) [Assignment]
                 ) [DesignatorStatementStmt]
               ) [MatchedStmt]
             ) [Statements]
@@ -313,7 +282,7 @@ INFO  13:17:27,291 - Program(
                   VarFactor(
                     Designator_Ident(
                       DesignatorHelper_None(
-                       y
+                       x
                       ) [DesignatorHelper_None]
                     ) [Designator_Ident]
                   ) [VarFactor]
@@ -341,18 +310,18 @@ INFO  13:17:27,291 - Program(
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  13:17:27,291 - ===================================
-INFO  13:17:27,294 - Deklarisana promenljiva x na liniji 2
-INFO  13:17:27,295 - Deklarisana promenljiva y na liniji 2
-INFO  13:17:27,295 - Obradjuje se funkcija k na liniji 5
-INFO  13:17:27,295 - Deklarisana promenljiva c na liniji 5
-INFO  13:17:27,295 - Obradjuje se funkcija main na liniji 10
-INFO  13:17:27,295 - Deklarisana promenljiva y na liniji 10
-INFO  13:17:27,295 -  Deklarisanih lokalnih promenljivih ima = 4
-INFO  13:17:27,296 -  Globalne promenljive = 2
-INFO  13:17:27,296 -  Globalni nizovi = 0
-INFO  13:17:27,296 -  Lokalne promenjive u main = 1
-INFO  13:17:27,296 -  Lokalne promenjive u nVars = 0
-INFO  13:17:27,296 - ===================================
-INFO  13:17:27,296 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
-INFO  13:17:27,300 - Parsiranje uspesno zavrseno!
+INFO  13:06:17,323 - ===================================
+INFO  13:06:17,326 - Deklarisana promenljiva x na liniji 2
+INFO  13:06:17,326 - Deklarisana promenljiva y na liniji 2
+INFO  13:06:17,327 - Obradjuje se funkcija k na liniji 5
+INFO  13:06:17,327 - Deklarisana promenljiva c na liniji 5
+INFO  13:06:17,327 - Obradjuje se funkcija main na liniji 10
+INFO  13:06:17,328 - Deklarisana promenljiva y na liniji 10
+INFO  13:06:17,328 -  Deklarisanih lokalnih promenljivih ima = 4
+INFO  13:06:17,328 -  Globalne promenljive = 2
+INFO  13:06:17,328 -  Globalni nizovi = 0
+INFO  13:06:17,328 -  Lokalne promenjive u main = 1
+INFO  13:06:17,328 -  Lokalne promenjive u nVars = 0
+INFO  13:06:17,328 - ===================================
+INFO  13:06:17,329 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  13:06:17,332 - Parsiranje uspesno zavrseno!

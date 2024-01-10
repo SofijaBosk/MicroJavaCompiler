@@ -8,6 +8,8 @@ import rs.ac.bg.etf.pp1.ast.ConstFactor;
 import rs.ac.bg.etf.pp1.ast.ConstValue_Num;
 import rs.ac.bg.etf.pp1.ast.Designator;
 import rs.ac.bg.etf.pp1.ast.DesignatorHelper_None;
+import rs.ac.bg.etf.pp1.ast.DesignatorStatement_DEC;
+import rs.ac.bg.etf.pp1.ast.DesignatorStatement_INC;
 import rs.ac.bg.etf.pp1.ast.FormParDecl_Single;
 import rs.ac.bg.etf.pp1.ast.FormalParamDecl;
 import rs.ac.bg.etf.pp1.ast.FunctionCall;
@@ -114,11 +116,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(VarFactor dsgn) {
-//		Obj a= Tab.find(dsgn.getName());
-//		a.ge
-//		Code.load(new Obj(Obj.Con, "$", dsgn.obj, Tab.find(dsgn.getName()), 0));
-		Code.load(dsgn.getDesignator().obj);
-		
+		Code.load(dsgn.getDesignator().obj); //bitno da se stavi load kod VarFactor-a da bi mogla da se ucita promenjiva		
 	}
 	
 	
@@ -152,4 +150,21 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(AddExpr AddExpr) {
 		Code.put(Code.add);
 	}
+	
+	@Override
+	public void visit(DesignatorStatement_INC stmt) {		
+		Code.load(stmt.getDesignator().obj);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		Code.store(stmt.getDesignator().obj);
+	}
+	
+	@Override
+	public void visit(DesignatorStatement_DEC stmt) {
+		Code.load(stmt.getDesignator().obj);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		Code.store(stmt.getDesignator().obj);
+	}
+	
 }

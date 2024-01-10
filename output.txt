@@ -1,6 +1,6 @@
 Buildfile: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\build.xml
 disasm:
-     [java] codeSize=30
+     [java] codeSize=42
      [java] dataSize=2
      [java] mainPC=10
      [java] 0: enter 0 0
@@ -14,19 +14,27 @@ disasm:
      [java] 10: enter 0 1
      [java] 13: const_3
      [java] 14: putstatic 0
-     [java] 17: const_2
-     [java] 18: const_5
-     [java] 19: print
-     [java] 20: getstatic 0
-     [java] 23: const_5
-     [java] 24: print
-     [java] 25: const_0
-     [java] 26: exit
-     [java] 27: return
-     [java] 28: exit
-     [java] 29: return
+     [java] 17: const 6
+     [java] 22: getstatic 0
+     [java] 25: add
+     [java] 26: store_0
+     [java] 27: load_0
+     [java] 28: const_1
+     [java] 29: add
+     [java] 30: store_0
+     [java] 31: const_2
+     [java] 32: const_5
+     [java] 33: print
+     [java] 34: load_0
+     [java] 35: const_5
+     [java] 36: print
+     [java] 37: const_0
+     [java] 38: exit
+     [java] 39: return
+     [java] 40: exit
+     [java] 41: return
 runObj:
-     [java]     2    3
+     [java]     2   10
      [java] Completion took 0 ms
 BUILD SUCCESSFUL
-Total time: 220 milliseconds
+Total time: 407 milliseconds

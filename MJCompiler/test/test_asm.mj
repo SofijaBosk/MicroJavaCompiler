@@ -7,13 +7,14 @@ program MJProgram
 		return c;
 	}
 	
-	int main() {
+	int main() int y; {
 		x=3;
 		
-		print(2);
-		print(x);
+		y=6+x;
+		y++;
 		
-		//getstatic_0
+		print(2);
+		print(y);
 		
 		return 0;
 	}
