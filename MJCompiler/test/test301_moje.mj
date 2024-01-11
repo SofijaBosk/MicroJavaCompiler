@@ -24,8 +24,10 @@ namespace Nizovi{
 		int bodovi;
 		bool bt;
 		int provera;
+		char ccc;
 	{
 		//bt=true;
+		ccc= 'g';
 		provera=6;
 		bodovi = 0;
 		bodovi++;

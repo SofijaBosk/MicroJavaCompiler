@@ -5,6 +5,7 @@ import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.AddExpr;
 import rs.ac.bg.etf.pp1.ast.Assignment;
 import rs.ac.bg.etf.pp1.ast.ConstFactor;
+import rs.ac.bg.etf.pp1.ast.ConstValue_Char;
 import rs.ac.bg.etf.pp1.ast.ConstValue_Num;
 import rs.ac.bg.etf.pp1.ast.Designator;
 import rs.ac.bg.etf.pp1.ast.DesignatorHelper_Expr;
@@ -125,6 +126,11 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.load(new Obj(Obj.Con, "$", cnst.struct, cnst.getN1(), 0));
 	}
 	
+	@Override
+	public void visit(ConstValue_Char cnst) {	
+		Code.load(new Obj(Obj.Con, "$", cnst.struct, cnst.getC1(), 0));
+	}
+	
 	public void visit(VarFactor dsgn) {
 		Code.load(dsgn.getDesignator().obj); //bitno da se stavi load kod VarFactor-a da bi mogla da se ucita promenjiva		
 	}
@@ -152,8 +158,13 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(PrintStmt printStmt) {	
-		Code.put(Code.const_5);
-		Code.put(Code.print);
+		if (printStmt.getExpr().struct.equals(Tab.charType)) {
+            Code.put(Code.const_1);
+            Code.put(Code.bprint);
+        } else {
+            Code.put(Code.const_5); // TODO: sta za bool?
+            Code.put(Code.print);
+        }
 	}
 	
 	@Override

@@ -1,62 +1,54 @@
 Buildfile: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\build.xml
 disasm:
-     [java] codeSize=61
+     [java] codeSize=51
      [java] dataSize=2
-     [java] mainPC=10
+     [java] mainPC=0
      [java] 0: enter 0 0
-     [java] 3: const_1
-     [java] 4: store_0
-     [java] 5: load_0
-     [java] 6: exit
-     [java] 7: return
-     [java] 8: exit
-     [java] 9: return
-     [java] 10: enter 0 1
-     [java] 13: const_3
-     [java] 14: putstatic 0
-     [java] 17: const_3
-     [java] 18: newarray 1
-     [java] 20: store_1
-     [java] 21: const_0
-     [java] 22: pop
-     [java] 23: load_1
-     [java] 24: const_0
-     [java] 25: const_5
-     [java] 26: astore
-     [java] 27: const_0
-     [java] 28: pop
-     [java] 29: load_1
-     [java] 30: const_0
-     [java] 31: aload
-     [java] 32: store_2
-     [java] 33: getstatic 0
-     [java] 36: const_1
-     [java] 37: add
-     [java] 38: store_0
-     [java] 39: load_0
-     [java] 40: const_1
-     [java] 41: add
-     [java] 42: store_0
-     [java] 43: load_0
-     [java] 44: const_2
-     [java] 45: mul
-     [java] 46: store_0
-     [java] 47: const_2
-     [java] 48: const_5
-     [java] 49: print
-     [java] 50: load_0
-     [java] 51: const_5
-     [java] 52: print
-     [java] 53: load_2
-     [java] 54: const_5
-     [java] 55: print
-     [java] 56: const_0
-     [java] 57: exit
-     [java] 58: return
-     [java] 59: exit
-     [java] 60: return
+     [java] 3: const_3
+     [java] 4: putstatic 0
+     [java] 7: const_3
+     [java] 8: newarray 1
+     [java] 10: store_1
+     [java] 11: const_0
+     [java] 12: pop
+     [java] 13: load_1
+     [java] 14: const_0
+     [java] 15: const_5
+     [java] 16: astore
+     [java] 17: const_0
+     [java] 18: pop
+     [java] 19: load_1
+     [java] 20: const_0
+     [java] 21: aload
+     [java] 22: store_2
+     [java] 23: getstatic 0
+     [java] 26: const_1
+     [java] 27: add
+     [java] 28: store_0
+     [java] 29: load_0
+     [java] 30: const_1
+     [java] 31: add
+     [java] 32: store_0
+     [java] 33: load_0
+     [java] 34: const_2
+     [java] 35: mul
+     [java] 36: store_0
+     [java] 37: const_2
+     [java] 38: const_5
+     [java] 39: print
+     [java] 40: load_0
+     [java] 41: const_5
+     [java] 42: print
+     [java] 43: load_2
+     [java] 44: const_5
+     [java] 45: print
+     [java] 46: const_0
+     [java] 47: exit
+     [java] 48: return
+     [java] 49: exit
+     [java] 50: return
 runObj:
      [java]     2   10    5
      [java] Completion took 0 ms
 BUILD SUCCESSFUL
-Total time: 412 milliseconds
+Total time: 396 milliseconds

@@ -1,15 +1,17 @@
 program MJProgram
+
+namespace Konstante{
+	const int nula = 0;
+	const int jedan = 1;
+	const int pet = 5;
+	{}
+}
 	int x; int y;
 {
-	
-	int k () int c; {
-		c = 1;
-		return c;
-	}
-	
-	int main() int y; int z[]; int p; {
+	int main() int y; int z[]; int p; char c; {
 		x=3;
 		
+		c = 'a';
 		z=new int[3];
 		
 		z[0]=5;

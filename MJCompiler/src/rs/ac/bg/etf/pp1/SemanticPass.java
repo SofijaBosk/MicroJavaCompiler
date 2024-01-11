@@ -371,7 +371,8 @@ public class SemanticPass extends VisitorAdaptor {
     
     
     public void visit(ConstFactor cnst){
-    	cnst.struct = Tab.intType;
+    	
+    	cnst.struct = cnst.getConstValue().struct;
     }
         
    
@@ -436,9 +437,9 @@ public class SemanticPass extends VisitorAdaptor {
 
         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
             report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
-        }
+        }        
         else if(!(desigObj.getType().compatibleWith(assignment.getExpr().struct))){
-        	report_error("Nekompatibilni tipovi u dodeli vrednosti ", assignment);
+        	report_error("Nekompatibilni tipovi u dodeli vrednosti", assignment);
         }
         
     }
@@ -604,7 +605,7 @@ public class SemanticPass extends VisitorAdaptor {
 
 		desg.obj = Tab.find(desg.getDesignatorHelper().obj.getName());
 		
-		System.out.println("Designator: "+desg.getDesignatorHelper().obj.getName()+" type "+desg.obj.getType());
+		//System.out.println("Designator: "+desg.getDesignatorHelper().obj.getName()+" type "+desg.getDesignatorHelper().obj.getType());
 		currentDesignator=desg.obj;
 	    if (desg.obj.equals(Tab.noObj)) {
 	        report_error("Greska (" +desg.getDesignatorHelper().obj.getName() + ") nije nadjeno",desg);
@@ -617,8 +618,11 @@ public class SemanticPass extends VisitorAdaptor {
 //			report_error("Greska "+ currentDesignator.getName()+ " nije niz",desg);
 //		}
 		
-		desg.obj = new Obj(Obj.Elem, "expr" + "_elem", desg.getExpr().struct);
-	
+		//desg.obj = new Obj(Obj.Elem, "expr" + "_elem", desg.getExpr().struct); Ne moze ovako jer ce uvek tip da bude int!!!!
+		
+		desg.obj = new Obj(Obj.Elem, "expr" + "_elem", desg.getDesignator().obj.getType().getElemType());
+		//System.out.println("DesignatorHelper_Expr "+ desg.getDesignator().obj.getName()+"  " + desg.getDesignator().obj.getType()+"   " + desg.getExpr().struct);
+		
 		currentDesignator=Tab.noObj;
 	}
 
@@ -651,8 +655,14 @@ public class SemanticPass extends VisitorAdaptor {
     	//System.out.println("DesignatorHelper_None "+designator.getName());
     }
     
-   
     
+    public void visit(ConstValue_Char ch){
+    	ch.struct = Tab.charType;
+    }
+    public void visit(ConstValue_Num ch){
+    	ch.struct = Tab.intType;
+    }
+     
     
     public boolean passed(){
     	return !errorDetected;
