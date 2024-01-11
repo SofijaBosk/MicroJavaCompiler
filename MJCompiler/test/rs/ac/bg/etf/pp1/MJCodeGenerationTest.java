@@ -62,7 +62,7 @@ public class MJCodeGenerationTest {
 			log.info(" Globalni nizovi = " + v.globalArrayCnt);
 			log.info(" Lokalne promenjive u main = " + v.mainLocalVarCnt);
 			log.info(" Lokalne promenjive u nVars = " + v.nVars);
-			 int dataSize=v.globalVarCnt;
+			 int dataSize=v.globalVarCnt+v.namespaceCnt;
 			
 			log.info("===================================");
 			Tab.dump();

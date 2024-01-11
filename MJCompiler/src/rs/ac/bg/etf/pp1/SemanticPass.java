@@ -29,6 +29,7 @@ public class SemanticPass extends VisitorAdaptor {
 	int globalVarCnt = 0;
 	int mainLocalVarCnt = 0;	
 	int methodCnt=0;
+	int namespaceCnt=0;
 	
 	int globalConstCnt=0;
 	int mainFuncCallCnt=0;
@@ -152,12 +153,13 @@ public class SemanticPass extends VisitorAdaptor {
     	Tab.closeScope();
     }
     
-//    public void visit(NamespaceName nsName){
+    public void visit(NamespaceName nsName){
 //    	nsName.obj = Tab.insert(Obj.Type, nsName.getName(), Tab.noType);
 //    	//progName.obj - obj koju je insert napravio i stavio u tabelu simbola    	
 //    	Tab.openScope();
 //    	 System.out.println("Deklarisan namespace"+nsName.getName());
-//    }
+    	namespaceCnt++;
+    }
 //    
 //    public void visit(NamespaceProg nsProgram){
 //    	//nVars = Tab.currentScope.getnVars();
@@ -301,7 +303,7 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(ReturnExpr returnExpr){
     	returnFound = true;
     	Struct currMethType = currentMethod.getType();
-    	if(!currMethType.compatibleWith(returnExpr.getExpr().struct)){
+    	if(!currMethType.compatibleWith(returnExpr.getExpr().obj.getType())){
 			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
     	}
     }
@@ -334,26 +336,26 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     public void visit(TermExpr termExpr){
-    	termExpr.struct = termExpr.getTerm().struct;
+    	termExpr.obj = new Obj( termExpr.getTerm().struct.getKind(), "",termExpr.getTerm().struct);
 
     }
     
     public void visit(ParenExprFactor term){
-    	term.struct = term.getExpr().struct;
+    	term.struct = term.getExpr().obj.getType();
 
     }
     
     public void visit(AddExpr addExpr){
-    	Struct te = addExpr.getExpr().struct;
+    	Obj te = addExpr.getExpr().obj;
     	Struct t = addExpr.getTerm().struct;
-    	if(te.equals(t) && te == Tab.intType){
-    		addExpr.struct = te;
+    	if(te.equals(t) && te.getType() == Tab.intType){
+    		addExpr.obj = te;
     	}else{
 			report_error("Nekompatibilni tipovi u izrazu za sabiranje", addExpr);
-			addExpr.struct = Tab.noType;
+			addExpr.obj = Tab.noObj ;
     	}
     	
-    	addExpr.struct = addExpr.getExpr().struct;
+    	addExpr.obj = addExpr.getExpr().obj;
     }
     
     public void visit (Term_Mulop term) {
@@ -372,7 +374,7 @@ public class SemanticPass extends VisitorAdaptor {
     
     public void visit(ConstFactor cnst){
     	
-    	cnst.struct = cnst.getConstValue().struct;
+    	cnst.struct = cnst.getConstValue().obj.getType();
     }
         
    
@@ -410,7 +412,7 @@ public class SemanticPass extends VisitorAdaptor {
     
     
     public void visit(ConstValue_Bool constDecl) { 
-    	constDecl.struct = SystemTableEx.boolType;
+    	constDecl.obj = new Obj(Obj.Con, "", SystemTableEx.boolType, Boolean.valueOf(constDecl.getB1()) ? 1 : 0, Obj.NO_VALUE);
 	}
     
     
@@ -438,7 +440,7 @@ public class SemanticPass extends VisitorAdaptor {
         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
             report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
         }        
-        else if(!(desigObj.getType().compatibleWith(assignment.getExpr().struct))){
+        else if(!(desigObj.getType().compatibleWith(assignment.getExpr().obj.getType()))){
         	report_error("Nekompatibilni tipovi u dodeli vrednosti", assignment);
         }
         
@@ -468,11 +470,11 @@ public class SemanticPass extends VisitorAdaptor {
     
     
     public void visit(ActPars_Single actPars) {
-    	ActParList.peek().add(actPars.getExpr().struct);
+    	ActParList.peek().add(actPars.getExpr().obj.getType());
     }
     
     public void visit(ActPars_List actPars) {
-    	ActParList.peek().add(actPars.getExpr().struct);
+    	ActParList.peek().add(actPars.getExpr().obj.getType());
     }
     
     
@@ -542,7 +544,7 @@ public class SemanticPass extends VisitorAdaptor {
             mainFuncCallCnt++;
         }
 
-        Struct type = stmt.getExpr().struct;
+        Struct type = stmt.getExpr().obj.getType();
 
         if (!type.equals(Tab.intType) && !type.equals(Tab.charType)) {
             report_error("Greska parametar print funkcije je nepravilnog tipa",stmt);
@@ -551,11 +553,11 @@ public class SemanticPass extends VisitorAdaptor {
     
     
     public void visit(CondFact_Expr condFact_expr) {
-        condFact_expr.struct = condFact_expr.getExpr().struct;
+        condFact_expr.struct = condFact_expr.getExpr().obj.getType();
     }
 
     public void visit(CondFact_Relop condFact_relop) {
-        if (!condFact_relop.getExpr().struct.compatibleWith(condFact_relop.getExpr1().struct)) {
+        if (!condFact_relop.getExpr().obj.getType().compatibleWith(condFact_relop.getExpr1().obj.getType())) {
             report_error("Greska tipovi relacionog izraza nisu kompatibilni",condFact_relop);
         } else {
             if (!(condFact_relop.getRelop() instanceof Relop_EQ || condFact_relop.getRelop() instanceof Relop_NEQ)) {
@@ -570,7 +572,7 @@ public class SemanticPass extends VisitorAdaptor {
     	if(!term.getTerm().struct.compatibleWith(Tab.intType)) {
     		report_error("Greska term mora biti tipa int", term);
     	}
-    	term.struct = term.getTerm().struct;
+    	term.obj =new Obj( term.getTerm().struct.getKind(), "",term.getTerm().struct);
     }
     
     
@@ -585,7 +587,7 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     public void visit(NewFactor_Expr factor) {
-       if(!factor.getExpr().struct.equals(Tab.intType))
+       if(!factor.getExpr().obj.getType().equals(Tab.intType))
 	   {
     	   report_error("Greska expr u new iskazu mora biti integer",factor);
 	   }
@@ -657,10 +659,10 @@ public class SemanticPass extends VisitorAdaptor {
     
     
     public void visit(ConstValue_Char ch){
-    	ch.struct = Tab.charType;
+    	ch.obj = new Obj(Obj.Con, "", Tab.charType, ch.getC1(), Obj.NO_VALUE); 
     }
     public void visit(ConstValue_Num ch){
-    	ch.struct = Tab.intType;
+    	ch.obj = new Obj(Obj.Con, "", Tab.intType, ch.getN1(), Obj.NO_VALUE);
     }
      
     

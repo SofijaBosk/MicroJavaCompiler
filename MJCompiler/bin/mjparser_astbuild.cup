@@ -119,8 +119,8 @@ nonterminal NamespaceNT NamespaceNT;
 nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams, NamespaceName, DesignatorStatement;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, Expr, FunctionCall, CondFact, ExprActParsChoice, ConstValue; 
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams, NamespaceName, DesignatorStatement, ConstValue, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, FunctionCall, CondFact, ExprActParsChoice; 
 
 /*Program_START*/
 /*"program" ident {Namespace} {ConstDecl | VarDecl | ClassDecl } "{" {MethodDecl} "}"*/

@@ -6,25 +6,29 @@ namespace Konstante{
 	const int pet = 5;
 	{}
 }
-	int x; int y;
+namespace Nizovi{
+	int niz[];
+	char nizch[];	
+	{}
+}
+	int a;
 {
-	int main() int y; int z[]; int p; char c; {
-		x=3;
+	int main()
+		int bodovi;
+		bool bt;
+		int provera;
+	{
 		
-		c = 'a';
-		z=new int[3];
+		Nizovi::niz = new int[3];
+		Nizovi::niz[Konstante::nula] = Konstante::pet;
+		Nizovi::niz[1] = 2;
+		//Nizovi::niz[Nizovi::niz[Konstante::jedan]] = Nizovi::niz[Nizovi::niz[0]] * 3;
+		//bodovi = Nizovi::niz[2]/Nizovi::niz[0];
+		//print(bodovi);
+		print(Nizovi::niz[1]);
+
 		
-		z[0]=5;
-		p=z[0];
 		
-		
-		y=x+1;
-		y++;
-		y=y*2;
-		
-		print(2);
-		print(y);
-		print(p);
 		return 0;
 	}
 }

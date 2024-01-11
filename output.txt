@@ -1,54 +1,32 @@
 Buildfile: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\build.xml
 disasm:
-     [java] codeSize=51
-     [java] dataSize=2
+     [java] codeSize=33
+     [java] dataSize=3
      [java] mainPC=0
      [java] 0: enter 0 0
      [java] 3: const_3
-     [java] 4: putstatic 0
-     [java] 7: const_3
-     [java] 8: newarray 1
-     [java] 10: store_1
-     [java] 11: const_0
-     [java] 12: pop
-     [java] 13: load_1
-     [java] 14: const_0
-     [java] 15: const_5
-     [java] 16: astore
-     [java] 17: const_0
-     [java] 18: pop
-     [java] 19: load_1
-     [java] 20: const_0
-     [java] 21: aload
-     [java] 22: store_2
-     [java] 23: getstatic 0
-     [java] 26: const_1
-     [java] 27: add
-     [java] 28: store_0
-     [java] 29: load_0
-     [java] 30: const_1
-     [java] 31: add
-     [java] 32: store_0
-     [java] 33: load_0
-     [java] 34: const_2
-     [java] 35: mul
-     [java] 36: store_0
-     [java] 37: const_2
-     [java] 38: const_5
-     [java] 39: print
-     [java] 40: load_0
-     [java] 41: const_5
-     [java] 42: print
-     [java] 43: load_2
-     [java] 44: const_5
-     [java] 45: print
-     [java] 46: const_0
-     [java] 47: exit
-     [java] 48: return
-     [java] 49: exit
-     [java] 50: return
+     [java] 4: newarray 1
+     [java] 6: putstatic 0
+     [java] 9: getstatic 0
+     [java] 12: const_0
+     [java] 13: const_5
+     [java] 14: astore
+     [java] 15: getstatic 0
+     [java] 18: const_1
+     [java] 19: const_2
+     [java] 20: astore
+     [java] 21: getstatic 0
+     [java] 24: const_1
+     [java] 25: aload
+     [java] 26: const_5
+     [java] 27: print
+     [java] 28: const_0
+     [java] 29: exit
+     [java] 30: return
+     [java] 31: exit
+     [java] 32: return
 runObj:
-     [java]     2   10    5
+     [java]     2
      [java] Completion took 0 ms
 BUILD SUCCESSFUL
-Total time: 396 milliseconds
+Total time: 219 milliseconds
