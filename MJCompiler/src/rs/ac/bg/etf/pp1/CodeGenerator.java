@@ -23,6 +23,7 @@ import rs.ac.bg.etf.pp1.ast.FunctionCall;
 import rs.ac.bg.etf.pp1.ast.MethodDecl;
 import rs.ac.bg.etf.pp1.ast.MethodTypeName;
 import rs.ac.bg.etf.pp1.ast.Mulop_DIV;
+import rs.ac.bg.etf.pp1.ast.Mulop_MOD;
 import rs.ac.bg.etf.pp1.ast.Mulop_MUL;
 import rs.ac.bg.etf.pp1.ast.NewFactor;
 import rs.ac.bg.etf.pp1.ast.NewFactor_Expr;
@@ -203,13 +204,32 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(Term_Mulop term) {
-		Code.put(Code.mul);
+		if(term.getMulop() instanceof Mulop_DIV)
+		{
+			Code.put(Code.div);
+		}
+		else if(term.getMulop() instanceof Mulop_MUL)
+		{
+			Code.put(Code.mul);
+		}
+		else if(term.getMulop() instanceof Mulop_MOD)
+		{
+			Code.put(Code.rem);
+		}
+				
 	}
 	
-	@Override
-	public void visit(Mulop_DIV term) {
-		Code.put(Code.div);
-	}
+	
+	
+//	@Override
+//	public void visit(Mulop_MUL term) {
+//		Code.put(Code.mul);
+//	}
+	
+//	@Override
+//	public void visit(Mulop_DIV term) {
+//		Code.put(Code.div);
+//	}
 	
 	
 	
@@ -247,19 +267,9 @@ public class CodeGenerator extends VisitorAdaptor {
    
 	    }
 	
-   public void visit(DesignatorHelper_Expr dsgn) {
-
-	  
-	  // Code.load(dsgn.getDesignator().obj);
-	  // Code.put(Code.dup2);
-	  
-	   //Code.put(Code.aload);
-	   //Obj value=Tab.find(dsgn.getExpr().obj.getName());
-	   //ConstFactor c=(ConstFactor)value;
-	   //Code.load(stack.pop());
-
-	  
-    }
+//   public void visit(DesignatorHelper_Expr dsgn) {
+//	  
+//    }
    
 //   public void visit(TermExpr term) {
 //	   //Code.load(dsgn.getExpr())

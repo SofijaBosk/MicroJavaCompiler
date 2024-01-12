@@ -1,6 +1,6 @@
 Buildfile: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\build.xml
 disasm:
-     [java] codeSize=33
+     [java] codeSize=50
      [java] dataSize=3
      [java] mainPC=0
      [java] 0: enter 0 0
@@ -10,23 +10,36 @@ disasm:
      [java] 9: getstatic 0
      [java] 12: const_0
      [java] 13: const_5
-     [java] 14: astore
-     [java] 15: getstatic 0
-     [java] 18: const_1
-     [java] 19: const_2
-     [java] 20: astore
-     [java] 21: getstatic 0
-     [java] 24: const_1
-     [java] 25: aload
-     [java] 26: const_5
-     [java] 27: print
-     [java] 28: const_0
-     [java] 29: exit
-     [java] 30: return
-     [java] 31: exit
-     [java] 32: return
+     [java] 14: const_2
+     [java] 15: mul
+     [java] 16: astore
+     [java] 17: getstatic 0
+     [java] 20: const_1
+     [java] 21: const_2
+     [java] 22: astore
+     [java] 23: getstatic 0
+     [java] 26: const_0
+     [java] 27: aload
+     [java] 28: getstatic 0
+     [java] 31: const_1
+     [java] 32: aload
+     [java] 33: div
+     [java] 34: store_0
+     [java] 35: load_0
+     [java] 36: const_5
+     [java] 37: print
+     [java] 38: getstatic 0
+     [java] 41: const_0
+     [java] 42: aload
+     [java] 43: const_5
+     [java] 44: print
+     [java] 45: const_0
+     [java] 46: exit
+     [java] 47: return
+     [java] 48: exit
+     [java] 49: return
 runObj:
-     [java]     2
-     [java] Completion took 0 ms
+     [java]     5   10
+     [java] Completion took 1 ms
 BUILD SUCCESSFUL
-Total time: 219 milliseconds
+Total time: 399 milliseconds

@@ -1,135 +1,135 @@
-INFO  13:12:39,442 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
-INFO  13:12:39,505 - #2 program
-INFO  13:12:39,505 - #53 MJProgram
-INFO  13:12:39,505 - #48 namespace
-INFO  13:12:39,507 - #53 Konstante
-INFO  13:12:39,507 - #3 {
-INFO  13:12:39,507 - #21 const
-INFO  13:12:39,508 - #53 int
-INFO  13:12:39,508 - #53 nula
-INFO  13:12:39,508 - #20 =
-INFO  13:12:39,509 - #17 0
-INFO  13:12:39,509 - #5 ;
-INFO  13:12:39,509 - #21 const
-INFO  13:12:39,510 - #53 int
-INFO  13:12:39,511 - #53 jedan
-INFO  13:12:39,511 - #20 =
-INFO  13:12:39,511 - #17 1
-INFO  13:12:39,511 - #5 ;
-INFO  13:12:39,511 - #21 const
-INFO  13:12:39,511 - #53 int
-INFO  13:12:39,511 - #53 pet
-INFO  13:12:39,519 - #20 =
-INFO  13:12:39,519 - #17 5
-INFO  13:12:39,519 - #5 ;
-INFO  13:12:39,519 - #3 {
-INFO  13:12:39,519 - #4 }
-INFO  13:12:39,520 - #4 }
-INFO  13:12:39,520 - #48 namespace
-INFO  13:12:39,520 - #53 Nizovi
-INFO  13:12:39,520 - #3 {
-INFO  13:12:39,520 - #53 int
-INFO  13:12:39,520 - #53 niz
-INFO  13:12:39,521 - #22 [
-INFO  13:12:39,521 - #23 ]
-INFO  13:12:39,521 - #5 ;
-INFO  13:12:39,521 - #53 char
-INFO  13:12:39,522 - #53 nizch
-INFO  13:12:39,522 - #22 [
-INFO  13:12:39,522 - #23 ]
-INFO  13:12:39,522 - #5 ;
-INFO  13:12:39,523 - #3 {
-INFO  13:12:39,523 - #4 }
-INFO  13:12:39,523 - #4 }
-INFO  13:12:39,523 - #53 int
-INFO  13:12:39,523 - #53 a
-INFO  13:12:39,523 - #5 ;
-INFO  13:12:39,523 - #3 {
-INFO  13:12:39,524 - #53 int
-INFO  13:12:39,524 - #53 main
-INFO  13:12:39,524 - #6 (
-INFO  13:12:39,524 - #7 )
-INFO  13:12:39,525 - #53 int
-INFO  13:12:39,526 - #53 bodovi
-INFO  13:12:39,526 - #5 ;
-INFO  13:12:39,526 - #53 bool
-INFO  13:12:39,527 - #53 bt
-INFO  13:12:39,527 - #5 ;
-INFO  13:12:39,527 - #53 int
-INFO  13:12:39,527 - #53 provera
-INFO  13:12:39,527 - #5 ;
-INFO  13:12:39,527 - #3 {
-INFO  13:12:39,527 - #53 Nizovi
-INFO  13:12:39,528 - #52 ::
-INFO  13:12:39,528 - #53 niz
-INFO  13:12:39,528 - #20 =
-INFO  13:12:39,528 - #33 new
-INFO  13:12:39,530 - #53 int
-INFO  13:12:39,530 - #22 [
-INFO  13:12:39,530 - #17 3
-INFO  13:12:39,530 - #23 ]
-INFO  13:12:39,530 - #5 ;
-INFO  13:12:39,531 - #53 Nizovi
-INFO  13:12:39,531 - #52 ::
-INFO  13:12:39,531 - #53 niz
-INFO  13:12:39,531 - #22 [
-INFO  13:12:39,531 - #53 Konstante
-INFO  13:12:39,531 - #52 ::
-INFO  13:12:39,531 - #53 nula
-INFO  13:12:39,531 - #23 ]
-INFO  13:12:39,532 - #20 =
-INFO  13:12:39,532 - #53 Konstante
-INFO  13:12:39,532 - #52 ::
-INFO  13:12:39,532 - #53 pet
-INFO  13:12:39,532 - #51 *
-INFO  13:12:39,532 - #17 2
-INFO  13:12:39,533 - #5 ;
-INFO  13:12:39,533 - #53 Nizovi
-INFO  13:12:39,533 - #52 ::
-INFO  13:12:39,533 - #53 niz
-INFO  13:12:39,533 - #22 [
-INFO  13:12:39,533 - #17 1
-INFO  13:12:39,534 - #23 ]
-INFO  13:12:39,534 - #20 =
-INFO  13:12:39,534 - #17 2
-INFO  13:12:39,534 - #5 ;
-INFO  13:12:39,534 - #53 bodovi
-INFO  13:12:39,534 - #20 =
-INFO  13:12:39,534 - #53 Nizovi
-INFO  13:12:39,534 - #52 ::
-INFO  13:12:39,534 - #53 niz
-INFO  13:12:39,534 - #22 [
-INFO  13:12:39,534 - #17 0
-INFO  13:12:39,535 - #23 ]
-INFO  13:12:39,535 - #41 /
-INFO  13:12:39,535 - #53 Nizovi
-INFO  13:12:39,535 - #52 ::
-INFO  13:12:39,536 - #53 niz
-INFO  13:12:39,536 - #22 [
-INFO  13:12:39,536 - #17 1
-INFO  13:12:39,536 - #23 ]
-INFO  13:12:39,536 - #5 ;
-INFO  13:12:39,536 - #12 print
-INFO  13:12:39,536 - #6 (
-INFO  13:12:39,536 - #53 bodovi
-INFO  13:12:39,537 - #7 )
-INFO  13:12:39,537 - #5 ;
-INFO  13:12:39,537 - #12 print
-INFO  13:12:39,538 - #6 (
-INFO  13:12:39,538 - #53 Nizovi
-INFO  13:12:39,538 - #52 ::
-INFO  13:12:39,538 - #53 niz
-INFO  13:12:39,538 - #22 [
-INFO  13:12:39,538 - #17 0
-INFO  13:12:39,538 - #23 ]
-INFO  13:12:39,538 - #7 )
-INFO  13:12:39,538 - #5 ;
-INFO  13:12:39,538 - #9 return
-INFO  13:12:39,538 - #17 0
-INFO  13:12:39,539 - #5 ;
-INFO  13:12:39,539 - #4 }
-INFO  13:12:39,539 - #4 }
-INFO  13:12:39,548 - Program(
+INFO  13:04:14,983 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  13:04:15,043 - #2 program
+INFO  13:04:15,043 - #53 MJProgram
+INFO  13:04:15,043 - #48 namespace
+INFO  13:04:15,044 - #53 Konstante
+INFO  13:04:15,044 - #3 {
+INFO  13:04:15,045 - #21 const
+INFO  13:04:15,045 - #53 int
+INFO  13:04:15,046 - #53 nula
+INFO  13:04:15,046 - #20 =
+INFO  13:04:15,046 - #17 0
+INFO  13:04:15,046 - #5 ;
+INFO  13:04:15,046 - #21 const
+INFO  13:04:15,047 - #53 int
+INFO  13:04:15,048 - #53 jedan
+INFO  13:04:15,048 - #20 =
+INFO  13:04:15,048 - #17 1
+INFO  13:04:15,048 - #5 ;
+INFO  13:04:15,048 - #21 const
+INFO  13:04:15,048 - #53 int
+INFO  13:04:15,048 - #53 pet
+INFO  13:04:15,055 - #20 =
+INFO  13:04:15,055 - #17 5
+INFO  13:04:15,055 - #5 ;
+INFO  13:04:15,055 - #3 {
+INFO  13:04:15,055 - #4 }
+INFO  13:04:15,056 - #4 }
+INFO  13:04:15,056 - #48 namespace
+INFO  13:04:15,056 - #53 Nizovi
+INFO  13:04:15,056 - #3 {
+INFO  13:04:15,056 - #53 int
+INFO  13:04:15,056 - #53 niz
+INFO  13:04:15,057 - #22 [
+INFO  13:04:15,057 - #23 ]
+INFO  13:04:15,057 - #5 ;
+INFO  13:04:15,057 - #53 char
+INFO  13:04:15,058 - #53 nizch
+INFO  13:04:15,058 - #22 [
+INFO  13:04:15,058 - #23 ]
+INFO  13:04:15,058 - #5 ;
+INFO  13:04:15,059 - #3 {
+INFO  13:04:15,059 - #4 }
+INFO  13:04:15,059 - #4 }
+INFO  13:04:15,059 - #53 int
+INFO  13:04:15,059 - #53 a
+INFO  13:04:15,059 - #5 ;
+INFO  13:04:15,059 - #3 {
+INFO  13:04:15,059 - #53 int
+INFO  13:04:15,059 - #53 main
+INFO  13:04:15,060 - #6 (
+INFO  13:04:15,060 - #7 )
+INFO  13:04:15,061 - #53 int
+INFO  13:04:15,062 - #53 bodovi
+INFO  13:04:15,062 - #5 ;
+INFO  13:04:15,062 - #53 bool
+INFO  13:04:15,062 - #53 bt
+INFO  13:04:15,063 - #5 ;
+INFO  13:04:15,063 - #53 int
+INFO  13:04:15,063 - #53 provera
+INFO  13:04:15,063 - #5 ;
+INFO  13:04:15,063 - #3 {
+INFO  13:04:15,063 - #53 Nizovi
+INFO  13:04:15,064 - #52 ::
+INFO  13:04:15,064 - #53 niz
+INFO  13:04:15,064 - #20 =
+INFO  13:04:15,065 - #33 new
+INFO  13:04:15,066 - #53 int
+INFO  13:04:15,066 - #22 [
+INFO  13:04:15,066 - #17 3
+INFO  13:04:15,066 - #23 ]
+INFO  13:04:15,066 - #5 ;
+INFO  13:04:15,067 - #53 Nizovi
+INFO  13:04:15,067 - #52 ::
+INFO  13:04:15,067 - #53 niz
+INFO  13:04:15,067 - #22 [
+INFO  13:04:15,067 - #53 Konstante
+INFO  13:04:15,067 - #52 ::
+INFO  13:04:15,067 - #53 nula
+INFO  13:04:15,067 - #23 ]
+INFO  13:04:15,067 - #20 =
+INFO  13:04:15,068 - #53 Konstante
+INFO  13:04:15,068 - #52 ::
+INFO  13:04:15,068 - #53 pet
+INFO  13:04:15,068 - #51 *
+INFO  13:04:15,068 - #17 2
+INFO  13:04:15,069 - #5 ;
+INFO  13:04:15,069 - #53 Nizovi
+INFO  13:04:15,069 - #52 ::
+INFO  13:04:15,069 - #53 niz
+INFO  13:04:15,070 - #22 [
+INFO  13:04:15,070 - #17 1
+INFO  13:04:15,070 - #23 ]
+INFO  13:04:15,070 - #20 =
+INFO  13:04:15,070 - #17 2
+INFO  13:04:15,070 - #5 ;
+INFO  13:04:15,070 - #53 bodovi
+INFO  13:04:15,070 - #20 =
+INFO  13:04:15,070 - #53 Nizovi
+INFO  13:04:15,070 - #52 ::
+INFO  13:04:15,070 - #53 niz
+INFO  13:04:15,071 - #22 [
+INFO  13:04:15,071 - #17 1
+INFO  13:04:15,071 - #23 ]
+INFO  13:04:15,071 - #41 /
+INFO  13:04:15,071 - #53 Nizovi
+INFO  13:04:15,072 - #52 ::
+INFO  13:04:15,072 - #53 niz
+INFO  13:04:15,072 - #22 [
+INFO  13:04:15,072 - #17 0
+INFO  13:04:15,072 - #23 ]
+INFO  13:04:15,072 - #5 ;
+INFO  13:04:15,072 - #12 print
+INFO  13:04:15,072 - #6 (
+INFO  13:04:15,072 - #53 bodovi
+INFO  13:04:15,073 - #7 )
+INFO  13:04:15,073 - #5 ;
+INFO  13:04:15,073 - #12 print
+INFO  13:04:15,073 - #6 (
+INFO  13:04:15,073 - #53 Nizovi
+INFO  13:04:15,074 - #52 ::
+INFO  13:04:15,074 - #53 niz
+INFO  13:04:15,074 - #22 [
+INFO  13:04:15,074 - #17 1
+INFO  13:04:15,074 - #23 ]
+INFO  13:04:15,074 - #7 )
+INFO  13:04:15,074 - #5 ;
+INFO  13:04:15,074 - #9 return
+INFO  13:04:15,074 - #17 0
+INFO  13:04:15,074 - #5 ;
+INFO  13:04:15,074 - #4 }
+INFO  13:04:15,075 - #4 }
+INFO  13:04:15,083 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -466,7 +466,7 @@ INFO  13:12:39,548 - Program(
                                 Term_Factor(
                                   ConstFactor(
                                     ConstValue_Num(
-                                     0
+                                     1
                                     ) [ConstValue_Num]
                                   ) [ConstFactor]
                                 ) [Term_Factor]
@@ -488,7 +488,7 @@ INFO  13:12:39,548 - Program(
                               Term_Factor(
                                 ConstFactor(
                                   ConstValue_Num(
-                                   1
+                                   0
                                   ) [ConstValue_Num]
                                 ) [ConstFactor]
                               ) [Term_Factor]
@@ -535,7 +535,7 @@ INFO  13:12:39,548 - Program(
                         Term_Factor(
                           ConstFactor(
                             ConstValue_Num(
-                             0
+                             1
                             ) [ConstValue_Num]
                           ) [ConstFactor]
                         ) [Term_Factor]
@@ -566,19 +566,19 @@ INFO  13:12:39,548 - Program(
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  13:12:39,549 - ===================================
-INFO  13:12:39,553 - Deklarisana promenljiva niz na liniji 10
-INFO  13:12:39,553 - Deklarisana promenljiva nizch na liniji 11
-INFO  13:12:39,553 - Deklarisana promenljiva a na liniji 14
-INFO  13:12:39,553 - Obradjuje se funkcija main na liniji 16
-INFO  13:12:39,553 - Deklarisana promenljiva bodovi na liniji 17
-INFO  13:12:39,553 - Deklarisana promenljiva bt na liniji 18
-INFO  13:12:39,553 - Deklarisana promenljiva provera na liniji 19
-INFO  13:12:39,554 -  Deklarisanih lokalnih promenljivih ima = 6
-INFO  13:12:39,554 -  Globalne promenljive = 1
-INFO  13:12:39,554 -  Globalni nizovi = 2
-INFO  13:12:39,554 -  Lokalne promenjive u main = 3
-INFO  13:12:39,554 -  Lokalne promenjive u nVars = 0
-INFO  13:12:39,554 - ===================================
-INFO  13:12:39,555 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
-INFO  13:12:39,558 - Parsiranje uspesno zavrseno!
+INFO  13:04:15,083 - ===================================
+INFO  13:04:15,086 - Deklarisana promenljiva niz na liniji 10
+INFO  13:04:15,087 - Deklarisana promenljiva nizch na liniji 11
+INFO  13:04:15,087 - Deklarisana promenljiva a na liniji 14
+INFO  13:04:15,087 - Obradjuje se funkcija main na liniji 16
+INFO  13:04:15,087 - Deklarisana promenljiva bodovi na liniji 17
+INFO  13:04:15,087 - Deklarisana promenljiva bt na liniji 18
+INFO  13:04:15,087 - Deklarisana promenljiva provera na liniji 19
+INFO  13:04:15,087 -  Deklarisanih lokalnih promenljivih ima = 6
+INFO  13:04:15,087 -  Globalne promenljive = 1
+INFO  13:04:15,088 -  Globalni nizovi = 2
+INFO  13:04:15,088 -  Lokalne promenjive u main = 3
+INFO  13:04:15,088 -  Lokalne promenjive u nVars = 0
+INFO  13:04:15,088 - ===================================
+INFO  13:04:15,088 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  13:04:15,092 - Parsiranje uspesno zavrseno!
