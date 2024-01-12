@@ -45,6 +45,7 @@ import rs.ac.bg.etf.pp1.ast.TermExpr;
 import rs.ac.bg.etf.pp1.ast.TermExpr_Minus;
 import rs.ac.bg.etf.pp1.ast.Term_Factor;
 import rs.ac.bg.etf.pp1.ast.Term_Mulop;
+import rs.ac.bg.etf.pp1.ast.UnmatchedIf;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
 import rs.ac.bg.etf.pp1.ast.VarFactor;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
@@ -212,7 +213,16 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.lt);
 		else if(ro.getRelop() instanceof Relop_LEQ)
 			Code.put(Code.le);
+		
+		//Code.put(Code.eq);
 	}
+	
+//	@Override
+//	public void visit(Relop_EQ ro) {
+//			Code.put(Code.eq);
+//	}
+//	
+	
 	
 	
 	@Override
@@ -321,6 +331,9 @@ public class CodeGenerator extends VisitorAdaptor {
        } else {
            Code.put(Code.read);
        }
+       
+       if(obj.getType().getKind() == Struct.Array)
+  			obj = new Obj(Obj.Elem, "elem", obj.getType().getElemType());
        Code.store(obj);
    }
    
@@ -331,5 +344,19 @@ public class CodeGenerator extends VisitorAdaptor {
            Code.put(Code.pop);
        }
    }
+   
+   public void visit(TermExpr_Minus term)
+	{
+           Code.put(Code.neg);
+	}
+   
+   
+//   public void visit(UnmatchedIf uif)
+//  	{
+//  	}
+   
+   
+   
+   
    
 }

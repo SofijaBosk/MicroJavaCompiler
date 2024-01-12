@@ -348,7 +348,7 @@ public class SemanticPass extends VisitorAdaptor {
     public void visit(AddExpr addExpr){
     	Obj te = addExpr.getExpr().obj;
     	Struct t = addExpr.getTerm().struct;
-    	if(te.equals(t) && te.getType() == Tab.intType){
+    	if(te.getType().equals(t) && te.getType() == Tab.intType){
     		addExpr.obj = te;
     	}else{
 			report_error("Nekompatibilni tipovi u izrazu za sabiranje", addExpr);
@@ -536,6 +536,7 @@ public class SemanticPass extends VisitorAdaptor {
          } else if (!desigObj.getType().equals(Tab.intType) && !desigObj.getType().equals(Tab.charType)) {
              report_error("Greska parametar read funkcije je nepravilnog tipa",stmt);
          }
+         
     }
     
     public void visit(PrintStmt stmt) {
