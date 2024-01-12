@@ -5,7 +5,10 @@ import java.util.Stack;
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
 import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
 import rs.ac.bg.etf.pp1.ast.AddExpr;
+import rs.ac.bg.etf.pp1.ast.Addop_MINUS;
+import rs.ac.bg.etf.pp1.ast.Addop_PLUS;
 import rs.ac.bg.etf.pp1.ast.Assignment;
+import rs.ac.bg.etf.pp1.ast.CondFact_Relop;
 import rs.ac.bg.etf.pp1.ast.ConstFactor;
 import rs.ac.bg.etf.pp1.ast.ConstValue_Char;
 import rs.ac.bg.etf.pp1.ast.ConstValue_Num;
@@ -29,10 +32,17 @@ import rs.ac.bg.etf.pp1.ast.NewFactor;
 import rs.ac.bg.etf.pp1.ast.NewFactor_Expr;
 import rs.ac.bg.etf.pp1.ast.PrintStmt;
 import rs.ac.bg.etf.pp1.ast.ReadStmt;
+import rs.ac.bg.etf.pp1.ast.Relop_EQ;
+import rs.ac.bg.etf.pp1.ast.Relop_GEQ;
+import rs.ac.bg.etf.pp1.ast.Relop_GRE;
+import rs.ac.bg.etf.pp1.ast.Relop_LEQ;
+import rs.ac.bg.etf.pp1.ast.Relop_LES;
+import rs.ac.bg.etf.pp1.ast.Relop_NEQ;
 import rs.ac.bg.etf.pp1.ast.ReturnExpr;
 import rs.ac.bg.etf.pp1.ast.ReturnNoExpr;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.ast.TermExpr;
+import rs.ac.bg.etf.pp1.ast.TermExpr_Minus;
 import rs.ac.bg.etf.pp1.ast.Term_Factor;
 import rs.ac.bg.etf.pp1.ast.Term_Mulop;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
@@ -182,8 +192,28 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(AddExpr AddExpr) {
-		Code.put(Code.add);
+		if(AddExpr.getAddop() instanceof Addop_PLUS)
+			Code.put(Code.add);
+		else if(AddExpr.getAddop() instanceof Addop_MINUS)
+			Code.put(Code.sub);
 	}
+	
+	@Override
+	public void visit(CondFact_Relop ro) {
+		if(ro.getRelop() instanceof Relop_EQ)
+			Code.put(Code.eq);
+		else if(ro.getRelop() instanceof Relop_NEQ)
+			Code.put(Code.ne);
+		else if(ro.getRelop() instanceof Relop_GRE)
+			Code.put(Code.gt);
+		else if(ro.getRelop() instanceof Relop_GEQ)
+			Code.put(Code.ge);
+		else if(ro.getRelop() instanceof Relop_LES)
+			Code.put(Code.lt);
+		else if(ro.getRelop() instanceof Relop_LEQ)
+			Code.put(Code.le);
+	}
+	
 	
 	@Override
 	public void visit(DesignatorStatement_INC stmt) {		
