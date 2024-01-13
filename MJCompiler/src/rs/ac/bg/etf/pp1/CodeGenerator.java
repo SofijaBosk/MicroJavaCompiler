@@ -172,13 +172,13 @@ public class CodeGenerator extends VisitorAdaptor {
 	@Override
 	public void visit(FunctionCall FuncCall) {
 		Obj functionObj = FuncCall.getDesignator().obj;
-		int offset = functionObj.getAdr() - Code.pc; 
+		int offset = functionObj.getAdr() -Code.pc; 
 		Code.put(Code.call);
 		Code.put2(offset);
-		
-		if(FuncCall.getDesignator().obj.getType() != Tab.noType){
-			Code.put(Code.pop);
-		}
+	
+//		if(FuncCall.getDesignator().obj.getType() != Tab.noType){
+//			Code.put(Code.pop);
+//		}
 	}
 	
 	@Override
@@ -319,7 +319,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	    		if(nsLocalParams.get(i).getName().equals(((DesignatorHelper_Scope)dsgn.getDesignatorHelper()).getName())) {obj=nsLocalParams.get(i); break;}
 	    		System.out.println(nsLocalParams.get(i).getName());
 	    	}
-	    	obj.setLevel(0);
+	    	//obj.setLevel(0);
 	    	Code.load(obj);
 			
 		}
@@ -359,12 +359,11 @@ public class CodeGenerator extends VisitorAdaptor {
    }
    
    
-   public void visit(DesignatorStatement_FunctionCall stmt) {
-	    if (!stmt.getFunctionCall().struct.equals(Tab.noType)) {
-           // sklanjamo nepotrebnu vrednost sa esteka
-           Code.put(Code.pop);
-       }
-   }
+//	    if (!stmt.getFunctionCall().struct.equals(Tab.noType)) {
+//           // sklanjamo nepotrebnu vrednost sa esteka
+//           Code.put(Code.pop);
+//       }
+   
    
    public void visit(TermExpr_Minus term)
 	{

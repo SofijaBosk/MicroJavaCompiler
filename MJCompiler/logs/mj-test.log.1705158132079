@@ -1,337 +1,351 @@
-INFO  16:22:06,152 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
-INFO  16:22:06,183 - #2 program
-INFO  16:22:06,183 - #53 MJProgram
-INFO  16:22:06,183 - #48 namespace
-INFO  16:22:06,184 - #53 Konstante
-INFO  16:22:06,184 - #3 {
-INFO  16:22:06,184 - #21 const
-INFO  16:22:06,185 - #53 int
-INFO  16:22:06,185 - #53 nula
-INFO  16:22:06,185 - #20 =
-INFO  16:22:06,185 - #17 0
-INFO  16:22:06,185 - #5 ;
-INFO  16:22:06,185 - #21 const
-INFO  16:22:06,186 - #53 int
-INFO  16:22:06,186 - #53 jedan
-INFO  16:22:06,186 - #20 =
-INFO  16:22:06,186 - #17 1
-INFO  16:22:06,186 - #5 ;
-INFO  16:22:06,186 - #21 const
-INFO  16:22:06,186 - #53 int
-INFO  16:22:06,186 - #53 pet
-INFO  16:22:06,187 - #20 =
-INFO  16:22:06,187 - #17 5
-INFO  16:22:06,187 - #5 ;
-INFO  16:22:06,187 - #3 {
-INFO  16:22:06,187 - #4 }
-INFO  16:22:06,188 - #4 }
-INFO  16:22:06,188 - #48 namespace
-INFO  16:22:06,188 - #53 Nizovi
-INFO  16:22:06,188 - #3 {
-INFO  16:22:06,188 - #53 int
-INFO  16:22:06,188 - #53 niz
-INFO  16:22:06,188 - #22 [
-INFO  16:22:06,188 - #23 ]
-INFO  16:22:06,188 - #5 ;
-INFO  16:22:06,189 - #53 char
-INFO  16:22:06,189 - #53 nizch
-INFO  16:22:06,189 - #22 [
-INFO  16:22:06,189 - #23 ]
-INFO  16:22:06,189 - #5 ;
-INFO  16:22:06,189 - #3 {
-INFO  16:22:06,189 - #4 }
-INFO  16:22:06,189 - #4 }
-INFO  16:22:06,189 - #53 int
-INFO  16:22:06,189 - #53 a
-INFO  16:22:06,190 - #5 ;
-INFO  16:22:06,190 - #3 {
-INFO  16:22:06,190 - #13 void
-INFO  16:22:06,190 - #53 k
-INFO  16:22:06,190 - #6 (
-INFO  16:22:06,190 - #7 )
-INFO  16:22:06,191 - #3 {
-INFO  16:22:06,192 - #53 a
-INFO  16:22:06,192 - #43 ++
-INFO  16:22:06,192 - #5 ;
-INFO  16:22:06,192 - #4 }
-INFO  16:22:06,192 - #53 int
-INFO  16:22:06,192 - #53 main
-INFO  16:22:06,193 - #6 (
-INFO  16:22:06,193 - #7 )
-INFO  16:22:06,193 - #53 int
-INFO  16:22:06,193 - #53 bodovi
-INFO  16:22:06,193 - #5 ;
-INFO  16:22:06,193 - #53 bool
-INFO  16:22:06,193 - #53 bt
-INFO  16:22:06,193 - #5 ;
-INFO  16:22:06,193 - #53 int
-INFO  16:22:06,193 - #53 provera
-INFO  16:22:06,193 - #5 ;
-INFO  16:22:06,193 - #3 {
-INFO  16:22:06,193 - #53 a
-INFO  16:22:06,193 - #20 =
-INFO  16:22:06,193 - #17 0
-INFO  16:22:06,194 - #5 ;
-INFO  16:22:06,194 - #53 bodovi
-INFO  16:22:06,194 - #20 =
-INFO  16:22:06,194 - #17 0
-INFO  16:22:06,194 - #5 ;
-INFO  16:22:06,194 - #53 bodovi
-INFO  16:22:06,194 - #43 ++
-INFO  16:22:06,194 - #5 ;
-INFO  16:22:06,194 - #53 bodovi
-INFO  16:22:06,194 - #20 =
-INFO  16:22:06,194 - #53 bodovi
-INFO  16:22:06,194 - #10 +
-INFO  16:22:06,194 - #53 Konstante
-INFO  16:22:06,195 - #52 ::
-INFO  16:22:06,195 - #53 jedan
-INFO  16:22:06,195 - #5 ;
-INFO  16:22:06,195 - #53 bodovi
-INFO  16:22:06,195 - #20 =
-INFO  16:22:06,195 - #53 bodovi
-INFO  16:22:06,195 - #51 *
-INFO  16:22:06,195 - #53 Konstante
-INFO  16:22:06,196 - #52 ::
-INFO  16:22:06,196 - #53 pet
-INFO  16:22:06,196 - #5 ;
-INFO  16:22:06,196 - #53 bodovi
-INFO  16:22:06,196 - #44 --
-INFO  16:22:06,196 - #5 ;
-INFO  16:22:06,196 - #12 print
-INFO  16:22:06,196 - #6 (
-INFO  16:22:06,196 - #53 bodovi
-INFO  16:22:06,196 - #7 )
-INFO  16:22:06,197 - #5 ;
-INFO  16:22:06,197 - #53 k
-INFO  16:22:06,197 - #6 (
-INFO  16:22:06,197 - #7 )
-INFO  16:22:06,197 - #5 ;
-INFO  16:22:06,197 - #12 print
-INFO  16:22:06,197 - #6 (
-INFO  16:22:06,198 - #53 provera
-INFO  16:22:06,198 - #7 )
-INFO  16:22:06,198 - #5 ;
-INFO  16:22:06,198 - #12 print
-INFO  16:22:06,198 - #6 (
-INFO  16:22:06,198 - #53 a
-INFO  16:22:06,198 - #7 )
-INFO  16:22:06,198 - #5 ;
-INFO  16:22:06,198 - #53 Nizovi
-INFO  16:22:06,198 - #52 ::
-INFO  16:22:06,198 - #53 niz
-INFO  16:22:06,198 - #20 =
-INFO  16:22:06,198 - #33 new
-INFO  16:22:06,198 - #53 int
-INFO  16:22:06,198 - #22 [
-INFO  16:22:06,198 - #17 3
-INFO  16:22:06,198 - #23 ]
-INFO  16:22:06,198 - #5 ;
-INFO  16:22:06,198 - #53 Nizovi
-INFO  16:22:06,198 - #52 ::
-INFO  16:22:06,198 - #53 niz
-INFO  16:22:06,198 - #22 [
-INFO  16:22:06,198 - #53 Konstante
-INFO  16:22:06,198 - #52 ::
-INFO  16:22:06,198 - #53 nula
-INFO  16:22:06,198 - #23 ]
-INFO  16:22:06,198 - #20 =
-INFO  16:22:06,199 - #53 Konstante
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 jedan
-INFO  16:22:06,199 - #5 ;
-INFO  16:22:06,199 - #53 Nizovi
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 niz
-INFO  16:22:06,199 - #22 [
-INFO  16:22:06,199 - #17 1
-INFO  16:22:06,199 - #23 ]
-INFO  16:22:06,199 - #20 =
-INFO  16:22:06,199 - #17 2
-INFO  16:22:06,199 - #5 ;
-INFO  16:22:06,199 - #53 Nizovi
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 niz
-INFO  16:22:06,199 - #22 [
-INFO  16:22:06,199 - #53 Nizovi
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 niz
-INFO  16:22:06,199 - #22 [
-INFO  16:22:06,199 - #53 Konstante
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 jedan
-INFO  16:22:06,199 - #23 ]
-INFO  16:22:06,199 - #23 ]
-INFO  16:22:06,199 - #20 =
-INFO  16:22:06,199 - #53 Nizovi
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 niz
-INFO  16:22:06,199 - #22 [
-INFO  16:22:06,199 - #53 Nizovi
-INFO  16:22:06,199 - #52 ::
-INFO  16:22:06,199 - #53 niz
-INFO  16:22:06,199 - #22 [
-INFO  16:22:06,199 - #17 0
-INFO  16:22:06,199 - #23 ]
-INFO  16:22:06,199 - #23 ]
-INFO  16:22:06,199 - #51 *
-INFO  16:22:06,199 - #17 3
-INFO  16:22:06,199 - #5 ;
-INFO  16:22:06,200 - #53 bodovi
-INFO  16:22:06,200 - #20 =
-INFO  16:22:06,200 - #53 Nizovi
-INFO  16:22:06,200 - #52 ::
-INFO  16:22:06,200 - #53 niz
-INFO  16:22:06,200 - #22 [
-INFO  16:22:06,200 - #17 2
-INFO  16:22:06,200 - #23 ]
-INFO  16:22:06,200 - #41 /
-INFO  16:22:06,200 - #53 Nizovi
-INFO  16:22:06,200 - #52 ::
-INFO  16:22:06,200 - #53 niz
-INFO  16:22:06,200 - #22 [
-INFO  16:22:06,200 - #17 0
-INFO  16:22:06,200 - #23 ]
-INFO  16:22:06,200 - #5 ;
-INFO  16:22:06,200 - #12 print
-INFO  16:22:06,200 - #6 (
-INFO  16:22:06,200 - #53 bodovi
-INFO  16:22:06,200 - #7 )
-INFO  16:22:06,200 - #5 ;
-INFO  16:22:06,200 - #53 provera
-INFO  16:22:06,200 - #20 =
-INFO  16:22:06,200 - #53 Nizovi
-INFO  16:22:06,200 - #52 ::
-INFO  16:22:06,200 - #53 niz
-INFO  16:22:06,200 - #22 [
-INFO  16:22:06,200 - #17 2
-INFO  16:22:06,200 - #23 ]
-INFO  16:22:06,201 - #5 ;
-INFO  16:22:06,201 - #12 print
-INFO  16:22:06,201 - #6 (
-INFO  16:22:06,201 - #53 provera
-INFO  16:22:06,201 - #7 )
-INFO  16:22:06,201 - #5 ;
-INFO  16:22:06,201 - #53 Nizovi
-INFO  16:22:06,201 - #52 ::
-INFO  16:22:06,201 - #53 nizch
-INFO  16:22:06,201 - #20 =
-INFO  16:22:06,201 - #33 new
-INFO  16:22:06,201 - #53 char
-INFO  16:22:06,201 - #22 [
-INFO  16:22:06,201 - #17 3
-INFO  16:22:06,201 - #23 ]
-INFO  16:22:06,201 - #5 ;
-INFO  16:22:06,201 - #53 Nizovi
-INFO  16:22:06,201 - #52 ::
-INFO  16:22:06,201 - #53 nizch
-INFO  16:22:06,201 - #22 [
-INFO  16:22:06,201 - #17 0
-INFO  16:22:06,201 - #23 ]
-INFO  16:22:06,201 - #20 =
-INFO  16:22:06,201 - #18 a
-INFO  16:22:06,201 - #5 ;
-INFO  16:22:06,201 - #53 Nizovi
-INFO  16:22:06,201 - #52 ::
-INFO  16:22:06,201 - #53 nizch
-INFO  16:22:06,201 - #22 [
-INFO  16:22:06,201 - #53 Konstante
-INFO  16:22:06,201 - #52 ::
-INFO  16:22:06,201 - #53 jedan
-INFO  16:22:06,201 - #23 ]
-INFO  16:22:06,201 - #20 =
-INFO  16:22:06,201 - #18 b
-INFO  16:22:06,201 - #5 ;
-INFO  16:22:06,201 - #53 Nizovi
-INFO  16:22:06,202 - #52 ::
-INFO  16:22:06,202 - #53 nizch
-INFO  16:22:06,202 - #22 [
-INFO  16:22:06,202 - #53 Konstante
-INFO  16:22:06,202 - #52 ::
-INFO  16:22:06,202 - #53 pet
-INFO  16:22:06,202 - #32 -
-INFO  16:22:06,202 - #17 3
-INFO  16:22:06,202 - #23 ]
-INFO  16:22:06,202 - #20 =
-INFO  16:22:06,202 - #18 c
-INFO  16:22:06,202 - #5 ;
-INFO  16:22:06,202 - #12 print
-INFO  16:22:06,202 - #6 (
-INFO  16:22:06,202 - #53 Nizovi
-INFO  16:22:06,202 - #52 ::
-INFO  16:22:06,202 - #53 nizch
-INFO  16:22:06,202 - #22 [
-INFO  16:22:06,202 - #17 1
-INFO  16:22:06,202 - #23 ]
-INFO  16:22:06,202 - #7 )
-INFO  16:22:06,202 - #5 ;
-INFO  16:22:06,202 - #12 print
-INFO  16:22:06,202 - #6 (
-INFO  16:22:06,202 - #53 Nizovi
-INFO  16:22:06,202 - #52 ::
-INFO  16:22:06,202 - #53 nizch
-INFO  16:22:06,202 - #22 [
-INFO  16:22:06,202 - #53 Konstante
-INFO  16:22:06,202 - #52 ::
-INFO  16:22:06,202 - #53 jedan
-INFO  16:22:06,203 - #51 *
-INFO  16:22:06,203 - #17 2
-INFO  16:22:06,203 - #23 ]
-INFO  16:22:06,203 - #7 )
-INFO  16:22:06,203 - #5 ;
-INFO  16:22:06,203 - #53 a
-INFO  16:22:06,203 - #20 =
-INFO  16:22:06,203 - #17 1
-INFO  16:22:06,203 - #5 ;
-INFO  16:22:06,203 - #26 read
-INFO  16:22:06,203 - #6 (
-INFO  16:22:06,203 - #53 bodovi
-INFO  16:22:06,203 - #7 )
-INFO  16:22:06,203 - #5 ;
-INFO  16:22:06,203 - #53 bodovi
-INFO  16:22:06,203 - #20 =
-INFO  16:22:06,203 - #32 -
-INFO  16:22:06,203 - #53 bodovi
-INFO  16:22:06,203 - #10 +
-INFO  16:22:06,203 - #6 (
-INFO  16:22:06,203 - #53 Konstante
-INFO  16:22:06,203 - #52 ::
-INFO  16:22:06,203 - #53 pet
-INFO  16:22:06,203 - #51 *
-INFO  16:22:06,203 - #53 a
-INFO  16:22:06,203 - #41 /
-INFO  16:22:06,203 - #17 2
-INFO  16:22:06,203 - #32 -
-INFO  16:22:06,203 - #53 Konstante
-INFO  16:22:06,203 - #52 ::
-INFO  16:22:06,203 - #53 jedan
-INFO  16:22:06,203 - #7 )
-INFO  16:22:06,203 - #51 *
-INFO  16:22:06,203 - #53 bodovi
-INFO  16:22:06,203 - #32 -
-INFO  16:22:06,203 - #6 (
-INFO  16:22:06,203 - #17 3
-INFO  16:22:06,203 - #42 %
-INFO  16:22:06,203 - #17 2
-INFO  16:22:06,204 - #10 +
-INFO  16:22:06,204 - #17 3
-INFO  16:22:06,204 - #51 *
-INFO  16:22:06,204 - #17 2
-INFO  16:22:06,204 - #32 -
-INFO  16:22:06,204 - #17 3
-INFO  16:22:06,204 - #7 )
-INFO  16:22:06,204 - #5 ;
-INFO  16:22:06,204 - #12 print
-INFO  16:22:06,204 - #6 (
-INFO  16:22:06,204 - #53 bodovi
-INFO  16:22:06,204 - #7 )
-INFO  16:22:06,204 - #5 ;
-INFO  16:22:06,204 - #9 return
-INFO  16:22:06,204 - #17 0
-INFO  16:22:06,204 - #5 ;
-INFO  16:22:06,204 - #4 }
-INFO  16:22:06,204 - #4 }
-INFO  16:22:06,211 - Program(
+INFO  16:01:53,412 - Compiling source file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.mj
+INFO  16:01:53,442 - #2 program
+INFO  16:01:53,442 - #53 MJProgram
+INFO  16:01:53,442 - #48 namespace
+INFO  16:01:53,443 - #53 Konstante
+INFO  16:01:53,443 - #3 {
+INFO  16:01:53,443 - #21 const
+INFO  16:01:53,443 - #53 int
+INFO  16:01:53,443 - #53 nula
+INFO  16:01:53,443 - #20 =
+INFO  16:01:53,443 - #17 0
+INFO  16:01:53,444 - #5 ;
+INFO  16:01:53,444 - #21 const
+INFO  16:01:53,444 - #53 int
+INFO  16:01:53,444 - #53 jedan
+INFO  16:01:53,444 - #20 =
+INFO  16:01:53,444 - #17 1
+INFO  16:01:53,444 - #5 ;
+INFO  16:01:53,444 - #21 const
+INFO  16:01:53,444 - #53 int
+INFO  16:01:53,445 - #53 pet
+INFO  16:01:53,445 - #20 =
+INFO  16:01:53,445 - #17 5
+INFO  16:01:53,445 - #5 ;
+INFO  16:01:53,445 - #3 {
+INFO  16:01:53,445 - #4 }
+INFO  16:01:53,446 - #4 }
+INFO  16:01:53,446 - #48 namespace
+INFO  16:01:53,446 - #53 Nizovi
+INFO  16:01:53,446 - #3 {
+INFO  16:01:53,446 - #53 int
+INFO  16:01:53,446 - #53 niz
+INFO  16:01:53,447 - #22 [
+INFO  16:01:53,447 - #23 ]
+INFO  16:01:53,447 - #5 ;
+INFO  16:01:53,447 - #53 char
+INFO  16:01:53,448 - #53 nizch
+INFO  16:01:53,448 - #22 [
+INFO  16:01:53,448 - #23 ]
+INFO  16:01:53,448 - #5 ;
+INFO  16:01:53,448 - #3 {
+INFO  16:01:53,448 - #4 }
+INFO  16:01:53,448 - #4 }
+INFO  16:01:53,448 - #53 int
+INFO  16:01:53,448 - #53 a
+INFO  16:01:53,448 - #5 ;
+INFO  16:01:53,448 - #3 {
+INFO  16:01:53,448 - #53 int
+INFO  16:01:53,448 - #53 k
+INFO  16:01:53,448 - #6 (
+INFO  16:01:53,449 - #7 )
+INFO  16:01:53,449 - #3 {
+INFO  16:01:53,450 - #53 a
+INFO  16:01:53,450 - #43 ++
+INFO  16:01:53,450 - #5 ;
+INFO  16:01:53,450 - #9 return
+INFO  16:01:53,451 - #17 10
+INFO  16:01:53,451 - #5 ;
+INFO  16:01:53,451 - #4 }
+INFO  16:01:53,451 - #13 void
+INFO  16:01:53,451 - #53 m
+INFO  16:01:53,451 - #6 (
+INFO  16:01:53,452 - #7 )
+INFO  16:01:53,452 - #3 {
+INFO  16:01:53,452 - #53 a
+INFO  16:01:53,452 - #43 ++
+INFO  16:01:53,452 - #5 ;
+INFO  16:01:53,452 - #4 }
+INFO  16:01:53,452 - #53 int
+INFO  16:01:53,452 - #53 main
+INFO  16:01:53,452 - #6 (
+INFO  16:01:53,452 - #7 )
+INFO  16:01:53,452 - #53 int
+INFO  16:01:53,452 - #53 bodovi
+INFO  16:01:53,452 - #5 ;
+INFO  16:01:53,452 - #53 bool
+INFO  16:01:53,452 - #53 bt
+INFO  16:01:53,452 - #5 ;
+INFO  16:01:53,453 - #53 int
+INFO  16:01:53,453 - #53 provera
+INFO  16:01:53,453 - #5 ;
+INFO  16:01:53,453 - #3 {
+INFO  16:01:53,453 - #53 a
+INFO  16:01:53,453 - #20 =
+INFO  16:01:53,453 - #17 0
+INFO  16:01:53,453 - #5 ;
+INFO  16:01:53,453 - #53 bodovi
+INFO  16:01:53,453 - #20 =
+INFO  16:01:53,454 - #17 0
+INFO  16:01:53,454 - #5 ;
+INFO  16:01:53,454 - #53 bodovi
+INFO  16:01:53,454 - #43 ++
+INFO  16:01:53,454 - #5 ;
+INFO  16:01:53,454 - #53 bodovi
+INFO  16:01:53,454 - #20 =
+INFO  16:01:53,454 - #53 bodovi
+INFO  16:01:53,454 - #10 +
+INFO  16:01:53,454 - #53 Konstante
+INFO  16:01:53,454 - #52 ::
+INFO  16:01:53,454 - #53 jedan
+INFO  16:01:53,454 - #5 ;
+INFO  16:01:53,455 - #53 bodovi
+INFO  16:01:53,455 - #20 =
+INFO  16:01:53,455 - #53 bodovi
+INFO  16:01:53,455 - #51 *
+INFO  16:01:53,455 - #53 Konstante
+INFO  16:01:53,455 - #52 ::
+INFO  16:01:53,456 - #53 pet
+INFO  16:01:53,456 - #5 ;
+INFO  16:01:53,456 - #53 bodovi
+INFO  16:01:53,456 - #44 --
+INFO  16:01:53,456 - #5 ;
+INFO  16:01:53,456 - #12 print
+INFO  16:01:53,456 - #6 (
+INFO  16:01:53,456 - #53 bodovi
+INFO  16:01:53,456 - #7 )
+INFO  16:01:53,456 - #5 ;
+INFO  16:01:53,456 - #53 provera
+INFO  16:01:53,456 - #20 =
+INFO  16:01:53,456 - #53 k
+INFO  16:01:53,456 - #6 (
+INFO  16:01:53,456 - #7 )
+INFO  16:01:53,457 - #5 ;
+INFO  16:01:53,457 - #12 print
+INFO  16:01:53,457 - #6 (
+INFO  16:01:53,457 - #53 provera
+INFO  16:01:53,457 - #7 )
+INFO  16:01:53,457 - #5 ;
+INFO  16:01:53,457 - #12 print
+INFO  16:01:53,457 - #6 (
+INFO  16:01:53,457 - #53 a
+INFO  16:01:53,457 - #7 )
+INFO  16:01:53,457 - #5 ;
+INFO  16:01:53,457 - #53 Nizovi
+INFO  16:01:53,457 - #52 ::
+INFO  16:01:53,457 - #53 niz
+INFO  16:01:53,458 - #20 =
+INFO  16:01:53,458 - #33 new
+INFO  16:01:53,458 - #53 int
+INFO  16:01:53,458 - #22 [
+INFO  16:01:53,458 - #17 3
+INFO  16:01:53,458 - #23 ]
+INFO  16:01:53,458 - #5 ;
+INFO  16:01:53,458 - #53 Nizovi
+INFO  16:01:53,458 - #52 ::
+INFO  16:01:53,458 - #53 niz
+INFO  16:01:53,458 - #22 [
+INFO  16:01:53,458 - #53 Konstante
+INFO  16:01:53,458 - #52 ::
+INFO  16:01:53,458 - #53 nula
+INFO  16:01:53,458 - #23 ]
+INFO  16:01:53,458 - #20 =
+INFO  16:01:53,458 - #53 Konstante
+INFO  16:01:53,458 - #52 ::
+INFO  16:01:53,458 - #53 jedan
+INFO  16:01:53,458 - #5 ;
+INFO  16:01:53,458 - #53 Nizovi
+INFO  16:01:53,458 - #52 ::
+INFO  16:01:53,458 - #53 niz
+INFO  16:01:53,458 - #22 [
+INFO  16:01:53,458 - #17 1
+INFO  16:01:53,458 - #23 ]
+INFO  16:01:53,458 - #20 =
+INFO  16:01:53,458 - #17 2
+INFO  16:01:53,458 - #5 ;
+INFO  16:01:53,459 - #53 Nizovi
+INFO  16:01:53,459 - #52 ::
+INFO  16:01:53,459 - #53 niz
+INFO  16:01:53,459 - #22 [
+INFO  16:01:53,459 - #53 Nizovi
+INFO  16:01:53,459 - #52 ::
+INFO  16:01:53,459 - #53 niz
+INFO  16:01:53,459 - #22 [
+INFO  16:01:53,459 - #53 Konstante
+INFO  16:01:53,459 - #52 ::
+INFO  16:01:53,459 - #53 jedan
+INFO  16:01:53,459 - #23 ]
+INFO  16:01:53,459 - #23 ]
+INFO  16:01:53,459 - #20 =
+INFO  16:01:53,459 - #53 Nizovi
+INFO  16:01:53,459 - #52 ::
+INFO  16:01:53,459 - #53 niz
+INFO  16:01:53,459 - #22 [
+INFO  16:01:53,459 - #53 Nizovi
+INFO  16:01:53,459 - #52 ::
+INFO  16:01:53,459 - #53 niz
+INFO  16:01:53,459 - #22 [
+INFO  16:01:53,459 - #17 0
+INFO  16:01:53,459 - #23 ]
+INFO  16:01:53,459 - #23 ]
+INFO  16:01:53,459 - #51 *
+INFO  16:01:53,459 - #17 3
+INFO  16:01:53,459 - #5 ;
+INFO  16:01:53,459 - #53 bodovi
+INFO  16:01:53,459 - #20 =
+INFO  16:01:53,459 - #53 Nizovi
+INFO  16:01:53,459 - #52 ::
+INFO  16:01:53,459 - #53 niz
+INFO  16:01:53,459 - #22 [
+INFO  16:01:53,459 - #17 2
+INFO  16:01:53,459 - #23 ]
+INFO  16:01:53,459 - #41 /
+INFO  16:01:53,460 - #53 Nizovi
+INFO  16:01:53,460 - #52 ::
+INFO  16:01:53,460 - #53 niz
+INFO  16:01:53,460 - #22 [
+INFO  16:01:53,460 - #17 0
+INFO  16:01:53,460 - #23 ]
+INFO  16:01:53,460 - #5 ;
+INFO  16:01:53,460 - #12 print
+INFO  16:01:53,460 - #6 (
+INFO  16:01:53,460 - #53 bodovi
+INFO  16:01:53,460 - #7 )
+INFO  16:01:53,460 - #5 ;
+INFO  16:01:53,460 - #53 provera
+INFO  16:01:53,460 - #20 =
+INFO  16:01:53,460 - #53 Nizovi
+INFO  16:01:53,460 - #52 ::
+INFO  16:01:53,460 - #53 niz
+INFO  16:01:53,460 - #22 [
+INFO  16:01:53,460 - #17 2
+INFO  16:01:53,460 - #23 ]
+INFO  16:01:53,460 - #5 ;
+INFO  16:01:53,460 - #12 print
+INFO  16:01:53,461 - #6 (
+INFO  16:01:53,461 - #53 provera
+INFO  16:01:53,461 - #7 )
+INFO  16:01:53,461 - #5 ;
+INFO  16:01:53,461 - #53 Nizovi
+INFO  16:01:53,461 - #52 ::
+INFO  16:01:53,461 - #53 nizch
+INFO  16:01:53,461 - #20 =
+INFO  16:01:53,461 - #33 new
+INFO  16:01:53,461 - #53 char
+INFO  16:01:53,461 - #22 [
+INFO  16:01:53,461 - #17 3
+INFO  16:01:53,461 - #23 ]
+INFO  16:01:53,461 - #5 ;
+INFO  16:01:53,461 - #53 Nizovi
+INFO  16:01:53,461 - #52 ::
+INFO  16:01:53,461 - #53 nizch
+INFO  16:01:53,461 - #22 [
+INFO  16:01:53,461 - #17 0
+INFO  16:01:53,461 - #23 ]
+INFO  16:01:53,461 - #20 =
+INFO  16:01:53,461 - #18 a
+INFO  16:01:53,461 - #5 ;
+INFO  16:01:53,461 - #53 Nizovi
+INFO  16:01:53,461 - #52 ::
+INFO  16:01:53,461 - #53 nizch
+INFO  16:01:53,461 - #22 [
+INFO  16:01:53,461 - #53 Konstante
+INFO  16:01:53,461 - #52 ::
+INFO  16:01:53,461 - #53 jedan
+INFO  16:01:53,461 - #23 ]
+INFO  16:01:53,461 - #20 =
+INFO  16:01:53,462 - #18 b
+INFO  16:01:53,462 - #5 ;
+INFO  16:01:53,462 - #53 Nizovi
+INFO  16:01:53,462 - #52 ::
+INFO  16:01:53,462 - #53 nizch
+INFO  16:01:53,462 - #22 [
+INFO  16:01:53,462 - #53 Konstante
+INFO  16:01:53,462 - #52 ::
+INFO  16:01:53,462 - #53 pet
+INFO  16:01:53,462 - #32 -
+INFO  16:01:53,462 - #17 3
+INFO  16:01:53,462 - #23 ]
+INFO  16:01:53,462 - #20 =
+INFO  16:01:53,462 - #18 c
+INFO  16:01:53,462 - #5 ;
+INFO  16:01:53,462 - #12 print
+INFO  16:01:53,462 - #6 (
+INFO  16:01:53,462 - #53 Nizovi
+INFO  16:01:53,462 - #52 ::
+INFO  16:01:53,462 - #53 nizch
+INFO  16:01:53,462 - #22 [
+INFO  16:01:53,462 - #17 1
+INFO  16:01:53,462 - #23 ]
+INFO  16:01:53,462 - #7 )
+INFO  16:01:53,463 - #5 ;
+INFO  16:01:53,463 - #12 print
+INFO  16:01:53,463 - #6 (
+INFO  16:01:53,463 - #53 Nizovi
+INFO  16:01:53,463 - #52 ::
+INFO  16:01:53,463 - #53 nizch
+INFO  16:01:53,463 - #22 [
+INFO  16:01:53,463 - #53 Konstante
+INFO  16:01:53,463 - #52 ::
+INFO  16:01:53,463 - #53 jedan
+INFO  16:01:53,463 - #51 *
+INFO  16:01:53,463 - #17 2
+INFO  16:01:53,463 - #23 ]
+INFO  16:01:53,463 - #7 )
+INFO  16:01:53,463 - #5 ;
+INFO  16:01:53,463 - #53 a
+INFO  16:01:53,463 - #20 =
+INFO  16:01:53,463 - #17 1
+INFO  16:01:53,463 - #5 ;
+INFO  16:01:53,463 - #26 read
+INFO  16:01:53,463 - #6 (
+INFO  16:01:53,463 - #53 bodovi
+INFO  16:01:53,463 - #7 )
+INFO  16:01:53,463 - #5 ;
+INFO  16:01:53,463 - #53 bodovi
+INFO  16:01:53,463 - #20 =
+INFO  16:01:53,463 - #32 -
+INFO  16:01:53,463 - #53 bodovi
+INFO  16:01:53,463 - #10 +
+INFO  16:01:53,463 - #6 (
+INFO  16:01:53,463 - #53 Konstante
+INFO  16:01:53,463 - #52 ::
+INFO  16:01:53,463 - #53 pet
+INFO  16:01:53,463 - #51 *
+INFO  16:01:53,463 - #53 a
+INFO  16:01:53,463 - #41 /
+INFO  16:01:53,463 - #17 2
+INFO  16:01:53,463 - #32 -
+INFO  16:01:53,463 - #53 Konstante
+INFO  16:01:53,463 - #52 ::
+INFO  16:01:53,463 - #53 jedan
+INFO  16:01:53,463 - #7 )
+INFO  16:01:53,463 - #51 *
+INFO  16:01:53,463 - #53 bodovi
+INFO  16:01:53,463 - #32 -
+INFO  16:01:53,463 - #6 (
+INFO  16:01:53,463 - #17 3
+INFO  16:01:53,463 - #42 %
+INFO  16:01:53,463 - #17 2
+INFO  16:01:53,464 - #10 +
+INFO  16:01:53,464 - #17 3
+INFO  16:01:53,464 - #51 *
+INFO  16:01:53,464 - #17 2
+INFO  16:01:53,464 - #32 -
+INFO  16:01:53,464 - #17 3
+INFO  16:01:53,464 - #7 )
+INFO  16:01:53,464 - #5 ;
+INFO  16:01:53,464 - #12 print
+INFO  16:01:53,464 - #6 (
+INFO  16:01:53,464 - #53 bodovi
+INFO  16:01:53,464 - #7 )
+INFO  16:01:53,464 - #5 ;
+INFO  16:01:53,464 - #9 return
+INFO  16:01:53,464 - #17 0
+INFO  16:01:53,464 - #5 ;
+INFO  16:01:53,464 - #4 }
+INFO  16:01:53,464 - #4 }
+INFO  16:01:53,470 - Program(
   ProgName(
    MJProgram
   ) [ProgName]
@@ -456,14 +470,64 @@ INFO  16:22:06,211 - Program(
   ) [ProgDeclListObj]
   MethodDeclarations(
     MethodDeclarations(
-      NoMethodDecl(
-      ) [NoMethodDecl]
+      MethodDeclarations(
+        NoMethodDecl(
+        ) [NoMethodDecl]
+        MethodDecl(
+          MethodParams(
+            MethodTypeName(
+              ReturnMethod_Type(
+                Type_ID(
+                 int
+                ) [Type_ID]
+              ) [ReturnMethod_Type]
+             k
+            ) [MethodTypeName]
+            FormParsDummy(
+            ) [FormParsDummy]
+            NoFormParam(
+            ) [NoFormParam]
+          ) [MethodParams]
+          NoVarDecl(
+          ) [NoVarDecl]
+          Statements(
+            Statements(
+              NoStmt(
+              ) [NoStmt]
+              MatchedStmt(
+                DesignatorStatementStmt(
+                  DesignatorStatement_INC(
+                    Designator_Ident(
+                      DesignatorHelper_None(
+                       a
+                      ) [DesignatorHelper_None]
+                    ) [Designator_Ident]
+                  ) [DesignatorStatement_INC]
+                ) [DesignatorStatementStmt]
+              ) [MatchedStmt]
+            ) [Statements]
+            MatchedStmt(
+              ReturnExpr(
+                TermExpr(
+                  Term_Factor(
+                    ConstFactor(
+                      ConstValue_Num(
+                       10
+                      ) [ConstValue_Num]
+                    ) [ConstFactor]
+                  ) [Term_Factor]
+                ) [TermExpr]
+              ) [ReturnExpr]
+            ) [MatchedStmt]
+          ) [Statements]
+        ) [MethodDecl]
+      ) [MethodDeclarations]
       MethodDecl(
         MethodParams(
           MethodTypeName(
             ReturnMethod_Void(
             ) [ReturnMethod_Void]
-           k
+           m
           ) [MethodTypeName]
           FormParsDummy(
           ) [FormParsDummy]
@@ -745,17 +809,30 @@ INFO  16:22:06,211 - Program(
                                                   ) [Statements]
                                                   MatchedStmt(
                                                     DesignatorStatementStmt(
-                                                      DesignatorStatement_FunctionCall(
-                                                        FunctionCall(
-                                                          Designator_Ident(
-                                                            DesignatorHelper_None(
-                                                             k
-                                                            ) [DesignatorHelper_None]
-                                                          ) [Designator_Ident]
-                                                          ActParsIE_None(
-                                                          ) [ActParsIE_None]
-                                                        ) [FunctionCall]
-                                                      ) [DesignatorStatement_FunctionCall]
+                                                      Assignment(
+                                                        Designator_Ident(
+                                                          DesignatorHelper_None(
+                                                           provera
+                                                          ) [DesignatorHelper_None]
+                                                        ) [Designator_Ident]
+                                                        AssignopDerived1(
+                                                        ) [AssignopDerived1]
+                                                        TermExpr(
+                                                          Term_Factor(
+                                                            FuncCall(
+                                                              FunctionCall(
+                                                                Designator_Ident(
+                                                                  DesignatorHelper_None(
+                                                                   k
+                                                                  ) [DesignatorHelper_None]
+                                                                ) [Designator_Ident]
+                                                                ActParsIE_None(
+                                                                ) [ActParsIE_None]
+                                                              ) [FunctionCall]
+                                                            ) [FuncCall]
+                                                          ) [Term_Factor]
+                                                        ) [TermExpr]
+                                                      ) [Assignment]
                                                     ) [DesignatorStatementStmt]
                                                   ) [MatchedStmt]
                                                 ) [Statements]
@@ -1568,20 +1645,21 @@ INFO  16:22:06,211 - Program(
     ) [MethodDecl]
   ) [MethodDeclarations]
 ) [Program]
-INFO  16:22:06,212 - ===================================
-INFO  16:22:06,214 - Deklarisana promenljiva niz na liniji 10
-INFO  16:22:06,214 - Deklarisana promenljiva nizch na liniji 11
-INFO  16:22:06,214 - Deklarisana promenljiva a na liniji 14
-INFO  16:22:06,214 - Obradjuje se funkcija k na liniji 17
-INFO  16:22:06,215 - Obradjuje se funkcija main na liniji 21
-INFO  16:22:06,215 - Deklarisana promenljiva bodovi na liniji 22
-INFO  16:22:06,215 - Deklarisana promenljiva bt na liniji 23
-INFO  16:22:06,215 - Deklarisana promenljiva provera na liniji 24
-INFO  16:22:06,215 -  Methods in the program = 2
-INFO  16:22:06,215 -  Global variables = 1
-INFO  16:22:06,215 -  Global arrays = 2
-INFO  16:22:06,215 -  Local variables in main = 3
-INFO  16:22:06,215 -  Statements in main  = 29
-INFO  16:22:06,215 -  Function calls in main = 10
-INFO  16:22:06,215 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
-INFO  16:22:06,217 - Parsiranje uspesno zavrseno!
+INFO  16:01:53,471 - ===================================
+INFO  16:01:53,474 - Deklarisana promenljiva niz na liniji 10
+INFO  16:01:53,474 - Deklarisana promenljiva nizch na liniji 11
+INFO  16:01:53,474 - Deklarisana promenljiva a na liniji 14
+INFO  16:01:53,474 - Obradjuje se funkcija k na liniji 17
+INFO  16:01:53,474 - Obradjuje se funkcija m na liniji 21
+INFO  16:01:53,474 - Obradjuje se funkcija main na liniji 28
+INFO  16:01:53,474 - Deklarisana promenljiva bodovi na liniji 29
+INFO  16:01:53,474 - Deklarisana promenljiva bt na liniji 30
+INFO  16:01:53,474 - Deklarisana promenljiva provera na liniji 31
+INFO  16:01:53,475 -  Methods in the program = 3
+INFO  16:01:53,475 -  Global variables = 1
+INFO  16:01:53,475 -  Global arrays = 2
+INFO  16:01:53,475 -  Local variables in main = 3
+INFO  16:01:53,475 -  Statements in main  = 29
+INFO  16:01:53,475 -  Function calls in main = 10
+INFO  16:01:53,475 - Generating bytecode file: C:\Users\Sofija\Documents\Faks\PP1\Projekat\Domaci\MicroJavaCompiler\MJCompiler\test\test_asm.obj
+INFO  16:01:53,477 - Parsiranje uspesno zavrseno!

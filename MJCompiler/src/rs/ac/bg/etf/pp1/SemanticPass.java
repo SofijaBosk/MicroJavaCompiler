@@ -362,7 +362,9 @@ public class SemanticPass extends VisitorAdaptor {
     
    
     
-    
+    public void visit(FuncCall funcCall){
+    	funcCall.struct=funcCall.getFunctionCall().struct;
+    }
     
 //    public void visit(FuncCall funcCall){
 //    	Obj func = funcCall.getDesignator().obj;
@@ -381,8 +383,18 @@ public class SemanticPass extends VisitorAdaptor {
     }
     
     public void visit(TermExpr termExpr){
-    	termExpr.obj = new Obj( termExpr.getTerm().struct.getKind(), "",termExpr.getTerm().struct);
+    	if(!(termExpr.getTerm().struct ==null))
+    	{
+    		termExpr.obj = new Obj( termExpr.getTerm().struct.getKind(), "",termExpr.getTerm().struct);
 
+    	}
+    	else {
+    		termExpr.obj = new Obj( Struct.None, "",termExpr.getTerm().struct);
+    	}
+    	
+
+    	//termExpr.obj=Tab.noObj;
+    	
     }
     
     public void visit(ParenExprFactor term){
@@ -491,7 +503,7 @@ public class SemanticPass extends VisitorAdaptor {
         Obj desigObj = assignment.getDesignator().obj;
         int kind = desigObj.getKind();
         assignment.obj= new Obj(Obj.Elem, assignment.getDesignator().obj.getName() + "_elem",  assignment.getDesignator().obj.getType());
-
+        //System.out.println(assignment.getDesignator().obj.getName() + " tip "+assignment.getDesignator().obj.getType());
         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
             report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
         }        
@@ -545,7 +557,8 @@ public class SemanticPass extends VisitorAdaptor {
         if ("main".equalsIgnoreCase(currentMethod.getName())) {
             mainFuncCallCnt++;
         }
-
+        if(func.getActParsIE() instanceof ActParsIE_ActPars)
+        {
         Obj desigObj = func.getDesignator().obj;
         ArrayList<Struct> currentActParTypes = ActParList.pop();
 
@@ -583,6 +596,11 @@ public class SemanticPass extends VisitorAdaptor {
             }
 
             func.struct = desigObj.getType();
+        }
+        }
+        else
+        {
+        	 func.struct = func.getDesignator().obj.getType();
         }
     }
     
