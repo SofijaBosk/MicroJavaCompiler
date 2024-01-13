@@ -57,14 +57,31 @@ public class MJCodeGenerationTest {
 	      
 			//log.info(" Print count calls = " + v.printCallCount);
 
-			log.info(" Deklarisanih lokalnih promenljivih ima = " + v.varDeclCount);
-			log.info(" Globalne promenljive = " + v.globalVarCnt);
-			log.info(" Globalni nizovi = " + v.globalArrayCnt);
-			log.info(" Lokalne promenjive u main = " + v.mainLocalVarCnt);
-			log.info(" Lokalne promenjive u nVars = " + v.nVars);
-			 int dataSize=v.globalVarCnt+v.namespaceCnt;
+//			log.info(" Deklarisanih lokalnih promenljivih ima = " + v.varDeclCount);
+//			log.info(" Globalne promenljive = " + v.globalVarCnt);
+//			log.info(" Globalni nizovi = " + v.globalArrayCnt);
+//			log.info(" Lokalne promenjive u main = " + v.mainLocalVarCnt);
+//			log.info(" Lokalne promenjive u nVars = " + v.nVars);
+			System.out.println("==================SINTAKSNA ANALIZA====================");
+			log.info(" Methods in the program = " + v.methodCnt);
+			log.info(" Global variables = " + v.globalVarCnt);
+			log.info(" Global arrays = " + v.globalArrayCnt);
+			log.info(" Local variables in main = " + v.mainLocalVarCnt);
+			log.info(" Statements in main  = " + v.statementCnt);
+			log.info(" Function calls in main = " + v.mainFuncCallCnt);
 			
-			log.info("===================================");
+			/* 
+				1 methods in the program
+				0 global variables
+				1 global constants
+				1 global arrays
+				3 local variables in main
+				13 statements in main
+				2 function calls in main
+			 */
+			
+			int dataSize=v.globalVarCnt+v.namespaceCnt;
+			
 			Tab.dump();
 			
 			if(!p.errorDetected && v.passed()){

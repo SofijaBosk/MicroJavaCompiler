@@ -13,6 +13,11 @@ namespace Nizovi{
 }
 	int a;
 {
+	void k(){
+		a++;
+		a--;
+	}
+
 	int main()
 		int bodovi;
 		bool bt;
@@ -25,6 +30,7 @@ namespace Nizovi{
 		bodovi = bodovi * Konstante::pet;
 		bodovi--;
 		print(bodovi);
+		k();
 		
 		Nizovi::niz = new int[3];
 		Nizovi::niz[Konstante::nula] = Konstante::jedan;

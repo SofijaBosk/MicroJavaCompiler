@@ -37,6 +37,7 @@ public class SemanticPass extends VisitorAdaptor {
 	int mainLocalVarCnt = 0;	
 	int methodCnt=0;
 	int namespaceCnt=0;
+	int statementCnt=0;
 	
 	int globalConstCnt=0;
 	int mainFuncCallCnt=0;
@@ -510,6 +511,14 @@ public class SemanticPass extends VisitorAdaptor {
             report_error("Greska (" + desigObj.getName() + ") nije int",ds);
         }
     }
+    
+    public void visit(Statements ds){
+    	 if ("main".equalsIgnoreCase(currentMethod.getName())) {
+    		 statementCnt++;
+         }
+    }
+        
+    
     
     public void visit(DesignatorStatement_DEC ds){
     	Obj desigObj = ds.getDesignator().obj;
