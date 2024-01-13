@@ -18,6 +18,7 @@ namespace Nizovi{
 		bool bt;
 		int provera;
 	{
+		//provera=jedan;
 		bodovi = 0;
 		bodovi++;
 		bodovi = bodovi + Konstante::jedan;
@@ -31,7 +32,8 @@ namespace Nizovi{
 		Nizovi::niz[Nizovi::niz[Konstante::jedan]] = Nizovi::niz[Nizovi::niz[0]] * 3;
 		bodovi = Nizovi::niz[2]/Nizovi::niz[0];
 		print(bodovi);
-		print(Nizovi::niz[2]);
+		provera=Nizovi::niz[2];
+		print(provera);
 		
 		Nizovi::nizch = new char[3];
 		Nizovi::nizch[0] = 'a';

@@ -1,5 +1,6 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
@@ -304,6 +305,26 @@ public class CodeGenerator extends VisitorAdaptor {
 		{
 			Code.load(dsgn.getDesignatorHelper().obj);
 		}
+		else
+		if(dsgn.getDesignatorHelper() instanceof DesignatorHelper_Scope && dsgn.getParent() instanceof DesignatorHelper_Expr)
+		{
+			
+			
+			Obj objNS = Tab.find(((DesignatorHelper_Scope)dsgn.getDesignatorHelper()).getNamespace());
+	    	ArrayList<Obj> nsLocalParams = new ArrayList<>(objNS.getLocalSymbols());
+	    	
+	    	Obj obj=Tab.noObj;
+	    	for(int i=0;i<nsLocalParams.size();i++) 
+	    	{
+	    		if(nsLocalParams.get(i).getName().equals(((DesignatorHelper_Scope)dsgn.getDesignatorHelper()).getName())) {obj=nsLocalParams.get(i); break;}
+	    		System.out.println(nsLocalParams.get(i).getName());
+	    	}
+	    	obj.setLevel(0);
+	    	Code.load(obj);
+			
+		}
+		
+		
    
 	    }
 	
