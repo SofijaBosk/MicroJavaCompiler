@@ -79,7 +79,7 @@ public class SemanticPass extends VisitorAdaptor {
 	
 	private void insertVar(String name,Struct type, int line) {
 		
-		if(Tab.currentScope().findSymbol(name) != null)
+		if(Tab.currentScope().findSymbol(name) != null && !namespaceList.get(currentNamespaceID).contains(name))
 		{
 			report_error("Greska na " + line + "(" + name + ") vec deklarisano",null);
 			return;
