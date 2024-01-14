@@ -9,6 +9,7 @@ import rs.ac.bg.etf.pp1.ast.AddExpr;
 import rs.ac.bg.etf.pp1.ast.Addop_MINUS;
 import rs.ac.bg.etf.pp1.ast.Addop_PLUS;
 import rs.ac.bg.etf.pp1.ast.Assignment;
+import rs.ac.bg.etf.pp1.ast.CondFact_Expr;
 import rs.ac.bg.etf.pp1.ast.CondFact_Relop;
 import rs.ac.bg.etf.pp1.ast.ConstFactor;
 import rs.ac.bg.etf.pp1.ast.ConstValue_Char;
@@ -21,9 +22,12 @@ import rs.ac.bg.etf.pp1.ast.DesignatorStatement_DEC;
 import rs.ac.bg.etf.pp1.ast.DesignatorStatement_FunctionCall;
 import rs.ac.bg.etf.pp1.ast.DesignatorStatement_INC;
 import rs.ac.bg.etf.pp1.ast.Designator_Ident;
+import rs.ac.bg.etf.pp1.ast.ElseDummy;
 import rs.ac.bg.etf.pp1.ast.FormParDecl_Single;
 import rs.ac.bg.etf.pp1.ast.FormalParamDecl;
 import rs.ac.bg.etf.pp1.ast.FunctionCall;
+import rs.ac.bg.etf.pp1.ast.IfDummy;
+import rs.ac.bg.etf.pp1.ast.MatchedStatement;
 import rs.ac.bg.etf.pp1.ast.MethodDecl;
 import rs.ac.bg.etf.pp1.ast.MethodTypeName;
 import rs.ac.bg.etf.pp1.ast.Mulop_DIV;
@@ -47,6 +51,7 @@ import rs.ac.bg.etf.pp1.ast.TermExpr_Minus;
 import rs.ac.bg.etf.pp1.ast.Term_Factor;
 import rs.ac.bg.etf.pp1.ast.Term_Mulop;
 import rs.ac.bg.etf.pp1.ast.UnmatchedIf;
+import rs.ac.bg.etf.pp1.ast.UnmatchedIfElse;
 import rs.ac.bg.etf.pp1.ast.VarDecl;
 import rs.ac.bg.etf.pp1.ast.VarFactor;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
@@ -65,6 +70,9 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	Stack<Obj> stack=new Stack<>();
 	
+	
+	Stack<Stack<Integer>> ifFixupStack = new Stack<>();
+	Stack<Integer> elseFixupStack = new Stack<>();
 	private int mainPc;
 	
 	private static final int WORD = 4;
@@ -202,20 +210,24 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(CondFact_Relop ro) {
+		int code=0;
+		
 		if(ro.getRelop() instanceof Relop_EQ)
-			Code.put(Code.eq);
+			code= Code.eq;
 		else if(ro.getRelop() instanceof Relop_NEQ)
-			Code.put(Code.ne);
+			code= Code.ne;
 		else if(ro.getRelop() instanceof Relop_GRE)
-			Code.put(Code.gt);
+			code= Code.gt;
 		else if(ro.getRelop() instanceof Relop_GEQ)
-			Code.put(Code.ge);
+			code= Code.ge;
 		else if(ro.getRelop() instanceof Relop_LES)
-			Code.put(Code.lt);
+			code= Code.lt;
 		else if(ro.getRelop() instanceof Relop_LEQ)
-			Code.put(Code.le);
+			code= Code.le;
 		
 		//Code.put(Code.eq);
+		Code.putFalseJump(code, 0);
+		ifFixupStack.peek().push(Code.pc - 2);	
 	}
 	
 //	@Override
@@ -371,9 +383,64 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
    
    
-//   public void visit(UnmatchedIf uif)
-//  	{
-//  	}
+   //IF ELSE
+   public void visit(IfDummy ifd)
+   {
+	   ifFixupStack.push(new Stack<>());
+   }
+   
+   public void visit(UnmatchedIf uif)
+  	{
+	   while (!ifFixupStack.peek().empty())
+       {
+       	int fixupAdr = ifFixupStack.peek().pop();
+           Code.fixup(fixupAdr);
+       }
+       if(!ifFixupStack.empty())
+    	   ifFixupStack.pop();
+	   
+  	}
+   
+   public void visit(CondFact_Expr exp)
+   {
+	   Code.loadConst(0);
+		Code.putFalseJump(Code.ne, 0);
+       ifFixupStack.peek().push(Code.pc - 2);
+	   //fixupStack.push(new Stack<>());
+   }
+   
+   
+   public void visit(ElseDummy elsed)
+	{
+		//jump else branch
+		Code.putJump(0);
+		elseFixupStack.push(Code.pc - 2);
+		
+       while (!ifFixupStack.peek().empty())
+       {
+           int fixupAddr = ifFixupStack.peek().pop();
+           Code.fixup(fixupAddr);
+       }
+       if (!ifFixupStack.empty()) 
+    	   ifFixupStack.pop();
+	}
+   
+   
+   public void visit(UnmatchedIfElse ifelse)
+	{
+	   int fixupAddr = elseFixupStack.pop();
+		Code.fixup(fixupAddr);
+	}
+   
+   public void visit(MatchedStatement ifelse)
+	{
+	   int fixupAddr = elseFixupStack.pop();
+		Code.fixup(fixupAddr);
+	}
+   
+   
+   
+  
    
    
    

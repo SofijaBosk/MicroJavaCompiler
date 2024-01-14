@@ -59,7 +59,8 @@ namespace Nizovi{
 		//provera=-bodovi;
 		//print(provera);
 		
-		//if(provera==5) {print(provera);}
+		if(provera==5) {print(100);}
+		else {print(50);}
 		
 		return 0;
 	}

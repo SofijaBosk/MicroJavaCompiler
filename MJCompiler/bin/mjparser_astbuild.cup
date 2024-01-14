@@ -118,6 +118,8 @@ nonterminal Pom Pom;
 nonterminal NamespaceNT NamespaceNT;
 nonterminal ActParsIE ActParsIE;
 nonterminal FormParsDummy FormParsDummy;
+nonterminal IfDummy IfDummy;
+nonterminal ElseDummy ElseDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams, NamespaceName, DesignatorStatement, ConstValue, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, FunctionCall, CondFact, ExprActParsChoice; 
@@ -325,11 +327,13 @@ Statement ::= (MatchedStmt) Matched:M1 {: RESULT=new MatchedStmt(M1); RESULT.set
 		   (UnmatchedStmt) Unmatched:U1 {: RESULT=new UnmatchedStmt(U1); RESULT.setLine(U1left); :}
 		   ; 
 
-Unmatched ::= (UnmatchedIf) IF LPAREN Condition:C1 RPAREN Statement:S2 {: RESULT=new UnmatchedIf(C1, S2); RESULT.setLine(C1left); :}
+Unmatched ::= (UnmatchedIf) IfDummy:I1 LPAREN Condition:C2 RPAREN Statement:S3 {: RESULT=new UnmatchedIf(I1, C2, S3); RESULT.setLine(I1left); :}
 		 	|
-		 	(UnmatchedIfElse) IF LPAREN Condition:C1 RPAREN Matched:M2 ELSE Unmatched:U3 {: RESULT=new UnmatchedIfElse(C1, M2, U3); RESULT.setLine(C1left); :}
+		 	(UnmatchedIfElse) IfDummy:I1 LPAREN Condition:C2 RPAREN Matched:M3 ElseDummy:E4 Unmatched:U5 {: RESULT=new UnmatchedIfElse(I1, C2, M3, E4, U5); RESULT.setLine(I1left); :}
 		 	;
 		 
+IfDummy ::= (IfDummy) IF {: RESULT=new IfDummy(); :};
+ElseDummy ::= (ElseDummy) ELSE {: RESULT=new ElseDummy(); :};
 
 Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI {: RESULT=new DesignatorStatementStmt(dest); RESULT.setLine(destleft); :}
 		   |
@@ -352,7 +356,7 @@ Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI {: RESULT=ne
 	     	|
 		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper:D1 SEMI CondFactHelper:C2 SEMI DesignatorStatementHelper:D3 RPAREN {: RESULT=new FORStmt_NoDS(D1, C2, D3); RESULT.setLine(D1left); :}	   
 		   |
-		   (MatchedStatement) IF LPAREN Condition:C1 RPAREN Matched:M2 ELSE Matched:M3 {: RESULT=new MatchedStatement(C1, M2, M3); RESULT.setLine(C1left); :}
+		   (MatchedStatement) IfDummy:I1 LPAREN Condition:C2 RPAREN Matched:M3 ElseDummy:E4 Matched:M5 {: RESULT=new MatchedStatement(I1, C2, M3, E4, M5); RESULT.setLine(I1left); :}
 		   ;
 		   
 DesignatorStatementHelper ::= (DesignatorStatementHelper_DS) DesignatorStatement:D1 DesignatorStatementList:D2 {: RESULT=new DesignatorStatementHelper_DS(D1, D2); RESULT.setLine(D1left); :}

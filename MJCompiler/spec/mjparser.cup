@@ -93,7 +93,7 @@ nonterminal CondTerm;
 nonterminal Assignop, Relop, Mulop;
 nonterminal ActParsList;
 nonterminal DesignatorHelper3, Pom;	
-nonterminal NamespaceNT, ActParsIE, FormParsDummy;
+nonterminal NamespaceNT, ActParsIE, FormParsDummy, IfDummy, ElseDummy;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName, Designator, DesignatorHelper, DesignatorHelper2, VarDecl, VarlList, VarSingle, ReturnMethod, Type, ConstSingle, TypeDummy, ActPars, MethodParams, NamespaceName, DesignatorStatement, ConstValue, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term, Factor, FunctionCall, CondFact, ExprActParsChoice; 
@@ -301,11 +301,13 @@ Statement ::= (MatchedStmt) Matched
 		   (UnmatchedStmt) Unmatched
 		   ; 
 
-Unmatched ::= (UnmatchedIf) IF LPAREN Condition RPAREN Statement
+Unmatched ::= (UnmatchedIf) IfDummy LPAREN Condition RPAREN Statement
 		 	|
-		 	(UnmatchedIfElse) IF LPAREN Condition RPAREN Matched ELSE Unmatched
+		 	(UnmatchedIfElse) IfDummy LPAREN Condition RPAREN Matched ElseDummy Unmatched
 		 	;
 		 
+IfDummy ::= (IfDummy) IF;
+ElseDummy ::= (ElseDummy) ELSE;
 
 Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI
 		   |
@@ -328,7 +330,7 @@ Matched ::= (DesignatorStatementStmt) DesignatorStatement:dest SEMI
 	     	|
 		   (FORStmt_NoDS) FOR LPAREN DesignatorStatementHelper SEMI CondFactHelper SEMI DesignatorStatementHelper RPAREN	   
 		   |
-		   (MatchedStatement) IF LPAREN Condition RPAREN Matched ELSE Matched
+		   (MatchedStatement) IfDummy LPAREN Condition RPAREN Matched ElseDummy Matched
 		   ;
 		   
 DesignatorStatementHelper ::= (DesignatorStatementHelper_DS) DesignatorStatement DesignatorStatementList
