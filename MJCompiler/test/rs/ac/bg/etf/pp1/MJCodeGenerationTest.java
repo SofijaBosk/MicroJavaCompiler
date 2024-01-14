@@ -66,6 +66,7 @@ public class MJCodeGenerationTest {
 			log.info(" Methods in the program = " + v.methodCnt);
 			log.info(" Global variables = " + v.globalVarCnt);
 			log.info(" Global arrays = " + v.globalArrayCnt);
+			log.info(" Global constants = " + v.globalConstCnt);
 			log.info(" Local variables in main = " + v.mainLocalVarCnt);
 			log.info(" Statements in main  = " + v.statementCnt);
 			log.info(" Function calls in main = " + v.mainFuncCallCnt);
