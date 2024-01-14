@@ -23,6 +23,8 @@ namespace Nizovi{
 		bool bt;
 		int provera;
 	{
+		bt=true;
+		if(bt) print('A');
 		//provera=jedan;
 		a=0;
 		bodovi = 0;

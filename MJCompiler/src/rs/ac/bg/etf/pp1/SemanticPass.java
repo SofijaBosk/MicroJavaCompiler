@@ -504,10 +504,13 @@ public class SemanticPass extends VisitorAdaptor {
         int kind = desigObj.getKind();
         assignment.obj= new Obj(Obj.Elem, assignment.getDesignator().obj.getName() + "_elem",  assignment.getDesignator().obj.getType());
         //System.out.println(assignment.getDesignator().obj.getName() + " tip "+assignment.getDesignator().obj.getType());
+        
+        
+        
         if (kind != Obj.Var && kind != Obj.Elem && kind != Obj.Fld) {
             report_error("Greska na " + assignment.getLine() + ": neispravna leva strana dodele",assignment);
-        }        
-        else if(!(desigObj.getType().compatibleWith(assignment.getExpr().obj.getType()))){
+        }  
+        else if(!(desigObj.getType().compatibleWith(assignment.getExpr().obj.getType())) && !(assignment.getDesignator().obj.getType().compatibleWith(SystemTableEx.boolType))){
         	report_error("Nekompatibilni tipovi u dodeli vrednosti", assignment);
         }
         
