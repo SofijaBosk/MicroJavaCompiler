@@ -9,6 +9,7 @@ namespace Konstante{
 namespace Nizovi{
 	int niz[];
 	char nizch[];	
+	int a;
 	{}
 }
 	int a;
@@ -32,6 +33,10 @@ namespace Nizovi{
 		bodovi = bodovi + Konstante::jedan;
 		bodovi = bodovi * Konstante::pet;
 		bodovi--;
+		Nizovi::a=1;
+		a=2;
+		print(Nizovi::a);
+		print(a);
 		print(bodovi);
 		//provera=k();
 		k();

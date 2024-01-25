@@ -38,6 +38,7 @@ public class SemanticPass extends VisitorAdaptor {
 	int methodCnt=0;
 	int namespaceCnt=0;
 	int statementCnt=0;
+	private String currentNamespace = "";
 	
 	int globalConstCnt=0;
 	int mainFuncCallCnt=0;
@@ -79,7 +80,7 @@ public class SemanticPass extends VisitorAdaptor {
 	
 	private void insertVar(String name,Struct type, int line) {
 		
-		if(Tab.currentScope().findSymbol(name) != null && !namespaceList.get(currentNamespaceID).contains(name))
+		if(Tab.currentScope().findSymbol(name) != null /*&& !namespaceList.get(currentNamespaceID).contains(name)*/)
 		{
 			report_error("Greska na " + line + "(" + name + ") vec deklarisano",null);
 			return;
@@ -145,17 +146,17 @@ public class SemanticPass extends VisitorAdaptor {
 	
 	public void visit(VarDecl_ID varDecl){
 		varDeclCount++;
-		report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
+		report_info("Deklarisana promenljiva "+ namespaceHelper(varDecl.getVarName(),currentNamespace), varDecl);
 		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
 		
-		insertVar(varDecl.getVarName(),currType.getType(),varDecl.getLine());
+		insertVar(namespaceHelper(varDecl.getVarName(),currentNamespace),currType.getType(),varDecl.getLine());
 		//varDecl.getType().struct
 	}
 	public void visit(VarDecl_SQ varDecl){
 		varDeclCount++;
-		report_info("Deklarisana promenljiva "+ varDecl.getVarName(), varDecl);
+		report_info("Deklarisana promenljiva "+ namespaceHelper(varDecl.getVarName(),currentNamespace), varDecl);
 		//Obj varNode = Tab.insert(Obj.Var, varDecl.getVarName(), Tab.noType);
-		insertVar(varDecl.getVarName(),new Struct(Struct.Array, currType.getType()),varDecl.getLine());
+		insertVar(namespaceHelper(varDecl.getVarName(),currentNamespace),new Struct(Struct.Array, currType.getType()),varDecl.getLine());
 	}
 
     
@@ -191,9 +192,18 @@ public class SemanticPass extends VisitorAdaptor {
 //    	Tab.openScope();
 ////    	 System.out.println("Deklarisan namespace"+nsName.getName());
     	
-    	currentMethod=Tab.insert(Obj.Meth, nsName.getName(), Tab.noType);
+    	//currentMethod=Tab.insert(Obj.Meth, nsName.getName(), Tab.noType);
     	currentNamespaceID = namespaceCnt;
     	namespaceCnt++;	
+    	
+    	Obj namespaceFind = Tab.currentScope.findSymbol(nsName.getName());
+
+        if (namespaceFind != null)
+            report_error("Namespace " + nsName.getName() + " already exist", nsName);
+        else
+        	nsName.obj = Tab.insert(Obj.Type, nsName.getName(), Tab.noType);
+
+        currentNamespace = nsName.getName();
     	
     }
     
@@ -204,8 +214,10 @@ public class SemanticPass extends VisitorAdaptor {
  
        	//namespaceList.get(currentNamespaceID).add(name);
       
+    	
+    	currentNamespace = "";
 
-        currentMethod = Tab.noObj;
+        //currentMethod = Tab.noObj;
     	
     }
     
@@ -433,19 +445,26 @@ public class SemanticPass extends VisitorAdaptor {
     	
     	cnst.struct = cnst.getConstValue().obj.getType();
     }
+    
+    public String namespaceHelper(String name, String namespace) {
+    	if(namespace=="") return name;
+    	else return namespace+"::"+name;
+    }
         
    
     public void visit(IntegerConst constDecl) {
     	constDecl.obj = new Obj(Obj.Con, "", Tab.intType, constDecl.getIntConstValue().intValue(), Obj.NO_VALUE);
+    	//Obj typeNode = Tab.currentScope.findSymbol(prepareSymbol(visitor.getName(), currNamespace));
     	Obj tempObj = constDecl.obj;
-            if (Tab.currentScope().findSymbol(constDecl.getIntConstName()) == null) {
-                Obj temp = Tab.insert(tempObj.getKind(), constDecl.getIntConstName(), tempObj.getType());
+            if (Tab.currentScope().findSymbol(namespaceHelper(constDecl.getIntConstName(),currentNamespace)) == null) {
+                Obj temp = Tab.insert(tempObj.getKind(), namespaceHelper(constDecl.getIntConstName(),currentNamespace), tempObj.getType());
                 temp.setAdr(tempObj.getAdr());
 
                 if (temp.getLevel() == 0) {
                     globalConstCnt++;
                     //nVars++;
                 }
+                report_info("Deklarisana konstanta "+namespaceHelper(constDecl.getIntConstName(),currentNamespace), constDecl);
                 
                 if (namespaceList.get(currentNamespaceID).get(0).toString().equalsIgnoreCase(currentMethod.getName())) {
                 	namespaceList.get(currentNamespaceID).add(constDecl.getIntConstName());
@@ -691,41 +710,71 @@ public class SemanticPass extends VisitorAdaptor {
 		//desg.obj = desg.getDesignatorHelper().obj;
 		  	
     	Obj obj=Tab.noObj;
+//		if (desg.getDesignatorHelper() instanceof DesignatorHelper_Scope)
+//		{
+//			Obj objNS= Tab.find(((DesignatorHelper_Scope)desg.getDesignatorHelper()).getName());
+//	    	//System.out.println("OBJEKAT:" +objNS.getName());
+//			for(int i=0;i<namespaceList.size();i++)
+//			{
+//				if(((DesignatorHelper_Scope)desg.getDesignatorHelper()).getNamespace().equalsIgnoreCase(namespaceList.get(i).get(0)))
+//				{
+//					obj = objNS;
+//					//System.out.println("OBJEKAT NAMESPACE-a:" +namespaceList.get(i).get(0));
+//				}
+//			}
+//			if(obj.equals(Tab.noObj))
+//			{
+//				report_error("Nije deklarisana promenjiva"+ ((DesignatorHelper_Scope)desg.getDesignatorHelper()).getName() +" unutar namespace-a "+((DesignatorHelper_Scope)desg.getDesignatorHelper()).getNamespace(), desg);
+//			}
+//		}
+	
 		if (desg.getDesignatorHelper() instanceof DesignatorHelper_Scope)
 		{
-			Obj objNS= Tab.find(((DesignatorHelper_Scope)desg.getDesignatorHelper()).getName());
-	    	//System.out.println("OBJEKAT:" +objNS.getName());
-			for(int i=0;i<namespaceList.size();i++)
-			{
-				if(((DesignatorHelper_Scope)desg.getDesignatorHelper()).getNamespace().equalsIgnoreCase(namespaceList.get(i).get(0)))
-				{
-					obj = objNS;
-					//System.out.println("OBJEKAT NAMESPACE-a:" +namespaceList.get(i).get(0));
-				}
-			}
-			if(obj.equals(Tab.noObj))
-			{
-				report_error("Nije deklarisana promenjiva"+ ((DesignatorHelper_Scope)desg.getDesignatorHelper()).getName() +" unutar namespace-a "+((DesignatorHelper_Scope)desg.getDesignatorHelper()).getNamespace(), desg);
-			}
+			String name=namespaceHelper(((DesignatorHelper_Scope)desg.getDesignatorHelper()).getName(),((DesignatorHelper_Scope)desg.getDesignatorHelper()).getNamespace());
+			Obj objNS= Tab.find(name);
+	    	
+			if (objNS == Tab.noObj)
+	            report_error("Namespace " + ((DesignatorHelper_Scope)desg.getDesignatorHelper()).getNamespace() + " ne postoji", desg);
+	        else {
+	            Obj idFind = Tab.find(name);
+	            if (idFind == null)
+	                report_error("Symbol " + name + " ne postoji", desg);
+	            else
+	                obj = idFind;
+	        }
+			
 		}
 		else if (desg.getDesignatorHelper() instanceof DesignatorHelper_None)
 		{
 			
-			Obj objNS= Tab.find(((DesignatorHelper_None)desg.getDesignatorHelper()).getName());
-			for(int i=0;i<namespaceList.size();i++)
-			{
-				//System.out.println(namespaceList.get(i).get(1));
-				boolean p= namespaceList.get(i).contains(((DesignatorHelper_None)desg.getDesignatorHelper()).getName());
-				if(p) {
-					//System.out.println(namespaceList.get(i).toString());
-					
-					report_error("Deklarisana u Namespace-u "+ ((DesignatorHelper_None)desg.getDesignatorHelper()).getName()+" ali nije navedeno u irazu" , desg);
-				}
-			}
+			String name = ((DesignatorHelper_None)desg.getDesignatorHelper()).getName();
+
+	        if (currentNamespace != null)
+	            if (Tab.currentScope().findSymbol(name) == null)
+	                name = namespaceHelper(name, currentNamespace);
+
+	        Obj idFind = Tab.find(name);
+	        if (idFind == Tab.noObj)
+	            report_error("Symbol " + name + " does not exist", desg);
+	        else
+	            obj = idFind;
+			
+			
+//			Obj objNS= Tab.find(name);
+//			for(int i=0;i<namespaceList.size();i++)
+//			{
+//				//System.out.println(namespaceList.get(i).get(1));
+//				boolean p= namespaceList.get(i).contains(((DesignatorHelper_None)desg.getDesignatorHelper()).getName());
+//				if(p) {
+//					//System.out.println(namespaceList.get(i).toString());
+//					
+//					report_error("Deklarisana u Namespace-u "+ ((DesignatorHelper_None)desg.getDesignatorHelper()).getName()+" ali nije navedeno u irazu" , desg);
+//				}
+//			}
 	    	//System.out.println("OBJEKAT:" +objNS.getName());
 			
-			obj = Tab.find(((DesignatorHelper_None)desg.getDesignatorHelper()).getName());
-			currentDesignator=desg.obj;
+			//obj = Tab.find(((DesignatorHelper_None)desg.getDesignatorHelper()).getName());
+			currentDesignator=obj;
 		}
 		
 		desg.obj=obj;
@@ -763,25 +812,14 @@ public class SemanticPass extends VisitorAdaptor {
 	
 	
     public void visit(DesignatorHelper_Scope designator){
-    	Obj obj=Tab.noObj;
+    	//Obj obj=Tab.noObj;
     	
-    	Obj objNS= Tab.find(designator.getName());
-    	//System.out.println("OBJEKAT:" +objNS.getName());
-		for(int i=0;i<namespaceList.size();i++)
-		{
-			if(designator.getNamespace().equalsIgnoreCase(namespaceList.get(i).get(0)))
-			{
-				obj = objNS;
-				//System.out.println("OBJEKAT NAMESPACE-a:" +namespaceList.get(i).get(0));
-			}
-		}
-		if(obj.equals(Tab.noObj))
-		{
-			report_error("Nije deklarisana promenjiva"+ designator.getName() +" unutar namespace-a "+designator.getNamespace(), designator);
-		}
-		designator.obj = obj;
-    	//ArrayList<Obj> nsLocalParams = new ArrayList<>(objNS.getLocalSymbols());
-    	
+    	String name=namespaceHelper(((DesignatorHelper_Scope)designator).getName(),((DesignatorHelper_Scope)designator).getNamespace());
+		
+    	Obj objNS= Tab.find(name);
+
+		designator.obj = objNS;
+ 
 //    	for(int i=0;i<namespaceList.size();i++) 
 //    	{
 //    		System.out.println(namespaceList.get(0)); 

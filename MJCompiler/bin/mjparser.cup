@@ -537,7 +537,9 @@ DesignatorHelper2 ::= (DesignatorHelper_Dot) DesignatorHelper2 DOT IDENT
 
 /*Operators_START*/	
 		
-Assignop ::= EQUALS;	
+Assignop ::= EQUALS
+			|
+			error:e {: parser.report_error("Oporavak od greske na liniji: " + eleft, null); :};	
 
 Relop ::= (Relop_EQ) BOOL_EQUAL
           |
