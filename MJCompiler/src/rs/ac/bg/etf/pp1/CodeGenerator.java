@@ -1,6 +1,7 @@
 package rs.ac.bg.etf.pp1;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
@@ -69,7 +70,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	Obj niz=Tab.noObj;
 	
 	Stack<Obj> stack=new Stack<>();
-	
+	List<Obj> mathodstack=new ArrayList<>();
 	
 	Stack<Stack<Integer>> ifFixupStack = new Stack<>();
 	Stack<Integer> elseFixupStack = new Stack<>();
@@ -87,12 +88,17 @@ public class CodeGenerator extends VisitorAdaptor {
 	        if ("main".equalsIgnoreCase(methObj.getName())) {
 	            mainPc = Code.pc;
 	        }
+	        else {
+	        	methodTypeName.obj.setAdr(Code.pc);
+	        	mathodstack.add(methodTypeName.obj);
+	        }
 
 			Code.put(Code.enter);
 	        Code.put(methObj.getLocalSymbols().size());
 			Code.put(methObj.getLevel());
+			//methodTypeName.obj.setAdr(Code.pc);
 			
-		
+			
 //		if ("main".equalsIgnoreCase(methodTypeName.getMethName())) {
 //			mainPc = Code.pc;
 //		}
@@ -123,6 +129,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(MethodDecl MethodDecl) {
+		
 		Code.put(Code.exit);
 		Code.put(Code.return_);
 	}
@@ -171,6 +178,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(Designator Designator) {
+		//Designator.obj.setAdr(Code.pc);
 		SyntaxNode parent = Designator.getParent();
 		if (Assignment.class != parent.getClass() && FunctionCall.class != parent.getClass()) {
 			Code.load(Designator.obj);
@@ -179,8 +187,18 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(FunctionCall FuncCall) {
-		Obj functionObj = FuncCall.getDesignator().obj;
-		int offset = functionObj.getAdr() -Code.pc; 
+		//Obj pom=Tab.find(FuncCall.getDesignator().obj.getName());
+		//Obj functionObj = FuncCall.getDesignator().obj;
+		//int offset = pom.getAdr() -Code.pc; 
+		Obj pom=Tab.find(FuncCall.getDesignator().obj.getName());
+		int i=0;
+		Obj meth=mathodstack.get(i++);
+		while(meth.getName()!=pom.getName())
+		{
+			meth=mathodstack.get(i++);
+		}
+		
+		int offset= meth.getAdr()-Code.pc;
 		Code.put(Code.call);
 		Code.put2(offset);
 	
@@ -312,7 +330,10 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 		
 	
-	public void visit(Designator_Ident dsgn) {		
+	public void visit(Designator_Ident dsgn) {
+		
+		//dsgn.obj.setAdr(Code.pc);
+		//dsgn.obj.getName()
 		if(dsgn.getParent() instanceof DesignatorHelper_Expr)
 		{
 			Code.load(dsgn.getDesignatorHelper().obj);
@@ -334,6 +355,12 @@ public class CodeGenerator extends VisitorAdaptor {
 	    	//obj.setLevel(0);
 	    	Code.load(obj);
 			
+		}
+		else if(dsgn.getDesignatorHelper() instanceof DesignatorHelper_None)
+		{
+			Obj objAdr = Tab.find(((DesignatorHelper_None)dsgn.getDesignatorHelper()).getName());
+			//Code.loadConst(objAdr.getAdr());
+			//dsgn.obj.setAdr(objAdr.getAdr());
 		}
 		
 		

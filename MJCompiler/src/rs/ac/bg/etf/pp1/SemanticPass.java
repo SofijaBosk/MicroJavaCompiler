@@ -708,7 +708,6 @@ public class SemanticPass extends VisitorAdaptor {
     
 	public void visit(Designator_Ident desg){
 		//desg.obj = desg.getDesignatorHelper().obj;
-		  	
     	Obj obj=Tab.noObj;
 //		if (desg.getDesignatorHelper() instanceof DesignatorHelper_Scope)
 //		{
