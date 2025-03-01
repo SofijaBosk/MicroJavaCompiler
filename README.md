@@ -1,0 +1,5 @@
+Realization of a small but fully functional kernel on a multithreaded operating system with time sharing.
+It has a memory allocator with thread management implemented. It has thread, semaphore and time sharing support, as well as asynchronous change of context and preemption upon interruption by the keyboard or timer.
+The core is implemented as a "library", so that the user program (application) and the kernel itself share the same address space, that is, to represent statically linked unique program preloaded into the computer's operating memory. 
+Processes created within the application will actually be only "light" processes, i.e. threads. This configuration is typical for embedded systems, which do not execute arbitrary programs that are loaded and executed on demand by the user, they only execute the program (together with the operating system) that is already there embedded in the target hardware.
+The core is implemented for the RISC V processor architecture. The assembler for this processor and the C/C++ language are used for implementation.
